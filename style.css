@@ -1,96 +1,250 @@
+/* Import font dari Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Work+Sans:wght@400;500;600;700&display=swap');
+
+/* Variabel Warna Kustom (bisa Anda sesuaikan) */
+:root {
+    --primary-color: #2f0997; /* Deep Purple, sesuai contoh head Anda */
+    --primary-hover-color: #4b23b3; /* Sedikit lebih terang dari primary */
+    --secondary-color: #007bff; /* Biru klasik untuk tombol sekunder */
+    --text-color: #333;
+    --light-bg: #f8f9fa; /* Latar belakang bagian terang */
+    --dark-bg: #1a1a1a; /* Latar belakang header/footer gelap */
+    --white: #fff;
+    --shadow-light: rgba(0, 0, 0, 0.1);
+}
+
 body {
-    font-family: sans-serif;
+    font-family: 'Work Sans', sans-serif; /* Menggunakan font Work Sans */
     margin: 0;
     padding: 0;
-    background-color: #f4f4f4;
-    color: #333;
+    background-color: var(--light-bg);
+    color: var(--text-color);
+    line-height: 1.6;
 }
 
+/* Container untuk membatasi lebar konten */
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px; /* Padding samping untuk responsivitas */
+}
+
+/* --- HEADER --- */
 header {
-    background-color: #333;
-    color: white;
-    padding: 1em;
+    background-color: var(--dark-bg);
+    color: var(--white);
+    padding: 1.2em 0;
     text-align: center;
 }
 
-nav ul {
+header h1 {
+    margin: 0;
+    font-size: 2.2em;
+    letter-spacing: 1px;
+}
+
+header nav ul {
     list-style: none;
     padding: 0;
-    text-align: center; /* Default: menu di tengah untuk layar besar */
+    margin-top: 15px;
 }
 
-nav ul li {
-    display: inline;
-    margin: 0 15px;
+header nav ul li {
+    display: inline-block; /* Menggunakan inline-block agar mudah diatur margin */
+    margin: 0 18px;
 }
 
-nav a {
-    color: white;
+header nav a {
+    color: var(--white);
     text-decoration: none;
+    font-weight: 500;
+    transition: color 0.3s ease;
 }
 
+header nav a:hover {
+    color: var(--primary-color); /* Warna hover sesuai primary */
+}
+
+/* --- MAIN SECTIONS --- */
 main {
-    padding: 20px;
+    padding-top: 0; /* Padding dari header sudah cukup */
 }
 
-section {
-    margin-bottom: 30px;
-    background-color: white;
-    padding: 20px;
-    border-radius: 5px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+.section-padded {
+    padding: 60px 0; /* Padding lebih besar untuk setiap section */
 }
 
-footer {
+.bg-light {
+    background-color: var(--light-bg);
+}
+
+/* --- HERO SECTION --- */
+.hero-section {
+    background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('assets/images/hero-bg.jpg') no-repeat center center/cover; /* Placeholder background image */
+    color: var(--white);
     text-align: center;
-    padding: 1em;
-    background-color: #333;
-    color: white;
-    width: 100%;
+    padding: 100px 0;
+    border-radius: 0 0 10px 10px; /* Sudut membulat di bagian bawah */
+    box-shadow: 0 4px 8px var(--shadow-light);
 }
 
-.button {
+.hero-section h2 {
+    font-size: 3em;
+    margin-bottom: 20px;
+    line-height: 1.2;
+}
+
+.hero-section p {
+    font-size: 1.1em;
+    max-width: 700px;
+    margin: 0 auto 30px auto;
+}
+
+/* --- FEATURE GRID --- */
+.feature-grid, .category-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); /* Responsif grid */
+    gap: 30px;
+    margin-top: 40px;
+}
+
+.feature-item, .category-item {
+    background-color: var(--white);
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px var(--shadow-light);
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.feature-item:hover, .category-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.15);
+}
+
+.feature-item h3, .category-item h3 {
+    color: var(--primary-color);
+    margin-top: 15px;
+    font-size: 1.5em;
+}
+
+.feature-item i, .category-item i { /* Placeholder untuk ikon */
+    font-size: 3em;
+    color: var(--primary-color);
+    margin-bottom: 10px;
+}
+
+/* --- BUTTONS --- */
+.btn {
     display: inline-block;
-    background-color: #007bff;
-    color: white;
-    padding: 10px 20px;
+    padding: 12px 28px;
     text-decoration: none;
     border-radius: 5px;
+    font-weight: 600;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    border: none;
+    cursor: pointer;
 }
 
-/* Media query untuk layar dengan lebar maksimum 768px (tablet dan ponsel) */
+.primary-btn {
+    background-color: var(--primary-color);
+    color: var(--white);
+}
+
+.primary-btn:hover {
+    background-color: var(--primary-hover-color);
+    transform: translateY(-2px);
+}
+
+.secondary-btn {
+    background-color: var(--secondary-color);
+    color: var(--white);
+}
+
+.secondary-btn:hover {
+    background-color: darken(var(--secondary-color), 10%); /* Perlu SASS/LESS atau hitung manual */
+    transform: translateY(-2px);
+}
+
+.large-btn {
+    padding: 15px 40px;
+    font-size: 1.1em;
+}
+
+/* --- FOOTER --- */
+footer {
+    background-color: var(--dark-bg);
+    color: var(--white);
+    padding: 1.5em 0;
+    text-align: center;
+}
+
+footer .social-links a {
+    color: var(--white);
+    margin: 0 10px;
+    font-size: 1.5em;
+    transition: color 0.3s ease;
+}
+
+footer .social-links a:hover {
+    color: var(--primary-color);
+}
+
+/* --- RESPONSIVE DESIGN --- */
+@media (max-width: 992px) {
+    .container {
+        padding: 0 15px;
+    }
+    header h1 {
+        font-size: 1.8em;
+    }
+    .hero-section h2 {
+        font-size: 2.5em;
+    }
+}
+
 @media (max-width: 768px) {
-    header {
-        padding: 0.5em;
-        text-align: center;
+    header nav ul {
+        margin-top: 10px;
     }
-
-    nav ul {
-        text-align: center; /* Menu tetap di tengah pada layar kecil */
+    header nav ul li {
+        display: block; /* Menu vertikal untuk tablet/ponsel */
+        margin: 8px 0;
     }
-
-    nav ul li {
-        display: block; /* Item menu menjadi blok vertikal */
-        margin: 10px 0;
+    .hero-section {
+        padding: 80px 0;
+        border-radius: 0; /* Hilangkan sudut membulat di mobile */
     }
-
-    main {
-        padding: 15px;
+    .hero-section h2 {
+        font-size: 2em;
     }
-
-    section {
-        margin-bottom: 20px;
-        padding: 15px;
+    .section-padded {
+        padding: 40px 0;
+    }
+    .feature-grid, .category-grid {
+        grid-template-columns: 1fr; /* Stack kolaborasi di ponsel */
+    }
+    .feature-item, .category-item {
+        padding: 25px;
     }
 }
 
-/* Anda bisa menambahkan media query lain untuk layar yang lebih kecil lagi jika perlu */
 @media (max-width: 480px) {
-    h1 {
+    header h1 {
         font-size: 1.5em;
     }
-
-    h2 {
-        font-size: 1.2em;
+    .hero-section h2 {
+        font-size: 1.7em;
+    }
+    .hero-section p {
+        font-size: 1em;
+    }
+    .btn {
+        padding: 10px 20px;
+        font-size: 0.9em;
+    }
+    .large-btn {
+        padding: 12px 30px;
+        font-size: 1em;
     }
 }
