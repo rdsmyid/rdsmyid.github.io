@@ -29,7 +29,7 @@ body {
     padding: 0 20px; /* Padding samping untuk responsivitas */
 }
 
-/* --- HEADER KUSTOM (REVISI TERAKHIR) --- */
+/* --- HEADER KUSTOM (REVISI TERAKHIR - FOKUS RESPONSIVITAS HEADER) --- */
 .header-custom {
     background-color: var(--dark-bg);
     color: var(--white);
@@ -51,6 +51,10 @@ body {
 
 .header-content .logo img {
     max-height: 40px; /* Sesuaikan tinggi logo */
+}
+
+.header-nav {
+    /* Tidak perlu flex di sini, ul yang akan di-flex */
 }
 
 .header-nav ul {
@@ -230,7 +234,7 @@ footer .social-links a:hover {
     color: var(--primary-color);
 }
 
-/* --- RESPONSIVE DESIGN (HEADER DIUTAMAKAN) --- */
+/* --- RESPONSIVE DESIGN (HEADER) --- */
 @media (max-width: 768px) {
     .header-content {
         display: flex;
@@ -239,13 +243,5 @@ footer .social-links a:hover {
     }
 
     .header-nav ul {
-        display: flex;
-    }
-
-    .header-nav ul li {
-        margin-left: 10px;
-    }
-
-    .header-nav ul li:first-child {
-        margin-
+        display: flex
         
