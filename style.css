@@ -45,26 +45,40 @@ header {
     padding: 0.8em 20px; /* Sesuaikan padding */
 }
 
-.logo-mobile h1 {
-    margin: 0;
-    font-size: 1.8em; /* Ukuran logo */
-    text-align: left; /* Agar logo di kiri */
-}
-
-.mobile-nav-right {
+.mobile-header-left {
     display: flex;
     align-items: center;
 }
 
-.mobile-nav-right a {
-    color: var(--white);
-    text-decoration: none;
-    margin-left: 15px; /* Spasi antar link */
-    font-size: 1.1em; /* Sedikit dikecilkan agar sejajar lebih baik */
+.logo-mobile h1 {
+    margin: 0;
+    font-size: 1.8em; /* Ukuran logo */
+    text-align: left; /* Agar logo di kiri */
+    color: var(--white); /* Warna putih untuk logo */
+    margin-right: 20px; /* Jarak antara logo dan link */
 }
 
-.mobile-nav-right i {
+.mobile-links {
+    display: flex;
+    align-items: center;
+}
+
+.mobile-links a {
+    color: var(--white);
+    text-decoration: none;
+    margin-right: 10px;
+    margin-left: 10px;
+    font-size: 1.1em;
+}
+
+.mobile-links i {
     margin-right: 5px;
+}
+
+.separator {
+    color: var(--white);
+    margin: 0 10px;
+    font-size: 1.1em;
 }
 
 /* Sembunyikan navigasi desktop di tampilan mobile */
@@ -238,5 +252,61 @@ footer .social-links a:hover {
     }
 }
 
-@media (max-width
-    
+@media (max-width: 992px) {
+    .container {
+        padding: 0 15px;
+    }
+    .hero-section h2 {
+        font-size: 2.5em;
+    }
+}
+
+@media (max-width: 768px) {
+    /* Layout mobile aktif secara default */
+    .hero-section {
+        padding: 80px 0;
+        border-radius: 0; /* Hilangkan sudut membulat di mobile */
+    }
+    .hero-section h2 {
+        font-size: 2em;
+    }
+    .section-padded {
+        padding: 40px 0;
+    }
+    .feature-grid, .category-grid {
+        grid-template-columns: 1fr; /* Stack kolaborasi di ponsel */
+    }
+    .feature-item, .category-item {
+        padding: 25px;
+    }
+}
+
+@media (max-width: 480px) {
+    .hero-section h2 {
+        font-size: 1.7em;
+    }
+    .hero-section p {
+        font-size: 1em;
+    }
+    .btn {
+        padding: 10px 20px;
+        font-size: 0.9em;
+    }
+    .large-btn {
+        padding: 12px 30px;
+        font-size: 1em;
+    }
+    .mobile-links a {
+        font-size: 1em;
+        margin-right: 5px;
+        margin-left: 5px;
+    }
+    .separator {
+        font-size: 1em;
+        margin: 0 5px;
+    }
+    .logo-mobile h1 {
+        font-size: 1.6em;
+        margin-right: 10px;
+    }
+    }
