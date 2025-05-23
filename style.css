@@ -48,6 +48,7 @@ header {
 .mobile-header-left {
     display: flex;
     align-items: center;
+    width: 100%; /* Memastikan menempati seluruh lebar yang tersedia */
 }
 
 .logo-mobile h1 {
@@ -55,18 +56,18 @@ header {
     font-size: 1.8em; /* Ukuran logo */
     text-align: left; /* Agar logo di kiri */
     color: var(--white); /* Warna putih untuk logo */
-    margin-right: 20px; /* Jarak antara logo dan link */
+    margin-right: auto; /* Mendorong logo ke kiri maksimal */
 }
 
 .mobile-links {
     display: flex;
     align-items: center;
+    margin-left: auto; /* Mendorong grup link ke kanan */
 }
 
 .mobile-links a {
     color: var(--white);
     text-decoration: none;
-    margin-right: 10px;
     margin-left: 10px;
     font-size: 1.1em;
 }
@@ -298,7 +299,6 @@ footer .social-links a:hover {
     }
     .mobile-links a {
         font-size: 1em;
-        margin-right: 5px;
         margin-left: 5px;
     }
     .separator {
@@ -309,4 +309,4 @@ footer .social-links a:hover {
         font-size: 1.6em;
         margin-right: 10px;
     }
-    }
+}
