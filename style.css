@@ -29,40 +29,78 @@ body {
     padding: 0 20px; /* Padding samping untuk responsivitas */
 }
 
-/* --- HEADER --- */
-header {
+/* --- HEADER KUSTOM --- */
+.header-custom {
     background-color: var(--dark-bg);
     color: var(--white);
-    padding: 1.2em 0;
-    text-align: center;
+    padding: 1em 0;
 }
 
-header h1 {
+.header-content {
+    display: flex;
+    justify-content: space-between; /* Logo kiri, nav kanan */
+    align-items: center; /* Vertikal align tengah */
+}
+
+.header-content .logo h1 {
     margin: 0;
-    font-size: 2.2em;
-    letter-spacing: 1px;
+    font-size: 2em;
 }
 
-header nav ul {
+.header-content .logo img {
+    max-height: 40px; /* Sesuaikan tinggi logo */
+}
+
+.header-nav ul {
     list-style: none;
     padding: 0;
-    margin-top: 15px;
+    margin: 0;
+    display: flex; /* Membuat tombol sejajar horizontal */
+    align-items: center;
 }
 
-header nav ul li {
-    display: inline-block; /* Menggunakan inline-block agar mudah diatur margin */
-    margin: 0 18px;
+.header-nav ul li {
+    margin-left: 20px; /* Spasi antar tombol */
 }
 
-header nav a {
+.header-nav ul li:first-child {
+    margin-left: 0;
+}
+
+.contact-button {
+    display: inline-flex;
+    align-items: center;
     color: var(--white);
     text-decoration: none;
-    font-weight: 500;
-    transition: color 0.3s ease;
+    padding: 10px 15px;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
 }
 
-header nav a:hover {
-    color: var(--primary-color); /* Warna hover sesuai primary */
+.whatsapp-button {
+    background-color: #25D366; /* Warna hijau WhatsApp */
+}
+
+.whatsapp-button:hover {
+    background-color: #128C7E;
+}
+
+.email-button {
+    background-color: #ea4335; /* Warna merah Gmail */
+}
+
+.email-button:hover {
+    background-color: #c5372b;
+}
+
+.contact-button i {
+    margin-right: 8px;
+    font-size: 1.2em;
+}
+
+/* Hapus gaya navigasi header yang lama jika tidak digunakan */
+header nav {
+    display: none; /* Menyembunyikan navigasi lama */
 }
 
 /* --- MAIN SECTIONS --- */
@@ -204,47 +242,6 @@ footer .social-links a:hover {
 }
 
 @media (max-width: 768px) {
-    header nav ul {
-        margin-top: 10px;
-    }
-    header nav ul li {
-        display: block; /* Menu vertikal untuk tablet/ponsel */
-        margin: 8px 0;
-    }
-    .hero-section {
-        padding: 80px 0;
-        border-radius: 0; /* Hilangkan sudut membulat di mobile */
-    }
-    .hero-section h2 {
-        font-size: 2em;
-    }
-    .section-padded {
-        padding: 40px 0;
-    }
-    .feature-grid, .category-grid {
-        grid-template-columns: 1fr; /* Stack kolaborasi di ponsel */
-    }
-    .feature-item, .category-item {
-        padding: 25px;
-    }
-}
-
-@media (max-width: 480px) {
-    header h1 {
-        font-size: 1.5em;
-    }
-    .hero-section h2 {
-        font-size: 1.7em;
-    }
-    .hero-section p {
-        font-size: 1em;
-    }
-    .btn {
-        padding: 10px 20px;
-        font-size: 0.9em;
-    }
-    .large-btn {
-        padding: 12px 30px;
-        font-size: 1em;
-    }
-}
+    .header-content {
+        flex-direction: column; /* Logo di atas, nav di bawah */
+        align-items: center;
