@@ -29,54 +29,49 @@ body {
     padding: 0 20px; /* Padding samping untuk responsivitas */
 }
 
-/* --- HEADER KUSTOM (REVISI EKSPILISIT UNTUK VISIBILITAS) --- */
+/* --- HEADER KUSTOM (PENDEKATAN SEDERHANA) --- */
 .header-custom {
     background-color: var(--dark-bg);
     color: var(--white);
     padding: 0.8em 20px;
     width: 100%;
-    display: flex; /* Gunakan flex pada header-custom juga */
+    display: flex;
     align-items: center;
     justify-content: space-between;
 }
 
 .header-content {
-    /* Tidak perlu display flex di sini lagi karena sudah di parent */
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
     max-width: 1200px;
     margin: 0 auto;
     width: 100%;
-    display: flex; /* Untuk menata logo dan nav di dalamnya */
-    align-items: center;
-    justify-content: space-between;
 }
 
 .header-content .logo h1 {
     margin: 0;
-    font-size: 1.8em; /* Default mobile size */
+    font-size: 1.8em;
 }
 
 .header-content .logo img {
-    max-height: 30px; /* Default mobile height */
-}
-
-.header-nav {
-    /* Tidak perlu margin-left: auto lagi, justifyContent sudah mengatur */
+    max-height: 30px;
 }
 
 .header-nav ul {
     list-style: none;
     padding: 0;
     margin: 0;
-    display: flex; /* Membuat tombol sejajar horizontal */
+    display: flex;
     align-items: center;
 }
 
 .header-nav ul li {
-    margin-left: 10px; /* Spasi antar tombol mobile */
+    margin-left: 10px;
 }
 
 .header-nav ul li:first-child {
-    margin-left: 15px; /* Jarak dari logo mobile */
+    margin-left: 15px;
 }
 
 .contact-button {
@@ -84,13 +79,13 @@ body {
     align-items: center;
     color: var(--white);
     text-decoration: none;
-    padding: 8px 10px; /* Padding tombol mobile */
+    padding: 8px 10px;
     border-radius: 5px;
-    font-size: 0.8em; /* Ukuran font tombol mobile */
+    font-size: 0.8em;
 }
 
 .whatsapp-button {
-    background-color: #25D366; /* Warna hijau WhatsApp */
+    background-color: #25D366;
 }
 
 .whatsapp-button:hover {
@@ -98,7 +93,7 @@ body {
 }
 
 .email-button {
-    background-color: #ea4335; /* Warna merah Gmail */
+    background-color: #ea4335;
 }
 
 .email-button:hover {
@@ -110,9 +105,9 @@ body {
     font-size: 1em;
 }
 
-/* Hapus gaya navigasi header yang lama jika tidak digunakan */
+/* Sembunyikan navigasi lama jika ada */
 header nav {
-    display: none; /* Menyembunyikan navigasi lama */
+    display: none;
 }
 
 /* --- MAIN SECTIONS --- */
@@ -241,4 +236,25 @@ footer .social-links a:hover {
 }
 
 /* --- RESPONSIVE DESIGN (HEADER) --- */
-@media (
+@media (max-width: 768px) {
+    .header-content .logo h1 {
+        font-size: 1.5em;
+    }
+    .header-content .logo img {
+        max-height: 25px;
+    }
+    .header-nav ul li {
+        margin-left: 8px;
+    }
+    .header-nav ul li:first-child {
+        margin-left: 10px;
+    }
+    .contact-button {
+        padding: 6px 8px;
+        font-size: 0.7em;
+    }
+    .contact-button i {
+        font-size: 0.8em;
+        margin-right: 3px;
+    }
+}
