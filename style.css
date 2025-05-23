@@ -41,39 +41,34 @@ header {
 .header-mobile {
     display: flex;
     justify-content: space-between; /* Untuk memisahkan elemen ke kiri dan kanan */
-    align-items: center; /* Untuk mengatur posisi vertikal di tengah */
-    padding: 0.8em 20px; /* Sesuaikan padding kebutuhan */
+    align-items: center; /* Agar vertikal sejajar */
+    padding: 0.8em 20px; /* Sesuaikan padding */
 }
 
-.mobile-nav {
-    display: flex;
-    align-items: center;
+.mobile-nav-left {
+    /* Tidak perlu flex lagi di sini, karena kita ingin mereka berada di kiri */
 }
 
-.mobile-nav a {
+.mobile-nav-left a {
     color: var(--white);
     text-decoration: none;
-    margin-right: 15px; /* Spasi antar ikon/link */
-    font-size: 1.2em;
+    margin-right: 15px; /* Spasi antar link */
+    font-size: 1.1em; /* Sedikit dikecilkan agar sejajar lebih baik */
 }
 
-.mobile-nav i {
-    margin-right: 5px; /* Spasi antara ikon dan teks */
+.mobile-nav-left i {
+    margin-right: 5px;
 }
 
 .logo-mobile h1 {
     margin: 0;
-    font-size: 1.8em; /* Sesuaikan ukuran font logo */
+    font-size: 1.8em; /* Ukuran logo */
+    text-align: right; /* Agar logo di kanan */
 }
 
 /* Sembunyikan navigasi desktop di tampilan mobile */
-header nav {
+header > .container > nav {
     display: none;
-}
-
-/* Tampilkan layout mobile secara default (untuk layar kecil) */
-.container > nav {
-    display: none; /* Pastikan nav di dalam container juga tersembunyi */
 }
 
 /* --- MAIN SECTIONS --- */
@@ -210,6 +205,9 @@ footer .social-links a:hover {
     .header-mobile {
         display: none;
     }
+    header > .container > nav {
+        display: block;
+    }
     header .container {
         display: flex;
         justify-content: space-between;
@@ -218,10 +216,6 @@ footer .social-links a:hover {
     header h1 {
         font-size: 2.2em;
         letter-spacing: 1px;
-    }
-    header nav {
-        display: block;
-        margin-top: 0;
     }
     header nav ul {
         list-style: none;
@@ -240,58 +234,5 @@ footer .social-links a:hover {
     }
     header nav a:hover {
         color: var(--primary-color);
-    }
-}
-
-@media (max-width: 992px) {
-    .container {
-        padding: 0 15px;
-    }
-    .hero-section h2 {
-        font-size: 2.5em;
-    }
-}
-
-@media (max-width: 768px) {
-    /* Layout mobile akan aktif secara default, jadi kita tidak perlu banyak perubahan di sini */
-    .hero-section {
-        padding: 80px 0;
-        border-radius: 0; /* Hilangkan sudut membulat di mobile */
-    }
-    .hero-section h2 {
-        font-size: 2em;
-    }
-    .section-padded {
-        padding: 40px 0;
-    }
-    .feature-grid, .category-grid {
-        grid-template-columns: 1fr; /* Stack kolaborasi di ponsel */
-    }
-    .feature-item, .category-item {
-        padding: 25px;
-    }
-}
-
-@media (max-width: 480px) {
-    .hero-section h2 {
-        font-size: 1.7em;
-    }
-    .hero-section p {
-        font-size: 1em;
-    }
-    .btn {
-        padding: 10px 20px;
-        font-size: 0.9em;
-    }
-    .large-btn {
-        padding: 12px 30px;
-        font-size: 1em;
-    }
-    .mobile-nav a {
-        font-size: 1em;
-        margin-right: 10px;
-    }
-    .logo-mobile h1 {
-        font-size: 1.5em;
     }
 }
