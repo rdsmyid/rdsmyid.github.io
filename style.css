@@ -45,25 +45,26 @@ header {
     padding: 0.8em 20px; /* Sesuaikan padding */
 }
 
-.mobile-nav-left {
-    /* Tidak perlu flex lagi di sini, karena kita ingin mereka berada di kiri */
-}
-
-.mobile-nav-left a {
-    color: var(--white);
-    text-decoration: none;
-    margin-right: 15px; /* Spasi antar link */
-    font-size: 1.1em; /* Sedikit dikecilkan agar sejajar lebih baik */
-}
-
-.mobile-nav-left i {
-    margin-right: 5px;
-}
-
 .logo-mobile h1 {
     margin: 0;
     font-size: 1.8em; /* Ukuran logo */
-    text-align: right; /* Agar logo di kanan */
+    text-align: left; /* Agar logo di kiri */
+}
+
+.mobile-nav-right {
+    display: flex;
+    align-items: center;
+}
+
+.mobile-nav-right a {
+    color: var(--white);
+    text-decoration: none;
+    margin-left: 15px; /* Spasi antar link */
+    font-size: 1.1em; /* Sedikit dikecilkan agar sejajar lebih baik */
+}
+
+.mobile-nav-right i {
+    margin-right: 5px;
 }
 
 /* Sembunyikan navigasi desktop di tampilan mobile */
@@ -236,3 +237,6 @@ footer .social-links a:hover {
         color: var(--primary-color);
     }
 }
+
+@media (max-width
+    
