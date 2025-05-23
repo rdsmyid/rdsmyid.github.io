@@ -200,30 +200,16 @@ footer {
     text-align: center;
 }
 
-footer .social-links a {
-    color: var(--white);
-    margin: 0 10px;
-    font-size: 1.5em;
-    transition: color 0.3s ease;
-}
-
-footer .social-links a:hover {
-    color: var(--primary-color);
-}
-
 /* --- RESPONSIVE DESIGN --- */
 @media (min-width: 769px) {
     header {
-        padding: 1.2em 0;
+        padding: 1.2em 20px; /* Tambahkan padding samping */
         text-align: left;
     }
     .header-mobile {
         display: none;
     }
-    header > .container > nav {
-        display: block;
-    }
-    header .container {
+    header > .container {
         display: flex;
         justify-content: space-between;
         align-items: center;
@@ -231,21 +217,35 @@ footer .social-links a:hover {
     header h1 {
         font-size: 2.2em;
         letter-spacing: 1px;
+        margin-right: 20px; /* Beri jarak logo dari navigasi */
+    }
+    header > .container > nav {
+        display: block;
     }
     header nav ul {
         list-style: none;
         padding: 0;
         margin: 0;
+        display: flex; /* Agar link navigasi horizontal */
+        align-items: center; /* Agar ikon dan teks sejajar vertikal */
     }
     header nav ul li {
-        display: inline-block;
-        margin: 0 18px;
+        margin-left: 18px;
+    }
+    header nav ul li:first-child {
+        margin-left: 0;
     }
     header nav a {
         color: var(--white);
         text-decoration: none;
         font-weight: 500;
         transition: color 0.3s ease;
+        display: flex; /* Agar ikon dan teks dalam satu link sejajar */
+        align-items: center;
+    }
+    header nav a i {
+        margin-right: 8px; /* Jarak antara ikon dan teks */
+        font-size: 1.1em;
     }
     header nav a:hover {
         color: var(--primary-color);
