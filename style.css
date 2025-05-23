@@ -214,7 +214,7 @@ footer {
 /* --- RESPONSIVE DESIGN --- */
 @media (min-width: 769px) {
     header {
-        padding: 1.2em 20px; /* Tambahkan padding samping */
+        padding: 1.2em 20px;
         text-align: left;
     }
     .header-mobile {
@@ -226,48 +226,44 @@ footer {
         align-items: center;
     }
     header > .container > a {
-        text-decoration: none; /* Menghilangkan underline pada logo desktop */
+        text-decoration: none;
     }
-    header > .container > a h1 { /* Targetkan h1 di dalam link logo desktop */
+    header > .container > a h1 {
         font-size: 2.2em;
         letter-spacing: 1px;
-        margin-right: auto; /* Mendorong logo ke kiri maksimal */
-        color: var(--white); /* Pastikan warna logo desktop putih */
+        margin-right: auto;
+        color: var(--white);
     }
     header > .container > nav {
-        display: none; /* Sembunyikan navigasi desktop */
+        display: none;
     }
-    .mobile-links { /* Gaya untuk desktop */
+    .mobile-links {
         display: flex;
         align-items: center;
     }
-
-    .mobile-links a { /* Gaya untuk desktop */
+    .mobile-links a {
         color: var(--white);
         text-decoration: none;
         margin-left: 10px;
         font-size: 1.1em;
-        padding: 8px 12px; /* Tambahkan padding */
-        border-radius: 5px; /* Tambahkan sudut membulat */
-        background-color: rgba(255, 255, 255, 0.1); /* Latar belakang semi-transparan */
-        transition: background-color 0.3s ease; /* Efek transisi hover */
+        padding: 8px 12px;
+        border-radius: 5px;
+        background-color: rgba(255, 255, 255, 0.1);
+        transition: background-color 0.3s ease;
     }
-
-    .mobile-links a:hover { /* Gaya untuk desktop */
-        background-color: rgba(255, 255, 255, 0.2); /* Latar belakang hover yang lebih terang */
+    .mobile-links a:hover {
+        background-color: rgba(255, 255, 255, 0.2);
     }
-
-    .mobile-links i { /* Gaya untuk desktop */
+    .mobile-links i {
         margin-right: 5px;
     }
-
-    .separator { /* Gaya untuk desktop */
+    .separator {
         color: var(--white);
         margin: 0 10px;
         font-size: 1.1em;
     }
 
-    /* Sembunyikan h1 di luar link pada desktop */
+    /* Targetkan dan sembunyikan h1 langsung di dalam .container pada header */
     header > .container > h1 {
         display: none;
     }
