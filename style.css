@@ -29,17 +29,19 @@ body {
     padding: 0 20px; /* Padding samping untuk responsivitas */
 }
 
-/* --- HEADER KUSTOM --- */
+/* --- HEADER KUSTOM (REVISI TERAKHIR) --- */
 .header-custom {
     background-color: var(--dark-bg);
     color: var(--white);
-    padding: 1em 0;
+    padding: 1em 20px;
 }
 
 .header-content {
     display: flex;
     justify-content: space-between; /* Logo kiri, nav kanan */
     align-items: center; /* Vertikal align tengah */
+    max-width: 1200px;
+    margin: 0 auto;
 }
 
 .header-content .logo h1 {
@@ -228,20 +230,22 @@ footer .social-links a:hover {
     color: var(--primary-color);
 }
 
-/* --- RESPONSIVE DESIGN --- */
-@media (max-width: 992px) {
-    .container {
-        padding: 0 15px;
-    }
-    header h1 {
-        font-size: 1.8em;
-    }
-    .hero-section h2 {
-        font-size: 2.5em;
-    }
-}
-
+/* --- RESPONSIVE DESIGN (HEADER DIUTAMAKAN) --- */
 @media (max-width: 768px) {
     .header-content {
-        flex-direction: column; /* Logo di atas, nav di bawah */
+        display: flex;
+        justify-content: space-between;
         align-items: center;
+    }
+
+    .header-nav ul {
+        display: flex;
+    }
+
+    .header-nav ul li {
+        margin-left: 10px;
+    }
+
+    .header-nav ul li:first-child {
+        margin-
+        
