@@ -52,10 +52,6 @@ header {
     color: var(--white); /* Warna putih untuk logo */
 }
 
-.logo-mobile a {
-    text-decoration: none; /* Menghilangkan underline pada logo mobile */
-}
-
 .mobile-nav-right {
     display: flex;
     justify-content: flex-end; /* Mengatur konten di dalamnya ke kanan */
@@ -214,7 +210,7 @@ footer {
 /* --- RESPONSIVE DESIGN --- */
 @media (min-width: 769px) {
     header {
-        padding: 1.2em 20px;
+        padding: 1.2em 20px; /* Tambahkan padding samping */
         text-align: left;
     }
     .header-mobile {
@@ -225,47 +221,42 @@ footer {
         justify-content: space-between;
         align-items: center;
     }
-    header > .container > a {
-        text-decoration: none;
-    }
-    header > .container > a h1 {
+    header h1 {
         font-size: 2.2em;
         letter-spacing: 1px;
-        margin-right: auto;
-        color: var(--white);
+        margin-right: auto; /* Mendorong logo ke kiri maksimal */
     }
     header > .container > nav {
-        display: none;
+        display: none; /* Sembunyikan navigasi desktop */
     }
-    .mobile-links {
+    .mobile-links { /* Gaya untuk desktop */
         display: flex;
         align-items: center;
     }
-    .mobile-links a {
+
+    .mobile-links a { /* Gaya untuk desktop */
         color: var(--white);
         text-decoration: none;
         margin-left: 10px;
         font-size: 1.1em;
-        padding: 8px 12px;
-        border-radius: 5px;
-        background-color: rgba(255, 255, 255, 0.1);
-        transition: background-color 0.3s ease;
+        padding: 8px 12px; /* Tambahkan padding */
+        border-radius: 5px; /* Tambahkan sudut membulat */
+        background-color: rgba(255, 255, 255, 0.1); /* Latar belakang semi-transparan */
+        transition: background-color 0.3s ease; /* Efek transisi hover */
     }
-    .mobile-links a:hover {
-        background-color: rgba(255, 255, 255, 0.2);
+
+    .mobile-links a:hover { /* Gaya untuk desktop */
+        background-color: rgba(255, 255, 255, 0.2); /* Latar belakang hover yang lebih terang */
     }
-    .mobile-links i {
+
+    .mobile-links i { /* Gaya untuk desktop */
         margin-right: 5px;
     }
-    .separator {
+
+    .separator { /* Gaya untuk desktop */
         color: var(--white);
         margin: 0 10px;
         font-size: 1.1em;
-    }
-
-    /* Targetkan dan sembunyikan h1 langsung di dalam .container pada header */
-    header > .container > h1 {
-        display: none;
     }
 }
 
@@ -297,14 +288,14 @@ footer {
         padding: 25px;
     }
     .mobile-links a {
-        font-size: 0.9em; /* Sedikit perkecil ukuran font juga */
-        margin-left: 3px; /* Kurangi margin kiri */
-        padding: 3px 6px; /* Perkecil lagi padding atas, bawah, kiri, kanan */
-        border-radius: 2px;
-        background-color: rgba(255, 255, 255, 0.15); /* Sedikit lebih tebal */
+        font-size: 1em;
+        margin-left: 5px;
+        padding: 4px 8px; /* Perkecil padding atas, bawah, kiri, kanan untuk mobile */
+        border-radius: 3px;
+        background-color: rgba(255, 255, 255, 0.15); /* Sedikit lebih tebal untuk mobile */
     }
-    .mobile-links a:first-child { /* Untuk tombol WhatsApp */
-        margin-right: 3px; /* Kurangi margin kanan */
+    .mobile-links a:first-child { /* Untuk tombol WhatsApp di mobile */
+        margin-right: 5px; /* Tambahkan margin kanan di mobile */
     }
     .separator {
         display: none; /* Sembunyikan separator di mobile karena sudah ada jarak */
