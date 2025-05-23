@@ -67,16 +67,15 @@ header {
 .mobile-links a {
     color: var(--white);
     text-decoration: none;
-    margin-left: 10px;
-    font-size: 1.1em;
-    padding: 8px 12px; /* Tambahkan padding */
-    border-radius: 5px; /* Tambahkan sudut membulat */
-    background-color: rgba(255, 255, 255, 0.1); /* Latar belakang semi-transparan */
-    transition: background-color 0.3s ease; /* Efek transisi hover */
+    margin-left: 5px;
+    font-size: 1em;
+    padding: 4px 8px; /* Perkecil padding atas, bawah, kiri, kanan untuk mobile */
+    border-radius: 3px;
+    background-color: rgba(255, 255, 255, 0.15); /* Sedikit lebih tebal untuk mobile */
 }
 
-.mobile-links a:hover {
-    background-color: rgba(255, 255, 255, 0.2); /* Latar belakang hover yang lebih terang */
+.mobile-links a:first-child { /* Untuk tombol WhatsApp di mobile */
+    margin-right: 5px; /* Tambahkan margin kanan di mobile */
 }
 
 .mobile-links i {
@@ -288,6 +287,19 @@ footer {
     .feature-item, .category-item {
         padding: 25px;
     }
+    .mobile-links a {
+        font-size: 1em;
+        margin-left: 5px;
+        padding: 4px 8px; /* Perkecil padding atas, bawah, kiri, kanan */
+        border-radius: 3px;
+        background-color: rgba(255, 255, 255, 0.15); /* Sedikit lebih tebal */
+    }
+    .mobile-links a:first-child { /* Untuk tombol WhatsApp */
+        margin-right: 5px; /* Tambahkan margin kanan */
+    }
+    .separator {
+        display: none; /* Sembunyikan separator di mobile karena sudah ada jarak */
+    }
 }
 
 @media (max-width: 480px) {
@@ -308,13 +320,18 @@ footer {
     .mobile-links a {
         font-size: 1em;
         margin-left: 5px;
+        padding: 4px 8px;
+        border-radius: 3px;
+        background-color: rgba(255, 255, 255, 0.15);
+    }
+    .mobile-links a:first-child {
+        margin-right: 5px;
     }
     .separator {
-        font-size: 1em;
-        margin: 0 5px;
+        display: none;
     }
     .logo-mobile h1 {
         font-size: 1.6em;
         margin-right: 10px;
     }
-}
+        }
