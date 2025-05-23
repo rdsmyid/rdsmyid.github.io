@@ -34,35 +34,84 @@ header {
     background-color: var(--dark-bg);
     color: var(--white);
     padding: 1.2em 0;
-    text-align: center;
+    text-align: center; /* Default text align center */
 }
 
-header h1 {
-    margin: 0;
-    font-size: 2.2em;
-    letter-spacing: 1px;
+/* --- HEADER MOBILE --- */
+.header-mobile {
+    display: flex;
+    justify-content: space-between; /* Untuk memisahkan elemen ke kiri dan kanan */
+    align-items: center; /* Untuk mengatur posisi vertikal di tengah */
+    padding: 0.8em 20px; /* Sesuaikan padding sesuai kebutuhan */
 }
 
-header nav ul {
-    list-style: none;
-    padding: 0;
-    margin-top: 15px;
+.mobile-nav {
+    display: flex;
+    align-items: center;
 }
 
-header nav ul li {
-    display: inline-block; /* Menggunakan inline-block agar mudah diatur margin */
-    margin: 0 18px;
-}
-
-header nav a {
+.mobile-nav a {
     color: var(--white);
     text-decoration: none;
-    font-weight: 500;
-    transition: color 0.3s ease;
+    margin-right: 15px; /* Spasi antar ikon/link */
+    font-size: 1.2em;
 }
 
-header nav a:hover {
-    color: var(--primary-color); /* Warna hover sesuai primary */
+.mobile-nav i {
+    margin-right: 5px; /* Spasi antara ikon dan teks */
+}
+
+.logo-mobile h1 {
+    margin: 0;
+    font-size: 1.8em; /* Sesuaikan ukuran font logo */
+}
+
+/* Sembunyikan navigasi desktop di mobile */
+header nav {
+    display: none;
+}
+
+/* Tampilkan navigasi desktop untuk layar yang lebih besar */
+@media (min-width: 769px) {
+    .header-mobile {
+        display: none; /* Sembunyikan layout mobile di desktop */
+    }
+    header {
+        text-align: left; /* Kembalikan teks ke kiri untuk desktop */
+        padding: 1.2em 0;
+    }
+    header .container {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+    header h1 {
+        margin: 0;
+        font-size: 2.2em;
+        letter-spacing: 1px;
+    }
+    header nav {
+        display: block;
+        margin-top: 0;
+    }
+    header nav ul {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+    }
+    header nav ul li {
+        display: inline-block; /* Menggunakan inline-block agar mudah diatur margin */
+        margin: 0 18px;
+    }
+    header nav a {
+        color: var(--white);
+        text-decoration: none;
+        font-weight: 500;
+        transition: color 0.3s ease;
+    }
+    header nav a:hover {
+        color: var(--primary-color); /* Warna hover sesuai primary */
+    }
 }
 
 /* --- MAIN SECTIONS --- */
@@ -162,7 +211,7 @@ main {
 }
 
 .secondary-btn:hover {
-    background-color: darken(var(--secondary-color), 10%); /* Perlu SASS/LESS atau hitung manual */
+    background-color: #0056b3; /* Darken dari secondary-color */
     transform: translateY(-2px);
 }
 
@@ -186,65 +235,4 @@ footer .social-links a {
     transition: color 0.3s ease;
 }
 
-footer .social-links a:hover {
-    color: var(--primary-color);
-}
-
-/* --- RESPONSIVE DESIGN --- */
-@media (max-width: 992px) {
-    .container {
-        padding: 0 15px;
-    }
-    header h1 {
-        font-size: 1.8em;
-    }
-    .hero-section h2 {
-        font-size: 2.5em;
-    }
-}
-
-@media (max-width: 768px) {
-    header nav ul {
-        margin-top: 10px;
-    }
-    header nav ul li {
-        display: block; /* Menu vertikal untuk tablet/ponsel */
-        margin: 8px 0;
-    }
-    .hero-section {
-        padding: 80px 0;
-        border-radius: 0; /* Hilangkan sudut membulat di mobile */
-    }
-    .hero-section h2 {
-        font-size: 2em;
-    }
-    .section-padded {
-        padding: 40px 0;
-    }
-    .feature-grid, .category-grid {
-        grid-template-columns: 1fr; /* Stack kolaborasi di ponsel */
-    }
-    .feature-item, .category-item {
-        padding: 25px;
-    }
-}
-
-@media (max-width: 480px) {
-    header h1 {
-        font-size: 1.5em;
-    }
-    .hero-section h2 {
-        font-size: 1.7em;
-    }
-    .hero-section p {
-        font-size: 1em;
-    }
-    .btn {
-        padding: 10px 20px;
-        font-size: 0.9em;
-    }
-    .large-btn {
-        padding: 12px 30px;
-        font-size: 1em;
-    }
-}
+footer .social-links
