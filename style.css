@@ -33,7 +33,7 @@ body {
 header {
     background-color: var(--dark-bg);
     color: var(--white);
-    padding: 1.2em 0;
+    padding: 0; /* Reset padding header default */
     text-align: center; /* Default text align center */
 }
 
@@ -42,7 +42,7 @@ header {
     display: flex;
     justify-content: space-between; /* Untuk memisahkan elemen ke kiri dan kanan */
     align-items: center; /* Untuk mengatur posisi vertikal di tengah */
-    padding: 0.8em 20px; /* Sesuaikan padding sesuai kebutuhan */
+    padding: 0.8em 20px; /* Sesuaikan padding kebutuhan */
 }
 
 .mobile-nav {
@@ -66,52 +66,14 @@ header {
     font-size: 1.8em; /* Sesuaikan ukuran font logo */
 }
 
-/* Sembunyikan navigasi desktop di mobile */
+/* Sembunyikan navigasi desktop di tampilan mobile */
 header nav {
     display: none;
 }
 
-/* Tampilkan navigasi desktop untuk layar yang lebih besar */
-@media (min-width: 769px) {
-    .header-mobile {
-        display: none; /* Sembunyikan layout mobile di desktop */
-    }
-    header {
-        text-align: left; /* Kembalikan teks ke kiri untuk desktop */
-        padding: 1.2em 0;
-    }
-    header .container {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-    }
-    header h1 {
-        margin: 0;
-        font-size: 2.2em;
-        letter-spacing: 1px;
-    }
-    header nav {
-        display: block;
-        margin-top: 0;
-    }
-    header nav ul {
-        list-style: none;
-        padding: 0;
-        margin: 0;
-    }
-    header nav ul li {
-        display: inline-block; /* Menggunakan inline-block agar mudah diatur margin */
-        margin: 0 18px;
-    }
-    header nav a {
-        color: var(--white);
-        text-decoration: none;
-        font-weight: 500;
-        transition: color 0.3s ease;
-    }
-    header nav a:hover {
-        color: var(--primary-color); /* Warna hover sesuai primary */
-    }
+/* Tampilkan layout mobile secara default (untuk layar kecil) */
+.container > nav {
+    display: none; /* Pastikan nav di dalam container juga tersembunyi */
 }
 
 /* --- MAIN SECTIONS --- */
@@ -235,4 +197,101 @@ footer .social-links a {
     transition: color 0.3s ease;
 }
 
-footer .social-links
+footer .social-links a:hover {
+    color: var(--primary-color);
+}
+
+/* --- RESPONSIVE DESIGN --- */
+@media (min-width: 769px) {
+    header {
+        padding: 1.2em 0;
+        text-align: left;
+    }
+    .header-mobile {
+        display: none;
+    }
+    header .container {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+    header h1 {
+        font-size: 2.2em;
+        letter-spacing: 1px;
+    }
+    header nav {
+        display: block;
+        margin-top: 0;
+    }
+    header nav ul {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+    }
+    header nav ul li {
+        display: inline-block;
+        margin: 0 18px;
+    }
+    header nav a {
+        color: var(--white);
+        text-decoration: none;
+        font-weight: 500;
+        transition: color 0.3s ease;
+    }
+    header nav a:hover {
+        color: var(--primary-color);
+    }
+}
+
+@media (max-width: 992px) {
+    .container {
+        padding: 0 15px;
+    }
+    .hero-section h2 {
+        font-size: 2.5em;
+    }
+}
+
+@media (max-width: 768px) {
+    /* Layout mobile akan aktif secara default, jadi kita tidak perlu banyak perubahan di sini */
+    .hero-section {
+        padding: 80px 0;
+        border-radius: 0; /* Hilangkan sudut membulat di mobile */
+    }
+    .hero-section h2 {
+        font-size: 2em;
+    }
+    .section-padded {
+        padding: 40px 0;
+    }
+    .feature-grid, .category-grid {
+        grid-template-columns: 1fr; /* Stack kolaborasi di ponsel */
+    }
+    .feature-item, .category-item {
+        padding: 25px;
+    }
+}
+
+@media (max-width: 480px) {
+    .hero-section h2 {
+        font-size: 1.7em;
+    }
+    .hero-section p {
+        font-size: 1em;
+    }
+    .btn {
+        padding: 10px 20px;
+        font-size: 0.9em;
+    }
+    .large-btn {
+        padding: 12px 30px;
+        font-size: 1em;
+    }
+    .mobile-nav a {
+        font-size: 1em;
+        margin-right: 10px;
+    }
+    .logo-mobile h1 {
+        font-size: 1.5em;
+    }
+}
