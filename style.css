@@ -29,32 +29,34 @@ body {
     padding: 0 20px; /* Padding samping untuk responsivitas */
 }
 
-/* --- HEADER KUSTOM (REVISI TERAKHIR - FOKUS RESPONSIVITAS HEADER) --- */
+/* --- HEADER KUSTOM (RESPONSIVE) --- */
 .header-custom {
     background-color: var(--dark-bg);
     color: var(--white);
-    padding: 1em 20px;
+    padding: 0.8em 20px;
+    width: 100%;
 }
 
 .header-content {
     display: flex;
-    justify-content: space-between; /* Logo kiri, nav kanan */
+    justify-content: space-between; /* Logo kiri, tombol kanan */
     align-items: center; /* Vertikal align tengah */
     max-width: 1200px;
     margin: 0 auto;
+    width: 100%;
 }
 
 .header-content .logo h1 {
     margin: 0;
-    font-size: 2em;
+    font-size: 1.8em; /* Default mobile size */
 }
 
 .header-content .logo img {
-    max-height: 40px; /* Sesuaikan tinggi logo */
+    max-height: 30px; /* Default mobile height */
 }
 
 .header-nav {
-    /* Tidak perlu flex di sini, ul yang akan di-flex */
+    /* Tidak perlu flex di sini */
 }
 
 .header-nav ul {
@@ -66,11 +68,11 @@ body {
 }
 
 .header-nav ul li {
-    margin-left: 20px; /* Spasi antar tombol */
+    margin-left: 10px; /* Spasi antar tombol mobile */
 }
 
 .header-nav ul li:first-child {
-    margin-left: 0;
+    margin-left: 15px; /* Jarak dari logo mobile */
 }
 
 .contact-button {
@@ -78,9 +80,9 @@ body {
     align-items: center;
     color: var(--white);
     text-decoration: none;
-    padding: 10px 15px;
+    padding: 8px 10px; /* Padding tombol mobile */
     border-radius: 5px;
-    transition: background-color 0.3s ease;
+    font-size: 0.8em; /* Ukuran font tombol mobile */
 }
 
 .whatsapp-button {
@@ -100,8 +102,8 @@ body {
 }
 
 .contact-button i {
-    margin-right: 8px;
-    font-size: 1.2em;
+    margin-right: 5px;
+    font-size: 1em;
 }
 
 /* Hapus gaya navigasi header yang lama jika tidak digunakan */
@@ -235,13 +237,58 @@ footer .social-links a:hover {
 }
 
 /* --- RESPONSIVE DESIGN (HEADER) --- */
+@media (min-width: 769px) {
+    .header-content .logo h1 {
+        font-size: 2em; /* Ukuran font logo default di desktop */
+    }
+
+    .header-content .logo img {
+        max-height: 40px; /* Tinggi logo default di desktop */
+    }
+
+    .header-nav ul li {
+        margin-left: 20px; /* Spasi antar tombol default di desktop */
+    }
+
+    .contact-button {
+        padding: 10px 15px; /* Padding tombol default di desktop */
+        font-size: 0.9em; /* Ukuran font tombol default di desktop */
+    }
+
+    .contact-button i {
+        font-size: 1.2em; /* Ukuran ikon default di desktop */
+        margin-right: 8px;
+    }
+}
+
 @media (max-width: 768px) {
     .header-content {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
+        justify-content: space-between; /* Logo kiri, tombol kanan */
+    }
+
+    .header-nav {
+        margin-left: auto; /* Dorong ke kanan */
     }
 
     .header-nav ul {
-        display: flex
-        
+        display: flex; /* Pastikan tombol horizontal */
+    }
+
+    .header-nav ul li {
+        margin-left: 8px;
+    }
+
+    .header-nav ul li:first-child {
+        margin-left: 15px; /* Jarak dari logo */
+    }
+
+    .contact-button {
+        padding: 6px 8px;
+        font-size: 0.75em;
+    }
+
+    .contact-button i {
+        font-size: 0.9em;
+        margin-right: 3px;
+    }
+}
