@@ -69,6 +69,14 @@ header {
     text-decoration: none;
     margin-left: 10px;
     font-size: 1.1em;
+    padding: 8px 12px; /* Tambahkan padding */
+    border-radius: 5px; /* Tambahkan sudut membulat */
+    background-color: rgba(255, 255, 255, 0.1); /* Latar belakang semi-transparan */
+    transition: background-color 0.3s ease; /* Efek transisi hover */
+}
+
+.mobile-links a:hover {
+    background-color: rgba(255, 255, 255, 0.2); /* Latar belakang hover yang lebih terang */
 }
 
 .mobile-links i {
@@ -221,6 +229,35 @@ footer {
     }
     header > .container > nav {
         display: none; /* Sembunyikan navigasi desktop */
+    }
+    .mobile-links { /* Gaya untuk desktop */
+        display: flex;
+        align-items: center;
+    }
+
+    .mobile-links a { /* Gaya untuk desktop */
+        color: var(--white);
+        text-decoration: none;
+        margin-left: 10px;
+        font-size: 1.1em;
+        padding: 8px 12px; /* Tambahkan padding */
+        border-radius: 5px; /* Tambahkan sudut membulat */
+        background-color: rgba(255, 255, 255, 0.1); /* Latar belakang semi-transparan */
+        transition: background-color 0.3s ease; /* Efek transisi hover */
+    }
+
+    .mobile-links a:hover { /* Gaya untuk desktop */
+        background-color: rgba(255, 255, 255, 0.2); /* Latar belakang hover yang lebih terang */
+    }
+
+    .mobile-links i { /* Gaya untuk desktop */
+        margin-right: 5px;
+    }
+
+    .separator { /* Gaya untuk desktop */
+        color: var(--white);
+        margin: 0 10px;
+        font-size: 1.1em;
     }
 }
 
