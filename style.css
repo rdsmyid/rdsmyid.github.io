@@ -288,14 +288,14 @@ footer {
         padding: 25px;
     }
     .mobile-links a {
-        font-size: 1em;
-        margin-left: 5px;
-        padding: 4px 8px; /* Perkecil padding atas, bawah, kiri, kanan untuk mobile */
-        border-radius: 3px;
-        background-color: rgba(255, 255, 255, 0.15); /* Sedikit lebih tebal untuk mobile */
+        font-size: 0.9em; /* Sedikit perkecil ukuran font juga */
+        margin-left: 3px; /* Kurangi margin kiri */
+        padding: 3px 6px; /* Perkecil lagi padding atas, bawah, kiri, kanan */
+        border-radius: 2px;
+        background-color: rgba(255, 255, 255, 0.15); /* Sedikit lebih tebal */
     }
-    .mobile-links a:first-child { /* Untuk tombol WhatsApp di mobile */
-        margin-right: 5px; /* Tambahkan margin kanan di mobile */
+    .mobile-links a:first-child { /* Untuk tombol WhatsApp */
+        margin-right: 3px; /* Kurangi margin kanan */
     }
     .separator {
         display: none; /* Sembunyikan separator di mobile karena sudah ada jarak */
@@ -334,4 +334,4 @@ footer {
         font-size: 1.6em;
         margin-right: 10px;
     }
-}
+    }
