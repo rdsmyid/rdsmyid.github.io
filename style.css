@@ -45,24 +45,23 @@ header {
     padding: 0.8em 20px; /* Sesuaikan padding */
 }
 
-.mobile-header-left {
-    display: flex;
-    align-items: center;
-    width: 100%; /* Memastikan menempati seluruh lebar yang tersedia */
-}
-
 .logo-mobile h1 {
     margin: 0;
     font-size: 1.8em; /* Ukuran logo */
     text-align: left; /* Agar logo di kiri */
     color: var(--white); /* Warna putih untuk logo */
-    margin-right: auto; /* Mendorong logo ke kiri maksimal */
+}
+
+.mobile-nav-right {
+    display: flex;
+    justify-content: flex-end; /* Mengatur konten di dalamnya ke kanan */
+    align-items: center;
+    width: auto; /* Biarkan lebarnya sesuai konten */
 }
 
 .mobile-links {
     display: flex;
     align-items: center;
-    margin-left: auto; /* Mendorong grup link ke kanan */
 }
 
 .mobile-links a {
