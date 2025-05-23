@@ -29,21 +29,25 @@ body {
     padding: 0 20px; /* Padding samping untuk responsivitas */
 }
 
-/* --- HEADER KUSTOM (RESPONSIVE) --- */
+/* --- HEADER KUSTOM (REVISI EKSPILISIT UNTUK VISIBILITAS) --- */
 .header-custom {
     background-color: var(--dark-bg);
     color: var(--white);
     padding: 0.8em 20px;
     width: 100%;
+    display: flex; /* Gunakan flex pada header-custom juga */
+    align-items: center;
+    justify-content: space-between;
 }
 
 .header-content {
-    display: flex;
-    justify-content: space-between; /* Logo kiri, tombol kanan */
-    align-items: center; /* Vertikal align tengah */
+    /* Tidak perlu display flex di sini lagi karena sudah di parent */
     max-width: 1200px;
     margin: 0 auto;
     width: 100%;
+    display: flex; /* Untuk menata logo dan nav di dalamnya */
+    align-items: center;
+    justify-content: space-between;
 }
 
 .header-content .logo h1 {
@@ -56,7 +60,7 @@ body {
 }
 
 .header-nav {
-    /* Tidak perlu flex di sini */
+    /* Tidak perlu margin-left: auto lagi, justifyContent sudah mengatur */
 }
 
 .header-nav ul {
@@ -237,58 +241,4 @@ footer .social-links a:hover {
 }
 
 /* --- RESPONSIVE DESIGN (HEADER) --- */
-@media (min-width: 769px) {
-    .header-content .logo h1 {
-        font-size: 2em; /* Ukuran font logo default di desktop */
-    }
-
-    .header-content .logo img {
-        max-height: 40px; /* Tinggi logo default di desktop */
-    }
-
-    .header-nav ul li {
-        margin-left: 20px; /* Spasi antar tombol default di desktop */
-    }
-
-    .contact-button {
-        padding: 10px 15px; /* Padding tombol default di desktop */
-        font-size: 0.9em; /* Ukuran font tombol default di desktop */
-    }
-
-    .contact-button i {
-        font-size: 1.2em; /* Ukuran ikon default di desktop */
-        margin-right: 8px;
-    }
-}
-
-@media (max-width: 768px) {
-    .header-content {
-        justify-content: space-between; /* Logo kiri, tombol kanan */
-    }
-
-    .header-nav {
-        margin-left: auto; /* Dorong ke kanan */
-    }
-
-    .header-nav ul {
-        display: flex; /* Pastikan tombol horizontal */
-    }
-
-    .header-nav ul li {
-        margin-left: 8px;
-    }
-
-    .header-nav ul li:first-child {
-        margin-left: 15px; /* Jarak dari logo */
-    }
-
-    .contact-button {
-        padding: 6px 8px;
-        font-size: 0.75em;
-    }
-
-    .contact-button i {
-        font-size: 0.9em;
-        margin-right: 3px;
-    }
-}
+@media (
