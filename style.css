@@ -92,8 +92,7 @@ main {
     padding: 20px;
     border-radius: 8px;
     box-shadow: 0 4px 10px var(--shadow-light);
-    margin-bottom: 20px; /* Tambahkan margin bottom */
-    /* margin-top: 20px; Hapus jika ada */
+    margin-bottom: 10px; /* Kurangi margin bottom menjadi 10px */
     transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
@@ -400,5 +399,4 @@ footer {
   -moz-user-select: none;
   -ms-user-select: none;
   user-select: none;
-    }
-        
+}
