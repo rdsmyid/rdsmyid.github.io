@@ -86,7 +86,7 @@ main {
 
 .section-padded {
     padding: 15px 0;
-    margin-bottom: 10px; /* Jarak setelah bagian Metode Pembayaran */
+    margin-bottom: 5px; /* Jarak setelah bagian Metode Pembayaran */
 }
 
 .info-card {
@@ -215,7 +215,7 @@ main {
 
 /* Gaya spesifik untuk join queue */
 #join-queue .info-card {
-    margin-top: 5px; /* Jarak sebelum bagian0pxrgabung di Antrian */
+    margin-top: 5px; /* Jarak sebelum bagian Bergabung di Antrian */
     text-align: center;
 }
 
