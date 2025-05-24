@@ -17,6 +17,7 @@ body {
     background-color: var(--light-bg);
     color: var(--text-color);
     line-height: 1.6;
+    padding-top: 0 !important; /* Reset padding-top body */
 }
 
 .container {
@@ -29,19 +30,25 @@ body {
 header {
     background-color: var(--dark-bg);
     color: var(--white);
-    padding: 1em 20px;
     text-align: left;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
 }
 
 .header-mobile {
-    display: none; /* Default sembunyi */
+    display: none;
 }
 
 .logo-mobile h1 {
-    font-size: 1.4em;
+    font-size: 1.2em;
     letter-spacing: 1px;
     color: var(--white);
-    margin-right: auto;
+    margin-right: 0.5em;
+    margin-bottom: 0;
+    display: inline-block;
 }
 
 .mobile-nav-right {
@@ -52,28 +59,35 @@ header {
 .mobile-links {
     display: flex;
     align-items: center;
+    white-space: nowrap;
 }
 
 .mobile-links a {
     color: var(--white);
     text-decoration: none;
-    margin-left: 10px;
-    font-size: 1em;
-    padding: 6px 10px;
+    margin-left: 0;
+    font-size: 0.9em;
+    padding: 0.5em 0.75em;
     border-radius: 5px;
     background-color: rgba(255, 255, 255, 0.1);
+    display: inline-flex;
+    align-items: center;
+    gap: 0.3em;
 }
 
-.mobile-links a i {
-    margin-right: 5px;
+.mobile-links a:not(:first-child) {
+    margin-left: 0.5em;
 }
 
 .header-desktop {
-    display: none; /* Default sembunyi */
+    display: none;
 }
 
 .header-desktop > .container {
-    display: flex; /* Tampilan untuk desktop */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1em 20px;
 }
 
 .header-desktop > .container h1 {
@@ -122,310 +136,33 @@ main {
     transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-.info-card:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
-}
-
-.info-card-header {
-    display: flex;
-    align-items: center;
-    margin-bottom: 15px;
-}
-
-.info-icon {
-    font-size: 1.8em;
-    color: var(--primary-color);
-    margin-right: 15px;
-    flex-shrink: 0;
-}
-
-.info-card-header h3 {
-    font-size: 1.1em;
-    margin: 0;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
-}
-
-/* Gaya spesifik untuk payment methods */
-.payment-methods-grid {
-    display: grid;
-    grid-template-columns: 1fr;
-    gap: 15px;
-    margin-top: 20px;
-}
-
-.payment-method-overview {
-    display: block; /* Override flex display */
-    cursor: pointer;
-    margin-bottom: 0; /* Remove bottom margin from the info-card */
-}
-
-.payment-details {
-    background-color: var(--white);
-    border-radius: 8px;
-    box-shadow: 0 4px 10px var(--shadow-light);
-    margin-top: 15px;
-    padding: 20px;
-    display: none;
-}
-
-.payment-details.active {
-    display: block;
-}
-
-.payment-list-item {
-    display: flex;
-    align-items: center;
-    gap: 15px;
-    padding: 10px 0;
-    border-bottom: 1px solid #eee;
-}
-
-.payment-list-item:last-child {
-    border-bottom: none;
-}
-
-.payment-list-item i {
-    font-size: 1.3em;
-    color: var(--secondary-color);
-    width: 30px;
-    text-align: center;
-}
-
-.payment-list-item span {
-    font-size: 0.95em;
-    color: var(--text-color);
-}
-
-/* Gaya spesifik untuk queue info */
-.queue-info-card {
-    /* Menggunakan gaya umum info-card */
-}
-
-.queue-count {
-    font-size: 1.3em;
-    font-weight: bold;
-    color: var(--primary-color);
-    margin-bottom: 5px;
-}
-
-.queue-updated-info {
-    font-size: 0.85em;
-    color: #7f8c8d;
-}
-
-/* Gaya spesifik untuk join queue */
-.join-queue-card {
-    /* Menggunakan gaya umum info-card */
-}
-
-.join-queue-description p {
-    font-size: 0.9em;
-    color: #7f8c8d;
-    margin-bottom: 15px;
-}
-
-.join-queue-button {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    gap: 0.5rem;
-    background: linear-gradient(135deg, var(--primary-color), var(--primary-hover-color));
-    color: var(--white) !important;
-    padding: 0.7rem 1.2rem;
-    border: none;
-    border-radius: 20px;
-    font-size: 0.9em;
-    cursor: pointer;
-    transition: all 0.3s ease;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
-    text-decoration: none !important;
-}
-
-.join-queue-button:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.25);
-}
-
-.registration-form {
-    margin-top: 20px;
-    padding: 15px;
-    background-color: var(--light-bg);
-    border-radius: 5px;
-    border: 1px solid #eee;
-    display: none; /* Hidden by default */
-}
-
-.registration-form.active {
-    display: block;
-}
-
-.registration-form h3 {
-    font-size: 1em;
-    margin-top: 0;
-    margin-bottom: 15px;
-    text-align: center;
-    color: var(--text-color);
-}
-
-.form-group {
-    margin-bottom: 15px;
-}
-
-.form-group label {
-    display: block;
-    font-size: 0.9em;
-    color: var(--text-color);
-    margin-bottom: 5px;
-}
-
-.form-group input[type="text"],
-.form-group input[type="number"] {
-    width: calc(100% - 12px);
-    padding: 8px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    font-size: 0.9em;
-}
-
-.input-hint {
-    font-size: 0.8em;
-    color: #777;
-    margin-top: 3px;
-}
-
-.registration-form button[type="submit"],
-#cancelFormBtn {
-    padding: 8px 15px;
-    border: none;
-    border-radius: 5px;
-    font-size: 0.9em;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-}
-
-.registration-form button[type="submit"] {
-    background-color: var(--secondary-color);
-    color: var(--white);
-}
-
-.registration-form button[type="submit"]:hover {
-    background-color: #0056b3;
-}
-
-#cancelFormBtn {
-    background-color: #f0f0f0;
-    color: var(--text-color);
-}
-
-#cancelFormBtn:hover {
-    background-color: #e0e0e0;
-}
-
-.submission-message {
-    margin-top: 20px;
-    padding: 15px;
-    background-color: #e6ffe6;
-    border: 1px solid #ccffcc;
-    border-radius: 5px;
-    text-align: center;
-    display: none; /* Hidden by default */
-}
-
-.submission-message h3 {
-    color: #2e8b57;
-    margin-top: 0;
-    margin-bottom: 10px;
-    font-size: 1em;
-}
-
-.submission-message p {
-    color: var(--text-color);
-    font-size: 0.9em;
-    margin-bottom: 0;
-}
-
-.g-recaptcha {
-    margin-top: 10px;
-}
-
-/* --- FOOTER --- */
-footer {
-    background-color: var(--dark-bg);
-    color: var(--white);
-    padding: 1.5em 0;
-    text-align: center;
-    font-size: 0.9em;
-}
+/* ... sisa CSS ... */
 
 /* --- RESPONSIVE DESIGN --- */
 @media (max-width: 768px) {
     .header-desktop {
-        display: none !important; /* Sembunyikan header desktop di mobile */
+        display: none !important;
     }
     .header-mobile {
         display: flex !important;
         justify-content: space-between !important;
         align-items: center !important;
-        position: fixed !important;
-        top: 0 !important;
-        left: 0 !important;
-        width: 100% !important;
-        z-index: 1000 !important;
-        background-color: var(--dark-bg) !important;
-        color: var(--white) !important;
         padding: 0.75em 1em !important;
-        min-height: auto !important;
-        box-sizing: border-box !important;
-    }
-    .logo-mobile {
-        display: block !important;
-    }
-    .logo-mobile h1 {
-        font-size: 1.2em !important;
-        letter-spacing: 1px !important;
-        color: var(--white) !important;
-        margin-right: 0.5em !important;
-        margin-bottom: 0 !important;
-        display: inline-block !important;
-    }
-    .mobile-nav-right {
-        display: flex !important;
-        align-items: center !important;
-    }
-    .mobile-links {
-        display: flex !important;
-        align-items: center !important;
-        white-space: nowrap !important;
-    }
-    .mobile-links a {
-        color: var(--white) !important;
-        text-decoration: none !important;
-        margin-left: 0 !important;
-        font-size: 0.9em !important;
-        padding: 0.5em 0.75em !important;
-        border-radius: 5px !important;
-        background-color: rgba(255, 255, 255, 0.1) !important;
-        display: inline-flex !important;
-        align-items: center !important;
-        gap: 0.3em !important;
-    }
-    .mobile-links a:not(:first-child) {
-        margin-left: 0.5em !important;
     }
     body {
-        padding-top: 50px !important;
+        padding-top: 50px !important; /* Adjust padding for fixed mobile header */
     }
 }
 
 @media (min-width: 769px) {
     .header-mobile {
-        display: none !important; /* Sembunyikan header mobile di desktop */
+        display: none !important;
     }
     .header-desktop {
-        display: block !important; /* Tampilkan header desktop di desktop */
+        display: block !important;
+    }
+    body {
+        padding-top: 66px !important; /* Adjust padding for fixed desktop header (approx height) */
     }
 }
 
@@ -435,5 +172,4 @@ footer {
   -moz-user-select: none;
   -ms-user-select: none;
   user-select: none;
-    }
-        
+}
