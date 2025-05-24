@@ -34,10 +34,11 @@ header {
 }
 
 .header-mobile {
-    display: none; /* Sembunyikan mobile secara default */
+    display: flex;
     justify-content: space-between; /* Agar logo dan tombol terpisah */
     align-items: center;
     padding: 1em 20px; /* Berikan padding agar tidak terlalu mepet tepi layar */
+    min-height: 50px; /* Tambahkan tinggi minimal */
 }
 
 .logo-mobile h1 {
@@ -408,4 +409,4 @@ footer {
   -moz-user-select: none;
   -ms-user-select: none;
   user-select: none;
-}
+        }
