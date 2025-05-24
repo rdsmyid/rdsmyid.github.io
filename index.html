@@ -54,49 +54,50 @@
     <style>
         .payment-methods-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); /* Lebar min sedikit dikurangi */
-            gap: 20px; /* Gap dikurangi */
-            margin-top: 30px; /* Margin top dikurangi */
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); /* Seperti feature grid */
+            gap: 30px;
+            margin-top: 40px;
         }
 
         .payment-method-item {
             background-color: var(--white);
+            padding: 20px;
             border-radius: 8px;
-            box-shadow: 0 4px 8px var(--shadow-light); /* Sedikit kurangi shadow */
+            box-shadow: 0 4px 10px var(--shadow-light);
             text-align: center;
             cursor: pointer;
             transition: transform 0.3s ease, box-shadow 0.3s ease;
-            padding: 15px; /* Padding dikurangi */
+            margin-bottom: 20px; /* Spasi antar item */
         }
 
         .payment-method-item:hover {
-            transform: translateY(-3px); /* Efek hover dikurangi */
-            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1); /* Efek hover shadow dikurangi */
-        }
-
-        .payment-method-header {
-            padding-bottom: 10px;
+            transform: translateY(-5px);
+            box-shadow: 0 8px 15px rgba(0, 0, 0, 0.15);
         }
 
         .payment-method-item i {
-            font-size: 1.8em; /* Ukuran ikon dikurangi */
+            font-size: 2em;
             color: var(--primary-color);
-            margin-bottom: 5px; /* Margin bottom ikon dikurangi */
+            margin-bottom: 10px;
         }
 
         .payment-method-item h3 {
             color: var(--primary-color);
             margin-top: 0;
-            font-size: 1.1em; /* Ukuran judul dikurangi */
+            font-size: 1.3em;
             margin-bottom: 0;
         }
 
         .payment-details {
             text-align: left;
-            margin-top: 10px;
-            display: none;
+            margin-top: 15px;
             border-top: 1px solid #eee;
-            padding-top: 10px;
+            padding-top: 15px;
+            display: none; /* Hidden by default */
+            background-color: var(--white); /* Optional: match background */
+            border-radius: 0 0 8px 8px; /* Optional: rounded bottom */
+            padding-left: 20px;
+            padding-right: 20px;
         }
 
         .payment-details.active {
@@ -107,12 +108,14 @@
             display: flex;
             align-items: center;
             gap: 10px;
-            padding: 8px 10px;
+            padding: 8px 0;
         }
 
         .payment-list-item i {
             font-size: 1.2em;
             color: var(--secondary-color);
+            width: 30px;
+            text-align: center;
         }
 
         .payment-list-item span {
@@ -201,10 +204,8 @@
                 <h2>Pilihan Metode Pembayaran</h2>
                 <div class="payment-methods-grid">
                     <div class="payment-method-item" onclick="togglePaymentDetails('qris')">
-                        <div class="payment-method-header">
-                            <i class="fas fa-qrcode"></i>
-                            <h3>QRIS</h3>
-                        </div>
+                        <i class="fas fa-qrcode"></i>
+                        <h3>QRIS</h3>
                         <div class="payment-details" id="qris-details">
                             <div class="payment-list-item">
                                 <i class="fas fa-qrcode"></i>
@@ -213,10 +214,8 @@
                         </div>
                     </div>
                     <div class="payment-method-item" onclick="togglePaymentDetails('bank-transfer')">
-                        <div class="payment-method-header">
-                            <i class="fas fa-university"></i>
-                            <h3>Transfer Bank</h3>
-                        </div>
+                        <i class="fas fa-university"></i>
+                        <h3>Transfer Bank</h3>
                         <div class="payment-details" id="bank-transfer-details">
                             <div class="payment-list-item">
                                 <i class="fas fa-building-columns"></i>
@@ -229,10 +228,8 @@
                         </div>
                     </div>
                     <div class="payment-method-item" onclick="togglePaymentDetails('paypal')">
-                        <div class="payment-method-header">
-                            <i class="fab fa-cc-paypal"></i>
-                            <h3>PayPal</h3>
-                        </div>
+                        <i class="fab fa-cc-paypal"></i>
+                        <h3>PayPal</h3>
                         <div class="payment-details" id="paypal-details">
                             <div class="payment-list-item">
                                 <i class="fab fa-paypal"></i>
@@ -241,10 +238,8 @@
                         </div>
                     </div>
                     <div class="payment-method-item" onclick="togglePaymentDetails('amazon-pay')">
-                        <div class="payment-method-header">
-                            <i class="fab fa-amazon-pay"></i>
-                            <h3>Amazon Pay</h3>
-                        </div>
+                        <i class="fab fa-amazon-pay"></i>
+                        <h3>Amazon Pay</h3>
                         <div class="payment-details" id="amazon-pay-details">
                             <div class="payment-list-item">
                                 <i class="fab fa-amazon-pay"></i>
@@ -254,7 +249,7 @@
                     </div>
                 </div>
                 <div class="text-center" style="margin-top: 20px; font-size: 0.9em; color: #777;">
-                    Rekening tujuan atau detail pembayaran lainnya akan diinformasikan oleh Admin.
+                    Rekening tujuan atau kode QRIS silahkan hubungi Admin
                 </div>
             </div>
         </section>
