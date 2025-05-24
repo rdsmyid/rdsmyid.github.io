@@ -29,23 +29,23 @@ body {
 .main-header {
     background-color: var(--dark-bg);
     color: var(--white);
-    padding: 0.75em 20px; /* Sedikit kurangi padding vertikal */
+    padding: 0.75em 20px;
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
     z-index: 1000;
-    box-sizing: border-box; /* Penting agar padding tidak menambah lebar total */
+    box-sizing: border-box;
 }
 
 .header-content {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    max-width: 1200px; /* Batasi lebar konten header */
+    max-width: 1200px;
     margin: 0 auto;
-    padding: 0; /* Hapus padding di sini karena sudah ada di .main-header */
-    width: 100%; /* Pastikan mengisi lebar parent */
+    padding: 0;
+    width: 100%;
 }
 
 .logo h1 {
@@ -63,7 +63,7 @@ body {
 }
 
 .main-nav ul li {
-    margin-left: 15px; /* Sedikit kurangi margin antar item navigasi */
+    margin-left: 15px;
 }
 
 .main-nav ul li a {
@@ -71,7 +71,7 @@ body {
     text-decoration: none;
     display: flex;
     align-items: center;
-    font-size: 0.95em; /* Sedikit perkecil ukuran font navigasi */
+    font-size: 0.95em;
 }
 
 .main-nav ul li a i {
@@ -80,7 +80,7 @@ body {
 
 /* --- MAIN CONTENT --- */
 main {
-    padding-top: 60px; /* Sesuaikan dengan tinggi header */
+    padding-top: 60px;
 }
 
 .section-padded {
@@ -92,8 +92,14 @@ main {
     padding: 20px;
     border-radius: 8px;
     box-shadow: 0 4px 10px var(--shadow-light);
-    margin-top: 20px;
+    margin-bottom: 20px; /* Tambahkan margin bottom */
+    /* margin-top: 20px; Hapus jika ada */
     transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Hapus margin-bottom pada info-card terakhir (Bergabung di Antrian) */
+#join-queue .join-queue-card {
+    margin-bottom: 0;
 }
 
 .info-card:hover {
@@ -133,7 +139,7 @@ main {
 .payment-method-overview {
     display: block; /* Override flex display */
     cursor: pointer;
-    margin-bottom: 0; /* Remove bottom margin from the info-card */
+    margin-bottom: 0; /* Remove bottom margin dari info-card overview */
 }
 
 .payment-details {
@@ -337,26 +343,26 @@ footer {
 /* --- RESPONSIVE DESIGN --- */
 @media (max-width: 768px) {
     .header-content {
-        flex-direction: row; /* Ubah menjadi baris */
-        justify-content: space-between; /* Logo kiri, navigasi kanan */
-        align-items: center; /* Vertikal tengah */
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
     }
 
     .logo {
-        margin-bottom: 0; /* Hilangkan margin bawah logo */
+        margin-bottom: 0;
     }
 
     .main-nav ul {
-        flex-direction: row; /* Ubah navigasi menjadi baris */
+        flex-direction: row;
         align-items: center;
     }
 
     .main-nav ul li {
-        margin: 0 0 0 15px; /* Atur margin kiri antar item navigasi */
+        margin: 0 0 0 15px;
     }
 
     main {
-        padding-top: 60px; /* Sesuaikan padding agar tidak tertutup header */
+        padding-top: 60px;
     }
 }
 
@@ -384,7 +390,7 @@ footer {
     }
 
     main {
-        padding-top: 60px; /* Sesuaikan padding untuk desktop */
+        padding-top: 60px;
     }
 }
 
@@ -394,4 +400,5 @@ footer {
   -moz-user-select: none;
   -ms-user-select: none;
   user-select: none;
-}
+    }
+        
