@@ -129,6 +129,48 @@
             font-size: 1em;
             color: var(--text-color);
         }
+
+        /* Style untuk info antrian */
+        .queue-info-card {
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+            padding: 2rem;
+            text-align: center;
+            margin-top: 20px; /* Spasi dari metode pembayaran */
+        }
+
+        .queue-info-icon {
+            font-size: 3em;
+            color: #3498db;
+            margin-bottom: 10px;
+        }
+
+        .queue-info-header h2 {
+            color: #2c3e50;
+            margin-top: 15px;
+            font-size: 1.5em;
+            margin-bottom: 10px;
+        }
+
+        .queue-count {
+            font-size: 2.5rem;
+            font-weight: bold;
+            color: #3498db;
+            margin-bottom: 15px;
+        }
+
+        .queue-updated-info {
+            color: #7f8c8d;
+            font-size: 0.9em;
+        }
+
+        .no-select {
+          -webkit-user-select: none; /* Safari */
+          -moz-user-select: none; /* Firefox */
+          -ms-user-select: none; /* Internet Explorer/Edge */
+          user-select: none; /* Standar */
+        }
     </style>
 </head>
 <body>
@@ -196,9 +238,21 @@
                                 <span>Amazon Pay</span>
                             </div>
                             <div class="text-center" style="margin-top: 20px; font-size: 0.9em; color: #777;">
-                                Informasi rekening tujuan atau kode QRIS silahkan hubungi Admin
+                                Rekening tujuan atau kode QRIS silahkan hubungi Admin
                             </div>
                         </div>
+                    </div>
+                    <div class="queue-info-card">
+                        <i class="fas fa-list-ol queue-info-icon"></i>
+                        <div class="queue-info-header">
+                            <h2 class="no-select">Informasi Jumlah Antrian</h2>
+                        </div>
+                        <div class="queue-count no-select">
+                            <span id="jumlah-antrian">Memuat...</span>
+                        </div>
+                        <p class="queue-updated-info no-select">
+                            Data ini diperbarui secara otomatis
+                        </p>
                     </div>
                     <div class="feature-item">
                         <h3><i class="fa fa-bolt"></i> Proses Cepat</h3>
@@ -257,6 +311,16 @@
                 detailsDiv.classList.toggle('active');
             }
         }
+
+        // Ambil data jumlah antrian
+        fetch("https://script.google.com/macros/s/AKfycbwSsNij1w0vFB9VD77294mgpFNQkbiL-f2SyCCmoO7wUYxEhCP-OUv5XhKoqjtG2L8/exec?action=json")
+            .then(response => response.json())
+            .then(data => {
+                document.getElementById("jumlah-antrian").innerText = data.jumlah;
+            })
+            .catch(() => {
+                document.getElementById("jumlah-antrian").innerText = "Gagal Memuat";
+            });
     </script>
 </body>
 </html>
