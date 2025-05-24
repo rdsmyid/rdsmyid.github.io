@@ -37,6 +37,7 @@
     <link rel="stylesheet" href="style.css">
     <link href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
 
     <script type="application/ld+json">
         {
@@ -184,6 +185,59 @@
           -ms-user-select: none; /* Internet Explorer/Edge */
           user-select: none; /* Standar */
         }
+
+        /* Style untuk bagian Bergabung di Antrian */
+        .join-queue-card {
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+            padding: 2rem;
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        .join-queue-icon {
+            font-size: 3em;
+            color: #27ae60;
+            margin-bottom: 10px;
+        }
+
+        .join-queue-header h2 {
+            color: #2c3e50;
+            margin-top: 15px;
+            font-size: 1.5em;
+            margin-bottom: 15px;
+        }
+
+        .join-queue-description p {
+            color: #7f8c8d;
+            font-size: 1.1em;
+            line-height: 1.6;
+            margin-bottom: 20px;
+        }
+
+        .join-queue-button {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 1rem;
+            background: linear-gradient(135deg, #3498db, #2980b9);
+            color: white !important;
+            padding: 1.2rem 3rem;
+            border: none;
+            border-radius: 30px;
+            font-size: 1.1rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(52,152,219,0.3);
+            text-decoration: none !important;
+        }
+
+        .join-queue-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(52,152,219,0.4);
+            text-decoration: none !important;
+        }
     </style>
 </head>
 <body>
@@ -267,6 +321,58 @@
                             Data ini diperbarui secara otomatis
                         </p>
                     </div>
+                    <div class="join-queue-card">
+                        <i class="fas fa-people-arrows join-queue-icon"></i>
+                        <div class="join-queue-header">
+                            <h2 class="no-select">Bergabung di Antrian</h2>
+                        </div>
+                        <div class="join-queue-description no-select">
+                            <p class="no-select">
+                                Bergabunglah dengan antrian untuk mempercepat proses layanan.<br>
+                                Silakan tekan tombol di bawah ini untuk mendaftar.
+                            </p>
+                        </div>
+                        <div class="queue-section no-select">
+                            <button id="showFormBtn" class="join-queue-button no-select">
+                                <i class="fas fa-user-clock"></i>
+                                Masuk Antrian
+                            </button>
+
+                            <form action="https://docs.google.com/forms/d/e/1FAIpQLSeoOoBcyIHwty6FsXmmpOQ4vk0urHJkgP4xyR1jEoia_uCURA/formResponse"
+                                  method="POST"
+                                  id="registrationForm"
+                                  class="registration-form">
+                                <h3 class="no-select">Formulir Pendaftaran</h3>
+                                <div class="form-group">
+                                    <label for="nama" class="no-select">Nama:</label>
+                                    <input type="text" id="nama" name="entry.322664274" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="kontak" class="no-select">Kontak:</label>
+                                    <input type="text" id="kontak" name="entry.153037566" required>
+                                    <div class="input-hint no-select">WhatsApp atau lainnya</div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="jumlah
+                                                                            Jumlah Pesanan:</label>
+                                    <input type="number" id="jumlah" name="entry.1280626580" min="3" required>
+                                    <div class="input-hint no-select">Minimal 3 Akun</div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="g-recaptcha" data-sitekey="6LcYkkUrAAAAAJ56YJX5gXSM_Dgy9cOBfItAWeX2"></div>
+                                </div>
+                                <div style="display: flex; gap: 10px; margin-top: 15px;">
+                                    <button type="submit" class="no-select">Kirim</button>
+                                    <button type="button" id="cancelFormBtn" class="no-select">Batal</button>
+                                </div>
+                            </form>
+
+                            <div id="submissionMessage" class="submission-message no-select">
+                                <h3 class="no-select">Terima Kasih!</h3>
+                                <p class="no-select">Formulir Anda telah terkirim.<br>Admin kami akan segera menindaklanjuti.</p>
+                            </div>
+                        </div>
+                    </div>
                     <div class="feature-item">
                         <h3><i class="fa fa-bolt"></i> Proses Cepat</h3>
                         <p>Dapatkan akun impian Anda dalam hitungan menit setelah pembayaran berhasil.</p>
@@ -334,6 +440,62 @@
             .catch(() => {
                 document.getElementById("jumlah-antrian").innerText = "Gagal Memuat";
             });
+
+        document.addEventListener('DOMContentLoaded', () => {
+            const registrationForm = document.getElementById('registrationForm');
+            const showFormBtn = document.getElementById('showFormBtn');
+            const submissionMessage = document.getElementById('submissionMessage');
+            const cancelFormBtn = document.getElementById('cancelFormBtn');
+
+            // Sembunyikan formulir dan pesan saat halaman pertama kali dimuat
+            registrationForm.style.display = 'none';
+            submissionMessage.style.display = 'none';
+
+            showFormBtn.addEventListener('click', () => {
+                showFormBtn.style.display = 'none';
+                registrationForm.style.display = 'block';
+            });
+
+            cancelFormBtn.addEventListener('click', () => {
+                registrationForm.style.display = 'none';
+                showFormBtn.style.display = 'inline-flex';
+            });
+
+            registrationForm.addEventListener('submit', function(event) {
+                if (typeof grecaptcha !== 'undefined' && grecaptcha.getResponse() === "") {
+                    event.preventDefault();
+                    alert("Harap selesaikan verifikasi 'Saya bukan robot'.");
+                    return;
+                }
+
+                // Jika reCAPTCHA sudah diselesaikan atau objek grecaptcha tidak ada,
+                // biarkan formulir dikirim
+                const formData = new FormData(registrationForm);
+                const params = new URLSearchParams();
+                formData.forEach((value, key) => {
+                    params.append(key, value);
+                });
+
+                const googleFormActionURL = "https://docs.google.com/forms/d/e/1FAIpQLSeoOoBcyIHwty6FsXmmpOQ4vk0urHJkgP4xyR1jEoia_uCURA/formResponse";
+
+                fetch(googleFormActionURL, {
+                    method: 'POST',
+                    mode: 'no-cors',
+                    body: params,
+                })
+                .then(response => {
+                    console.log('Data berhasil dikirim (no-cors):', response);
+                    registrationForm.style.display = 'none';
+                    submissionMessage.style.display = 'block';
+                    showFormBtn.style.display = 'inline-flex';
+                    registrationForm.reset();
+                })
+                .catch(error => {
+                    console.error('Terjadi kesalahan saat mengirim data:', error);
+                    alert('Terjadi kesalahan saat mengirim formulir.');
+                });
+            });
+        });
     </script>
 </body>
 </html>
