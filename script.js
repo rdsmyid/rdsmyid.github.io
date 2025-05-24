@@ -10,8 +10,15 @@ document.addEventListener('DOMContentLoaded', function() {
     // Fungsi untuk menampilkan/menyembunyikan detail pembayaran
     window.togglePaymentDetails = function(id) {
         const details = document.getElementById(id + '-details');
+        const overview = document.querySelector(`.${id}-method-overview`);
+
         if (details) {
             details.classList.toggle('active');
+            if (overview) {
+                overview.classList.toggle('payment-details-active');
+            } else if (paymentOverview) {
+                paymentOverview.classList.toggle('payment-details-active');
+            }
         }
     };
 
