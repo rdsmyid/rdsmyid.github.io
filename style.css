@@ -33,20 +33,27 @@ header {
     text-align: left;
 }
 
+/* Sembunyikan header desktop secara default */
 header > .container {
+    display: none;
+}
+
+/* Tampilkan header mobile secara default */
+.header-mobile {
     display: flex;
     justify-content: space-between;
     align-items: center;
 }
 
-header h1 {
-    font-size: 2em;
+.logo-mobile h1 {
+    font-size: 1.4em;
     letter-spacing: 1px;
     margin-right: auto;
 }
 
-header > .container > nav {
-    display: none;
+.mobile-nav-right {
+    display: flex;
+    align-items: center;
 }
 
 .mobile-links {
@@ -73,10 +80,36 @@ header > .container > nav {
     margin-right: 5px;
 }
 
-.separator {
+header > .container h1 {
+    font-size: 2em;
+    letter-spacing: 1px;
+    margin-right: auto;
+}
+
+header > .container nav {
+    display: flex;
+}
+
+header > .container nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    align-items: center;
+}
+
+header > .container nav ul li {
+    margin-left: 20px;
+}
+
+header > .container nav ul li a {
     color: var(--white);
-    margin: 0 10px;
-    font-size: 1em;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+header > .container nav ul li a:hover {
+    color: var(--primary-color);
 }
 
 /* --- MAIN CONTENT --- */
@@ -337,46 +370,11 @@ footer {
 
 /* --- RESPONSIVE DESIGN --- */
 @media (min-width: 769px) {
-    header {
-        padding: 1em 20px;
-        text-align: left;
+    header > .container {
+        display: flex;
     }
     .header-mobile {
         display: none;
-    }
-    header > .container {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-    }
-    header h1 {
-        font-size: 2em;
-        letter-spacing: 1px;
-        margin-right: auto;
-    }
-    header > .container > nav {
-        display: flex;
-    }
-    header > .container > .mobile-links {
-        display: none;
-    }
-    header nav ul {
-        list-style: none;
-        padding: 0;
-        margin: 0;
-        display: flex;
-        align-items: center;
-    }
-    header nav ul li {
-        margin-left: 20px;
-    }
-    header nav ul li a {
-        color: var(--white);
-        text-decoration: none;
-        transition: color 0.3s ease;
-    }
-    header nav ul li a:hover {
-        color: var(--primary-color);
     }
 }
 
@@ -387,7 +385,7 @@ footer {
 }
 
 @media (max-width: 768px) {
-    header > .container > nav {
+    header > .container {
         display: none;
     }
     .header-mobile {
@@ -432,4 +430,4 @@ footer {
   -moz-user-select: none;
   -ms-user-select: none;
   user-select: none;
-}
+    }
