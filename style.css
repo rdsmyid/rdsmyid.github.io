@@ -34,13 +34,7 @@ header {
 }
 
 .header-mobile {
-    display: none;
-    justify-content: space-between;
-    align-items: center;
-    padding: 1em 20px;
-    min-height: 50px;
-    background-color: var(--dark-bg);
-    color: var(--white);
+    display: none; /* Default sembunyi */
 }
 
 .logo-mobile h1 {
@@ -75,7 +69,7 @@ header {
 }
 
 header > .container {
-    display: flex;
+    display: flex; /* Tampilan default untuk desktop */
 }
 
 header > .container h1 {
@@ -365,54 +359,57 @@ footer {
 /* --- RESPONSIVE DESIGN --- */
 @media (max-width: 768px) {
     header > .container {
-        display: none !important;
+        display: none !important; /* Sembunyikan header desktop di mobile */
     }
     .header-mobile {
         display: flex !important;
-        flex-direction: row; /* Atur arah flex menjadi baris */
-        justify-content: space-between;
-        align-items: center;
+        justify-content: space-between !important;
+        align-items: center !important;
         position: fixed !important;
         top: 0 !important;
         left: 0 !important;
         width: 100% !important;
         z-index: 1000 !important;
         background-color: var(--dark-bg) !important;
-        color: var(--white) !important; /* Inherit warna teks putih */
-        padding: 1em 20px;
-        min-height: 50px;
+        color: var(--white) !important;
+        padding: 0.75em 1em !important;
+        min-height: auto !important;
+        box-sizing: border-box !important;
     }
     .logo-mobile {
-        display: block !important; /* Tampilkan logo-mobile */
+        display: block !important;
     }
     .logo-mobile h1 {
-        font-size: 1.4em;
-        letter-spacing: 1px;
-        color: var(--white) !important; /* Warna teks logo putih */
-        margin-right: auto;
-        display: block !important; /* Tampilkan h1 logo */
+        font-size: 1.2em !important;
+        letter-spacing: 1px !important;
+        color: var(--white) !important;
+        margin-right: 0.5em !important;
+        margin-bottom: 0 !important;
+        display: inline-block !important;
     }
     .mobile-nav-right {
-        display: flex !important; /* Tampilkan kontainer tombol */
-        align-items: center;
+        display: flex !important;
+        align-items: center !important;
     }
     .mobile-links {
-        display: flex !important; /* Tampilkan link-link */
-        align-items: center;
+        display: flex !important;
+        align-items: center !important;
+        white-space: nowrap !important;
     }
     .mobile-links a {
-        color: var(--white) !important; /* Warna teks link putih */
-        text-decoration: none;
-        margin-left: 10px;
-        font-size: 1em;
-        padding: 6px 10px;
-        border-radius: 5px;
-        background-color: rgba(255, 255, 255, 0.1);
-        display: inline-flex !important; /* Tampilkan link inline-flex */
-        align-items: center;
+        color: var(--white) !important;
+        text-decoration: none !important;
+        margin-left: 0 !important;
+        font-size: 0.9em !important;
+        padding: 0.5em 0.75em !important;
+        border-radius: 5px !important;
+        background-color: rgba(255, 255, 255, 0.1) !important;
+        display: inline-flex !important;
+        align-items: center !important;
+        gap: 0.3em !important;
     }
-    .mobile-links a i {
-        margin-right: 5px;
+    .mobile-links a:not(:first-child) {
+        margin-left: 0.5em !important;
     }
     body {
         padding-top: 50px !important;
@@ -421,7 +418,7 @@ footer {
 
 @media (min-width: 769px) {
     .header-mobile {
-        display: none !important;
+        display: none !important; /* Sembunyikan header mobile di desktop */
     }
 }
 
@@ -431,5 +428,4 @@ footer {
   -moz-user-select: none;
   -ms-user-select: none;
   user-select: none;
-        }
-        
+}
