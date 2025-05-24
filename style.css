@@ -48,6 +48,16 @@ body {
     width: 100%;
 }
 
+.logo {
+    /* Gaya lain untuk div .logo jika ada */
+}
+
+.logo img {
+    max-height: 30px; /* Sesuaikan tinggi maksimum logo di sini */
+    width: auto;
+    display: block;
+}
+
 .logo h1 {
     font-size: 1.5em;
     letter-spacing: 1px;
