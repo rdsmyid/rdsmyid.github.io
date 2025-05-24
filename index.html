@@ -186,7 +186,7 @@
           user-select: none; /* Standar */
         }
 
-        /* Style untuk bagian Bergabung di Antrian */
+        /* Style untuk bagian Bergabung di Antrian dengan efek klik */
         .join-queue-card {
             background: white;
             border-radius: 12px;
@@ -194,6 +194,18 @@
             padding: 2rem;
             text-align: center;
             margin-top: 20px;
+            cursor: pointer; /* Tambahkan cursor pointer */
+            transition: transform 0.2s ease, box-shadow 0.2s ease; /* Tambahkan transisi */
+        }
+
+        .join-queue-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 15px rgba(0,0,0,0.1);
+        }
+
+        .join-queue-card:active {
+            transform: translateY(0);
+            box-shadow: 0 2px 10px rgba(0,0,0,0.08);
         }
 
         .join-queue-icon {
@@ -214,6 +226,10 @@
             font-size: 1.1em;
             line-height: 1.6;
             margin-bottom: 20px;
+        }
+
+        .join-queue-button-area {
+            /* Style untuk area tombol agar tetap di tengah */
         }
 
         .join-queue-button {
@@ -237,6 +253,105 @@
             transform: translateY(-2px);
             box-shadow: 0 6px 20px rgba(52,152,219,0.4);
             text-decoration: none !important;
+        }
+
+        .registration-form {
+            display: none;
+            margin-top: 20px;
+            text-align: left;
+        }
+
+        .form-group {
+            display: flex;
+            flex-direction: column;
+            margin-bottom: 10px;
+        }
+
+        .form-row {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .form-row > div {
+            flex-grow: 1;
+        }
+
+        .registration-form label {
+            display: block;
+            margin-bottom: 5px;
+            color: #34495e;
+            font-weight: bold;
+        }
+
+        .registration-form input[type="text"],
+        .registration-form input[type="number"] {
+            width: 100%;
+            padding: 0.8rem;
+            border: 1px solid #d1d8e0;
+            border-radius: 8px;
+            box-sizing: border-box;
+        }
+
+        .input-hint {
+            font-size: 0.85rem;
+            color: #7f8c8d;
+            margin-top: 3px;
+        }
+
+        .registration-form button {
+            background: #2ecc71;
+            color: white;
+            padding: 1rem 2rem;
+            border: none;
+            border-radius: 8px;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            margin-top: 15px;
+        }
+
+        .registration-form button:hover {
+            background-color: #27ae60;
+        }
+
+        .submission-message {
+            display: none;
+            margin-top: 20px;
+            padding: 1.5rem;
+            background-color: #d4edda;
+            color: #155724;
+            border: 1px solid #c3e6cb;
+            border-radius: 8px;
+            text-align: center;
+        }
+
+        .submission-message h3 {
+            margin-top: 0;
+            margin-bottom: 10px;
+            color: #155724;
+        }
+
+        p {
+            color: #7f8c8d;
+            line-height: 1.6;
+            margin-bottom: 1.8rem;
+            font-size: 1.05rem;
+        }
+
+        @media (max-width: 480px) {
+            .form-row {
+                flex-direction: column;
+                gap: 10px;
+            }
+        }
+
+        /* CSS untuk mencegah seleksi teks */
+        .no-select {
+          -webkit-user-select: none; /* Safari */
+          -moz-user-select: none; /* Firefox */
+          -ms-user-select: none; /* Internet Explorer/Edge */
+          user-select: none; /* Standar */
         }
     </style>
 </head>
@@ -279,7 +394,7 @@
                 <div class="feature-grid">
                     <div class="feature-item">
                         <h3><i class="fa fa-shield-alt"></i> Keamanan Terjamin</h3>
-                        <p>Semua transaksi di RDS dilindungi dengan sistem keamanan canggih untuk ketenangan Anda.</p>
+                                                <p>Semua transaksi di RDS dilindungi dengan sistem keamanan canggih untuk ketenangan Anda.</p>
                     </div>
                     <div class="payment-methods-grid">
                         <div class="payment-method-overview" onclick="togglePaymentDetails('payment')">
@@ -353,8 +468,7 @@
                                     <div class="input-hint no-select">WhatsApp atau lainnya</div>
                                 </div>
                                 <div class="form-group">
-                                    <label for="jumlah
-                                                                            Jumlah Pesanan:</label>
+                                    <label for="jumlah" class="no-select">Jumlah Pesanan:</label>
                                     <input type="number" id="jumlah" name="entry.1280626580" min="3" required>
                                     <div class="input-hint no-select">Minimal 3 Akun</div>
                                 </div>
@@ -382,37 +496,6 @@
                         <p>Kami hanya menyediakan akun terverifikasi dan berkualitas tinggi.</p>
                     </div>
                 </div>
-            </div>
-        </section>
-
-        <section id="categories" class="section-padded bg-light">
-            <div class="container">
-                <h2>Jelajahi Kategori Akun Kami</h2>
-                <div class="category-grid">
-                    <div class="category-item">
-                        <h3>Akun Game Online</h3>
-                        <p>Mobile Legends, Free Fire, PUBG Mobile, Genshin Impact, dan banyak lagi.</p>
-                        <a href="#" class="btn secondary-btn">Lihat Game</a>
-                    </div>
-                    <div class="category-item">
-                        <h3>Akun Media Sosial</h3>
-                        <p>Instagram dengan followers, TikTok, Twitter, Facebook Pages.</p>
-                        <a href="#" class="btn secondary-btn">Lihat Sosmed</a>
-                    </div>
-                    <div class="category-item">
-                        <h3>Akun Premium</h3>
-                        <p>Netflix, Spotify, YouTube Premium, VPN, dan layanan streaming lainnya.</p>
-                        <a href="#" class="btn secondary-btn">Lihat Premium</a>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <section id="cta" class="section-padded text-center">
-            <div class="container">
-                <h2>Siap Menemukan Akun Terbaik Anda?</h2>
-                <p>Jangan lewatkan penawaran menarik! Mulai belanja sekarang atau hubungi kami untuk informasi lebih lanjut.</p>
-                <a href="#" class="btn primary-btn large-btn">Mulai Belanja</a>
             </div>
         </section>
     </main>
@@ -446,6 +529,7 @@
             const showFormBtn = document.getElementById('showFormBtn');
             const submissionMessage = document.getElementById('submissionMessage');
             const cancelFormBtn = document.getElementById('cancelFormBtn');
+            const joinQueueCard = document.querySelector('.join-queue-card'); // Ambil elemen card bergabung antrian
 
             // Sembunyikan formulir dan pesan saat halaman pertama kali dimuat
             registrationForm.style.display = 'none';
@@ -495,6 +579,18 @@
                     alert('Terjadi kesalahan saat mengirim formulir.');
                 });
             });
+
+            // Tambahkan efek klik pada card Bergabung di Antrian
+            if (joinQueueCard) {
+                joinQueueCard.addEventListener('click', () => {
+                    const currentTransform = joinQueueCard.style.transform;
+                    joinQueueCard.style.transform = 'translateY(0)';
+                    setTimeout(() => {
+                        joinQueueCard.style.transform = currentTransform;
+                    }, 100); // Efek sebentar
+                    // Anda bisa menambahkan logika lain di sini jika perlu
+                });
+            }
         });
     </script>
 </body>
