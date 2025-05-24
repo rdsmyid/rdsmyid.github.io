@@ -134,8 +134,18 @@ main {
 .payment-method-overview {
     display: block;
     cursor: pointer;
-    margin-bottom: 15px;
-    position: relative;
+    margin-bottom: 25px; /* Tambah ruang untuk panah */
+    position: relative; /* Untuk memposisikan panah */
+}
+
+.payment-method-overview::after {
+    content: '\25BE'; /* Kode Unicode untuk panah ke bawah */
+    position: absolute;
+    left: 50%;
+    bottom: -15px;
+    transform: translateX(-50%);
+    font-size: 1.5em;
+    color: var(--secondary-color);
 }
 
 .payment-details {
@@ -176,9 +186,8 @@ main {
 }
 
 /* Gaya spesifik untuk queue info */
-#queue-info .info-card {
-    margin-top: 0;
-    text-align: center;
+.queue-info-card {
+    text-align: center; /* Pusatkan seluruh konten kartu */
 }
 
 .queue-count {
@@ -186,29 +195,29 @@ main {
     font-weight: bold;
     color: var(--primary-color);
     margin-bottom: 5px;
-    text-align: center;
+    text-align: center; /* Pusatkan angka antrian */
 }
 
 .queue-updated-info {
     font-size: 0.85em;
     color: #7f8c8d;
-    text-align: center;
+    text-align: center; /* Pusatkan info update */
 }
 
 /* Gaya spesifik untuk join queue */
-#join-queue .info-card {
-    text-align: center;
+.join-queue-card {
+    text-align: center; /* Pusatkan konten kartu */
 }
 
 .join-queue-description p {
     font-size: 0.9em;
     color: #7f8c8d;
     margin-bottom: 15px;
-    text-align: left;
+    text-align: left; /* Kembalikan teks deskripsi ke kiri */
 }
 
 .queue-section {
-    text-align: center;
+    text-align: center; /* Pusatkan tombol */
 }
 
 .join-queue-button {
@@ -226,7 +235,7 @@ main {
     transition: all 0.3s ease;
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
     text-decoration: none !important;
-    margin: 0 auto;
+    margin: 0 auto; /* Pusatkan tombol inline-flex */
 }
 
 .join-queue-button:hover {
