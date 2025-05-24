@@ -34,17 +34,19 @@ header {
 }
 
 .header-mobile {
-    display: none; /* Sembunyikan mobile secara default */
-    justify-content: space-between; /* Agar logo dan tombol terpisah */
+    display: none;
+    justify-content: space-between;
     align-items: center;
-    padding: 1em 20px; /* Berikan padding agar tidak terlalu mepet tepi layar */
-    min-height: 50px; /* Tambahkan tinggi minimal */
+    padding: 1em 20px;
+    min-height: 50px;
+    background-color: var(--dark-bg);
+    color: var(--white);
 }
 
 .logo-mobile h1 {
     font-size: 1.4em;
     letter-spacing: 1px;
-    color: var(--white); /* Pastikan warna teks logo terlihat */
+    color: var(--white);
     margin-right: auto;
 }
 
@@ -59,13 +61,13 @@ header {
 }
 
 .mobile-links a {
-    color: var(--white); /* Pastikan warna teks tombol terlihat */
+    color: var(--white);
     text-decoration: none;
     margin-left: 10px;
     font-size: 1em;
     padding: 6px 10px;
     border-radius: 5px;
-    background-color: rgba(255, 255, 255, 0.1); /* Berikan sedikit background agar terlihat */
+    background-color: rgba(255, 255, 255, 0.1);
 }
 
 .mobile-links a i {
@@ -73,7 +75,7 @@ header {
 }
 
 header > .container {
-    display: flex; /* Tampilkan desktop secara default */
+    display: flex;
 }
 
 header > .container h1 {
@@ -102,10 +104,6 @@ header > .container nav ul li a {
     color: var(--white);
     text-decoration: none;
     transition: color 0.3s ease;
-}
-
-header > .container nav ul li a:hover {
-    color: var(--primary-color);
 }
 
 /* --- MAIN CONTENT --- */
@@ -371,14 +369,16 @@ footer {
     }
     .header-mobile {
         display: flex !important;
-        position: fixed !important; /* Coba atur posisinya menjadi fixed */
+        position: fixed !important;
         top: 0 !important;
         left: 0 !important;
         width: 100% !important;
-        z-index: 1000 !important; /* Pastikan berada di atas elemen lain */
+        z-index: 1000 !important;
+        background-color: var(--dark-bg) !important;
+        color: var(--white) !important;
     }
     body {
-        padding-top: 50px !important; /* Berikan padding pada body agar konten tidak tertutup header fixed */
+        padding-top: 50px !important;
     }
 }
 
@@ -388,33 +388,10 @@ footer {
     }
 }
 
-@media (max-width: 992px) {
-    .container {
-        padding: 0 15px;
-    }
-}
-
-@media (max-width: 480px) {
-    .info-card-header h3 {
-        font-size: 0.9em;
-    }
-    .info-icon {
-        font-size: 1.3em;
-        margin-right: 8px;
-    }
-    .queue-count {
-        font-size: 1.1em;
-    }
-    .join-queue-button {
-        font-size: 0.8em;
-        padding: 0.5rem 0.9rem;
-    }
-}
-
 /* CSS untuk mencegah seleksi teks */
 .no-select {
   -webkit-user-select: none;
   -moz-user-select: none;
   -ms-user-select: none;
   user-select: none;
-        }
+}
