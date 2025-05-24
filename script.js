@@ -1,17 +1,10 @@
 document.addEventListener('DOMContentLoaded', function() {
     const paymentOverview = document.querySelector('.payment-method-overview');
     const paymentDetails = document.getElementById('payment-details');
-    const dropdownArrow = document.getElementById('dropdown-arrow');
 
-    if (paymentOverview && paymentDetails && dropdownArrow) {
+    if (paymentOverview && paymentDetails) {
         paymentOverview.addEventListener('click', function() {
             paymentDetails.classList.toggle('active');
-            // Putar panah berdasarkan status active
-            if (paymentDetails.classList.contains('active')) {
-                dropdownArrow.style.transform = 'translateX(-50%) rotate(180deg)';
-            } else {
-                dropdownArrow.style.transform = 'translateX(-50%) rotate(0deg)';
-            }
         });
     }
 
