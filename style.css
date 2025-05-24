@@ -92,7 +92,7 @@ main {
     padding: 20px;
     border-radius: 8px;
     box-shadow: 0 4px 10px var(--shadow-light);
-    margin-top: 10px; /* Samakan margin top untuk semua info-card */
+    margin-top: 10px;
     margin-bottom: 0;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
@@ -134,7 +134,7 @@ main {
 .payment-method-overview {
     display: block;
     cursor: pointer;
-    margin-bottom: 25px;
+    margin-bottom: 15px; /* Kurangi margin bottom */
     position: relative;
 }
 
@@ -142,7 +142,7 @@ main {
     content: '\25BE';
     position: absolute;
     left: 50%;
-    bottom: -15px;
+    bottom: -20px; /* Sedikit turunkan posisi panah */
     transform: translateX(-50%);
     font-size: 1.5em;
     color: var(--secondary-color);
@@ -414,4 +414,4 @@ footer {
   -moz-user-select: none;
   -ms-user-select: none;
   user-select: none;
-        }
+}
