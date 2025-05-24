@@ -187,7 +187,7 @@ main {
 
 /* Gaya spesifik untuk queue info */
 #queue-info .info-card {
-    margin-top: 5px; /* Kurangi margin top untuk kartu jumlah antrian */
+    margin-top: 0; /* Set margin top menjadi 0 untuk kartu jumlah antrian */
     text-align: center;
 }
 
@@ -415,4 +415,4 @@ footer {
   -moz-user-select: none;
   -ms-user-select: none;
   user-select: none;
-        }
+    }
