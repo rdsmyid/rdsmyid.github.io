@@ -1,20 +1,17 @@
-/* Import font dari Google Fonts */
-@import url('https://fonts.googleapis.com/css2?family=Work+Sans:wght@400;500;600;700&display=swap');
-
 /* Variabel Warna Kustom (bisa Anda sesuaikan) */
 :root {
-    --primary-color: #2f0997; /* Deep Purple, sesuai contoh head Anda */
-    --primary-hover-color: #4b23b3; /* Sedikit lebih terang dari primary */
-    --secondary-color: #007bff; /* Biru klasik untuk tombol sekunder */
+    --primary-color: #2f0997;
+    --primary-hover-color: #4b23b3;
+    --secondary-color: #007bff;
     --text-color: #333;
-    --light-bg: #f8f9fa; /* Latar belakang bagian terang */
-    --dark-bg: #1a1a1a; /* Latar belakang header/footer gelap */
+    --light-bg: #f8f9fa;
+    --dark-bg: #1a1a1a;
     --white: #fff;
     --shadow-light: rgba(0, 0, 0, 0.1);
 }
 
 body {
-    font-family: 'Work Sans', sans-serif; /* Menggunakan font Work Sans */
+    font-family: 'Work Sans', sans-serif;
     margin: 0;
     padding: 0;
     background-color: var(--light-bg);
@@ -22,41 +19,34 @@ body {
     line-height: 1.6;
 }
 
-/* Container untuk membatasi lebar konten */
 .container {
     max-width: 1200px;
     margin: 0 auto;
-    padding: 0 20px; /* Padding samping untuk responsivitas */
+    padding: 0 20px;
 }
 
 /* --- HEADER --- */
 header {
     background-color: var(--dark-bg);
     color: var(--white);
-    padding: 0; /* Reset padding header default */
-    text-align: center; /* Default text align center */
+    padding: 1em 20px;
+    text-align: left;
 }
 
-/* --- HEADER MOBILE --- */
-.header-mobile {
+header > .container {
     display: flex;
-    justify-content: space-between; /* Untuk memisahkan elemen ke kiri dan kanan */
-    align-items: center; /* Agar vertikal sejajar */
-    padding: 0.8em 20px; /* Sesuaikan padding */
-}
-
-.logo-mobile h1 {
-    margin: 0;
-    font-size: 1.8em; /* Ukuran logo */
-    text-align: left; /* Agar logo di kiri */
-    color: var(--white); /* Warna putih untuk logo */
-}
-
-.mobile-nav-right {
-    display: flex;
-    justify-content: flex-end; /* Mengatur konten di dalamnya ke kanan */
+    justify-content: space-between;
     align-items: center;
-    width: auto; /* Biarkan lebarnya sesuai konten */
+}
+
+header h1 {
+    font-size: 2em;
+    letter-spacing: 1px;
+    margin-right: auto;
+}
+
+header > .container > nav {
+    display: none;
 }
 
 .mobile-links {
@@ -67,15 +57,16 @@ header {
 .mobile-links a {
     color: var(--white);
     text-decoration: none;
-    margin-left: 5px;
+    margin-left: 10px;
     font-size: 1em;
-    padding: 4px 8px; /* Perkecil padding atas, bawah, kiri, kanan untuk mobile */
-    border-radius: 3px;
-    background-color: rgba(255, 255, 255, 0.15); /* Sedikit lebih tebal untuk mobile */
+    padding: 6px 10px;
+    border-radius: 5px;
+    background-color: rgba(255, 255, 255, 0.1);
+    transition: background-color 0.3s ease;
 }
 
-.mobile-links a:first-child { /* Untuk tombol WhatsApp di mobile */
-    margin-right: 5px; /* Tambahkan margin kanan di mobile */
+.mobile-links a:hover {
+    background-color: rgba(255, 255, 255, 0.2);
 }
 
 .mobile-links i {
@@ -85,103 +76,12 @@ header {
 .separator {
     color: var(--white);
     margin: 0 10px;
-    font-size: 1.1em;
-}
-
-/* Sembunyikan navigasi desktop di tampilan mobile */
-header > .container > nav {
-    display: none;
-}
-
-/* --- MAIN SECTIONS --- */
-main {
-    padding-top: 0; /* Padding dari header sudah cukup */
-}
-
-.section-padded {
-    padding: 60px 0; /* Padding lebih besar untuk setiap section */
-}
-
-.bg-light {
-    background-color: var(--light-bg);
-}
-
-/* --- HERO SECTION --- */
-.hero-section {
-    background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('assets/images/hero-bg.jpg') no-repeat center center/cover; /* Placeholder background image */
-    color: var(--white);
-    text-align: center;
-    padding: 100px 0;
-    border-radius: 0 0 10px 10px; /* Sudut membulat di bagian bawah */
-    box-shadow: 0 4px 8px var(--shadow-light);
-}
-
-.hero-section h2 {
-    font-size: 3em;
-    margin-bottom: 20px;
-    line-height: 1.2;
-}
-
-.hero-section p {
-    font-size: 1.1em;
-    max-width: 700px;
-    margin: 0 auto 30px auto;
-}
-
-/* --- FEATURE GRID --- */
-.feature-grid, .category-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, auto)); /* Responsif grid */
-    gap: 20px;
-    margin-top: 40px;
-}
-
-.feature-item, .category-item {
-    background-color: var(--white);
-    padding: 20px;
-    border-radius: 8px;
-    box-shadow: 0 4px 10px var(--shadow-light);
-    display: flex; /* Menggunakan flexbox */
-    align-items: center;
-    gap: 15px;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-    text-align: left; /* Teks rata kiri */
-}
-
-.feature-item:hover, .category-item:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
-}
-
-.feature-item i, .category-item i { /* Placeholder untuk ikon */
-    font-size: 2em;
-    color: var(--primary-color);
-    flex-shrink: 0;
-}
-
-.feature-item > div, .category-item > div {
-    flex-grow: 1;
-}
-
-.feature-item h3, .category-item h3 {
-    color: var(--primary-color);
-    margin-top: 0;
-    margin-bottom: 5px;
-    font-size: 1.2em;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
-}
-
-.feature-item p, .category-item p {
-    font-size: 0.9em;
-    color: var(--text-color);
-    margin-bottom: 0;
+    font-size: 1em;
 }
 
 /* --- PAYMENT METHODS --- */
 .payment-methods-grid {
-    display: block; /* Mengembalikan display ke block */
+    display: block;
     margin-top: 30px;
 }
 
@@ -190,12 +90,12 @@ main {
     padding: 20px;
     border-radius: 8px;
     box-shadow: 0 4px 10px var(--shadow-light);
-    display: flex; /* Menggunakan flexbox untuk overview */
+    display: flex;
     align-items: center;
     gap: 20px;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
     cursor: pointer;
-    margin-bottom: 10px; /* Beri jarak dengan details */
+    margin-bottom: 10px;
 }
 
 .payment-method-overview:hover {
@@ -233,7 +133,7 @@ main {
     box-shadow: 0 4px 10px var(--shadow-light);
     margin-top: 10px;
     padding: 20px;
-    display: none; /* Hidden by default */
+    display: none;
 }
 
 .payment-details.active {
@@ -271,7 +171,7 @@ main {
     box-shadow: 0 4px 10px var(--shadow-light);
     margin-top: 20px;
     padding: 20px;
-    display: flex; /* Menggunakan flexbox */
+    display: flex;
     align-items: center;
     gap: 20px;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
@@ -322,7 +222,7 @@ main {
     box-shadow: 0 4px 10px var(--shadow-light);
     margin-top: 20px;
     padding: 20px;
-    display: flex; /* Menggunakan flexbox */
+    display: flex;
     align-items: center;
     gap: 20px;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
@@ -361,8 +261,8 @@ main {
 }
 
 .join-queue-button-area {
-    margin-top: 15px; /* Beri jarak dari deskripsi */
-    text-align: center; /* Tengahkan tombol */
+    margin-top: 15px;
+    text-align: center;
 }
 
 .join-queue-button {
@@ -436,7 +336,7 @@ main {
 }
 
 .registration-form button:hover {
-    background-color: #0056b3; /* Darken secondary color */
+    background-color: #0056b3;
 }
 
 .submission-message {
@@ -458,44 +358,6 @@ main {
     font-size: 1.1em;
 }
 
-/* --- BUTTONS --- */
-.btn {
-    display: inline-block;
-    padding: 10px 24px;
-    text-decoration: none;
-    border-radius: 5px;
-    font-weight: 600;
-    transition: background-color 0.3s ease, transform 0.2s ease;
-    border: none;
-    cursor: pointer;
-    font-size: 1em;
-}
-
-.primary-btn {
-    background-color: var(--primary-color);
-    color: var(--white);
-}
-
-.primary-btn:hover {
-    background-color: var(--primary-hover-color);
-    transform: translateY(-2px);
-}
-
-.secondary-btn {
-    background-color: var(--secondary-color);
-    color: var(--white);
-}
-
-.secondary-btn:hover {
-    background-color: #0056b3; /* Darken dari secondary-color */
-    transform: translateY(-2px);
-}
-
-.large-btn {
-    padding: 12px 30px;
-    font-size: 1em;
-}
-
 /* --- FOOTER --- */
 footer {
     background-color: var(--dark-bg);
@@ -508,280 +370,37 @@ footer {
 /* --- RESPONSIVE DESIGN --- */
 @media (min-width: 769px) {
     header {
-        padding: 1em 20px; /* Tambahkan padding samping */
-        text-align: left;
-    }
-    .header-mobile {
-        display: none;
-    }
-    header > .container {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-    }
-    header h1 {
-        font-size: 2em;
-        letter-spacing: 1px;
-        margin-right: auto; /* Mendorong logo ke kiri maksimal */
-    }
-    header > .container > nav {
-        display: none; /* Sembunyikan navigasi desktop */
-    }
-    .mobile-links { /* Gaya untuk desktop */
-        display: flex;
-        align-items: center;
-    }
-
-    .mobile-links a { /* Gaya untuk desktop */
-        color: var(--white);
-        text-decoration: none;
-        margin-left: 10px;
-        font-size: 1em;
-        padding: 6px 10px; /* Tambahkan padding */
-        border-radius: 5px; /* Tambahkan sudut membulat */
-        background-color: rgba(255, 255, 255, 0.1); /* Latar belakang semi-transparan */
-        transition: background-color 0.3s ease; /* Efek transisi hover */
-    }
-
-    .mobile-links a:hover { /* Gaya untuk desktop */
-        background-color: rgba(255, 255, 255, 0.2); /* Latar belakang hover yang lebih terang */
-    }
-
-    .mobile-links i { /* Gaya untuk desktop */
-        margin-right: 5px;
-    }
-
-    .separator { /* Gaya untuk desktop */
-        color: var(--white);
-        margin: 0 10px;
-        font-size: 1em;
-    }
-}
-
-@media (max-width: 992px) {
-    .container {
-        padding: 0 15px;
-    }
-    .hero-section h2 {
-        font-size: 2.2em;
+        padding: 1em 20px;
     }
 }
 
 @media (max-width: 768px) {
-    /* Layout mobile aktif secara default */
-    .hero-section {
-        padding: 60px 0;
-        border-radius: 0; /* Hilangkan sudut membulat di mobile */
+    header {
+        padding: 0.8em 20px;
     }
-    .hero-section h2 {
+    header h1 {
         font-size: 1.8em;
     }
-    .section-padded {
-        padding: 30px 0;
-    }
-    .feature-grid, .category-grid {
-        grid-template-columns: 1fr; /* Stack kolaborasi di ponsel */
-    }
-    .feature-item, .category-item {
-        padding: 15px;
-    }
     .mobile-links a {
-        font-size: 0.8em; /* Sedikit perkecil ukuran font juga */
-        margin-left: 3px; /* Kurangi margin kiri */
-        padding: 3px 6px; /* Perkecil lagi padding atas, bawah, kiri, kanan */
-        border-radius: 2px;
-        background-color: rgba(255, 255, 255, 0.15); /* Sedikit lebih tebal */
-    }
-    .mobile-links a:first-child { /* Untuk tombol WhatsApp */
-        margin-right: 3px; /* Kurangi margin kanan */
-    }
-    .separator {
-        display: none; /* Sembunyikan separator di mobile karena sudah ada jarak */
-    }
-    .logo-mobile h1 {
-        font-size: 1.4em;
-        margin-right: 10px;
+        font-size: 0.9em;
+        padding: 3px 6px;
     }
 }
 
 @media (max-width: 480px) {
-    .hero-section h2 {
-        font-size: 1.5em;
-    }
-    .hero-section p {
-        font-size: 0.9em;
-    }
-    .btn {
-        padding: 8px 18px;
-        font-size: 0.8em;
-    }
-    .large-btn {
-        padding: 10px 24px;
-        font-size: 0.9em;
+    header h1 {
+        font-size: 1.6em;
     }
     .mobile-links a {
         font-size: 0.8em;
-        margin-left: 2px;
         padding: 2px 5px;
-        border-radius: 2px;
-        background-color: rgba(255, 255, 255, 0.15);
     }
-    .mobile-links a:first-child {
-        margin-right: 2px;
-    }
-    .separator {
-        display: none;
-    }
-    .logo-mobile h1 {
-        font-size: 1.4em;
-        margin-right: 8px;
-    }
-}
-
-/* Style tambahan untuk elemen-elemen baru (sudah termasuk sebelumnya) */
-.payment-methods-grid,
-.queue-info-card,
-.join-queue-card {
-    /* ... gaya flexbox dan lainnya ... */
-}
-
-.payment-methods-grid > i,
-.queue-info-card > i,
-.join-queue-card > i {
-    /* ... gaya ikon ... */
-}
-
-.payment-methods-grid > div,
-.queue-info-card > div,
-.join-queue-card > div {
-    /* ... gaya div teks ... */
-}
-
-.payment-methods-grid h3,
-.queue-info-card h2,
-.join-queue-card h2 {
-    /* ... gaya judul ... */
-}
-
-.payment-methods-grid p,
-.queue-info-card p,
-.join-queue-card p {
-    /* ... gaya paragraf ... */
-}
-
-/* Style spesifik untuk payment details */
-.payment-methods-grid {
-    display: block;
-}
-
-.payment-method-overview {
-    display: flex;
-    align-items: center;
-    gap: 20px;
-    padding: 20px;
-    margin-bottom: 10px;
-}
-
-.payment-method-overview > i {
-    font-size: 2em;
-}
-
-.payment-method-overview > div {
-    flex-grow: 1;
-}
-
-.payment-method-overview h3 {
-    font-size: 1.2em;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    margin-bottom: 0;
-}
-
-.payment-method-overview p {
-    font-size: 0.9em;
-    margin-bottom: 0;
-}
-
-.payment-details {
-    /* ... gaya payment details ... */
-}
-
-.payment-list-item {
-    /* ... gaya list item pembayaran ... */
-}
-
-.queue-info-card {
-    padding: 20px;
-}
-
-.queue-info-card > i {
-    font-size: 2em;
-}
-
-.queue-info-header h2 {
-    font-size: 1.2em;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    margin-bottom: 5px;
-}
-
-.queue-info-card .queue-count {
-    font-size: 1.5em;
-    font-weight: bold;
-    color: var(--primary-color);
-    margin-bottom: 0;
-}
-
-.queue-updated-info {
-    font-size: 0.9em;
-    color: #7f8c8d;
-}
-
-.join-queue-card {
-    padding: 20px;
-}
-
-.join-queue-card > i {
-    font-size: 2em;
-    color: var(--secondary-color);
-}
-
-.join-queue-header h2 {
-    font-size: 1.2em;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    margin-bottom: 5px;
-}
-
-.join-queue-description p {
-    font-size: 0.9em;
-    margin-bottom: 0;
-}
-
-.join-queue-button-area {
-    margin-top: 15px;
-    text-align: center;
-}
-
-.join-queue-button {
-    /* ... gaya tombol gabung antrian ... */
-}
-
-.registration-form {
-    /* ... gaya formulir pendaftaran ... */
-}
-
-.submission-message {
-    /* ... gaya pesan terkirim ... */
 }
 
 /* CSS untuk mencegah seleksi teks */
 .no-select {
-  -webkit-user-select: none; /* Safari */
-  -moz-user-select: none; /* Firefox */
-  -ms-user-select: none; /* Internet Explorer/Edge */
-  user-select: none; /* Standar */
-}
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+} 
