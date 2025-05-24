@@ -250,13 +250,14 @@ main {
 }
 
 .registration-form {
-    margin-top: 30px; /* Tambah margin atas */
-    padding: 30px; /* Tambah padding */
-    background-color: var(--white); /* Latar belakang putih */
-    border-radius: 10px; /* Sudut lebih bulat */
-    border: 1px solid #ddd; /* Border lebih tipis dan lembut */
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05); /* Efek bayangan halus */
-    display: none; /* Hidden by default */
+    margin-top: 30px;
+    padding: 25px;
+    background-color: var(--white);
+    border-radius: 10px;
+    border: 1px solid #ddd;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+    display: none;
+    text-align: left; /* Membuat semua teks di dalam form rata kiri */
 }
 
 .registration-form.active {
@@ -264,66 +265,67 @@ main {
 }
 
 .registration-form h3 {
-    font-size: 1.5em; /* Ukuran judul lebih besar */
+    font-size: 1.5em;
     margin-top: 0;
-    margin-bottom: 25px; /* Margin bawah lebih besar */
-    text-align: center;
-    color: var(--primary-color); /* Warna primer untuk judul */
+    margin-bottom: 20px;
+    color: var(--primary-color);
 }
 
 .form-group {
-    margin-bottom: 20px; /* Margin bawah antar grup input */
+    margin-bottom: 20px;
 }
 
 .form-group label {
     display: block;
-    font-size: 1em; /* Ukuran label lebih besar */
+    font-size: 1em;
     color: var(--text-color);
-    margin-bottom: 8px;
-    font-weight: bold; /* Label lebih tebal */
+    margin-bottom: 5px;
+    font-weight: bold;
 }
 
 .form-group input[type="text"],
 .form-group input[type="number"] {
-    width: calc(100% - 16px); /* Sesuaikan lebar dengan padding */
+    width: calc(100% - 16px);
     padding: 10px;
     border: 1px solid #ccc;
-    border-radius: 6px; /* Sudut input lebih bulat */
+    border-radius: 6px;
     font-size: 1em;
 }
 
 .input-hint {
-    font-size: 0.9em;
+    font-size: 0.85em;
     color: #777;
-    margin-top: 5px;
+    margin-top: 3px;
+    display: block;
 }
 
 .registration-form button[type="submit"],
 #cancelFormBtn {
-    padding: 10px 20px; /* Ukuran padding tombol */
+    padding: 10px 20px;
     border: none;
-    border-radius: 8px; /* Sudut tombol lebih bulat */
+    border-radius: 8px;
     font-size: 1em;
     cursor: pointer;
     transition: background-color 0.3s ease;
-    margin-top: 15px; /* Tambah margin atas tombol */
+    margin-top: 20px;
+    text-align: center; /* Mengembalikan tombol ke tengah */
 }
 
 .registration-form button[type="submit"] {
     background-color: var(--secondary-color);
     color: var(--white);
-    box-shadow: 0 2px 5px rgba(0, 123, 255, 0.3); /* Efek bayangan tombol submit */
+    box-shadow: 0 2px 5px rgba(0, 123, 255, 0.3);
 }
 
 .registration-form button[type="submit"]:hover {
     background-color: #0056b3;
-    box-shadow: 0 3px 7px rgba(0, 86, 179, 0.3); /* Efek hover tombol submit */
+    box-shadow: 0 3px 7px rgba(0, 86, 179, 0.3);
 }
 
 #cancelFormBtn {
     background-color: #f8f9fa;
     color: var(--text-color);
-    border: 1px solid #ddd; /* Tambah border pada tombol batal */
+    border: 1px solid #ddd;
 }
 
 #cancelFormBtn:hover {
@@ -397,7 +399,7 @@ footer {
 
     .registration-form h3 {
         font-size: 1.3em; /* Ukuran judul lebih kecil untuk layar kecil */
-        margin-bottom: 20px;
+        margin-bottom: 15px;
     }
 
     .form-group {
@@ -456,4 +458,4 @@ footer {
   -moz-user-select: none;
   -ms-user-select: none;
   user-select: none;
-}
+    }
