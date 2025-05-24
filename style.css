@@ -75,8 +75,8 @@ header {
     gap: 0.3em;
 }
 
-.mobile-links a:not(:first-child) {
-    margin-left: 0.5em;
+.mobile-links a i {
+    margin-right: 5px;
 }
 
 .header-desktop {
@@ -392,13 +392,13 @@ footer {
 
 @media (min-width: 769px) {
     .header-mobile {
-        display: none !important;
+        display: none !important; /* Pastikan header mobile benar-benar tersembunyi */
     }
     .header-desktop {
-        display: block !important;
+        display: block !important; /* Pastikan header desktop terlihat */
     }
     body {
-        padding-top: 66px !important; /* Adjust padding for fixed desktop header (approx height) */
+        padding-top: 66px !important; /* Sesuaikan padding jika perlu */
     }
 }
 
@@ -408,4 +408,4 @@ footer {
   -moz-user-select: none;
   -ms-user-select: none;
   user-select: none;
-    }
+}
