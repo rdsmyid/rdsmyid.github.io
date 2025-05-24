@@ -86,7 +86,7 @@ main {
 
 .section-padded {
     padding: 15px 0;
-    margin-bottom: 15px; /* Jarak setelah setiap section */
+    margin-bottom: 15px; /* Jarak setelah bagian Metode Pembayaran */
 }
 
 .info-card {
@@ -215,6 +215,7 @@ main {
 
 /* Gaya spesifik untuk join queue */
 #join-queue .info-card {
+    margin-top: 15px; /* Jarak sebelum bagian Bergabung di Antrian */
     text-align: center;
 }
 
@@ -486,4 +487,5 @@ footer {
   -moz-user-select: none;
   -ms-user-select: none;
   user-select: none;
-}
+    }
+    
