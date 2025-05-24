@@ -81,10 +81,12 @@ body {
 /* --- MAIN CONTENT --- */
 main {
     padding-top: 70px;
+    margin-bottom: 20px; /* Jarak antara Header dan bagian setelahnya */
 }
 
 .section-padded {
     padding: 15px 0;
+    margin-bottom: 20px; /* Jarak setelah bagian Metode Pembayaran */
 }
 
 .info-card {
@@ -192,8 +194,9 @@ main {
 
 /* Gaya spesifik untuk queue info */
 #queue-info .info-card {
-    margin-top: 0; /* Set margin top menjadi 0 untuk kartu jumlah antrian */
+    margin-top: 0;
     text-align: center;
+    margin-bottom: 20px; /* Jarak setelah bagian Jumlah Antrian */
 }
 
 .queue-count {
@@ -388,6 +391,7 @@ footer {
     padding: 1.5em 0;
     text-align: center;
     font-size: 0.9em;
+    margin-top: 30px; /* Jarak sebelum bagian Footer */
 }
 
 /* --- RESPONSIVE DESIGN --- */
@@ -413,6 +417,7 @@ footer {
 
     main {
         padding-top: 60px;
+        margin-bottom: 20px; /* Jarak antara Header dan bagian setelahnya (mobile) */
     }
 
     .registration-form {
@@ -471,6 +476,7 @@ footer {
 
     main {
         padding-top: 60px;
+        margin-bottom: 20px; /* Jarak antara Header dan bagian setelahnya (desktop) */
     }
 }
 
