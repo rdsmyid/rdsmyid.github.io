@@ -2,154 +2,144 @@
 <html lang="id">
 <head>
     <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>RDS - Solusi Antrian Anda</title>
+    <title>RDS - Jual Akun Terpercaya</title>
     <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
 </head>
 <body>
     <header class="main-header">
-        <div class="header-content container">
+        <div class="container header-content">
             <div class="logo">
                 <h1>RDS</h1>
             </div>
             <nav class="main-nav">
                 <ul>
-                    <li><a href="https://wa.me/NomorWhatsAppAnda"><i class="fab fa-whatsapp"></i> WhatsApp</a></li>
-                    <li><a href="mailto:alamatemail@anda.com"><i class="fas fa-envelope"></i> Email</a></li>
+                    <li><a href="https://wa.me/6285117219192" target="_blank" rel="noopener noreferrer"><i class="fab fa-whatsapp"></i> WhatsApp</a></li>
+                    <li><a href="mailto:rds@kolabnow.com"><i class="far fa-envelope"></i> Email</a></li>
                 </ul>
             </nav>
         </div>
     </header>
 
     <main>
-        <section id="payment-methods" class="section-padded container">
-            <div class="info-card">
-                <div class="info-card-header">
-                    <i class="fas fa-credit-card info-icon"></i>
-                    <h3>Metode Pembayaran</h3>
-                </div>
-                <div class="payment-method-overview">
-                    Ini adalah beberapa pembayaran sah yang kami sediakan.
-                </div>
-                <div id="payment-details" class="payment-details">
-                    <h4 style="margin-top: 0;">Pilih Metode Pembayaran:</h4>
-                    <div class="payment-list-item">
-                        <i class="fab fa-bank"></i>
-                        <span>Transfer Bank</span>
-                    </div>
-                    <div class="payment-list-item">
-                        <i class="fas fa-wallet"></i>
-                        <span>Dompet Digital</span>
-                    </div>
-                    </div>
-            </div>
-        </section>
-
-        <section id="queue-info" class="section-padded container">
-            <div class="info-card">
-                <div class="info-card-header">
-                    <i class="fas fa-list-ol info-icon"></i>
-                    <h3>Jumlah Antrian</h3>
-                </div>
-                <div class="queue-info-card">
-                    <div class="queue-count">11</div>
-                    <div class="queue-updated-info">Data ini diperbarui secara otomatis</div>
-                </div>
-            </div>
-        </section>
-
-        <section id="join-queue" class="section-padded container">
-            <div class="info-card join-queue-card">
-                <div class="info-card-header">
-                    <i class="fas fa-users info-icon"></i>
-                    <h3>Bergabung di Antrian</h3>
-                </div>
-                <div class="join-queue-description">
-                    <p>Bergabunglah dengan antrian untuk mempercepat proses layanan.</p>
-                    <p>Silakan tekan tombol di bawah ini untuk mendaftar.</p>
-                </div>
-                <div class="queue-section">
-                    <a href="#" class="join-queue-button">
-                        <i class="fas fa-sign-in-alt"></i> Masuk Antrian
-                    </a>
-                </div>
-                <div id="registrationForm" class="registration-form">
-                    <h3>Formulir Pendaftaran</h3>
-                    <form id="registrationSubmitForm">
-                        <div class="form-group">
-                            <label for="name">Nama:</label>
-                            <input type="text" id="name" name="name" required>
+        <section id="payment-methods" class="section-padded">
+            <div class="container">
+                <div class="payment-methods-grid">
+                    <div class="info-card payment-method-overview" onclick="togglePaymentDetails('payment')">
+                        <div class="info-card-header">
+                            <i class="fas fa-money-bill-wave info-icon"></i>
+                            <h3>Metode Pembayaran</h3>
                         </div>
-                        <div class="form-group">
-                            <label for="phone">Nomor Telepon:</label>
-                            <input type="number" id="phone" name="phone" required>
-                            <small class="input-hint">Contoh: 08123456789</small>
+                        <p>Ini adalah beberapa pembayaran sah yang kami sediakan.</p>
+                    </div>
+                    <div class="payment-details" id="payment-details">
+                        <div class="payment-list-item">
+                            <i class="fas fa-qrcode"></i>
+                            <span>QRIS</span>
                         </div>
-                        <button type="submit">Daftar</button>
-                        <button type="button" id="cancelFormBtn">Batal</button>
-                    </form>
-                </div>
-                <div id="submissionMessage" class="submission-message">
-                    <h3>Terima Kasih!</h3>
-                    <p>Pendaftaran Anda berhasil. Mohon tunggu giliran Anda.</p>
+                        <div class="payment-list-item">
+                            <i class="fas fa-university"></i>
+                            <span>Transfer Bank</span>
+                        </div>
+                        <div class="payment-list-item">
+                            <i class="fab fa-cc-paypal"></i>
+                            <span>PayPal</span>
+                        </div>
+                        <div class="payment-list-item">
+                            <i class="fab fa-amazon-pay"></i>
+                            <span>Amazon Pay</span>
+                        </div>
+                        <div class="text-center" style="margin-top: 20px; font-size: 0.9em; color: #777;">
+                            Rekening tujuan atau kode QRIS silahkan hubungi Admin
+                        </div>
+                    </div>
                 </div>
             </div>
         </section>
-    </main>
 
-    <footer>
-        <div class="container">
-            &copy; 2023 RDS - Solusi Antrian Anda
-        </div>
-    </footer>
+        <section id="queue-info" class="section-padded">
+            <div class="container">
+                <div class="queue-info-card info-card">
+                    <div class="info-card-header">
+                        <i class="fas fa-list-ol info-icon"></i>
+                        <h3>Jumlah Antrian</h3>
+                    </div>
+                    <div class="queue-count no-select">
+                        <span id="jumlah-antrian">Memuat...</span>
+                    </div>
+                    <p class="queue-updated-info no-select">
+                        Data ini diperbarui secara otomatis
+                    </p>
+                </div>
+            </div>
+        </section>
 
-    <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            const paymentOverview = document.querySelector('.payment-method-overview');
-            const paymentDetails = document.getElementById('payment-details');
+        <section id="join-queue" class="section-padded">
+            <div class="container">
+                <div class="join-queue-card info-card">
+                    <div class="info-card-header">
+                        <i class="fas fa-people-arrows info-icon"></i>
+                        <h3>Bergabung di Antrian</h3>
+                    </div>
+                    <div class="join-queue-description no-select">
+                        <p class="no-select">
+                            Bergabunglah dengan antrian untuk mempercepat proses layanan.<br>
+                            Silakan tekan tombol di bawah ini untuk mendaftar.
+                        </p>
+                    </div>
+                    <div class="queue-section no-select">
+                        <button id="showFormBtn" class="join-queue-button no-select">
+                            <i class="fas fa-user-clock"></i>
+                            Masuk Antrian
+                        </button>
 
-            if (paymentOverview && paymentDetails) {
-                paymentOverview.addEventListener('click', function() {
-                    paymentDetails.classList.toggle('active');
-                });
-            }
+                        <form action="https://docs.google.com/forms/d/e/1FAIpQLSeoOoBcyIHwty6FsXmmpOQ4vk0urHJkgP4xyR1jEoia_uCURA/formResponse"
+                              method="POST"
+                              id="registrationForm"
+                              class="registration-form">
+                            <h3 class="no-select">Formulir Pendaftaran</h3>
+                            <div class="form-group">
+                                <label for="nama" class="no-select">Nama:</label>
+                                <input type="text" id="nama" name="entry.322664274" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="kontak" class="no-select">Kontak:</label>
+                                <input type="text" id="kontak" name="entry.153037566" required>
+                                <div class="input-hint no-select">WhatsApp atau lainnya</div>
+                            </div>
+                            <div class="form-group">
+                                <label for="jumlah" class="no-select">Jumlah Pesanan:</label>
+                                <input type="number" id="jumlah" name="entry.1280626580" min="3" required>
+                                <div class="input-hint no-select">Minimal 3 Akun</div>
+                            </div>
+                            <div class="form-group">
+                                <div class="g-recaptcha" data-sitekey="6LcYkkUrAAAAAJ56YJX5gXSM_Dgy9cOBfItAWeX2"></div>
+                            </div>
+                            <div style="display: flex; gap: 10px; margin-top: 15px;">
+                                <button type="submit" class="no-select">Kirim</button>
+                                <button type="button" id="cancelFormBtn" class="no-select">Batal</button>
+                            </div>
+                        </form>
 
-            const joinQueueButton = document.querySelector('.join-queue-button');
-            const registrationForm = document.getElementById('registrationForm');
-            const cancelFormBtn = document.getElementById('cancelFormBtn');
-            const submissionMessage = document.getElementById('submissionMessage');
-            const registrationSubmitForm = document.getElementById('registrationSubmitForm');
+                        <div id="submissionMessage" class="submission-message no-select">
+                            <h3 class="no-select">Terima Kasih!</h3>
+                            <p class="no-select">Formulir Anda telah terkirim.<br>Admin kami akan segera menindaklanjuti.</p>
+                        </div>
+                    </div>
+                </section>
+            </main>
 
-            if (joinQueueButton) {
-                joinQueueButton.addEventListener('click', function(e) {
-                    e.preventDefault();
-                    registrationForm.classList.add('active');
-                });
-            }
+            <footer>
+                <div class="container">
+                    <p>&copy; 2025 RDS. Semua Hak Dilindungi.</p>
+                </div>
+            </footer>
 
-            if (cancelFormBtn) {
-                cancelFormBtn.addEventListener('click', function() {
-                    registrationForm.classList.remove('active');
-                });
-            }
-
-            if (registrationSubmitForm) {
-                registrationSubmitForm.addEventListener('submit', function(e) {
-                    e.preventDefault();
-                    registrationForm.classList.remove('active');
-                    submissionMessage.classList.add('active');
-                    setTimeout(function() {
-                        submissionMessage.classList.remove('active');
-                    }, 3000); // Tampilkan pesan sukses selama 3 detik
-                    // Di sini Anda bisa menambahkan logika pengiriman data formulir
-                    console.log('Formulir didaftarkan!');
-                });
-            }
-        });
-    </script>
-</body>
-</html>
+            <script src="script.js"></script>
+        </body>
+                </html>
+                    
