@@ -424,9 +424,11 @@ footer {
     }
 
     .g-recaptcha {
-        max-width: 100% !important;
-        transform-origin: 0 0;
-        /* transform: scale(0.8); */ /* Aktifkan jika perlu mengecilkan */
+        margin-left: auto !important;
+        margin-right: auto !important;
+        display: block;
+        max-width: 100%;
+        box-sizing: border-box;
     }
 }
 
