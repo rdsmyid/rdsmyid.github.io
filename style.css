@@ -33,12 +33,12 @@ header {
     text-align: left;
 }
 
-/* Sembunyikan header desktop secara default */
+/* Secara default sembunyikan header desktop */
 header > .container {
     display: none;
 }
 
-/* Tampilkan header mobile secara default */
+/* Secara default tampilkan header mobile */
 .header-mobile {
     display: flex;
     justify-content: space-between;
