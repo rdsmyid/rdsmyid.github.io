@@ -1,94 +1,70 @@
-function togglePaymentDetails(method) {
-    const detailsDiv = document.getElementById(`${method}-details`);
-    if (detailsDiv) {
-        detailsDiv.classList.toggle('active');
+function togglePaymentDetails(id) {
+    const details = document.getElementById(id + '-details');
+    if (details) {
+        details.classList.toggle('active');
     }
 }
 
-// Ambil data jumlah antrian
-fetch("https://script.google.com/macros/s/AKfycbwSsNij1w0vFB9VD77294mgpFNQkbiL-f2SyCCmoO7wUYxEhCP-OUv5XhKoqjtG2L8/exec?action=json")
-    .then(response => response.json())
-    .then(data => {
-        document.getElementById("jumlah-antrian").innerText = data.jumlah;
-    })
-    .catch(() => {
-        document.getElementById("jumlah-antrian").innerText = "Gagal Memuat";
-    });
-
-document.addEventListener('DOMContentLoaded', () => {
-    const registrationForm = document.getElementById('registrationForm');
+document.addEventListener('DOMContentLoaded', function() {
     const showFormBtn = document.getElementById('showFormBtn');
-    const submissionMessage = document.getElementById('submissionMessage');
+    const registrationForm = document.getElementById('registrationForm');
     const cancelFormBtn = document.getElementById('cancelFormBtn');
-
-    // Sembunyikan formulir dan pesan saat halaman pertama kali dimuat
-    if (registrationForm) {
-        registrationForm.style.display = 'none';
-    }
-    if (submissionMessage) {
-        submissionMessage.style.display = 'none';
-    }
+    const submissionMessage = document.getElementById('submissionMessage');
 
     if (showFormBtn) {
-        showFormBtn.addEventListener('click', () => {
-            if (showFormBtn) {
-                showFormBtn.style.display = 'none';
-            }
+        showFormBtn.addEventListener('click', function() {
             if (registrationForm) {
-                registrationForm.style.display = 'block';
+                registrationForm.classList.add('active');
             }
         });
     }
 
     if (cancelFormBtn) {
-        cancelFormBtn.addEventListener('click', () => {
+        cancelFormBtn.addEventListener('click', function() {
             if (registrationForm) {
-                registrationForm.style.display = 'none';
-            }
-            if (showFormBtn) {
-                showFormBtn.style.display = 'inline-flex';
+                registrationForm.classList.remove('active');
             }
         });
     }
 
-    if (registrationForm) {
-        registrationForm.addEventListener('submit', function(event) {
-            if (typeof grecaptcha !== 'undefined' && grecaptcha.getResponse() === "") {
-                event.preventDefault();
-                alert("Harap selesaikan verifikasi 'Saya bukan robot'.");
-                return;
-            }
+    const form = document.getElementById('registrationForm');
+    if (form) {
+        form.addEventListener('submit', function(event) {
+            event.preventDefault(); // Prevent default form submission
+            const formData = new FormData(form);
+            const action = form.getAttribute('action');
 
-            const formData = new FormData(registrationForm);
-            const params = new URLSearchParams();
-            formData.forEach((value, key) => {
-                params.append(key, value);
-            });
-
-            const googleFormActionURL = "https://docs.google.com/forms/d/e/1FAIpQLSeoOoBcyIHwty6FsXmmpOQ4vk0urHJkgP4xyR1jEoia_uCURA/formResponse";
-
-            fetch(googleFormActionURL, {
+            fetch(action, {
                 method: 'POST',
-                mode: 'no-cors',
-                body: params,
-            })
-            .then(response => {
-                console.log('Data berhasil dikirim (no-cors):', response);
+                body: formData,
+                mode: 'no-cors' // Untuk mengatasi masalah CORS dengan Google Forms
+            }).then(() => {
                 if (registrationForm) {
-                    registrationForm.style.display = 'none';
-                    registrationForm.reset();
+                    registrationForm.classList.remove('active');
                 }
                 if (submissionMessage) {
                     submissionMessage.style.display = 'block';
                 }
-                if (showFormBtn) {
-                    showFormBtn.style.display = 'inline-flex';
-                }
-            })
-            .catch(error => {
-                console.error('Terjadi kesalahan saat mengirim data:', error);
+                // Reset form setelah berhasil (opsional)
+                form.reset();
+            }).catch(error => {
+                console.error('Error submitting form', error);
                 alert('Terjadi kesalahan saat mengirim formulir.');
             });
         });
     }
+
+    // Fungsi untuk memperbarui jumlah antrian (simulasi)
+    function updateQueueCount() {
+        const jumlahAntrianElement = document.getElementById('jumlah-antrian');
+        if (jumlahAntrianElement) {
+            // Simulasi data antrian (ganti dengan data sebenarnya jika ada API)
+            const randomQueue = Math.floor(Math.random() * 15) + 1;
+            jumlahAntrianElement.textContent = randomQueue;
+        }
+    }
+
+    // Perbarui jumlah antrian setiap beberapa detik (simulasi)
+    setInterval(updateQueueCount, 5000);
+    updateQueueCount(); // Panggil pertama kali saat halaman dimuat
 });
