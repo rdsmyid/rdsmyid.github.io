@@ -54,73 +54,69 @@
     <style>
         .payment-methods-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 30px;
-            margin-top: 40px;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); /* Lebar min sedikit dikurangi */
+            gap: 20px; /* Gap dikurangi */
+            margin-top: 30px; /* Margin top dikurangi */
         }
 
         .payment-method-item {
             background-color: var(--white);
-            padding: 20px;
             border-radius: 8px;
-            box-shadow: 0 4px 10px var(--shadow-light);
+            box-shadow: 0 4px 8px var(--shadow-light); /* Sedikit kurangi shadow */
             text-align: center;
             cursor: pointer;
             transition: transform 0.3s ease, box-shadow 0.3s ease;
+            padding: 15px; /* Padding dikurangi */
         }
 
         .payment-method-item:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 8px 15px rgba(0, 0, 0, 0.15);
+            transform: translateY(-3px); /* Efek hover dikurangi */
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1); /* Efek hover shadow dikurangi */
+        }
+
+        .payment-method-header {
+            padding-bottom: 10px;
         }
 
         .payment-method-item i {
-            font-size: 2em;
+            font-size: 1.8em; /* Ukuran ikon dikurangi */
             color: var(--primary-color);
-            margin-bottom: 10px;
+            margin-bottom: 5px; /* Margin bottom ikon dikurangi */
         }
 
         .payment-method-item h3 {
             color: var(--primary-color);
             margin-top: 0;
-            font-size: 1.3em;
-            margin-bottom: 10px;
+            font-size: 1.1em; /* Ukuran judul dikurangi */
+            margin-bottom: 0;
         }
 
         .payment-details {
             text-align: left;
-            padding-top: 15px;
+            margin-top: 10px;
+            display: none;
             border-top: 1px solid #eee;
-            margin-top: 15px;
-            display: none; /* Initially hidden */
+            padding-top: 10px;
         }
 
         .payment-details.active {
             display: block;
         }
 
-        .payment-details p {
-            margin-bottom: 10px;
+        .payment-list-item {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding: 8px 10px;
         }
 
-        .payment-details ul {
-            list-style: none;
-            padding-left: 0;
+        .payment-list-item i {
+            font-size: 1.2em;
+            color: var(--secondary-color);
         }
 
-        .payment-details ul li {
-            margin-bottom: 5px;
-        }
-
-        .additional-info {
-            font-size: 0.9em;
-            color: #777;
-            margin-top: 10px;
-        }
-
-        .small-btn {
-            padding: 8px 16px;
-            font-size: 0.9em;
+        .payment-list-item span {
+            font-size: 0.95em;
         }
     </style>
 </head>
@@ -205,42 +201,55 @@
                 <h2>Pilihan Metode Pembayaran</h2>
                 <div class="payment-methods-grid">
                     <div class="payment-method-item" onclick="togglePaymentDetails('qris')">
-                        <i class="fas fa-qrcode"></i>
-                        <h3>QRIS</h3>
+                        <div class="payment-method-header">
+                            <i class="fas fa-qrcode"></i>
+                            <h3>QRIS</h3>
+                        </div>
                         <div class="payment-details" id="qris-details">
-                            <p>Bayar dengan mudah menggunakan aplikasi QRIS favorit Anda.</p>
-                            <p class="additional-info">Silakan screenshot kode QRIS berikut dan lakukan pembayaran:</p>
-                            <div style="text-align: center;">[Gambar QRIS]</div>
+                            <div class="payment-list-item">
+                                <i class="fas fa-qrcode"></i>
+                                <span>Semua Aplikasi QRIS</span>
+                            </div>
                         </div>
                     </div>
                     <div class="payment-method-item" onclick="togglePaymentDetails('bank-transfer')">
-                        <i class="fas fa-university"></i>
-                        <h3>Transfer Bank</h3>
+                        <div class="payment-method-header">
+                            <i class="fas fa-university"></i>
+                            <h3>Transfer Bank</h3>
+                        </div>
                         <div class="payment-details" id="bank-transfer-details">
-                            <p>Transfer ke rekening bank kami.</p>
-                            <p class="additional-info">Silakan pilih bank tujuan:</p>
-                            <ul>
-                                <li>Bank A: 1234567890</li>
-                                <li>Bank B: 0987654321</li>
-                                </ul>
+                            <div class="payment-list-item">
+                                <i class="fas fa-building-columns"></i>
+                                <span>Bank A - 1234567890</span>
+                            </div>
+                            <div class="payment-list-item">
+                                <i class="fas fa-building-columns"></i>
+                                <span>Bank B - 0987654321</span>
+                            </div>
                         </div>
                     </div>
                     <div class="payment-method-item" onclick="togglePaymentDetails('paypal')">
-                        <i class="fab fa-cc-paypal"></i>
-                        <h3>PayPal</h3>
+                        <div class="payment-method-header">
+                            <i class="fab fa-cc-paypal"></i>
+                            <h3>PayPal</h3>
+                        </div>
                         <div class="payment-details" id="paypal-details">
-                            <p>Bayar dengan akun PayPal Anda.</p>
-                            <p class="additional-info">Klik tombol di bawah untuk melanjutkan ke PayPal:</p>
-                            <div style="text-align: center;"><a href="https://www.paypal.com" target="_blank" rel="noopener noreferrer" class="btn secondary-btn small-btn">Bayar dengan PayPal</a></div>
+                            <div class="payment-list-item">
+                                <i class="fab fa-paypal"></i>
+                                <span>Bayar dengan PayPal</span>
+                            </div>
                         </div>
                     </div>
                     <div class="payment-method-item" onclick="togglePaymentDetails('amazon-pay')">
-                        <i class="fab fa-amazon-pay"></i>
-                        <h3>Amazon Pay</h3>
+                        <div class="payment-method-header">
+                            <i class="fab fa-amazon-pay"></i>
+                            <h3>Amazon Pay</h3>
+                        </div>
                         <div class="payment-details" id="amazon-pay-details">
-                            <p>Bayar dengan akun Amazon Anda.</p>
-                            <p class="additional-info">Klik tombol di bawah untuk melanjutkan ke Amazon Pay:</p>
-                            <div style="text-align: center;"><a href="https://pay.amazon.com/" target="_blank" rel="noopener noreferrer" class="btn secondary-btn small-btn">Bayar dengan Amazon Pay</a></div>
+                            <div class="payment-list-item">
+                                <i class="fab fa-amazon-pay"></i>
+                                <span>Bayar dengan Amazon Pay</span>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -270,6 +279,12 @@
             const detailsDiv = document.getElementById(`${method}-details`);
             if (detailsDiv) {
                 detailsDiv.classList.toggle('active');
+                const allDetails = document.querySelectorAll('.payment-details');
+                allDetails.forEach(detail => {
+                    if (detail.id !== `${method}-details` && detail.classList.contains('active')) {
+                        detail.classList.remove('active');
+                    }
+                });
             }
         }
     </script>
