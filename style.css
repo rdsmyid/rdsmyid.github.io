@@ -35,13 +35,15 @@ header {
 
 .header-mobile {
     display: none; /* Sembunyikan mobile secara default */
-    justify-content: space-between;
+    justify-content: space-between; /* Agar logo dan tombol terpisah */
     align-items: center;
+    padding: 1em 20px; /* Berikan padding agar tidak terlalu mepet tepi layar */
 }
 
 .logo-mobile h1 {
     font-size: 1.4em;
     letter-spacing: 1px;
+    color: var(--white); /* Pastikan warna teks logo terlihat */
     margin-right: auto;
 }
 
@@ -56,21 +58,16 @@ header {
 }
 
 .mobile-links a {
-    color: var(--white);
+    color: var(--white); /* Pastikan warna teks tombol terlihat */
     text-decoration: none;
     margin-left: 10px;
     font-size: 1em;
     padding: 6px 10px;
     border-radius: 5px;
-    background-color: rgba(255, 255, 255, 0.1);
-    transition: background-color 0.3s ease;
+    background-color: rgba(255, 255, 255, 0.1); /* Berikan sedikit background agar terlihat */
 }
 
-.mobile-links a:hover {
-    background-color: rgba(255, 255, 255, 0.2);
-}
-
-.mobile-links i {
+.mobile-links a i {
     margin-right: 5px;
 }
 
@@ -411,4 +408,4 @@ footer {
   -moz-user-select: none;
   -ms-user-select: none;
   user-select: none;
-    }
+}
