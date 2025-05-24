@@ -88,41 +88,49 @@ main {
     padding: 40px 0;
 }
 
-.section-grid {
+.card-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     gap: 20px;
     padding: 20px;
 }
 
-.payment-methods-card,
-.queue-info-card,
-.join-queue-card {
+.info-card {
     background: var(--white);
     border-radius: 8px;
     box-shadow: 0 4px 10px var(--shadow-light);
     padding: 20px;
-    text-align: center;
 }
 
 /* --- PAYMENT METHODS CARD --- */
+.payment-methods-card {
+    text-align: left; /* Ubah ke kiri */
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
 .payment-methods-card i {
     font-size: 2.5em;
     color: var(--primary-color);
-    margin-bottom: 10px;
+    flex-shrink: 0;
+}
+
+.payment-methods-card > div {
+    flex-grow: 1;
 }
 
 .payment-methods-card h3 {
     color: var(--primary-color);
     margin-top: 0;
-    margin-bottom: 10px;
-    font-size: 1.5em;
+    margin-bottom: 5px;
+    font-size: 1.2em;
 }
 
 .payment-methods-card p {
-    font-size: 1em;
+    font-size: 0.9em;
     color: var(--text-color);
-    margin-bottom: 15px;
+    margin-bottom: 10px;
 }
 
 .payment-details {
@@ -163,25 +171,44 @@ main {
     color: var(--text-color);
 }
 
+.payment-methods-action {
+    margin-top: 15px;
+    text-align: left; /* Agar tombol rata kiri */
+}
+
 /* --- QUEUE INFO CARD --- */
+.queue-info-card {
+    text-align: left; /* Ubah ke kiri */
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
 .queue-info-card .queue-info-icon {
     font-size: 2.5em;
     color: var(--primary-color);
-    margin-bottom: 10px;
+    flex-shrink: 0;
+}
+
+.queue-info-card > div {
+    flex-grow: 1;
 }
 
 .queue-info-card .queue-info-header h2 {
     color: var(--text-color);
     margin-top: 0;
-    margin-bottom: 10px;
-    font-size: 1.5em;
+    margin-bottom: 5px;
+    font-size: 1.2em;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 
 .queue-info-card .queue-count {
     font-size: 2em;
     font-weight: bold;
     color: var(--primary-color);
-    margin-bottom: 10px;
+    margin-bottom: 5px;
 }
 
 .queue-info-card .queue-updated-info {
@@ -190,27 +217,41 @@ main {
 }
 
 /* --- JOIN QUEUE CARD --- */
+.join-queue-card {
+    text-align: left; /* Ubah ke kiri */
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
 .join-queue-card .join-queue-icon {
     font-size: 2.5em;
     color: var(--secondary-color);
-    margin-bottom: 10px;
+    flex-shrink: 0;
+}
+
+.join-queue-card > div.text-content {
+    flex-grow: 1;
 }
 
 .join-queue-card .join-queue-header h2 {
     color: var(--text-color);
     margin-top: 0;
-    margin-bottom: 10px;
-    font-size: 1.5em;
+    margin-bottom: 5px;
+    font-size: 1.2em;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 
 .join-queue-card .join-queue-description p {
-    font-size: 1em;
+    font-size: 0.9em;
     color: #7f8c8d;
-    margin-bottom: 15px;
+    margin-bottom: 10px;
 }
 
-.join-queue-button-area {
-    /* Style untuk area tombol */
+.join-queue-card .queue-section {
+    margin-top: 15px;
 }
 
 .join-queue-button {
@@ -236,7 +277,7 @@ main {
 }
 
 .registration-form {
-    margin-top: 20px;
+    margin-top: 15px;
     text-align: left;
 }
 
@@ -316,15 +357,24 @@ footer {
 
 /* --- RESPONSIVE DESIGN --- */
 @media (min-width: 769px) {
-    .section-grid {
+    .card-grid {
         padding: 30px;
     }
 }
 
 @media (max-width: 768px) {
-    .section-grid {
+    .card-grid {
         grid-template-columns: 1fr;
         padding: 15px;
+    }
+    .payment-methods-card {
+        text-align: left;
+    }
+    .queue-info-card {
+        text-align: left;
+    }
+    .join-queue-card {
+        text-align: left;
     }
 }
 
