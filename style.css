@@ -33,9 +33,8 @@ header {
     text-align: left;
 }
 
-/* Tampilkan header mobile secara default */
 .header-mobile {
-    display: flex;
+    display: none; /* Sembunyikan mobile secara default */
     justify-content: space-between;
     align-items: center;
 }
@@ -75,9 +74,8 @@ header {
     margin-right: 5px;
 }
 
-/* Sembunyikan header desktop secara default */
 header > .container {
-    display: none;
+    display: flex; /* Tampilkan desktop secara default */
 }
 
 header > .container h1 {
@@ -369,7 +367,6 @@ footer {
 }
 
 /* --- RESPONSIVE DESIGN --- */
-/* Hanya tampilkan header mobile di layar dengan lebar maksimal 768px */
 @media (max-width: 768px) {
     header > .container {
         display: none !important;
@@ -379,11 +376,7 @@ footer {
     }
 }
 
-/* Hanya tampilkan header desktop di layar dengan lebar minimal 769px */
 @media (min-width: 769px) {
-    header > .container {
-        display: flex !important;
-    }
     .header-mobile {
         display: none !important;
     }
@@ -418,4 +411,4 @@ footer {
   -moz-user-select: none;
   -ms-user-select: none;
   user-select: none;
-}
+    }
