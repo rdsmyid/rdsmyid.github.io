@@ -80,11 +80,11 @@ body {
 
 /* --- MAIN CONTENT --- */
 main {
-    padding-top: 60px;
+    padding-top: 70px; /* Sedikit sesuaikan padding top */
 }
 
 .section-padded {
-    padding: 30px 0;
+    padding: 15px 0; /* Kurangi padding vertikal section */
 }
 
 .info-card {
@@ -92,13 +92,14 @@ main {
     padding: 20px;
     border-radius: 8px;
     box-shadow: 0 4px 10px var(--shadow-light);
-    margin-bottom: 10px; /* Kurangi margin bottom menjadi 10px */
+    margin-top: 10px; /* Atur margin top untuk jarak antar kotak */
+    margin-bottom: 0; /* Hapus margin bottom */
     transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-/* Hapus margin-bottom pada info-card terakhir (Bergabung di Antrian) */
-#join-queue .join-queue-card {
-    margin-bottom: 0;
+/* Atur margin-top untuk kotak pertama setelah header */
+#payment-methods .info-card {
+    margin-top: 15px; /* Sesuaikan jarak dari header */
 }
 
 .info-card:hover {
@@ -132,7 +133,7 @@ main {
     display: grid;
     grid-template-columns: 1fr;
     gap: 15px;
-    margin-top: 20px;
+    margin-top: 10px; /* Sesuaikan margin top di grid */
 }
 
 .payment-method-overview {
@@ -399,4 +400,4 @@ footer {
   -moz-user-select: none;
   -ms-user-select: none;
   user-select: none;
-}
+    }
