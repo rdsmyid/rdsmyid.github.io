@@ -187,7 +187,7 @@ main {
 
 /* Gaya spesifik untuk queue info */
 .queue-info-card {
-    text-align: center; /* Pusatkan seluruh konten kartu */
+    text-align: center;
 }
 
 .queue-count {
@@ -195,29 +195,29 @@ main {
     font-weight: bold;
     color: var(--primary-color);
     margin-bottom: 5px;
-    text-align: center; /* Pusatkan angka antrian */
+    text-align: center;
 }
 
 .queue-updated-info {
     font-size: 0.85em;
     color: #7f8c8d;
-    text-align: center; /* Pusatkan info update */
+    text-align: center;
 }
 
 /* Gaya spesifik untuk join queue */
 .join-queue-card {
-    text-align: center; /* Pusatkan konten kartu */
+    text-align: center;
 }
 
 .join-queue-description p {
     font-size: 0.9em;
     color: #7f8c8d;
     margin-bottom: 15px;
-    text-align: left; /* Kembalikan teks deskripsi ke kiri */
+    text-align: left;
 }
 
 .queue-section {
-    text-align: center; /* Pusatkan tombol */
+    text-align: center;
 }
 
 .join-queue-button {
@@ -235,7 +235,7 @@ main {
     transition: all 0.3s ease;
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
     text-decoration: none !important;
-    margin: 0 auto; /* Pusatkan tombol inline-flex */
+    margin: 0 auto;
 }
 
 .join-queue-button:hover {
@@ -414,4 +414,4 @@ footer {
   -moz-user-select: none;
   -ms-user-select: none;
   user-select: none;
-    }
+}
