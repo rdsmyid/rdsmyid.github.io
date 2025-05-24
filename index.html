@@ -130,7 +130,7 @@
             color: var(--text-color);
         }
 
-        /* Style untuk info antrian */
+        /* Style untuk info antrian dengan efek hover */
         .queue-info-card {
             background: white;
             border-radius: 12px;
@@ -138,6 +138,19 @@
             padding: 2rem;
             text-align: center;
             margin-top: 20px; /* Spasi dari metode pembayaran */
+            cursor: pointer; /* Tambahkan cursor pointer */
+            transition: transform 0.2s ease, box-shadow 0.2s ease; /* Tambahkan transisi */
+        }
+
+        .queue-info-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 15px rgba(0,0,0,0.1);
+        }
+
+        /* Style untuk info antrian saat aktif (ditekan) - opsional */
+        .queue-info-card:active {
+            transform: translateY(0);
+            box-shadow: 0 2px 10px rgba(0,0,0,0.08);
         }
 
         .queue-info-icon {
