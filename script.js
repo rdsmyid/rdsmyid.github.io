@@ -1,70 +1,81 @@
-function togglePaymentDetails(id) {
-    const details = document.getElementById(id + '-details');
-    if (details) {
-        details.classList.toggle('active');
-    }
-}
-
 document.addEventListener('DOMContentLoaded', function() {
+    const paymentOverview = document.querySelector('.payment-method-overview');
+    const paymentDetails = document.getElementById('payment-details');
     const showFormBtn = document.getElementById('showFormBtn');
     const registrationForm = document.getElementById('registrationForm');
     const cancelFormBtn = document.getElementById('cancelFormBtn');
     const submissionMessage = document.getElementById('submissionMessage');
+    const jumlahAntrianSpan = document.getElementById('jumlah-antrian');
+    const paymentOverviewArrow = paymentOverview ? paymentOverview.querySelector('::after') : null;
 
+    // Fungsi untuk menampilkan/menyembunyikan detail pembayaran
+    window.togglePaymentDetails = function(id) {
+        const details = document.getElementById(id + '-details');
+        const overview = document.querySelector(`.${id}-method-overview`);
+        const arrow = overview ? overview.querySelector('::after') : null;
+
+        if (details) {
+            details.classList.toggle('active');
+            if (arrow) {
+                const isOpen = details.classList.contains('active');
+                overview.style.setProperty('--arrow-direction', isOpen ? '"\\25B2"' : '"\\25BE"');
+            }
+        } else if (id === 'payment') {
+            paymentDetails.classList.toggle('active');
+            if (paymentOverviewArrow) {
+                const isOpen = paymentDetails.classList.contains('active');
+                paymentOverview.style.setProperty('--arrow-direction', isOpen ? '"\\25B2"' : '"\\25BE"');
+            }
+        }
+    };
+
+    // Set initial arrow direction using CSS variable
+    if (paymentOverview) {
+        paymentOverview.style.setProperty('--arrow-direction', '"\\25BE"');
+    }
+
+    // Event listener untuk tombol "Masuk Antrian"
     if (showFormBtn) {
         showFormBtn.addEventListener('click', function() {
-            if (registrationForm) {
-                registrationForm.classList.add('active');
-            }
+            registrationForm.classList.add('active');
+            showFormBtn.style.display = 'none';
+            submissionMessage.style.display = 'none'; // Pastikan pesan sukses tersembunyi saat formulir ditampilkan
         });
     }
 
+    // Event listener untuk tombol "Batal" pada formulir
     if (cancelFormBtn) {
         cancelFormBtn.addEventListener('click', function() {
-            if (registrationForm) {
-                registrationForm.classList.remove('active');
-            }
+            registrationForm.classList.remove('active');
+            showFormBtn.style.display = 'inline-flex';
         });
     }
 
-    const form = document.getElementById('registrationForm');
-    if (form) {
-        form.addEventListener('submit', function(event) {
-            event.preventDefault(); // Prevent default form submission
-            const formData = new FormData(form);
-            const action = form.getAttribute('action');
-
-            fetch(action, {
-                method: 'POST',
-                body: formData,
-                mode: 'no-cors' // Untuk mengatasi masalah CORS dengan Google Forms
-            }).then(() => {
-                if (registrationForm) {
-                    registrationForm.classList.remove('active');
-                }
-                if (submissionMessage) {
-                    submissionMessage.style.display = 'block';
-                }
-                // Reset form setelah berhasil (opsional)
-                form.reset();
-            }).catch(error => {
-                console.error('Error submitting form', error);
-                alert('Terjadi kesalahan saat mengirim formulir.');
-            });
+    // Event listener untuk form submission
+    if (registrationForm) {
+        registrationForm.addEventListener('submit', function() {
+            // Sembunyikan formulir dan tombol masuk antrian
+            registrationForm.classList.remove('active');
+            showFormBtn.style.display = 'none';
+            // Tampilkan pesan sukses
+            submissionMessage.style.display = 'block';
+            // Anda mungkin ingin mencegah pengiriman form yang sebenarnya di sini
+            // jika Anda ingin menangani pengiriman melalui JavaScript.
+            // event.preventDefault();
         });
     }
 
     // Fungsi untuk memperbarui jumlah antrian (simulasi)
-    function updateQueueCount() {
-        const jumlahAntrianElement = document.getElementById('jumlah-antrian');
-        if (jumlahAntrianElement) {
-            // Simulasi data antrian (ganti dengan data sebenarnya jika ada API)
-            const randomQueue = Math.floor(Math.random() * 15) + 1;
-            jumlahAntrianElement.textContent = randomQueue;
+    function updateJumlahAntrian() {
+        const randomAntrian = Math.floor(Math.random() * 15) + 5; // Contoh angka acak antara 5 dan 19
+        if (jumlahAntrianSpan) {
+            jumlahAntrianSpan.textContent = randomAntrian;
         }
     }
 
-    // Perbarui jumlah antrian setiap beberapa detik (simulasi)
-    setInterval(updateQueueCount, 5000);
-    updateQueueCount(); // Panggil pertama kali saat halaman dimuat
+    // Perbarui jumlah antrian setiap beberapa detik (opsional)
+    setInterval(updateJumlahAntrian, 5000);
+
+    // Inisialisasi jumlah antrian saat halaman dimuat
+    updateJumlahAntrian();
 });
