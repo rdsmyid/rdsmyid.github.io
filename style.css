@@ -68,21 +68,25 @@ header {
     margin-right: 5px;
 }
 
-header > .container {
-    display: flex; /* Tampilan default untuk desktop */
+.header-desktop {
+    display: none; /* Default sembunyi */
 }
 
-header > .container h1 {
+.header-desktop > .container {
+    display: flex; /* Tampilan untuk desktop */
+}
+
+.header-desktop > .container h1 {
     font-size: 2em;
     letter-spacing: 1px;
     margin-right: auto;
 }
 
-header > .container nav {
+.header-desktop > .container nav {
     display: flex;
 }
 
-header > .container nav ul {
+.header-desktop > .container nav ul {
     list-style: none;
     padding: 0;
     margin: 0;
@@ -90,11 +94,11 @@ header > .container nav ul {
     align-items: center;
 }
 
-header > .container nav ul li {
+.header-desktop > .container nav ul li {
     margin-left: 20px;
 }
 
-header > .container nav ul li a {
+.header-desktop > .container nav ul li a {
     color: var(--white);
     text-decoration: none;
     transition: color 0.3s ease;
@@ -358,7 +362,7 @@ footer {
 
 /* --- RESPONSIVE DESIGN --- */
 @media (max-width: 768px) {
-    header > .container {
+    .header-desktop {
         display: none !important; /* Sembunyikan header desktop di mobile */
     }
     .header-mobile {
@@ -420,6 +424,9 @@ footer {
     .header-mobile {
         display: none !important; /* Sembunyikan header mobile di desktop */
     }
+    .header-desktop {
+        display: block !important; /* Tampilkan header desktop di desktop */
+    }
 }
 
 /* CSS untuk mencegah seleksi teks */
@@ -428,4 +435,5 @@ footer {
   -moz-user-select: none;
   -ms-user-select: none;
   user-select: none;
-}
+    }
+        
