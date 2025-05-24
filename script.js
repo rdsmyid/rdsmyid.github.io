@@ -1,70 +1,49 @@
-function togglePaymentDetails(id) {
-    const details = document.getElementById(id + '-details');
-    if (details) {
-        details.classList.toggle('active');
-    }
-}
-
 document.addEventListener('DOMContentLoaded', function() {
-    const showFormBtn = document.getElementById('showFormBtn');
+    const paymentOverview = document.querySelector('.payment-method-overview');
+    const paymentDetails = document.getElementById('payment-details');
+    const dropdownArrow = document.getElementById('dropdown-arrow');
+
+    if (paymentOverview && paymentDetails && dropdownArrow) {
+        paymentOverview.addEventListener('click', function() {
+            paymentDetails.classList.toggle('active');
+            // Putar panah berdasarkan status active
+            if (paymentDetails.classList.contains('active')) {
+                dropdownArrow.style.transform = 'translateX(-50%) rotate(180deg)';
+            } else {
+                dropdownArrow.style.transform = 'translateX(-50%) rotate(0deg)';
+            }
+        });
+    }
+
+    const joinQueueButton = document.querySelector('.join-queue-button');
     const registrationForm = document.getElementById('registrationForm');
     const cancelFormBtn = document.getElementById('cancelFormBtn');
     const submissionMessage = document.getElementById('submissionMessage');
+    const registrationSubmitForm = document.getElementById('registrationSubmitForm');
 
-    if (showFormBtn) {
-        showFormBtn.addEventListener('click', function() {
-            if (registrationForm) {
-                registrationForm.classList.add('active');
-            }
+    if (joinQueueButton) {
+        joinQueueButton.addEventListener('click', function(e) {
+            e.preventDefault();
+            registrationForm.classList.add('active');
         });
     }
 
     if (cancelFormBtn) {
         cancelFormBtn.addEventListener('click', function() {
-            if (registrationForm) {
-                registrationForm.classList.remove('active');
-            }
+            registrationForm.classList.remove('active');
         });
     }
 
-    const form = document.getElementById('registrationForm');
-    if (form) {
-        form.addEventListener('submit', function(event) {
-            event.preventDefault(); // Prevent default form submission
-            const formData = new FormData(form);
-            const action = form.getAttribute('action');
-
-            fetch(action, {
-                method: 'POST',
-                body: formData,
-                mode: 'no-cors' // Untuk mengatasi masalah CORS dengan Google Forms
-            }).then(() => {
-                if (registrationForm) {
-                    registrationForm.classList.remove('active');
-                }
-                if (submissionMessage) {
-                    submissionMessage.style.display = 'block';
-                }
-                // Reset form setelah berhasil (opsional)
-                form.reset();
-            }).catch(error => {
-                console.error('Error submitting form', error);
-                alert('Terjadi kesalahan saat mengirim formulir.');
-            });
+    if (registrationSubmitForm) {
+        registrationSubmitForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            registrationForm.classList.remove('active');
+            submissionMessage.classList.add('active');
+            setTimeout(function() {
+                submissionMessage.classList.remove('active');
+            }, 3000); // Tampilkan pesan sukses selama 3 detik
+            // Di sini Anda bisa menambahkan logika pengiriman data formulir
+            console.log('Formulir didaftarkan!');
         });
     }
-
-    // Fungsi untuk memperbarui jumlah antrian (simulasi)
-    function updateQueueCount() {
-        const jumlahAntrianElement = document.getElementById('jumlah-antrian');
-        if (jumlahAntrianElement) {
-            // Simulasi data antrian (ganti dengan data sebenarnya jika ada API)
-            const randomQueue = Math.floor(Math.random() * 15) + 1;
-            jumlahAntrianElement.textContent = randomQueue;
-        }
-    }
-
-    // Perbarui jumlah antrian setiap beberapa detik (simulasi)
-    setInterval(updateQueueCount, 5000);
-    updateQueueCount(); // Panggil pertama kali saat halaman dimuat
 });
