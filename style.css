@@ -131,75 +131,98 @@ main {
 /* --- FEATURE GRID --- */
 .feature-grid, .category-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); /* Responsif grid */
-    gap: 30px;
+    grid-template-columns: repeat(auto-fit, minmax(300px, auto)); /* Responsif grid */
+    gap: 20px;
     margin-top: 40px;
 }
 
 .feature-item, .category-item {
     background-color: var(--white);
-    padding: 30px;
+    padding: 20px;
     border-radius: 8px;
     box-shadow: 0 4px 10px var(--shadow-light);
-    text-align: center;
+    display: flex; /* Menggunakan flexbox */
+    align-items: center;
+    gap: 15px;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
+    text-align: left; /* Teks rata kiri */
 }
 
 .feature-item:hover, .category-item:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.15);
+    transform: translateY(-3px);
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+}
+
+.feature-item i, .category-item i { /* Placeholder untuk ikon */
+    font-size: 2em;
+    color: var(--primary-color);
+    flex-shrink: 0;
+}
+
+.feature-item > div, .category-item > div {
+    flex-grow: 1;
 }
 
 .feature-item h3, .category-item h3 {
     color: var(--primary-color);
-    margin-top: 15px;
-    font-size: 1.5em;
+    margin-top: 0;
+    margin-bottom: 5px;
+    font-size: 1.2em;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 
-.feature-item i, .category-item i { /* Placeholder untuk ikon */
-    font-size: 3em;
-    color: var(--primary-color);
-    margin-bottom: 10px;
+.feature-item p, .category-item p {
+    font-size: 0.9em;
+    color: var(--text-color);
+    margin-bottom: 0;
 }
 
 /* --- PAYMENT METHODS --- */
 .payment-methods-grid {
-    display: grid;
-    grid-template-columns: 1fr; /* Satu kolom saja */
-    gap: 20px;
+    display: block; /* Mengembalikan display ke block */
     margin-top: 30px;
 }
 
 .payment-method-overview {
     background-color: var(--white);
-    padding: 30px;
+    padding: 20px;
     border-radius: 8px;
     box-shadow: 0 4px 10px var(--shadow-light);
-    text-align: center;
-    cursor: pointer;
+    display: flex; /* Menggunakan flexbox untuk overview */
+    align-items: center;
+    gap: 20px;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
+    cursor: pointer;
+    margin-bottom: 10px; /* Beri jarak dengan details */
 }
 
 .payment-method-overview:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.15);
+    transform: translateY(-3px);
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
 }
 
-.payment-method-overview i {
-    font-size: 3em;
+.payment-method-overview > i {
+    font-size: 2em;
     color: var(--primary-color);
-    margin-bottom: 10px;
+    flex-shrink: 0;
+}
+
+.payment-method-overview > div {
+    flex-grow: 1;
 }
 
 .payment-method-overview h3 {
-    color: var(--primary-color);
-    margin-top: 15px;
-    font-size: 1.5em;
-    margin-bottom: 10px;
+    font-size: 1.2em;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    margin-bottom: 0;
 }
 
 .payment-method-overview p {
-    font-size: 1.1em;
+    font-size: 0.9em;
     color: var(--text-color);
     margin-bottom: 0;
 }
@@ -208,7 +231,7 @@ main {
     background-color: var(--white);
     border-radius: 8px;
     box-shadow: 0 4px 10px var(--shadow-light);
-    margin-top: 20px;
+    margin-top: 10px;
     padding: 20px;
     display: none; /* Hidden by default */
 }
@@ -244,117 +267,124 @@ main {
 /* --- QUEUE INFO CARD --- */
 .queue-info-card {
     background: var(--white);
-    border-radius: 12px;
-    box-shadow: 0 4px 20px rgba(0,0,0,0.08);
-    padding: 2rem;
-    text-align: center;
-    margin-top: 20px; /* Spasi dari metode pembayaran */
-    cursor: pointer; /* Tambahkan cursor pointer */
-    transition: transform 0.2s ease, box-shadow 0.2s ease; /* Tambahkan transisi */
+    border-radius: 8px;
+    box-shadow: 0 4px 10px var(--shadow-light);
+    margin-top: 20px;
+    padding: 20px;
+    display: flex; /* Menggunakan flexbox */
+    align-items: center;
+    gap: 20px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    cursor: pointer;
 }
 
 .queue-info-card:hover {
     transform: translateY(-3px);
-    box-shadow: 0 6px 15px rgba(0,0,0,0.1);
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
 }
 
-.queue-info-card:active {
-    transform: translateY(0);
-    box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+.queue-info-card > i {
+    font-size: 2em;
+    color: var(--primary-color);
+    flex-shrink: 0;
 }
 
-.queue-info-icon {
-    font-size: 3em;
-    color: var(--primary-color); /* Menggunakan warna primer */
-    margin-bottom: 10px;
+.queue-info-card > div {
+    flex-grow: 1;
 }
 
 .queue-info-header h2 {
     color: var(--text-color);
-    margin-top: 15px;
-    font-size: 1.5em;
-    margin-bottom: 10px;
+    margin-top: 0;
+    margin-bottom: 5px;
+    font-size: 1.2em;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 
 .queue-count {
-    font-size: 2.5rem;
+    font-size: 1.5em;
     font-weight: bold;
-    color: var(--primary-color); /* Menggunakan warna primer */
-    margin-bottom: 15px;
+    color: var(--primary-color);
+    margin-bottom: 0;
 }
 
 .queue-updated-info {
-    color: #7f8c8d;
     font-size: 0.9em;
+    color: #7f8c8d;
 }
 
 /* --- JOIN QUEUE CARD --- */
 .join-queue-card {
     background: var(--white);
-    border-radius: 12px;
-    box-shadow: 0 4px 20px rgba(0,0,0,0.08);
-    padding: 2rem;
-    text-align: center;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px var(--shadow-light);
     margin-top: 20px;
-    cursor: pointer; /* Tambahkan cursor pointer */
-    transition: transform 0.2s ease, box-shadow 0.2s ease; /* Tambahkan transisi */
+    padding: 20px;
+    display: flex; /* Menggunakan flexbox */
+    align-items: center;
+    gap: 20px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    cursor: pointer;
 }
 
 .join-queue-card:hover {
     transform: translateY(-3px);
-    box-shadow: 0 6px 15px rgba(0,0,0,0.1);
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
 }
 
-.join-queue-card:active {
-    transform: translateY(0);
-    box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+.join-queue-card > i {
+    font-size: 2em;
+    color: var(--secondary-color);
+    flex-shrink: 0;
 }
 
-.join-queue-icon {
-    font-size: 3em;
-    color: var(--secondary-color); /* Menggunakan warna sekunder */
-    margin-bottom: 10px;
+.join-queue-card > div {
+    flex-grow: 1;
 }
 
 .join-queue-header h2 {
     color: var(--text-color);
-    margin-top: 15px;
-    font-size: 1.5em;
-    margin-bottom: 15px;
+    margin-top: 0;
+    margin-bottom: 5px;
+    font-size: 1.2em;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 
 .join-queue-description p {
+    font-size: 0.9em;
     color: #7f8c8d;
-    font-size: 1.1em;
-    line-height: 1.6;
-    margin-bottom: 20px;
+    margin-bottom: 0;
 }
 
 .join-queue-button-area {
-    /* Style untuk area tombol agar tetap di tengah */
+    margin-top: 15px; /* Beri jarak dari deskripsi */
+    text-align: center; /* Tengahkan tombol */
 }
 
 .join-queue-button {
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    gap: 1rem;
+    gap: 0.5rem;
     background: linear-gradient(135deg, var(--primary-color), var(--primary-hover-color));
     color: var(--white) !important;
-    padding: 1.2rem 3rem;
+    padding: 0.8rem 1.5rem;
     border: none;
-    border-radius: 30px;
-    font-size: 1.1rem;
+    border-radius: 20px;
+    font-size: 1em;
     cursor: pointer;
     transition: all 0.3s ease;
-    box-shadow: 0 4px 15px rgba(var(--primary-color-rgb), 0.3); /* Perlu didefinisikan --primary-color-rgb jika ingin ini bekerja */
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
     text-decoration: none !important;
 }
 
 .join-queue-button:hover {
     transform: translateY(-2px);
-    box-shadow: 0 6px 20px rgba(var(--primary-color-rgb), 0.4); /* Sama, perlu --primary-color-rgb */
-    text-decoration: none !important;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.25);
 }
 
 .registration-form {
@@ -369,34 +399,26 @@ main {
     margin-bottom: 10px;
 }
 
-.form-row {
-    display: flex;
-    align-items: center;
-    gap: 15px;
-}
-
-.form-row > div {
-    flex-grow: 1;
-}
-
 .registration-form label {
     display: block;
     margin-bottom: 5px;
     color: #34495e;
     font-weight: bold;
+    font-size: 0.9em;
 }
 
 .registration-form input[type="text"],
 .registration-form input[type="number"] {
     width: 100%;
-    padding: 0.8rem;
+    padding: 0.6rem;
     border: 1px solid #d1d8e0;
-    border-radius: 8px;
+    border-radius: 5px;
     box-sizing: border-box;
+    font-size: 0.9em;
 }
 
 .input-hint {
-    font-size: 0.85rem;
+    font-size: 0.75rem;
     color: #7f8c8d;
     margin-top: 3px;
 }
@@ -404,10 +426,10 @@ main {
 .registration-form button {
     background: var(--secondary-color);
     color: var(--white);
-    padding: 1rem 2rem;
+    padding: 0.7rem 1.2rem;
     border: none;
-    border-radius: 8px;
-    font-size: 1rem;
+    border-radius: 5px;
+    font-size: 0.9em;
     cursor: pointer;
     transition: background-color 0.3s ease;
     margin-top: 15px;
@@ -420,30 +442,33 @@ main {
 .submission-message {
     display: none;
     margin-top: 20px;
-    padding: 1.5rem;
+    padding: 1rem;
     background-color: #d4edda;
     color: #155724;
     border: 1px solid #c3e6cb;
-    border-radius: 8px;
+    border-radius: 5px;
     text-align: center;
+    font-size: 0.9em;
 }
 
 .submission-message h3 {
     margin-top: 0;
-    margin-bottom: 10px;
+    margin-bottom: 5px;
     color: #155724;
+    font-size: 1.1em;
 }
 
 /* --- BUTTONS --- */
 .btn {
     display: inline-block;
-    padding: 12px 28px;
+    padding: 10px 24px;
     text-decoration: none;
     border-radius: 5px;
     font-weight: 600;
     transition: background-color 0.3s ease, transform 0.2s ease;
     border: none;
     cursor: pointer;
+    font-size: 1em;
 }
 
 .primary-btn {
@@ -467,22 +492,23 @@ main {
 }
 
 .large-btn {
-    padding: 15px 40px;
-    font-size: 1.1em;
+    padding: 12px 30px;
+    font-size: 1em;
 }
 
 /* --- FOOTER --- */
 footer {
-        background-color: var(--dark-bg);
+    background-color: var(--dark-bg);
     color: var(--white);
     padding: 1.5em 0;
     text-align: center;
+    font-size: 0.9em;
 }
 
 /* --- RESPONSIVE DESIGN --- */
 @media (min-width: 769px) {
     header {
-        padding: 1.2em 20px; /* Tambahkan padding samping */
+        padding: 1em 20px; /* Tambahkan padding samping */
         text-align: left;
     }
     .header-mobile {
@@ -494,7 +520,7 @@ footer {
         align-items: center;
     }
     header h1 {
-        font-size: 2.2em;
+        font-size: 2em;
         letter-spacing: 1px;
         margin-right: auto; /* Mendorong logo ke kiri maksimal */
     }
@@ -510,8 +536,8 @@ footer {
         color: var(--white);
         text-decoration: none;
         margin-left: 10px;
-        font-size: 1.1em;
-        padding: 8px 12px; /* Tambahkan padding */
+        font-size: 1em;
+        padding: 6px 10px; /* Tambahkan padding */
         border-radius: 5px; /* Tambahkan sudut membulat */
         background-color: rgba(255, 255, 255, 0.1); /* Latar belakang semi-transparan */
         transition: background-color 0.3s ease; /* Efek transisi hover */
@@ -528,7 +554,7 @@ footer {
     .separator { /* Gaya untuk desktop */
         color: var(--white);
         margin: 0 10px;
-        font-size: 1.1em;
+        font-size: 1em;
     }
 }
 
@@ -537,30 +563,30 @@ footer {
         padding: 0 15px;
     }
     .hero-section h2 {
-        font-size: 2.5em;
+        font-size: 2.2em;
     }
 }
 
 @media (max-width: 768px) {
     /* Layout mobile aktif secara default */
     .hero-section {
-        padding: 80px 0;
+        padding: 60px 0;
         border-radius: 0; /* Hilangkan sudut membulat di mobile */
     }
     .hero-section h2 {
-        font-size: 2em;
+        font-size: 1.8em;
     }
     .section-padded {
-        padding: 40px 0;
+        padding: 30px 0;
     }
     .feature-grid, .category-grid {
         grid-template-columns: 1fr; /* Stack kolaborasi di ponsel */
     }
     .feature-item, .category-item {
-        padding: 25px;
+        padding: 15px;
     }
     .mobile-links a {
-        font-size: 0.9em; /* Sedikit perkecil ukuran font juga */
+        font-size: 0.8em; /* Sedikit perkecil ukuran font juga */
         margin-left: 3px; /* Kurangi margin kiri */
         padding: 3px 6px; /* Perkecil lagi padding atas, bawah, kiri, kanan */
         border-radius: 2px;
@@ -573,316 +599,183 @@ footer {
         display: none; /* Sembunyikan separator di mobile karena sudah ada jarak */
     }
     .logo-mobile h1 {
-        font-size: 1.6em;
+        font-size: 1.4em;
         margin-right: 10px;
     }
 }
 
 @media (max-width: 480px) {
     .hero-section h2 {
-        font-size: 1.7em;
+        font-size: 1.5em;
     }
     .hero-section p {
-        font-size: 1em;
+        font-size: 0.9em;
     }
     .btn {
-        padding: 10px 20px;
-        font-size: 0.9em;
+        padding: 8px 18px;
+        font-size: 0.8em;
     }
     .large-btn {
-        padding: 12px 30px;
-        font-size: 1em;
+        padding: 10px 24px;
+        font-size: 0.9em;
     }
     .mobile-links a {
-        font-size: 0.9em;
-        margin-left: 3px;
-        padding: 3px 6px;
+        font-size: 0.8em;
+        margin-left: 2px;
+        padding: 2px 5px;
         border-radius: 2px;
         background-color: rgba(255, 255, 255, 0.15);
     }
     .mobile-links a:first-child {
-        margin-right: 3px;
+        margin-right: 2px;
     }
     .separator {
         display: none;
     }
     .logo-mobile h1 {
-        font-size: 1.6em;
-        margin-right: 10px;
+        font-size: 1.4em;
+        margin-right: 8px;
     }
 }
 
-/* Style tambahan untuk elemen-elemen baru */
+/* Style tambahan untuk elemen-elemen baru (sudah termasuk sebelumnya) */
+.payment-methods-grid,
+.queue-info-card,
+.join-queue-card {
+    /* ... gaya flexbox dan lainnya ... */
+}
+
+.payment-methods-grid > i,
+.queue-info-card > i,
+.join-queue-card > i {
+    /* ... gaya ikon ... */
+}
+
+.payment-methods-grid > div,
+.queue-info-card > div,
+.join-queue-card > div {
+    /* ... gaya div teks ... */
+}
+
+.payment-methods-grid h3,
+.queue-info-card h2,
+.join-queue-card h2 {
+    /* ... gaya judul ... */
+}
+
+.payment-methods-grid p,
+.queue-info-card p,
+.join-queue-card p {
+    /* ... gaya paragraf ... */
+}
+
+/* Style spesifik untuk payment details */
 .payment-methods-grid {
-    display: grid;
-    grid-template-columns: 1fr; /* Satu kolom saja */
-    gap: 20px;
-    margin-top: 30px;
+    display: block;
 }
 
 .payment-method-overview {
-    background-color: var(--white);
-    padding: 30px;
-    border-radius: 8px;
-    box-shadow: 0 4px 10px var(--shadow-light);
-    text-align: center;
-    cursor: pointer;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-.payment-method-overview:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.15);
-}
-
-.payment-method-overview i {
-    font-size: 3em;
-    color: var(--primary-color);
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    padding: 20px;
     margin-bottom: 10px;
+}
+
+.payment-method-overview > i {
+    font-size: 2em;
+}
+
+.payment-method-overview > div {
+    flex-grow: 1;
 }
 
 .payment-method-overview h3 {
-    color: var(--primary-color);
-    margin-top: 15px;
-    font-size: 1.5em;
-    margin-bottom: 10px;
+    font-size: 1.2em;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    margin-bottom: 0;
 }
 
 .payment-method-overview p {
-    font-size: 1.1em;
-    color: var(--text-color);
+    font-size: 0.9em;
     margin-bottom: 0;
 }
 
 .payment-details {
-    background-color: var(--white);
-    border-radius: 8px;
-    box-shadow: 0 4px 10px var(--shadow-light);
-    margin-top: 20px;
-    padding: 20px;
-    display: none; /* Hidden by default */
-}
-
-.payment-details.active {
-    display: block;
+    /* ... gaya payment details ... */
 }
 
 .payment-list-item {
-    display: flex;
-    align-items: center;
-    gap: 15px;
-    padding: 10px 0;
-    border-bottom: 1px solid #eee;
+    /* ... gaya list item pembayaran ... */
 }
 
-.payment-list-item:last-child {
-    border-bottom: none;
-}
-
-.payment-list-item i {
-    font-size: 1.5em;
-    color: var(--secondary-color);
-    width: 30px;
-    text-align: center;
-}
-
-.payment-list-item span {
-    font-size: 1em;
-    color: var(--text-color);
-}
-
-/* Style untuk info antrian dengan efek hover */
 .queue-info-card {
-    background: var(--white);
-    border-radius: 12px;
-    box-shadow: 0 4px 20px rgba(0,0,0,0.08);
-    padding: 2rem;
-    text-align: center;
-    margin-top: 20px; /* Spasi dari metode pembayaran */
-    cursor: pointer; /* Tambahkan cursor pointer */
-    transition: transform 0.2s ease, box-shadow 0.2s ease; /* Tambahkan transisi */
+    padding: 20px;
 }
 
-.queue-info-card:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 6px 15px rgba(0,0,0,0.1);
-}
-
-/* Style untuk info antrian saat aktif (ditekan) - opsional */
-.queue-info-card:active {
-    transform: translateY(0);
-    box-shadow: 0 2px 10px rgba(0,0,0,0.08);
-}
-
-.queue-info-icon {
-    font-size: 3em;
-    color: var(--primary-color); /* Menggunakan warna primer */
-    margin-bottom: 10px;
+.queue-info-card > i {
+    font-size: 2em;
 }
 
 .queue-info-header h2 {
-    color: var(--text-color);
-    margin-top: 15px;
-    font-size: 1.5em;
-    margin-bottom: 10px;
+    font-size: 1.2em;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    margin-bottom: 5px;
 }
 
-.queue-count {
-    font-size: 2.5rem;
+.queue-info-card .queue-count {
+    font-size: 1.5em;
     font-weight: bold;
-    color: var(--primary-color); /* Menggunakan warna primer */
-    margin-bottom: 15px;
+    color: var(--primary-color);
+    margin-bottom: 0;
 }
 
 .queue-updated-info {
-    color: #7f8c8d;
     font-size: 0.9em;
+    color: #7f8c8d;
 }
 
-/* Style untuk bagian Bergabung di Antrian dengan efek klik */
 .join-queue-card {
-    background: var(--white);
-    border-radius: 12px;
-    box-shadow: 0 4px 20px rgba(0,0,0,0.08);
-    padding: 2rem;
-    text-align: center;
-    margin-top: 20px;
-    cursor: pointer; /* Tambahkan cursor pointer */
-    transition: transform 0.2s ease, box-shadow 0.2s ease; /* Tambahkan transisi */
+    padding: 20px;
 }
 
-.join-queue-card:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 6px 15px rgba(0,0,0,0.1);
-}
-
-.join-queue-card:active {
-    transform: translateY(0);
-    box-shadow: 0 2px 10px rgba(0,0,0,0.08);
-}
-
-.join-queue-icon {
-    font-size: 3em;
-    color: var(--secondary-color); /* Menggunakan warna sekunder */
-    margin-bottom: 10px;
+.join-queue-card > i {
+    font-size: 2em;
+    color: var(--secondary-color);
 }
 
 .join-queue-header h2 {
-    color: var(--text-color);
-    margin-top: 15px;
-    font-size: 1.5em;
-    margin-bottom: 15px;
+    font-size: 1.2em;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    margin-bottom: 5px;
 }
 
 .join-queue-description p {
-    color: #7f8c8d;
-    font-size: 1.1em;
-    line-height: 1.6;
-    margin-bottom: 20px;
+    font-size: 0.9em;
+    margin-bottom: 0;
 }
 
 .join-queue-button-area {
-    /* Style untuk area tombol agar tetap di tengah */
-}
-
-.join-queue-button {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    gap: 1rem;
-    background: linear-gradient(135deg, var(--primary-color), var(--primary-hover-color));
-    color: var(--white) !important;
-    padding: 1.2rem 3rem;
-    border: none;
-    border-radius: 30px;
-    font-size: 1.1rem;
-    cursor: pointer;
-    transition: all 0.3s ease;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3); /* Menggunakan RGB default karena variabel belum tentu didefinisikan */
-    text-decoration: none !important;
-}
-
-.join-queue-button:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.4); /* Menggunakan RGB default */
-    text-decoration: none !important;
-}
-
-.registration-form {
-    display: none;
-    margin-top: 20px;
-    text-align: left;
-}
-
-.form-group {
-    display: flex;
-    flex-direction: column;
-    margin-bottom: 10px;
-}
-
-.form-row {
-    display: flex;
-    align-items: center;
-    gap: 15px;
-}
-
-.form-row > div {
-    flex-grow: 1;
-}
-
-.registration-form label {
-    display: block;
-    margin-bottom: 5px;
-    color: #34495e;
-    font-weight: bold;
-}
-
-.registration-form input[type="text"],
-.registration-form input[type="number"] {
-    width: 100%;
-    padding: 0.8rem;
-    border: 1px solid #d1d8e0;
-    border-radius: 8px;
-    box-sizing: border-box;
-}
-
-.input-hint {
-    font-size: 0.85rem;
-    color: #7f8c8d;
-    margin-top: 3px;
-}
-
-.registration-form button {
-    background: var(--secondary-color);
-    color: var(--white);
-    padding: 1rem 2rem;
-    border: none;
-    border-radius: 8px;
-    font-size: 1rem;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
     margin-top: 15px;
-}
-
-.registration-form button:hover {
-    background-color: #0056b3; /* Darken secondary color */
-}
-
-.submission-message {
-    display: none;
-    margin-top: 20px;
-    padding: 1.5rem;
-    background-color: #d4edda;
-    color: #155724;
-    border: 1px solid #c3e6cb;
-    border-radius: 8px;
     text-align: center;
 }
 
-.submission-message h3 {
-    margin-top: 0;
-    margin-bottom: 10px;
-    color: #155724;
+.join-queue-button {
+    /* ... gaya tombol gabung antrian ... */
+}
+
+.registration-form {
+    /* ... gaya formulir pendaftaran ... */
+}
+
+.submission-message {
+    /* ... gaya pesan terkirim ... */
 }
 
 /* CSS untuk mencegah seleksi teks */
@@ -891,4 +784,4 @@ footer {
   -moz-user-select: none; /* Firefox */
   -ms-user-select: none; /* Internet Explorer/Edge */
   user-select: none; /* Standar */
-    }
+}
