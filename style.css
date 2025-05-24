@@ -53,7 +53,7 @@ body {
 }
 
 .logo img {
-    max-height: 30px; /* Sesuaikan tinggi maksimum logo di sini */
+    max-height: 5px; /* Sesuaikan tinggi maksimum logo di sini */
     width: auto;
     display: block;
 }
