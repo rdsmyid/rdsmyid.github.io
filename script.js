@@ -1,3 +1,5 @@
+// script.js
+
 document.addEventListener('DOMContentLoaded', function() {
     const jumlahAntrianSpan = document.getElementById('jumlah-antrian');
     const showFormBtn = document.getElementById('showFormBtn');
@@ -96,8 +98,12 @@ document.addEventListener('DOMContentLoaded', function() {
                 // Setelah berhasil mengirim, perbarui jumlah antrian
                 fetchJumlahAntrian();
             }).catch(error => {
-                console.error('Error submitting form', error);
-                alert('Terjadi kesalahan saat mengirim formulir.');
+                console.error('Terjadi kesalahan saat mengirim formulir:', error);
+                // Hanya tampilkan alert jika ada error yang sebenarnya mencegah pengiriman
+                // Dalam mode 'no-cors', kita mungkin tidak bisa membedakan error pengiriman
+                // dengan respons sukses dari Google Forms. Untuk saat ini, kita bisa
+                // memilih untuk tidak menampilkan alert error di sini jika laporan sukses muncul.
+                // alert('Terjadi kesalahan saat mengirim formulir.');
             });
         });
     }
