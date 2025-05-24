@@ -34,7 +34,6 @@
                 </div>
                 <div class="payment-method-overview">
                     Ini adalah beberapa pembayaran sah yang kami sediakan.
-                    <span id="dropdown-arrow" style="position: absolute; left: 50%; bottom: -20px; transform: translateX(-50%); font-size: 1.5em; color: var(--secondary-color); transition: transform 0.3s ease-in-out;">&#9660;</span>
                 </div>
                 <div id="payment-details" class="payment-details">
                     <h4 style="margin-top: 0;">Pilih Metode Pembayaran:</h4>
@@ -112,17 +111,10 @@
         document.addEventListener('DOMContentLoaded', function() {
             const paymentOverview = document.querySelector('.payment-method-overview');
             const paymentDetails = document.getElementById('payment-details');
-            const dropdownArrow = document.getElementById('dropdown-arrow');
 
-            if (paymentOverview && paymentDetails && dropdownArrow) {
+            if (paymentOverview && paymentDetails) {
                 paymentOverview.addEventListener('click', function() {
                     paymentDetails.classList.toggle('active');
-                    // Putar panah berdasarkan status active
-                    if (paymentDetails.classList.contains('active')) {
-                        dropdownArrow.style.transform = 'translateX(-50%) rotate(180deg)';
-                    } else {
-                        dropdownArrow.style.transform = 'translateX(-50%) rotate(0deg)';
-                    }
                 });
             }
 
