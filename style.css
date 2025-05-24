@@ -33,11 +33,6 @@ header {
     text-align: left;
 }
 
-/* Secara default sembunyikan header desktop */
-header > .container {
-    display: none;
-}
-
 /* Secara default tampilkan header mobile */
 .header-mobile {
     display: flex;
@@ -78,6 +73,11 @@ header > .container {
 
 .mobile-links i {
     margin-right: 5px;
+}
+
+/* Secara default sembunyikan header desktop */
+header > .container {
+    display: none;
 }
 
 header > .container h1 {
@@ -430,4 +430,4 @@ footer {
   -moz-user-select: none;
   -ms-user-select: none;
   user-select: none;
-    }
+}
