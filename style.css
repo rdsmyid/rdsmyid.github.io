@@ -86,7 +86,7 @@ main {
 
 .section-padded {
     padding: 15px 0;
-    margin-bottom: 5px; /* Jarak setelah bagian Metode Pembayaran */
+    margin-bottom: 0px; /* Jarak setelah bagian Metode Pembayaran */
 }
 
 .info-card {
