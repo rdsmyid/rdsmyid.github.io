@@ -38,12 +38,12 @@
         <section id="payment-methods" class="section-padded">
             <div class="container">
                 <div class="payment-methods-grid">
-                    <div class="payment-method-overview" onclick="togglePaymentDetails('payment')">
-                        <i class="fas fa-money-bill-wave"></i>
-                        <div>
+                    <div class="info-card payment-method-overview" onclick="togglePaymentDetails('payment')">
+                        <div class="info-card-header">
+                            <i class="fas fa-money-bill-wave info-icon"></i>
                             <h3>Metode Pembayaran</h3>
-                            <p>Ini adalah beberapa pembayaran sah yang kami sediakan.</p>
                         </div>
+                        <p>Ini adalah beberapa pembayaran sah yang kami sediakan.</p>
                     </div>
                     <div class="payment-details" id="payment-details">
                         <div class="payment-list-item">
@@ -72,71 +72,71 @@
 
         <section id="queue-info" class="section-padded">
             <div class="container">
-                <div class="queue-info-card">
-                    <i class="fas fa-list-ol queue-info-icon"></i>
-                    <div>
-                        <h2 class="no-select">Informasi Jumlah Antrian</h2>
-                        <div class="queue-count no-select">
-                            <span id="jumlah-antrian">Memuat...</span>
-                        </div>
-                        <p class="queue-updated-info no-select">
-                            Data ini diperbarui secara otomatis
-                        </p>
+                <div class="queue-info-card info-card">
+                    <div class="info-card-header">
+                        <i class="fas fa-list-ol info-icon"></i>
+                        <h3>Jumlah Antrian</h3>
                     </div>
+                    <div class="queue-count no-select">
+                        <span id="jumlah-antrian">Memuat...</span>
+                    </div>
+                    <p class="queue-updated-info no-select">
+                        Data ini diperbarui secara otomatis
+                    </p>
                 </div>
             </div>
         </section>
 
         <section id="join-queue" class="section-padded">
             <div class="container">
-                <div class="join-queue-card">
-                    <i class="fas fa-people-arrows join-queue-icon"></i>
-                    <div>
-                        <h2 class="no-select">Bergabung di Antrian</h2>
-                        <div class="join-queue-description no-select">
-                            <p class="no-select">
-                                Bergabunglah dengan antrian untuk mempercepat proses layanan.<br>
-                                Silakan tekan tombol di bawah ini untuk mendaftar.
-                            </p>
-                        </div>
-                        <div class="queue-section no-select">
-                            <button id="showFormBtn" class="join-queue-button no-select">
-                                <i class="fas fa-user-clock"></i>
-                                Masuk Antrian
-                            </button>
+                <div class="join-queue-card info-card">
+                    <div class="info-card-header">
+                        <i class="fas fa-people-arrows info-icon"></i>
+                        <h3>Bergabung di Antrian</h3>
+                    </div>
+                    <div class="join-queue-description no-select">
+                        <p class="no-select">
+                            Bergabunglah dengan antrian untuk mempercepat proses layanan.<br>
+                            Silakan tekan tombol di bawah ini untuk mendaftar.
+                        </p>
+                    </div>
+                    <div class="queue-section no-select">
+                        <button id="showFormBtn" class="join-queue-button no-select">
+                            <i class="fas fa-user-clock"></i>
+                            Masuk Antrian
+                        </button>
 
-                            <form action="https://docs.google.com/forms/d/e/1FAIpQLSeoOoBcyIHwty6FsXmmpOQ4vk0urHJkgP4xyR1jEoia_uCURA/formResponse"
-                                  method="POST"
-                                  id="registrationForm"
-                                  class="registration-form">
-                                <h3 class="no-select">Formulir Pendaftaran</h3>
-                                <div class="form-group">
-                                    <label for="nama" class="no-select">Nama:</label>
-                                    <input type="text" id="nama" name="entry.322664274" required>
-                                </div>
-                                <div class="form-group">
-                                    <label for="kontak" class="no-select">Kontak:</label>
-                                    <input type="text" id="kontak" name="entry.153037566" required>
-                                    <div class="input-hint no-select">WhatsApp atau lainnya</div>
-                                </div>
-                                <div class="form-group">
-                                    <label for="jumlah" class="no-select">Jumlah Pesanan:</label>
-                                    <input type="number" id="jumlah" name="entry.1280626580" min="3" required>
-                                    <div class="input-hint no-select">Minimal 3 Akun</div>
-                                </div>
-                                <div class="form-group">
-                                    <div class="g-recaptcha" data-sitekey="6LcYkkUrAAAAAJ56YJX5gXSM_Dgy9cOBfItAWeX2"></div>
-                                </div>
-                                <div style="display: flex; gap: 10px; margin-top: 15px;">
-                                    <button type="submit" class="no-select">Kirim</button>
-                                    <button type="button" id="cancelFormBtn" class="no-select">Batal</button>
-                                </div>
-                            </form>
-
-                            <div id="submissionMessage" class="submission-message no-select">
-                                <h3 class="no-select">Terima Kasih!</h3>
-                                <p class="no-select">Formulir Anda telah terkirim.<br>Admin kami akan segera menindaklanjuti.</p>
+                        <form action="https://docs.google.com/forms/d/e/1FAIpQLSeoOoBcyIHwty6FsXmmpOQ4vk0urHJkgP4xyR1jEoia_uCURA/formResponse"
+                              method="POST"
+                              id="registrationForm"
+                              class="registration-form">
+                            <h3 class="no-select">Formulir Pendaftaran</h3>
+                            <div class="form-group">
+                                <label for="nama" class="no-select">Nama:</label>
+                                <input type="text" id="nama" name="entry.322664274" required>
                             </div>
+                            <div class="form-group">
+                                <label for="kontak" class="no-select">Kontak:</label>
+                                <input type="text" id="kontak" name="entry.153037566" required>
+                                <div class="input-hint no-select">WhatsApp atau lainnya</div>
+                            </div>
+                            <div class="form-group">
+                                <label for="jumlah" class="no-select">Jumlah Pesanan:</label>
+                                <input type="number" id="jumlah" name="entry.1280626580" min="3" required>
+                                <div class="input-hint no-select">Minimal 3 Akun</div>
+                            </div>
+                            <div class="form-group">
+                                <div class="g-recaptcha" data-sitekey="6LcYkkUrAAAAAJ56YJX5gXSM_Dgy9cOBfItAWeX2"></div>
+                            </div>
+                            <div style="display: flex; gap: 10px; margin-top: 15px;">
+                                <button type="submit" class="no-select">Kirim</button>
+                                <button type="button" id="cancelFormBtn" class="no-select">Batal</button>
+                            </div>
+                        </form>
+
+                        <div id="submissionMessage" class="submission-message no-select">
+                            <h3 class="no-select">Terima Kasih!</h3>
+                            <p class="no-select">Formulir Anda telah terkirim.<br>Admin kami akan segera menindaklanjuti.</p>
                         </div>
                     </div>
                 </div>
