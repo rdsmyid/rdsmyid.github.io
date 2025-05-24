@@ -80,11 +80,11 @@ body {
 
 /* --- MAIN CONTENT --- */
 main {
-    padding-top: 70px; /* Sedikit sesuaikan padding top */
+    padding-top: 70px;
 }
 
 .section-padded {
-    padding: 15px 0; /* Kurangi padding vertikal section */
+    padding: 15px 0;
 }
 
 .info-card {
@@ -92,14 +92,14 @@ main {
     padding: 20px;
     border-radius: 8px;
     box-shadow: 0 4px 10px var(--shadow-light);
-    margin-top: 10px; /* Atur margin top untuk jarak antar kotak */
-    margin-bottom: 0; /* Hapus margin bottom */
+    margin-top: 10px;
+    margin-bottom: 0;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 /* Atur margin-top untuk kotak pertama setelah header */
 #payment-methods .info-card {
-    margin-top: 15px; /* Sesuaikan jarak dari header */
+    margin-top: 15px;
 }
 
 .info-card:hover {
@@ -133,13 +133,24 @@ main {
     display: grid;
     grid-template-columns: 1fr;
     gap: 15px;
-    margin-top: 10px; /* Sesuaikan margin top di grid */
+    margin-top: 10px;
 }
 
 .payment-method-overview {
-    display: block; /* Override flex display */
+    display: block;
     cursor: pointer;
-    margin-bottom: 0; /* Remove bottom margin dari info-card overview */
+    margin-bottom: 25px; /* Tambah ruang untuk panah */
+    position: relative; /* Untuk memposisikan panah */
+}
+
+.payment-method-overview::after {
+    content: '\25BE'; /* Kode Unicode untuk panah ke bawah */
+    position: absolute;
+    left: 50%;
+    bottom: -15px;
+    transform: translateX(-50%);
+    font-size: 1.5em;
+    color: var(--secondary-color);
 }
 
 .payment-details {
@@ -181,7 +192,7 @@ main {
 
 /* Gaya spesifik untuk queue info */
 .queue-info-card {
-    /* Menggunakan gaya umum info-card */
+    text-align: center; /* Pusatkan seluruh konten kartu */
 }
 
 .queue-count {
@@ -189,22 +200,29 @@ main {
     font-weight: bold;
     color: var(--primary-color);
     margin-bottom: 5px;
+    text-align: center; /* Pusatkan angka antrian */
 }
 
 .queue-updated-info {
     font-size: 0.85em;
     color: #7f8c8d;
+    text-align: center; /* Pusatkan info update */
 }
 
 /* Gaya spesifik untuk join queue */
 .join-queue-card {
-    /* Menggunakan gaya umum info-card */
+    text-align: center; /* Pusatkan konten kartu */
 }
 
 .join-queue-description p {
     font-size: 0.9em;
     color: #7f8c8d;
     margin-bottom: 15px;
+    text-align: left; /* Kembalikan teks deskripsi ke kiri */
+}
+
+.queue-section {
+    text-align: center; /* Pusatkan tombol */
 }
 
 .join-queue-button {
@@ -222,6 +240,7 @@ main {
     transition: all 0.3s ease;
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
     text-decoration: none !important;
+    margin: 0 auto; /* Pusatkan tombol inline-flex */
 }
 
 .join-queue-button:hover {
