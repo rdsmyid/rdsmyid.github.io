@@ -134,8 +134,8 @@ main {
 .payment-method-overview {
     display: block;
     cursor: pointer;
-    margin-bottom: 25px; /* Tambah ruang untuk panah */
-    position: relative; /* Untuk memposisikan panah */
+    margin-bottom: 15px;
+    position: relative;
 }
 
 .payment-method-overview::after {
@@ -414,4 +414,4 @@ footer {
   -moz-user-select: none;
   -ms-user-select: none;
   user-select: none;
-}
+        }
