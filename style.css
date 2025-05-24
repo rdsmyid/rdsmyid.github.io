@@ -136,7 +136,7 @@ main {
 .payment-method-overview {
     display: block;
     cursor: pointer;
-    margin-bottom: 15px;
+    margin-bottom: 0px; /* Coba hilangkan margin bawah */
     position: relative;
 }
 
@@ -159,7 +159,7 @@ main {
     background-color: var(--white);
     border-radius: 8px;
     box-shadow: 0 4px 10px var(--shadow-light);
-    margin-top: 15px;
+    margin-top: 0px; /* Coba hilangkan margin atas */
     padding: 20px;
     display: none;
 }
