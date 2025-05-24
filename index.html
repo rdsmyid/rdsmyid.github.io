@@ -1,46 +1,15 @@
-<!DOCTYPE html>
-<html lang="id">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>RDS - Jual Akun Terpercaya</title>
-    <link rel="stylesheet" href="style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
-</head>
-<body>
-    <header>
-        <div class="container header-mobile">
-            <div class="logo-mobile">
-                <h1>RDS</h1>
-            </div>
-            <div class="mobile-nav-right">
-                <div class="mobile-links">
-                    <a href="https://wa.me/6285117219192" class="icon-link" target="_blank" rel="noopener noreferrer"><i class="fab fa-whatsapp"></i> WhatsApp</a>
-                    <a href="mailto:rds@kolabnow.com" class="icon-link"><i class="far fa-envelope"></i> Email</a>
-                </div>
-            </div>
-        </div>
-        <div class="container">
-            <h1>RDS</h1>
-            <nav>
-                <ul>
-                    <li><a href="https://wa.me/6285117219192" target="_blank" rel="noopener noreferrer"><i class="fab fa-whatsapp"></i> WhatsApp</a></li>
-                    <li><a href="mailto:rds@kolabnow.com"><i class="far fa-envelope"></i> Email</a></li>
-                </ul>
-            </nav>
-        </div>
-    </header>
-
     <main class="section-padded">
         <div class="container">
-            <div class="section-grid">
-                <div id="payment-methods" class="payment-methods-card">
+            <div class="card-grid">
+                <div id="payment-methods" class="info-card payment-methods-card">
                     <i class="fas fa-money-bill-wave"></i>
-                    <h3>Metode Pembayaran</h3>
-                    <p>Ini adalah beberapa pembayaran sah yang kami sediakan.</p>
+                    <div>
+                        <h3>Metode Pembayaran</h3>
+                        <p>Ini adalah beberapa pembayaran sah yang kami sediakan.</p>
+                    </div>
+                    <div class="payment-methods-action">
+                        <button onclick="togglePaymentDetails('payment')" class="btn secondary-btn">Lihat Detail</button>
+                    </div>
                     <div class="payment-details" id="payment-details">
                         <div class="payment-list-item">
                             <i class="fas fa-qrcode"></i>
@@ -62,32 +31,31 @@
                             Rekening tujuan atau kode QRIS silahkan hubungi Admin
                         </div>
                     </div>
-                    <button onclick="togglePaymentDetails('payment')" class="btn secondary-btn">Lihat Detail</button>
                 </div>
 
-                <div id="queue-info" class="queue-info-card">
+                <div id="queue-info" class="info-card queue-info-card">
                     <i class="fas fa-list-ol queue-info-icon"></i>
-                    <div class="queue-info-header">
+                    <div>
                         <h2 class="no-select">Informasi Jumlah Antrian</h2>
+                        <div class="queue-count no-select">
+                            <span id="jumlah-antrian">Memuat...</span>
+                        </div>
+                        <p class="queue-updated-info no-select">
+                            Data ini diperbarui secara otomatis
+                        </p>
                     </div>
-                    <div class="queue-count no-select">
-                        <span id="jumlah-antrian">Memuat...</span>
-                    </div>
-                    <p class="queue-updated-info no-select">
-                        Data ini diperbarui secara otomatis
-                    </p>
                 </div>
 
-                <div id="join-queue" class="join-queue-card">
+                <div id="join-queue" class="info-card join-queue-card">
                     <i class="fas fa-people-arrows join-queue-icon"></i>
-                    <div class="join-queue-header">
+                    <div class="text-content">
                         <h2 class="no-select">Bergabung di Antrian</h2>
-                    </div>
-                    <div class="join-queue-description no-select">
-                        <p class="no-select">
-                            Bergabunglah dengan antrian untuk mempercepat proses layanan.<br>
-                            Silakan tekan tombol di bawah ini untuk mendaftar.
-                        </p>
+                        <div class="join-queue-description no-select">
+                            <p class="no-select">
+                                Bergabunglah dengan antrian untuk mempercepat proses layanan.<br>
+                                Silakan tekan tombol di bawah ini untuk mendaftar.
+                            </p>
+                        </div>
                     </div>
                     <div class="queue-section no-select">
                         <button id="showFormBtn" class="join-queue-button no-select">
@@ -119,26 +87,18 @@
                             </div>
                             <div style="display: flex; gap: 10px; margin-top: 15px;">
                                 <button type="submit" class="no-select">Kirim</button>
-                                <button type="button" id="cancelFormBtn" class="no-select">Batal</button>
-                            </div>
-                        </form>
+                                <button type="button
+                                                                        id="cancelFormBtn" class="no-select">Batal</button>
+                                </div>
+                            </form>
 
-                        <div id="submissionMessage" class="submission-message no-select">
-                            <h3 class="no-select">Terima Kasih!</h3>
-                            <p class="no-select">Formulir Anda telah terkirim.<br>Admin kami akan segera menindaklanjuti.</p>
+                            <div id="submissionMessage" class="submission-message no-select">
+                                <h3 class="no-select">Terima Kasih!</h3>
+                                <p class="no-select">Formulir Anda telah terkirim.<br>Admin kami akan segera menindaklanjuti.</p>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
     </main>
-
-    <footer>
-        <div class="container">
-            <p>&copy; 2025 RDS. Semua Hak Dilindungi.</p>
-        </div>
-    </footer>
-
-    <script src="script.js"></script>
-</body>
-</html>
