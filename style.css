@@ -357,6 +357,27 @@ main {
 
 .g-recaptcha {
     margin-top: 20px;
+    display: inline-block; /* Agar kita bisa mengatur lebar jika perlu */
+}
+
+/* Anda mungkin perlu menyesuaikan nilai skala ini */
+.registration-form .g-recaptcha > div {
+    transform: scale(0.8);
+    -webkit-transform: scale(0.8);
+    transform-origin: 0 0;
+    -webkit-transform-origin: 0 0;
+}
+
+@media (max-width: 768px) {
+    .g-recaptcha {
+        transform: scale(0.7);
+        -webkit-transform: scale(0.7);
+        transform-origin: 0 0;
+        -webkit-transform-origin: 0 0;
+        margin-left: auto !important;
+        margin-right: auto !important;
+        display: block;
+    }
 }
 
 /* --- FOOTER --- */
@@ -421,14 +442,6 @@ footer {
         font-size: 0.9em;
         padding: 8px 15px;
         margin-top: 10px;
-    }
-
-    .g-recaptcha {
-        margin-left: auto !important;
-        margin-right: auto !important;
-        display: block;
-        max-width: 100%;
-        box-sizing: border-box;
     }
 }
 
