@@ -146,11 +146,12 @@ main {
     transform: translateX(-50%);
     font-size: 1.5em;
     color: var(--secondary-color);
-    transition: transform 0.2s ease-in-out;
+    transition: transform 0.3s ease-in-out; /* Tambahkan transisi */
 }
 
 .payment-details.active + .payment-methods-grid > .payment-method-overview::after {
     transform: translateX(-50%) rotate(180deg);
+    transition: transform 0.3s ease-in-out; /* Tambahkan transisi */
 }
 
 .payment-details {
@@ -420,4 +421,4 @@ footer {
   -moz-user-select: none;
   -ms-user-select: none;
   user-select: none;
-}
+            }
