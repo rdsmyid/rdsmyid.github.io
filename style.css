@@ -17,7 +17,6 @@ body {
     background-color: var(--light-bg);
     color: var(--text-color);
     line-height: 1.6;
-    padding-top: 0 !important; /* Reset padding-top body */
 }
 
 .container {
@@ -27,10 +26,10 @@ body {
 }
 
 /* --- HEADER --- */
-header {
+.main-header {
     background-color: var(--dark-bg);
     color: var(--white);
-    text-align: left;
+    padding: 1em 20px;
     position: fixed;
     top: 0;
     left: 0;
@@ -38,69 +37,19 @@ header {
     z-index: 1000;
 }
 
-.header-mobile {
-    display: none;
-}
-
-.logo-mobile h1 {
-    font-size: 1.2em;
-    letter-spacing: 1px;
-    color: var(--white);
-    margin-right: 0.5em;
-    margin-bottom: 0;
-    display: inline-block;
-}
-
-.mobile-nav-right {
-    display: flex;
-    align-items: center;
-}
-
-.mobile-links {
-    display: flex;
-    align-items: center;
-    white-space: nowrap;
-}
-
-.mobile-links a {
-    color: var(--white);
-    text-decoration: none;
-    margin-left: 0;
-    font-size: 0.9em;
-    padding: 0.5em 0.75em;
-    border-radius: 5px;
-    background-color: rgba(255, 255, 255, 0.1);
-    display: inline-flex;
-    align-items: center;
-    gap: 0.3em;
-}
-
-.mobile-links a i {
-    margin-right: 5px;
-}
-
-.header-desktop {
-    display: none;
-}
-
-.header-desktop > .container {
+.header-content {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 1em 20px;
 }
 
-.header-desktop > .container h1 {
-    font-size: 2em;
+.logo h1 {
+    font-size: 1.5em;
     letter-spacing: 1px;
-    margin-right: auto;
+    margin: 0;
 }
 
-.header-desktop > .container nav {
-    display: flex;
-}
-
-.header-desktop > .container nav ul {
+.main-nav ul {
     list-style: none;
     padding: 0;
     margin: 0;
@@ -108,19 +57,24 @@ header {
     align-items: center;
 }
 
-.header-desktop > .container nav ul li {
+.main-nav ul li {
     margin-left: 20px;
 }
 
-.header-desktop > .container nav ul li a {
+.main-nav ul li a {
     color: var(--white);
     text-decoration: none;
-    transition: color 0.3s ease;
+    display: flex;
+    align-items: center;
+}
+
+.main-nav ul li a i {
+    margin-right: 5px;
 }
 
 /* --- MAIN CONTENT --- */
 main {
-    padding-top: 20px;
+    padding-top: 60px; /* Sesuaikan dengan tinggi header */
 }
 
 .section-padded {
@@ -376,29 +330,55 @@ footer {
 
 /* --- RESPONSIVE DESIGN --- */
 @media (max-width: 768px) {
-    .header-desktop {
-        display: none !important;
+    .header-content {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
     }
-    .header-mobile {
-        display: flex !important;
-        justify-content: space-between !important;
-        align-items: center !important;
-        padding: 0.75em 1em !important;
+
+    .logo {
+        margin-bottom: 10px;
     }
-    body {
-        padding-top: 50px !important; /* Adjust padding for fixed mobile header */
+
+    .main-nav ul {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .main-nav ul li {
+        margin: 10px 0;
+    }
+
+    main {
+        padding-top: 100px; /* Sesuaikan padding untuk mobile */
     }
 }
 
 @media (min-width: 769px) {
-    .header-mobile {
-        display: none !important; /* Pastikan header mobile benar-benar tersembunyi */
+    .main-header {
+        padding: 1em 20px;
     }
-    .header-desktop {
-        display: block !important; /* Pastikan header desktop terlihat */
+
+    .header-content {
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
     }
-    body {
-        padding-top: 66px !important; /* Sesuaikan padding jika perlu */
+
+    .logo h1 {
+        font-size: 2em;
+    }
+
+    .main-nav ul {
+        flex-direction: row;
+    }
+
+    .main-nav ul li {
+        margin-left: 20px;
+    }
+
+    main {
+        padding-top: 60px; /* Sesuaikan padding untuk desktop */
     }
 }
 
@@ -408,4 +388,4 @@ footer {
   -moz-user-select: none;
   -ms-user-select: none;
   user-select: none;
-}
+    }
