@@ -33,7 +33,7 @@ header {
     text-align: left;
 }
 
-/* Secara default tampilkan header mobile */
+/* Tampilkan header mobile secara default */
 .header-mobile {
     display: flex;
     justify-content: space-between;
@@ -75,7 +75,7 @@ header {
     margin-right: 5px;
 }
 
-/* Secara default sembunyikan header desktop */
+/* Sembunyikan header desktop secara default */
 header > .container {
     display: none;
 }
@@ -369,41 +369,29 @@ footer {
 }
 
 /* --- RESPONSIVE DESIGN --- */
-@media (min-width: 769px) {
+/* Hanya tampilkan header mobile di layar dengan lebar maksimal 768px */
+@media (max-width: 768px) {
     header > .container {
-        display: flex;
+        display: none !important;
     }
     .header-mobile {
-        display: none;
+        display: flex !important;
+    }
+}
+
+/* Hanya tampilkan header desktop di layar dengan lebar minimal 769px */
+@media (min-width: 769px) {
+    header > .container {
+        display: flex !important;
+    }
+    .header-mobile {
+        display: none !important;
     }
 }
 
 @media (max-width: 992px) {
     .container {
         padding: 0 15px;
-    }
-}
-
-@media (max-width: 768px) {
-    header > .container {
-        display: none;
-    }
-    .header-mobile {
-        display: flex;
-    }
-    .info-card-header h3 {
-        font-size: 1em;
-    }
-    .info-icon {
-        font-size: 1.5em;
-        margin-right: 10px;
-    }
-    .queue-count {
-        font-size: 1.2em;
-    }
-    .join-queue-button {
-        font-size: 0.85em;
-        padding: 0.6rem 1rem;
     }
 }
 
