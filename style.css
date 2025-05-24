@@ -1,4 +1,4 @@
-/* Variabel Warna Kustom (bisa Anda sesuaikan) */
+/* Variabel Warna Kustom */
 :root {
     --primary-color: #2f0997;
     --primary-hover-color: #4b23b3;
@@ -79,61 +79,60 @@ header > .container > nav {
     font-size: 1em;
 }
 
-/* --- PAYMENT METHODS --- */
-.payment-methods-grid {
-    display: block;
-    margin-top: 30px;
+/* --- MAIN CONTENT --- */
+main {
+    padding-top: 20px;
 }
 
-.payment-method-overview {
-    background-color: var(--white);
+.section-padded {
+    padding: 40px 0;
+}
+
+.section-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
     padding: 20px;
+}
+
+.payment-methods-card,
+.queue-info-card,
+.join-queue-card {
+    background: var(--white);
     border-radius: 8px;
     box-shadow: 0 4px 10px var(--shadow-light);
-    display: flex;
-    align-items: center;
-    gap: 20px;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-    cursor: pointer;
+    padding: 20px;
+    text-align: center;
+}
+
+/* --- PAYMENT METHODS CARD --- */
+.payment-methods-card i {
+    font-size: 2.5em;
+    color: var(--primary-color);
     margin-bottom: 10px;
 }
 
-.payment-method-overview:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
-}
-
-.payment-method-overview > i {
-    font-size: 2em;
+.payment-methods-card h3 {
     color: var(--primary-color);
-    flex-shrink: 0;
+    margin-top: 0;
+    margin-bottom: 10px;
+    font-size: 1.5em;
 }
 
-.payment-method-overview > div {
-    flex-grow: 1;
-}
-
-.payment-method-overview h3 {
-    font-size: 1.2em;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    margin-bottom: 0;
-}
-
-.payment-method-overview p {
-    font-size: 0.9em;
+.payment-methods-card p {
+    font-size: 1em;
     color: var(--text-color);
-    margin-bottom: 0;
+    margin-bottom: 15px;
 }
 
 .payment-details {
     background-color: var(--white);
     border-radius: 8px;
     box-shadow: 0 4px 10px var(--shadow-light);
-    margin-top: 10px;
-    padding: 20px;
+    margin-top: 15px;
+    padding: 15px;
     display: none;
+    text-align: left;
 }
 
 .payment-details.active {
@@ -143,8 +142,8 @@ header > .container > nav {
 .payment-list-item {
     display: flex;
     align-items: center;
-    gap: 15px;
-    padding: 10px 0;
+    gap: 10px;
+    padding: 8px 0;
     border-bottom: 1px solid #eee;
 }
 
@@ -153,116 +152,65 @@ header > .container > nav {
 }
 
 .payment-list-item i {
-    font-size: 1.5em;
+    font-size: 1.2em;
     color: var(--secondary-color);
-    width: 30px;
+    width: 25px;
     text-align: center;
 }
 
 .payment-list-item span {
-    font-size: 1em;
+    font-size: 0.9em;
     color: var(--text-color);
 }
 
 /* --- QUEUE INFO CARD --- */
-.queue-info-card {
-    background: var(--white);
-    border-radius: 8px;
-    box-shadow: 0 4px 10px var(--shadow-light);
-    margin-top: 20px;
-    padding: 20px;
-    display: flex;
-    align-items: center;
-    gap: 20px;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-    cursor: pointer;
-}
-
-.queue-info-card:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
-}
-
-.queue-info-card > i {
-    font-size: 2em;
+.queue-info-card .queue-info-icon {
+    font-size: 2.5em;
     color: var(--primary-color);
-    flex-shrink: 0;
+    margin-bottom: 10px;
 }
 
-.queue-info-card > div {
-    flex-grow: 1;
-}
-
-.queue-info-header h2 {
+.queue-info-card .queue-info-header h2 {
     color: var(--text-color);
     margin-top: 0;
-    margin-bottom: 5px;
-    font-size: 1.2em;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
+    margin-bottom: 10px;
+    font-size: 1.5em;
 }
 
-.queue-count {
-    font-size: 1.5em;
+.queue-info-card .queue-count {
+    font-size: 2em;
     font-weight: bold;
     color: var(--primary-color);
-    margin-bottom: 0;
+    margin-bottom: 10px;
 }
 
-.queue-updated-info {
+.queue-info-card .queue-updated-info {
     font-size: 0.9em;
     color: #7f8c8d;
 }
 
 /* --- JOIN QUEUE CARD --- */
-.join-queue-card {
-    background: var(--white);
-    border-radius: 8px;
-    box-shadow: 0 4px 10px var(--shadow-light);
-    margin-top: 20px;
-    padding: 20px;
-    display: flex;
-    align-items: center;
-    gap: 20px;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-    cursor: pointer;
-}
-
-.join-queue-card:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
-}
-
-.join-queue-card > i {
-    font-size: 2em;
+.join-queue-card .join-queue-icon {
+    font-size: 2.5em;
     color: var(--secondary-color);
-    flex-shrink: 0;
+    margin-bottom: 10px;
 }
 
-.join-queue-card > div {
-    flex-grow: 1;
-}
-
-.join-queue-header h2 {
+.join-queue-card .join-queue-header h2 {
     color: var(--text-color);
     margin-top: 0;
-    margin-bottom: 5px;
-    font-size: 1.2em;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
+    margin-bottom: 10px;
+    font-size: 1.5em;
 }
 
-.join-queue-description p {
-    font-size: 0.9em;
+.join-queue-card .join-queue-description p {
+    font-size: 1em;
     color: #7f8c8d;
-    margin-bottom: 0;
+    margin-bottom: 15px;
 }
 
 .join-queue-button-area {
-    margin-top: 15px;
-    text-align: center;
+    /* Style untuk area tombol */
 }
 
 .join-queue-button {
@@ -288,7 +236,6 @@ header > .container > nav {
 }
 
 .registration-form {
-    display: none;
     margin-top: 20px;
     text-align: left;
 }
@@ -369,31 +316,15 @@ footer {
 
 /* --- RESPONSIVE DESIGN --- */
 @media (min-width: 769px) {
-    header {
-        padding: 1em 20px;
+    .section-grid {
+        padding: 30px;
     }
 }
 
 @media (max-width: 768px) {
-    header {
-        padding: 0.8em 20px;
-    }
-    header h1 {
-        font-size: 1.8em;
-    }
-    .mobile-links a {
-        font-size: 0.9em;
-        padding: 3px 6px;
-    }
-}
-
-@media (max-width: 480px) {
-    header h1 {
-        font-size: 1.6em;
-    }
-    .mobile-links a {
-        font-size: 0.8em;
-        padding: 2px 5px;
+    .section-grid {
+        grid-template-columns: 1fr;
+        padding: 15px;
     }
 }
 
@@ -403,4 +334,4 @@ footer {
   -moz-user-select: none;
   -ms-user-select: none;
   user-select: none;
-} 
+}
