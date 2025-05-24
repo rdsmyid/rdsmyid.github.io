@@ -134,7 +134,7 @@ main {
 .payment-method-overview {
     display: block;
     cursor: pointer;
-    margin-bottom: 15px; /* Kurangi margin bottom */
+    margin-bottom: 15px;
     position: relative;
 }
 
@@ -142,7 +142,7 @@ main {
     content: '\25BE';
     position: absolute;
     left: 50%;
-    bottom: -20px; /* Sedikit turunkan posisi panah */
+    bottom: -20px;
     transform: translateX(-50%);
     font-size: 1.5em;
     color: var(--secondary-color);
@@ -186,7 +186,8 @@ main {
 }
 
 /* Gaya spesifik untuk queue info */
-.queue-info-card {
+#queue-info .info-card {
+    margin-top: 5px; /* Kurangi margin top untuk kartu jumlah antrian */
     text-align: center;
 }
 
@@ -205,7 +206,7 @@ main {
 }
 
 /* Gaya spesifik untuk join queue */
-.join-queue-card {
+#join-queue .info-card {
     text-align: center;
 }
 
@@ -414,4 +415,4 @@ footer {
   -moz-user-select: none;
   -ms-user-select: none;
   user-select: none;
-}
+        }
