@@ -226,7 +226,7 @@ main {
 
 /* Gaya spesifik untuk join queue */
 #join-queue .info-card {
-    margin-top: 2px; /* Jarak sebelum bagian Bergabung di Antrian */
+    margin-top: 0px; /* Jarak sebelum bagian Bergabung di Antrian */
     text-align: center;
 }
 
