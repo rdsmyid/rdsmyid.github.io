@@ -499,3 +499,49 @@ footer {
   -ms-user-select: none;
   user-select: none;
 }
+
+/* Gaya spesifik untuk bagian Kenapa RDS? */
+.why-rds-card .info-card-header {
+    cursor: pointer;
+    position: relative; /* Untuk memposisikan panah absolute */
+    padding-right: 30px; /* Ruang untuk panah */
+}
+
+.why-rds-overview::after {
+    content: '\25BE'; /* Tetapkan panah awal ke bawah */
+    position: absolute;
+    right: 15px; /* Ubah dari 'left' menjadi 'right' */
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 1.2em;
+    color: var(--secondary-color);
+    transition: transform 0.3s ease-in-out;
+}
+
+.why-rds-overview.why-rds-details-active::after {
+        transform: translateY(-50%) rotate(180deg);
+}
+
+/* Sembunyikan panah teks yang lama */
+#why-rds-arrow {
+    display: none;
+}
+
+.why-rds-details ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.why-rds-details ul li {
+    display: flex;
+    align-items: center;
+    padding: 8px 0;
+}
+
+.why-rds-details ul li i {
+    margin-right: 10px;
+    color: var(--primary-color);
+    width: 20px;
+    text-align: center;
+}
