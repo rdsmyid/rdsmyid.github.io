@@ -517,8 +517,7 @@ footer {
 .why-rds-card .info-card-header {
     position: relative; /* Untuk memposisikan panah absolute */
     padding-right: 30px; /* Ruang untuk panah */
-    margin-bottom: 15px; /* Tambahkan margin
-adding-bottom: 15px; /* Tambahkan margin bottom agar sejajar dengan Payment */
+    margin-bottom: 15px; /* Tambahkan margin bottom agar sejajar dengan Payment */
     -webkit-user-select: none; /* Safari */
     -moz-user-select: none; /* Firefox */
     -ms-user-select: none; /* Internet Explorer/Edge */
@@ -596,4 +595,10 @@ adding-bottom: 15px; /* Tambahkan margin bottom agar sejajar dengan Payment */
     -ms-user-select: none; /* Internet Explorer/Edge */
     user-select: none; /* Standar */
     pointer-events: none; /* Mencegah klik pada teks span */
+}
+
+/* Gaya spesifik untuk menghilangkan outline fokus pada bagian Kenapa RDS? */
+.why-rds-card:focus,
+.why-rds-card .info-card-header:focus {
+    outline: none;
 }
