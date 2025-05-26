@@ -596,9 +596,3 @@ footer {
     user-select: none; /* Standar */
     pointer-events: none; /* Mencegah klik pada teks span */
 }
-
-/* Gaya spesifik untuk menghilangkan outline fokus pada bagian Kenapa RDS? */
-.why-rds-card:focus,
-.why-rds-card .info-card-header:focus {
-    outline: none;
-}
