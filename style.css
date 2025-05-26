@@ -1,3 +1,4 @@
+
 /* Variabel Warna Kustom */
 :root {
     --primary-color: #2f0997;
@@ -102,7 +103,6 @@ main {
 
 .section-padded {
     padding: 15px 0;
-    margin-bottom: 0px; /* Jarak setelah bagian Metode Pembayaran */
 }
 
 .info-card {
@@ -110,8 +110,7 @@ main {
     padding: 20px;
     border-radius: 8px;
     box-shadow: 0 4px 10px var(--shadow-light);
-    margin-top: 10px;
-    margin-bottom: 0;
+    margin: 0; /* Menghapus margin-top dan margin-bottom default dari info-card */
     transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
@@ -146,18 +145,18 @@ main {
     display: grid;
     grid-template-columns: 1fr;
     gap: 15px;
-    margin-top: 10px;
+    margin-top: 0px; /* Atur margin-top di sini ke 0 karena akan diatur di level kontainer */
 }
 
 .payment-method-overview {
     display: block;
     cursor: pointer;
-    margin-bottom: 0px; /* Coba hilangkan margin bawah */
+    margin-bottom: 0px;
     position: relative;
 }
 
 .payment-method-overview::after {
-    content: '\25BE'; /* Tetapkan panah awal ke bawah di CSS */
+    content: '\25BE';
     position: absolute;
     left: 50%;
     bottom: -20px;
@@ -175,7 +174,7 @@ main {
     background-color: var(--white);
     border-radius: 8px;
     box-shadow: 0 4px 10px var(--shadow-light);
-    margin-top: 0px; /* Coba hilangkan margin atas */
+    margin-top: 0px;
     padding: 20px;
     display: none;
 }
@@ -208,11 +207,16 @@ main {
     color: var(--text-color);
 }
 
-/* Gaya spesifik untuk queue info */
-#queue-info .info-card {
-    margin-top: 5px; /* Jarak sebelum bagian Jumlah Antrian */
-    text-align: center;
-    margin-bottom: 0px; /* Jarak setelah bagian Jumlah Antrian */
+/* --- Penambahan Margin Top & Bottom pada Setiap Bagian --- */
+#payment-methods {
+    margin-top: 0px;
+    margin-bottom: 0px;
+}
+
+#queue-info {
+    margin-top: 0px;
+    margin-bottom: 0px;
+    text-align: center; /* Tetap pertahankan perataan teks */
 }
 
 .queue-count {
@@ -229,13 +233,12 @@ main {
     text-align: center;
 }
 
-/* Gaya spesifik untuk join queue */
 #join-queue {
-    margin-bottom: 0px; /* Mengurangi jarak setelah bagian Bergabung di Antrian */
+    margin-top: 0px;
+    margin-bottom: 0px;
 }
 
 #join-queue .info-card {
-    margin-top: 1px; /* Jarak sebelum bagian Bergabung di Antrian */
     text-align: center;
 }
 
@@ -274,14 +277,14 @@ main {
 }
 
 .registration-form {
-    margin-top: 30px;
+    margin-top: 30px; /* Pertahankan ini jika Anda ingin form agak jauh dari tombol */
     padding: 25px;
     background-color: var(--white);
     border-radius: 10px;
     border: 1px solid #ddd;
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
     display: none;
-    text-align: left; /* Membuat semua teks di dalam form rata kiri */
+    text-align: left;
 }
 
 .registration-form.active {
@@ -332,7 +335,7 @@ main {
     cursor: pointer;
     transition: background-color 0.3s ease;
     margin-top: 20px;
-    text-align: center; /* Mengembalikan tombol ke tengah */
+    text-align: center;
 }
 
 .registration-form button[type="submit"] {
@@ -381,10 +384,9 @@ main {
 
 .g-recaptcha {
     margin-top: 20px;
-    display: inline-block; /* Agar kita bisa mengatur lebar jika perlu */
+    display: inline-block;
 }
 
-/* Coba nilai skala yang lebih besar */
 .registration-form .g-recaptcha > div {
     transform: scale(0.9);
     -webkit-transform: scale(0.9);
@@ -395,7 +397,7 @@ main {
 @media (max-width: 768px) {
     .g-recaptcha {
         margin-top: 20px;
-        transform: scale(0.8); /* Coba nilai skala yang lebih besar untuk mobile */
+        transform: scale(0.8);
         -webkit-transform: scale(0.8);
         transform-origin: 0 0;
         -webkit-transform-origin: 0 0;
@@ -412,7 +414,7 @@ footer {
     padding: 1.5em 0;
     text-align: center;
     font-size: 0.9em;
-    margin-top: 15px; /* Jarak sebelum bagian Footer */
+    margin-top: 15px;
 }
 
 /* --- RESPONSIVE DESIGN --- */
@@ -438,20 +440,29 @@ footer {
 
     main {
         padding-top: 60px;
-        margin-bottom: 15px; /* Jarak antara Header dan bagian setelahnya (mobile) */
+        margin-bottom: 15px;
+    }
+
+    /* Mengatur Jarak Antar Bagian di Mobile */
+    #payment-methods,
+    #queue-info,
+    #join-queue,
+    #why-rds {
+        margin-top: 0px; /* Atur ini juga menjadi 0 di mobile */
+        margin-bottom: 0px; /* Atur ini juga menjadi 0 di mobile */
     }
 
     .registration-form {
-        padding: 20px; /* Padding lebih kecil untuk layar kecil */
+        padding: 20px;
     }
 
     .registration-form h3 {
-        font-size: 1.3em; /* Ukuran judul lebih kecil untuk layar kecil */
+        font-size: 1.3em;
         margin-bottom: 15px;
     }
 
     .form-group {
-        margin-bottom: 15px; /* Margin bawah lebih kecil untuk layar kecil */
+        margin-bottom: 15px;
     }
 
     .form-group label {
@@ -497,7 +508,16 @@ footer {
 
     main {
         padding-top: 60px;
-        margin-bottom: 15px; /* Jarak antara Header dan bagian setelahnya (desktop) */
+        margin-bottom: 15px;
+    }
+
+    /* Mengatur Jarak Antar Bagian di Desktop */
+    #payment-methods,
+    #queue-info,
+    #join-queue,
+    #why-rds {
+        margin-top: 0px; /* Atur ini juga menjadi 0 di desktop */
+        margin-bottom: 0px; /* Atur ini juga menjadi 0 di desktop */
     }
 }
 
@@ -512,41 +532,44 @@ footer {
 /* Gaya spesifik untuk bagian Kenapa RDS? */
 .why-rds-card {
     cursor: pointer;
-    -webkit-user-select: none; /* Safari */
-    -moz-user-select: none; /* Firefox */
-    -ms-user-select: none; /* Internet Explorer/Edge */
-    user-select: none; /* Standar */
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    /* Margin diatur di ID #why-rds di atas, tapi saya tetap setel ke 0 di sini */
+    margin-top: 0;
+    margin-bottom: 0;
 }
 
 .why-rds-card .info-card-header {
-    position: relative; /* Untuk memposisikan
-    padding-right: 30px; /* Ruang untuk panah */
-    margin-bottom: 15px; /* Tambahkan margin bottom agar sejajar dengan Payment */
-    -webkit-user-select: none; /* Safari */
-    -moz-user-select: none; /* Firefox */
-    -ms-user-select: none; /* Internet Explorer/Edge */
-    user-select: none; /* Standar */
+    position: relative;
+    padding-right: 30px;
+    margin-bottom: 15px; /* Pertahankan ini untuk jarak antara header kartu dan detail */
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
 }
 
 .why-rds-overview {
     display: flex;
     align-items: center;
-    -webkit-user-select: none; /* Safari */
-    -moz-user-select: none; /* Firefox */
-    -ms-user-select: none; /* Internet Explorer/Edge */
-    user-select: none; /* Standar */
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
 }
 
 .why-rds-overview::after {
-    content: '\25BE'; /* Tetapkan panah awal ke bawah */
+    content: '\25BE';
     position: absolute;
-    right: 15px; /* Posisikan di kanan */
+    right: 15px;
     top: 50%;
     transform: translateY(-50%);
     font-size: 1.2em;
     color: var(--secondary-color);
     transition: transform 0.3s ease-in-out;
-    pointer-events: none; /* Agar panah tidak mengganggu seleksi header */
+    pointer-events: none;
 }
 
 .why-rds-overview.why-rds-details-active::after {
@@ -556,33 +579,33 @@ footer {
 .why-rds-details {
     display: none;
     padding-top: 15px;
-    -webkit-user-select: none; /* Safari */
-    -moz-user-select: none; /* Firefox */
-    -ms-user-select: none; /* Internet Explorer/Edge */
-    user-select: none; /* Standar */
-    pointer-events: auto; /* Agar isi dropdown bisa dilihat dan (sementara) diinteraksi */
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    pointer-events: auto;
 }
 
 .why-rds-details ul {
     list-style: none;
     padding: 0;
     margin: 0;
-    -webkit-user-select: none; /* Safari */
-    -moz-user-select: none; /* Firefox */
-    -ms-user-select: none; /* Internet Explorer/Edge */
-    user-select: none; /* Standar */
-    pointer-events: none; /* Mencegah klik pada ul */
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    pointer-events: none;
 }
 
 .why-rds-details ul li {
     display: flex;
     align-items: center;
     padding: 8px 0;
-    -webkit-user-select: none; /* Safari */
-    -moz-user-select: none; /* Firefox */
-    -ms-user-select: none; /* Internet Explorer/Edge */
-    user-select: none; /* Standar */
-    pointer-events: none; /* Mencegah klik pada li */
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    pointer-events: none;
 }
 
 .why-rds-details ul li i {
@@ -590,13 +613,231 @@ footer {
     color: var(--primary-color);
     width: 20px;
     text-align: center;
-    pointer-events: none; /* Mencegah klik pada ikon */
+    pointer-events: none;
 }
 
 .why-rds-details ul li span {
-    -webkit-user-select: none; /* Safari */
-    -moz-user-select: none; /* Firefox */
-    -ms-user-select: none; /* Internet Explorer/Edge */
-    user-select: none; /* Standar */
-    pointer-events: none; /* Mencegah klik pada teks span */
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    pointer-events: none;
+}
+/* --- FOOTER --- */
+footer {
+    background-color: var(--dark-bg);
+    color: var(--white);
+    padding: 1.5em 0;
+    text-align: center;
+    font-size: 0.9em;
+    margin-top: 15px;
+}
+
+---
+
+/* --- RESPONSIVE DESIGN --- */
+@media (max-width: 768px) {
+    .header-content {
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .logo {
+        margin-bottom: 0;
+    }
+
+    .main-nav ul {
+        flex-direction: row;
+        align-items: center;
+    }
+
+    .main-nav ul li {
+        margin: 0 0 0 15px;
+    }
+
+    main {
+        padding-top: 60px;
+        margin-bottom: 15px;
+    }
+
+    /* Mengatur Jarak Antar Bagian di Mobile */
+    #payment-methods,
+    #queue-info,
+    #join-queue,
+    #why-rds {
+        margin-top: 0px; /* Atur ini juga menjadi 0 di mobile */
+        margin-bottom: 0px; /* Atur ini juga menjadi 0 di mobile */
+    }
+
+    .registration-form {
+        padding: 20px;
+    }
+
+    .registration-form h3 {
+        font-size: 1.3em;
+        margin-bottom: 15px;
+    }
+
+    .form-group {
+        margin-bottom: 15px;
+    }
+
+    .form-group label {
+        font-size: 0.9em;
+    }
+
+    .form-group input[type="text"],
+    .form-group input[type="number"] {
+        font-size: 0.9em;
+        padding: 8px;
+    }
+
+    .registration-form button[type="submit"],
+    #cancelFormBtn {
+        font-size: 0.9em;
+        padding: 8px 15px;
+        margin-top: 10px;
+    }
+}
+
+@media (min-width: 769px) {
+    .main-header {
+        padding: 0.75em 20px;
+    }
+
+    .header-content {
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .logo h1 {
+        font-size: 2em;
+    }
+
+    .main-nav ul {
+        flex-direction: row;
+    }
+
+    .main-nav ul li {
+        margin-left: 20px;
+    }
+
+    main {
+        padding-top: 60px;
+        margin-bottom: 15px;
+    }
+
+    /* Mengatur Jarak Antar Bagian di Desktop */
+    #payment-methods,
+    #queue-info,
+    #join-queue,
+    #why-rds {
+        margin-top: 0px; /* Atur ini juga menjadi 0 di desktop */
+        margin-bottom: 0px; /* Atur ini juga menjadi 0 di desktop */
+    }
+}
+
+/* CSS untuk mencegah seleksi teks */
+.no-select {
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+/* Gaya spesifik untuk bagian Kenapa RDS? */
+.why-rds-card {
+    cursor: pointer;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    /* Margin diatur di ID #why-rds di atas, tapi saya tetap setel ke 0 di sini */
+    margin-top: 0;
+    margin-bottom: 0;
+}
+
+.why-rds-card .info-card-header {
+    position: relative;
+    padding-right: 30px;
+    margin-bottom: 15px; /* Pertahankan ini untuk jarak antara header kartu dan detail */
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+.why-rds-overview {
+    display: flex;
+    align-items: center;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+.why-rds-overview::after {
+    content: '\25BE';
+    position: absolute;
+    right: 15px;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 1.2em;
+    color: var(--secondary-color);
+    transition: transform 0.3s ease-in-out;
+    pointer-events: none;
+}
+
+.why-rds-overview.why-rds-details-active::after {
+    transform: translateY(-50%) rotate(180deg);
+}
+
+.why-rds-details {
+    display: none;
+    padding-top: 15px;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    pointer-events: auto;
+}
+
+.why-rds-details ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    pointer-events: none;
+}
+
+.why-rds-details ul li {
+    display: flex;
+    align-items: center;
+    padding: 8px 0;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    pointer-events: none;
+}
+
+.why-rds-details ul li i {
+    margin-right: 10px;
+    color: var(--primary-color);
+    width: 20px;
+    text-align: center;
+    pointer-events: none;
+}
+
+.why-rds-details ul li span {
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    pointer-events: none;
 }
