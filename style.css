@@ -755,8 +755,8 @@ footer {
     -ms-user-select: none;
     user-select: none;
     /* Margin diatur di ID #why-rds di atas, tapi saya tetap setel ke 0 di sini */
-    margin-top: 0;
-    margin-bottom: 0;
+    margin-top: 0px;
+    margin-bottom: 0px;
 }
 
 .why-rds-card .info-card-header {
