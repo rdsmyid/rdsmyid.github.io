@@ -118,7 +118,6 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     };
 
-    const whyRdsCard = document.querySelector('.why-rds-card');
     if (whyRdsCard) {
         whyRdsCard.addEventListener('click', toggleWhyRDS);
     }
