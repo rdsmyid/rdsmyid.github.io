@@ -107,4 +107,15 @@ document.addEventListener('DOMContentLoaded', function() {
             });
         });
     }
+
+    window.toggleWhyRDS = function() {
+        const details = document.getElementById('why-rds-details');
+        const overview = document.querySelector('.why-rds-overview');
+        if (details) {
+            details.style.display = details.style.display === 'none' ? 'block' : 'none';
+            if (overview) {
+                overview.classList.toggle('why-rds-details-active');
+            }
+        }
+    };
 });
