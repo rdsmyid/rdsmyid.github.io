@@ -8,6 +8,9 @@ document.addEventListener('DOMContentLoaded', function() {
     const submissionMessage = document.getElementById('submissionMessage');
     const paymentOverview = document.querySelector('.payment-method-overview');
     const paymentDetails = document.getElementById('payment-details');
+    const whyRdsCard = document.querySelector('.why-rds-card');
+    const whyRdsDetails = document.getElementById('why-rds-details');
+    const whyRdsOverview = document.querySelector('.why-rds-overview');
 
     // URL publik dari Google Apps Script Anda
     const scriptURL = 'https://script.google.com/macros/s/AKfycbyI9YUU2vGAL8Rlch_5lc4Vs8cJgZKGXcAWQz5PfOe0BlXUD8IfmtZv9mT50-NnouKF/exec';
@@ -109,13 +112,13 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
     window.toggleWhyRDS = function() {
-        const details = document.getElementById('why-rds-details');
-        const overview = document.querySelector('.why-rds-overview');
-        if (details) {
-            details.style.display = details.style.display === 'none' ? 'block' : 'none';
-            if (overview) {
-                overview.classList.toggle('why-rds-details-active');
-            }
+        if (whyRdsDetails && whyRdsOverview) {
+            whyRdsDetails.style.display = whyRdsDetails.style.display === 'none' ? 'block' : 'none';
+            whyRdsOverview.classList.toggle('why-rds-details-active');
         }
     };
+
+    if (whyRdsCard) {
+        whyRdsCard.addEventListener('click', toggleWhyRDS);
+    }
 });
