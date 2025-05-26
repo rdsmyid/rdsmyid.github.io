@@ -231,11 +231,11 @@ main {
 
 /* Gaya spesifik untuk join queue */
 #join-queue {
-    margin-bottom: 5px; /* Mengurangi jarak setelah bagian Bergabung di Antrian */
+    margin-bottom: 3px; /* Mengurangi jarak setelah bagian Bergabung di Antrian */
 }
 
 #join-queue .info-card {
-    margin-top: 0px; /* Jarak sebelum bagian Bergabung di Antrian */
+    margin-top: 3px; /* Jarak sebelum bagian Bergabung di Antrian */
     text-align: center;
 }
 
