@@ -512,20 +512,26 @@ footer {
     -moz-user-select: none; /* Firefox */
     -ms-user-select: none; /* Internet Explorer/Edge */
     user-select: none; /* Standar */
-    pointer-events: auto; /* Biarkan area card tetap bisa diklik untuk toggle */
 }
 
 .why-rds-card .info-card-header {
     position: relative; /* Untuk memposisikan panah absolute */
-    padding-right: 30px; /* Ru
+    padding-right: 30px; /* Ruang untuk panah */
+    margin-bottom: 15px; /* Tambahkan margin
 adding-bottom: 15px; /* Tambahkan margin bottom agar sejajar dengan Payment */
-    pointer-events: none; /* Agar header tidak memicu aksi klik ganda */
+    -webkit-user-select: none; /* Safari */
+    -moz-user-select: none; /* Firefox */
+    -ms-user-select: none; /* Internet Explorer/Edge */
+    user-select: none; /* Standar */
 }
 
 .why-rds-overview {
     display: flex;
     align-items: center;
-    pointer-events: none; /* Agar overview tidak memicu aksi klik ganda */
+    -webkit-user-select: none; /* Safari */
+    -moz-user-select: none; /* Firefox */
+    -ms-user-select: none; /* Internet Explorer/Edge */
+    user-select: none; /* Standar */
 }
 
 .why-rds-overview::after {
@@ -537,7 +543,7 @@ adding-bottom: 15px; /* Tambahkan margin bottom agar sejajar dengan Payment */
     font-size: 1.2em;
     color: var(--secondary-color);
     transition: transform 0.3s ease-in-out;
-    pointer-events: none; /* Agar panah tidak memicu aksi klik ganda */
+    pointer-events: none; /* Agar panah tidak mengganggu seleksi header */
 }
 
 .why-rds-overview.why-rds-details-active::after {
@@ -547,21 +553,47 @@ adding-bottom: 15px; /* Tambahkan margin bottom agar sejajar dengan Payment */
 .why-rds-details {
     display: none;
     padding-top: 15px;
-    pointer-events: none; /* Seluruh area details tidak bisa di klik */
     -webkit-user-select: none; /* Safari */
     -moz-user-select: none; /* Firefox */
     -ms-user-select: none; /* Internet Explorer/Edge */
     user-select: none; /* Standar */
+    pointer-events: auto; /* Agar isi dropdown bisa dilihat dan (sementara) diinteraksi */
 }
 
-.why-rds-details * {
-    pointer-events: none;
+.why-rds-details ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
     -webkit-user-select: none; /* Safari */
     -moz-user-select: none; /* Firefox */
     -ms-user-select: none; /* Internet Explorer/Edge */
     user-select: none; /* Standar */
+    pointer-events: none; /* Mencegah klik pada ul */
+}
+
+.why-rds-details ul li {
+    display: flex;
+    align-items: center;
+    padding: 8px 0;
+    -webkit-user-select: none; /* Safari */
+    -moz-user-select: none; /* Firefox */
+    -ms-user-select: none; /* Internet Explorer/Edge */
+    user-select: none; /* Standar */
+    pointer-events: none; /* Mencegah klik pada li */
 }
 
 .why-rds-details ul li i {
-    pointer-events: auto !important; /* Izinkan interaksi dengan ikon jika perlu */
+    margin-right: 10px;
+    color: var(--primary-color);
+    width: 20px;
+    text-align: center;
+    pointer-events: none; /* Mencegah klik pada ikon */
+}
+
+.why-rds-details ul li span {
+    -webkit-user-select: none; /* Safari */
+    -moz-user-select: none; /* Firefox */
+    -ms-user-select: none; /* Internet Explorer/Edge */
+    user-select: none; /* Standar */
+    pointer-events: none; /* Mencegah klik pada teks span */
 }
