@@ -212,7 +212,7 @@ main {
 #queue-info .info-card {
     margin-top: 5px; /* Jarak sebelum bagian Jumlah Antrian */
     text-align: center;
-    margin-bottom: 3px; /* Jarak setelah bagian Jumlah Antrian */
+    margin-bottom: 0px; /* Jarak setelah bagian Jumlah Antrian */
 }
 
 .queue-count {
