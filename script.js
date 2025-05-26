@@ -8,7 +8,6 @@ document.addEventListener('DOMContentLoaded', function() {
     const submissionMessage = document.getElementById('submissionMessage');
     const paymentOverview = document.querySelector('.payment-method-overview');
     const paymentDetails = document.getElementById('payment-details');
-    const whyRdsCard = document.querySelector('.why-rds-card');
     const whyRdsDetails = document.getElementById('why-rds-details');
     const whyRdsOverview = document.querySelector('.why-rds-overview');
 
@@ -118,7 +117,8 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     };
 
-    if (whyRdsCard) {
-        whyRdsCard.addEventListener('click', toggleWhyRDS);
-    }
+    // HAPUS BARIS INI:
+    // if (whyRdsCard) {
+    //     whyRdsCard.addEventListener('click', toggleWhyRDS);
+    // }
 });
