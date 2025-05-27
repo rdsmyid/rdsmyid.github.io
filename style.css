@@ -69,7 +69,8 @@ body {
     max-width: 70px;
     height: auto;
     display: block;
-    pointer-events: none; /* Biarkan ini jika logo tidak dapat diklik */
+    /* BARIS INI DIHAPUS UNTUK MEMUNGKINKAN LOGO DIKLIK */
+    /* pointer-events: none; */
 }
 
 .logo h1 {
