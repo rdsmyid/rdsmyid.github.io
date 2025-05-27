@@ -1,4 +1,3 @@
-
 /* Variabel Warna Kustom */
 :root {
     --primary-color: #2f0997;
@@ -145,7 +144,8 @@ main {
     display: grid;
     grid-template-columns: 1fr;
     gap: 15px;
-    margin-top: 25px; /* Atur margin-top di sini ke 0 karena akan diatur di level kontainer */
+    margin-top: 0px;
+   margin-bottim: 0px;
 }
 
 .payment-method-overview {
@@ -447,9 +447,10 @@ footer {
     #payment-methods,
     #queue-info,
     #join-queue,
-    #why-rds {
-        margin-top: 0px; /* Atur ini juga menjadi 0 di mobile */
-        margin-bottom: 0px; /* Atur ini juga menjadi 0 di mobile */
+    #why-rds,
+    #our-profiles {
+        margin-top: 15px;
+        margin-bottom: 15px;
     }
 
     .registration-form {
@@ -515,9 +516,10 @@ footer {
     #payment-methods,
     #queue-info,
     #join-queue,
-    #why-rds {
-        margin-top: 0px; /* Atur ini juga menjadi 0 di desktop */
-        margin-bottom: 0px; /* Atur ini juga menjadi 0 di desktop */
+    #why-rds,
+    #our-profiles {
+        margin-top: 20px;
+        margin-bottom: 20px;
     }
 }
 
@@ -536,15 +538,15 @@ footer {
     -moz-user-select: none;
     -ms-user-select: none;
     user-select: none;
-    /* Margin diatur di ID #why-rds di atas, tapi saya tetap setel ke 0 di sini */
     margin-top: 0;
     margin-bottom: 0;
 }
 
-.why-rds-card .info-card-header {
+.why-rds-card .info-card
+.info-card-header {
     position: relative;
     padding-right: 30px;
-    margin-bottom: 15px; /* Pertahankan ini untuk jarak antara header kartu dan detail */
+    margin-bottom: 15px;
     -webkit-user-select: none;
     -moz-user-select: none;
     -ms-user-select: none;
@@ -623,153 +625,29 @@ footer {
     user-select: none;
     pointer-events: none;
 }
-/* --- FOOTER --- */
-footer {
-    background-color: var(--dark-bg);
-    color: var(--white);
-    padding: 1.5em 0;
-    text-align: center;
-    font-size: 0.9em;
-    margin-top: 15px;
-}
 
----
-
-/* --- RESPONSIVE DESIGN --- */
-@media (max-width: 768px) {
-    .header-content {
-        flex-direction: row;
-        justify-content: space-between;
-        align-items: center;
-    }
-
-    .logo {
-        margin-bottom: 0;
-    }
-
-    .main-nav ul {
-        flex-direction: row;
-        align-items: center;
-    }
-
-    .main-nav ul li {
-        margin: 0 0 0 15px;
-    }
-
-    main {
-        padding-top: 60px;
-        margin-bottom: 15px;
-    }
-
-    /* Mengatur Jarak Antar Bagian di Mobile */
-    #payment-methods,
-    #queue-info,
-    #join-queue,
-    #why-rds {
-        margin-top: 0px; /* Atur ini juga menjadi 0 di mobile */
-        margin-bottom: 0px; /* Atur ini juga menjadi 0 di mobile */
-    }
-
-    .registration-form {
-        padding: 20px;
-    }
-
-    .registration-form h3 {
-        font-size: 1.3em;
-        margin-bottom: 15px;
-    }
-
-    .form-group {
-        margin-bottom: 15px;
-    }
-
-    .form-group label {
-        font-size: 0.9em;
-    }
-
-    .form-group input[type="text"],
-    .form-group input[type="number"] {
-        font-size: 0.9em;
-        padding: 8px;
-    }
-
-    .registration-form button[type="submit"],
-    #cancelFormBtn {
-        font-size: 0.9em;
-        padding: 8px 15px;
-        margin-top: 10px;
-    }
-}
-
-@media (min-width: 769px) {
-    .main-header {
-        padding: 0.75em 20px;
-    }
-
-    .header-content {
-        flex-direction: row;
-        justify-content: space-between;
-        align-items: center;
-    }
-
-    .logo h1 {
-        font-size: 2em;
-    }
-
-    .main-nav ul {
-        flex-direction: row;
-    }
-
-    .main-nav ul li {
-        margin-left: 20px;
-    }
-
-    main {
-        padding-top: 60px;
-        margin-bottom: 15px;
-    }
-
-    /* Mengatur Jarak Antar Bagian di Desktop */
-    #payment-methods,
-    #queue-info,
-    #join-queue,
-    #why-rds {
-        margin-top: 0px; /* Atur ini juga menjadi 0 di desktop */
-        margin-bottom: 0px; /* Atur ini juga menjadi 0 di desktop */
-    }
-}
-
-/* CSS untuk mencegah seleksi teks */
-.no-select {
-  -webkit-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
-  user-select: none;
-}
-
-/* Gaya spesifik untuk bagian Kenapa RDS? */
-.why-rds-card {
+/* --- Gaya untuk bagian Profil Kami --- */
+.our-profiles-card {
     cursor: pointer;
     -webkit-user-select: none;
     -moz-user-select: none;
     -ms-user-select: none;
     user-select: none;
-    /* Margin diatur di ID #why-rds di atas, tapi saya tetap setel ke 0 di sini */
     margin-top: 0px;
     margin-bottom: 0px;
 }
 
-.why-rds-card .info-card-header {
+.our-profiles-card .info-card-header {
     position: relative;
     padding-right: 30px;
-    margin-bottom: 15px; /* Pertahankan ini untuk jarak antara header kartu dan detail */
+    margin-bottom: 15px;
     -webkit-user-select: none;
     -moz-user-select: none;
     -ms-user-select: none;
     user-select: none;
 }
 
-.why-rds-overview {
+.our-profiles-overview {
     display: flex;
     align-items: center;
     -webkit-user-select: none;
@@ -778,7 +656,7 @@ footer {
     user-select: none;
 }
 
-.why-rds-overview::after {
+.our-profiles-overview::after {
     content: '\25BE';
     position: absolute;
     right: 15px;
@@ -790,11 +668,11 @@ footer {
     pointer-events: none;
 }
 
-.why-rds-overview.why-rds-details-active::after {
+.our-profiles-overview.our-profiles-details-active::after {
     transform: translateY(-50%) rotate(180deg);
 }
 
-.why-rds-details {
+.our-profiles-details {
     display: none;
     padding-top: 15px;
     -webkit-user-select: none;
@@ -804,40 +682,72 @@ footer {
     pointer-events: auto;
 }
 
-.why-rds-details ul {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-    -webkit-user-select: none;
-    -moz-user-select: none;
-    -ms-user-select: none;
-    user-select: none;
-    pointer-events: none;
+.profile-container-inline {
+    background-color: var(--white);
+    border-radius: 8px;
+    border: 1px solid #eee;
+    margin-bottom: 10px;
+    padding: 10px;
 }
 
-.why-rds-details ul li {
+.profile-header-inline {
     display: flex;
     align-items: center;
-    padding: 8px 0;
-    -webkit-user-select: none;
-    -moz-user-select: none;
-    -ms-user-select: none;
-    user-select: none;
-    pointer-events: none;
 }
 
-.why-rds-details ul li i {
+.profile-image-inline {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: #ccc;
     margin-right: 10px;
-    color: var(--primary-color);
-    width: 20px;
-    text-align: center;
-    pointer-events: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 16px;
+    color: #fff;
 }
 
-.why-rds-details ul li span {
-    -webkit-user-select: none;
-    -moz-user-select: none;
-    -ms-user-select: none;
-    user-select: none;
-    pointer-events: none;
+.profile-info-inline {
+    flex-grow: 1;
+}
+
+.name-inline {
+    font-weight: bold;
+    font-size: 0.9em;
+    margin-bottom: 3px;
+}
+
+.username-inline {
+    color: #657786;
+    font-size: 0.8em;
+    margin-top: -3px;
+    margin-bottom: 8px;
+}
+
+.joined-date-inline {
+    color: #657786;
+    font-size: 0.7em;
+    display: flex;
+    align-items: center;
+    margin-top: 5px;
+}
+
+.joined-date-inline i {
+    margin-right: 3px;
+    font-size: 0.8em;
+}
+
+.follow-stats-inline {
+    display: flex;
+    margin-top: 8px;
+    font-size: 0.8em;
+}
+
+.follow-stats-inline span {
+    margin-right: 10px;
+}
+
+.follow-stats-inline strong {
+    font-weight: bold;
 }
