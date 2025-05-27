@@ -485,7 +485,14 @@ footer {
 
     /* Koreksi posisi ikon dropdown "Kenapa RDS?" di mobile */
     .why-rds-overview::after {
-        right: 15px; /* Sesuaikan jika perlu */
+        position: absolute;
+        right: 15px;
+        top: 50%;
+        transform: translateY(-50%);
+        font-size: 1.2em;
+        color: var(--secondary-color);
+        transition: transform 0.3s ease-in-out;
+        pointer-events: none;
     }
 }
 
@@ -513,7 +520,7 @@ footer {
     }
 
     main {
-        padding-top: 60px;
+                padding-top: 60px;
         margin-bottom: 15px;
     }
 
@@ -539,7 +546,7 @@ footer {
 /* Gaya spesifik untuk bagian Kenapa RDS? */
 .why-rds-card {
     cursor: pointer;
-        -webkit-user-select: none;
+    -webkit-user-select: none;
     -moz-user-select: none;
     -ms-user-select: none;
     user-select: none;
@@ -638,7 +645,7 @@ footer {
     -moz-user-select: none;
     -ms-user-select: none;
     user-select: none;
-    margin-top: 15px;
+    margin-top: 0px;
     margin-bottom: 0px;
 }
 
@@ -755,5 +762,4 @@ footer {
 
 .follow-stats-inline strong {
     font-weight: bold;
-    }
-    
+}
