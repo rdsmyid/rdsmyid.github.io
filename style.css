@@ -3,11 +3,17 @@
     --primary-color: #2f0997;
     --primary-hover-color: #4b23b3;
     --secondary-color: #007bff;
-    --text-color: #333;
+    --text-color: #333; /* Dikembalikan menjadi hitam/dark grey */
     --light-bg: #f8f9fa;
     --dark-bg: #1a1a1a;
     --white: #fff;
     --shadow-light: rgba(0, 0, 0, 0.1);
+    --shadow-medium: rgba(0, 0, 0, 0.08); /* Shadow yang sedikit lebih terlihat */
+
+    /* Warna baru untuk card - Lebih putih */
+    --card-bg-very-light: #ffffff; /* Sangat putih */
+    --card-bg-hover-subtle: #f8f8f8; /* Sangat sedikit abu-abu untuk hover */
+    --card-border-light: #e8e8e8; /* Border yang sangat terang */
 }
 
 body {
@@ -108,14 +114,14 @@ main {
     background-color: var(--white);
     padding: 20px;
     border-radius: 8px;
-    box-shadow: 0 4px 10px var(--shadow-light);
+    box-shadow: 0 4px 10px var(--shadow-light); /* Efek timbul default */
     margin: 0;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .info-card:hover {
     transform: translateY(-3px);
-    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15); /* Lebih timbul saat hover */
 }
 
 .info-card-header {
@@ -139,15 +145,16 @@ main {
     text-overflow: ellipsis;
 }
 
-/* --- Gaya untuk bagian Profil Kami --- */
+/* --- Gaya untuk bagian Kategori Akun (Our Profiles) --- */
 .our-profiles-card {
     cursor: pointer;
     -webkit-user-select: none;
     -moz-user-select: none;
     -ms-user-select: none;
     user-select: none;
-    margin-top: 25px;
+    margin-top: 5px;
     margin-bottom: 0px;
+    transition: background-color 0.3s ease;
 }
 
 .our-profiles-card .info-card-header {
@@ -195,12 +202,29 @@ main {
     pointer-events: auto;
 }
 
+/* Perubahan untuk membuat profil lebih hidup - Fokus pada background kotak */
 .profile-container-inline {
-    background-color: var(--white);
+    background-color: var(--card-bg-very-light); /* Background sangat putih */
     border-radius: 8px;
-    border: 1px solid #eee;
-    margin-bottom: 10px;
+    border: 1px solid var(--card-border-light); /* Border yang lebih terang */
+    margin-bottom: 15px;
     padding: 10px;
+    transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out, background-color 0.2s ease;
+    box-shadow: 0 2px 7px var(--shadow-medium); /* Efek timbul untuk setiap kotak profil - Ditingkatkan */
+    border-bottom: 1px solid var(--card-border-light); /* Garis pemisah yang sangat terang */
+    padding-bottom: 15px;
+}
+
+.profile-container-inline:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.12); /* Bayangan lebih terlihat saat hover - Ditingkatkan */
+    background-color: var(--card-bg-hover-subtle); /* Sedikit abu-abu saat hover */
+}
+
+.profile-container-inline:last-child {
+    border-bottom: none;
+    padding-bottom: 10px;
+    margin-bottom: 10px;
 }
 
 .profile-header-inline {
@@ -212,13 +236,14 @@ main {
     width: 40px;
     height: 40px;
     border-radius: 50%;
-    background-color: #ccc;
+    background-color: var(--primary-color);
     margin-right: 10px;
     display: flex;
     justify-content: center;
     align-items: center;
     font-size: 16px;
-    color: #fff;
+    color: var(--white);
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.15);
 }
 
 .profile-info-inline {
@@ -229,17 +254,18 @@ main {
     font-weight: bold;
     font-size: 0.9em;
     margin-bottom: 3px;
+    color: var(--text-color); /* Kembali hitam */
 }
 
 .username-inline {
-    color: #657786;
+    color: var(--text-color); /* Kembali hitam */
     font-size: 0.8em;
     margin-top: -3px;
     margin-bottom: 8px;
 }
 
 .joined-date-inline {
-    color: #657786;
+    color: var(--text-color); /* Kembali hitam */
     font-size: 0.7em;
     display: flex;
     align-items: center;
@@ -248,24 +274,28 @@ main {
 
 .joined-date-inline i {
     margin-right: 3px;
-    font-size: 0.8em;
+    font-size: 0.85em;
+    color: var(--text-color); /* Diubah ke hitam */
 }
 
 .follow-stats-inline {
     display: flex;
     margin-top: 8px;
     font-size: 0.8em;
+    color: var(--text-color); /* Kembali hitam */
 }
 
 .follow-stats-inline span {
     margin-right: 10px;
+    color: var(--text-color); /* Pastikan teks Mengikuti/Pengikut hitam */
 }
 
 .follow-stats-inline strong {
     font-weight: bold;
+    color: var(--text-color); /* Diubah ke hitam (angka 300, 1000, req) */
 }
 
-/* Gaya spesifik untuk payment methods */
+/* Gaya spesifik untuk Metode Pembayaran (Payment Methods) */
 .payment-methods-grid {
     display: grid;
     grid-template-columns: 1fr;
@@ -297,12 +327,13 @@ main {
 }
 
 .payment-details {
-    background-color: var(--white);
+    background-color: var(--card-bg-very-light); /* Background sangat putih */
     border-radius: 8px;
-    box-shadow: 0 4px 10px var(--shadow-light);
+    box-shadow: 0 2px 7px var(--shadow-medium); /* Efek timbul - Ditingkatkan */
     margin-top: 0px;
     padding: 20px;
     display: none;
+    border: 1px solid var(--card-border-light); /* Border yang lebih terang */
 }
 
 .payment-details.active {
@@ -314,7 +345,13 @@ main {
     align-items: center;
     gap: 15px;
     padding: 10px 0;
-    border-bottom: 1px solid #eee;
+    border-bottom: 1px solid var(--card-border-light); /* Garis pemisah yang terang */
+    background-color: var(--card-bg-very-light); /* Pastikan background putih */
+    transition: background-color 0.2s ease;
+}
+
+.payment-list-item:hover {
+    background-color: var(--card-bg-hover-subtle); /* Sedikit abu-abu saat hover */
 }
 
 .payment-list-item:last-child {
@@ -330,7 +367,7 @@ main {
 
 .payment-list-item span {
     font-size: 0.95em;
-    color: var(--text-color);
+    color: var(--text-color); /* Kembali hitam */
 }
 
 /* --- Gaya untuk bagian Jumlah Antrian --- */
@@ -542,7 +579,7 @@ main {
     align-items: center;
     -webkit-user-select: none;
     -moz-user-select: none;
-    -ms-user-select:
+    -ms-user-select: none;
     user-select: none;
 }
 
@@ -576,38 +613,45 @@ main {
     list-style: none;
     padding: 0;
     margin: 0;
-    -webkit-user-select: none;
-    -moz-user-select: none;
-    -ms-user-select: none;
-    user-select: none;
-    pointer-events: none;
 }
 
 .why-rds-details ul li {
     display: flex;
     align-items: center;
-    padding: 8px 0;
+    padding: 10px 15px;
+    margin-bottom: 8px;
+    background-color: var(--card-bg-very-light); /* Background sangat putih */
+    border-radius: 6px;
+    border: 1px solid var(--card-border-light); /* Border yang lebih terang */
+    transition: transform 0.2s ease, box-shadow 0.2s ease, background-color 0.2s ease;
+    box-shadow: 0 2px 7px var(--shadow-medium); /* Efek timbul - Ditingkatkan */
     -webkit-user-select: none;
     -moz-user-select: none;
     -ms-user-select: none;
     user-select: none;
-    pointer-events: none;
+}
+
+.why-rds-details ul li:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.12); /* Bayangan lebih jelas saat hover - Ditingkatkan */
+    background-color: var(--card-bg-hover-subtle); /* Sedikit abu-abu saat hover */
+}
+
+.why-rds-details ul li:last-child {
+    margin-bottom: 0;
 }
 
 .why-rds-details ul li i {
-    margin-right: 10px;
-    color: var(--primary-color);
-    width: 20px;
+    margin-right: 12px;
+    color: var(--secondary-color); /* Warna biru untuk ikon ceklis */
+    font-size: 1.1em;
+    width: 25px;
     text-align: center;
-    pointer-events: none;
 }
 
 .why-rds-details ul li span {
-    -webkit-user-select: none;
-    -moz-user-select: none;
-    -ms-user-select: none;
-    user-select: none;
-    pointer-events: none;
+    color: var(--text-color); /* Kembali hitam */
+    font-size: 0.9em;
 }
 
 /* --- FOOTER --- */
