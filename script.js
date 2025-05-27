@@ -6,18 +6,21 @@ document.addEventListener('DOMContentLoaded', function() {
     const registrationForm = document.getElementById('registrationForm');
     const cancelFormBtn = document.getElementById('cancelFormBtn');
     const submissionMessage = document.getElementById('submissionMessage');
-    const paymentOverview = document.querySelector('.payment-method-overview');
-    const paymentDetails = document.getElementById('payment-details');
-    const whyRdsCard = document.querySelector('.why-rds-card');
-    const whyRdsDetails = document.getElementById('why-rds-details');
-    const whyRdsOverview = document.querySelector('.why-rds-overview');
-    const ourProfilesCard = document.querySelector('.our-profiles-card');
+
+    // Dapatkan elemen header yang akan diklik (toggle triggers)
+    const ourProfilesHeader = document.querySelector('.our-profiles-card .info-card-header');
     const ourProfilesDetails = document.getElementById('our-profiles-details');
-    const ourProfilesOverview = document.querySelector('.our-profiles-overview');
+
+    const paymentHeader = document.querySelector('.payment-method-overview .info-card-header');
+    const paymentDetails = document.getElementById('payment-details');
+
+    const whyRdsHeader = document.querySelector('.why-rds-card .info-card-header');
+    const whyRdsDetails = document.getElementById('why-rds-details');
 
     // URL publik dari Google Apps Script Anda
     const scriptURL = 'https://script.google.com/macros/s/AKfycbyI9YUU2vGAL8Rlch_5lc4Vs8cJgZKGXcAWQz5PfOe0BlXUD8IfmtZv9mT50-NnouKF/exec';
 
+    // Fungsi untuk mengambil jumlah antrian
     function fetchJumlahAntrian() {
         fetch(scriptURL + '?action=jumlah')
             .then(response => response.json())
@@ -38,44 +41,43 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // Panggil fetchJumlahAntrian saat halaman dimuat
     fetchJumlahAntrian();
-    // Anda bisa mengatur interval untuk memperbarui secara berkala jika diinginkan
-    setInterval(fetchJumlahAntrian, 10000); // Perbarui setiap 10 detik
+    // Atur interval untuk memperbarui secara berkala setiap 10 detik
+    setInterval(fetchJumlahAntrian, 10000);
 
-    window.togglePaymentDetails = function(id) {
-        const details = document.getElementById(id + '-details');
-        const overview = document.querySelector(`.${id}-method-overview`);
-
-        if (details) {
-            details.classList.toggle('active');
-            if (overview) {
-                overview.classList.toggle('payment-details-active');
-            } else if (paymentOverview) {
-                paymentOverview.classList.toggle('payment-details-active');
-            }
+    // Fungsi toggle yang lebih umum
+    function toggleSection(headerElement, detailsElement, activeClass) {
+        if (headerElement && detailsElement) {
+            // Mengelola visibilitas dengan menambahkan/menghapus kelas 'hidden'
+            detailsElement.classList.toggle('hidden');
+            // Mengelola rotasi panah dengan menambahkan/menghapus kelas aktif pada elemen header
+            headerElement.classList.toggle(activeClass);
         }
-    };
+    }
 
+    // Event listener untuk tombol "Masuk Antrian"
     if (showFormBtn) {
         showFormBtn.addEventListener('click', function() {
-            registrationForm.classList.add('active');
-            showFormBtn.style.display = 'none';
-            submissionMessage.style.display = 'none';
+            registrationForm.classList.remove('hidden'); // Menampilkan formulir
+            showFormBtn.style.display = 'none'; // Menyembunyikan tombol
+            submissionMessage.classList.add('hidden'); // Memastikan pesan tersembunyi
         });
     }
 
+    // Event listener untuk tombol "Batal" pada formulir
     if (cancelFormBtn) {
         cancelFormBtn.addEventListener('click', function() {
-            registrationForm.classList.remove('active');
-            showFormBtn.style.display = 'inline-flex';
+            registrationForm.classList.add('hidden'); // Menyembunyikan formulir
+            showFormBtn.style.display = 'inline-flex'; // Menampilkan kembali tombol
         });
     }
 
+    // Event listener untuk pengiriman formulir
     const form = document.getElementById('registrationForm');
     if (form) {
         form.addEventListener('submit', function(event) {
             event.preventDefault();
 
-            // Periksa apakah objek grecaptcha tersedia dan getResponse tidak kosong
+            // Periksa apakah reCAPTCHA sudah diselesaikan
             if (typeof grecaptcha !== 'undefined' && grecaptcha.getResponse() !== "") {
                 const formData = new FormData(form);
                 const action = form.getAttribute('action');
@@ -83,59 +85,47 @@ document.addEventListener('DOMContentLoaded', function() {
                 fetch(action, {
                     method: 'POST',
                     body: formData,
-                    mode: 'no-cors'
+                    mode: 'no-cors' // Penting untuk formulir Google Forms
                 }).then(() => {
-                    if (registrationForm) {
-                        registrationForm.classList.remove('active');
-                    }
-                    if (submissionMessage) {
-                        submissionMessage.style.display = 'block';
-                    }
-                    if (showFormBtn) {
-                        showFormBtn.style.display = 'inline-flex';
-                    }
-                    form.reset();
+                    // Setelah berhasil mengirim
+                    registrationForm.classList.add('hidden'); // Menyembunyikan formulir
+                    submissionMessage.classList.remove('hidden'); // Menampilkan pesan sukses
+                    showFormBtn.style.display = 'inline-flex'; // Menampilkan kembali tombol
+                    form.reset(); // Mereset formulir
                     if (typeof grecaptcha !== 'undefined') {
-                        const recaptchaElement = document.querySelector('.g-recaptcha');
-                        if (recaptchaElement) {
-                            const widgetId = grecaptcha.render(recaptchaElement, {
-                                'sitekey' : '6LcYkkUrAAAAAJ56YJX5gXSM_Dgy9cOBfItAWeX2'
-                            });
-                            grecaptcha.reset(widgetId);
-                        }
+                        grecaptcha.reset(); // Mereset reCAPTCHA
                     }
                     // Setelah berhasil mengirim, perbarui jumlah antrian
                     fetchJumlahAntrian();
                 }).catch(error => {
                     console.error('Terjadi kesalahan saat mengirim formulir:', error);
-                    // alert('Terjadi kesalahan saat mengirim formulir.');
+                    alert('Terjadi kesalahan saat mengirim formulir. Mohon coba lagi.'); // Atau tampilkan pesan yang lebih user-friendly di DOM
                 });
             } else {
-                // Jika reCAPTCHA belum diselesaikan, tampilkan pesan atau cegah pengiriman
+                // Jika reCAPTCHA belum diselesaikan
                 alert('Harap selesaikan reCAPTCHA terlebih dahulu.');
             }
         });
     }
 
-    window.toggleWhyRDS = function() {
-        if (whyRdsDetails && whyRdsOverview) {
-            whyRdsDetails.style.display = whyRdsDetails.style.display === 'none' ? 'block' : 'none';
-            whyRdsOverview.classList.toggle('why-rds-details-active');
-        }
-    };
-
-    if (whyRdsCard) {
-        whyRdsCard.addEventListener('click', toggleWhyRDS);
+    // Event listener untuk Kategori Akun
+    if (ourProfilesHeader) {
+        ourProfilesHeader.addEventListener('click', function() {
+            toggleSection(ourProfilesHeader, ourProfilesDetails, 'our-profiles-details-active');
+        });
     }
 
-    window.toggleOurProfiles = function() {
-        if (ourProfilesDetails && ourProfilesOverview) {
-            ourProfilesDetails.style.display = ourProfilesDetails.style.display === 'none' ? 'block' : 'none';
-            ourProfilesOverview.classList.toggle('our-profiles-details-active');
-        }
-    };
+    // Event listener untuk Metode Pembayaran
+    if (paymentHeader) {
+        paymentHeader.addEventListener('click', function() {
+            toggleSection(paymentHeader, paymentDetails, 'payment-details-active');
+        });
+    }
 
-    if (ourProfilesCard) {
-        ourProfilesCard.addEventListener('click', toggleOurProfiles);
+    // Event listener untuk Kenapa RDS?
+    if (whyRdsHeader) {
+        whyRdsHeader.addEventListener('click', function() {
+            toggleSection(whyRdsHeader, whyRdsDetails, 'why-rds-details-active');
+        });
     }
 });
