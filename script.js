@@ -7,15 +7,20 @@ document.addEventListener('DOMContentLoaded', function() {
     const cancelFormBtn = document.getElementById('cancelFormBtn');
     const submissionMessage = document.getElementById('submissionMessage');
 
-    // Dapatkan elemen header yang akan diklik (toggle triggers)
-    const ourProfilesHeader = document.querySelector('.our-profiles-card .info-card-header');
+    // Dapatkan elemen kartu induk (ini yang akan menerima event klik)
+    const ourProfilesCard = document.querySelector('.our-profiles-card');
+    const paymentMethodCard = document.querySelector('.payment-method-overview');
+    const whyRdsCard = document.querySelector('.why-rds-card');
+
+    // Dapatkan elemen detail (ini yang akan di-toggle visibilitasnya)
     const ourProfilesDetails = document.getElementById('our-profiles-details');
-
-    const paymentHeader = document.querySelector('.payment-method-overview .info-card-header');
     const paymentDetails = document.getElementById('payment-details');
-
-    const whyRdsHeader = document.querySelector('.why-rds-card .info-card-header');
     const whyRdsDetails = document.getElementById('why-rds-details');
+
+    // Dapatkan elemen header (ini yang akan menerima kelas aktif untuk rotasi panah)
+    const ourProfilesHeader = document.querySelector('.our-profiles-card .info-card-header');
+    const paymentHeader = document.querySelector('.payment-method-overview .info-card-header');
+    const whyRdsHeader = document.querySelector('.why-rds-card .info-card-header');
 
     // URL publik dari Google Apps Script Anda
     const scriptURL = 'https://script.google.com/macros/s/AKfycbyI9YUU2vGAL8Rlch_5lc4Vs8cJgZKGXcAWQz5PfOe0BlXUD8IfmtZv9mT50-NnouKF/exec';
@@ -45,12 +50,11 @@ document.addEventListener('DOMContentLoaded', function() {
     setInterval(fetchJumlahAntrian, 10000);
 
     // Fungsi toggle yang lebih umum
-    function toggleSection(headerElement, detailsElement, activeClass) {
-        if (headerElement && detailsElement) {
-            // Mengelola visibilitas dengan menambahkan/menghapus kelas 'hidden'
+    // headerElementForArrow adalah elemen yang akan menerima kelas aktif untuk rotasi panah
+    function toggleSection(detailsElement, headerElementForArrow, activeClass) {
+        if (detailsElement && headerElementForArrow) {
             detailsElement.classList.toggle('hidden');
-            // Mengelola rotasi panah dengan menambahkan/menghapus kelas aktif pada elemen header
-            headerElement.classList.toggle(activeClass);
+            headerElementForArrow.classList.toggle(activeClass);
         }
     }
 
@@ -85,47 +89,44 @@ document.addEventListener('DOMContentLoaded', function() {
                 fetch(action, {
                     method: 'POST',
                     body: formData,
-                    mode: 'no-cors' // Penting untuk formulir Google Forms
+                    mode: 'no-cors'
                 }).then(() => {
-                    // Setelah berhasil mengirim
-                    registrationForm.classList.add('hidden'); // Menyembunyikan formulir
-                    submissionMessage.classList.remove('hidden'); // Menampilkan pesan sukses
-                    showFormBtn.style.display = 'inline-flex'; // Menampilkan kembali tombol
-                    form.reset(); // Mereset formulir
+                    registrationForm.classList.add('hidden');
+                    submissionMessage.classList.remove('hidden');
+                    showFormBtn.style.display = 'inline-flex';
+                    form.reset();
                     if (typeof grecaptcha !== 'undefined') {
-                        grecaptcha.reset(); // Mereset reCAPTCHA
+                        grecaptcha.reset();
                     }
-                    // Setelah berhasil mengirim, perbarui jumlah antrian
                     fetchJumlahAntrian();
                 }).catch(error => {
                     console.error('Terjadi kesalahan saat mengirim formulir:', error);
-                    alert('Terjadi kesalahan saat mengirim formulir. Mohon coba lagi.'); // Atau tampilkan pesan yang lebih user-friendly di DOM
+                    alert('Terjadi kesalahan saat mengirim formulir. Mohon coba lagi.');
                 });
             } else {
-                // Jika reCAPTCHA belum diselesaikan
                 alert('Harap selesaikan reCAPTCHA terlebih dahulu.');
             }
         });
     }
 
-    // Event listener untuk Kategori Akun
-    if (ourProfilesHeader) {
-        ourProfilesHeader.addEventListener('click', function() {
-            toggleSection(ourProfilesHeader, ourProfilesDetails, 'our-profiles-details-active');
+    // Event listener untuk Kategori Akun (seluruh kartu)
+    if (ourProfilesCard) {
+        ourProfilesCard.addEventListener('click', function() {
+            toggleSection(ourProfilesDetails, ourProfilesHeader, 'our-profiles-details-active');
         });
     }
 
-    // Event listener untuk Metode Pembayaran
-    if (paymentHeader) {
-        paymentHeader.addEventListener('click', function() {
-            toggleSection(paymentHeader, paymentDetails, 'payment-details-active');
+    // Event listener untuk Metode Pembayaran (seluruh kartu)
+    if (paymentMethodCard) {
+        paymentMethodCard.addEventListener('click', function() {
+            toggleSection(paymentDetails, paymentHeader, 'payment-details-active');
         });
     }
 
-    // Event listener untuk Kenapa RDS?
-    if (whyRdsHeader) {
-        whyRdsHeader.addEventListener('click', function() {
-            toggleSection(whyRdsHeader, whyRdsDetails, 'why-rds-details-active');
+    // Event listener untuk Kenapa RDS? (seluruh kartu)
+    if (whyRdsCard) {
+        whyRdsCard.addEventListener('click', function() {
+            toggleSection(whyRdsDetails, whyRdsHeader, 'why-rds-details-active');
         });
     }
 });
