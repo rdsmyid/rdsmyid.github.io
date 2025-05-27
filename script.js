@@ -71,43 +71,46 @@ document.addEventListener('DOMContentLoaded', function() {
     if (form) {
         form.addEventListener('submit', function(event) {
             event.preventDefault();
-            const formData = new FormData(form);
-            const action = form.getAttribute('action');
 
-            fetch(action, {
-                method: 'POST',
-                body: formData,
-                mode: 'no-cors'
-            }).then(() => {
-                if (registrationForm) {
-                    registrationForm.classList.remove('active');
-                }
-                if (submissionMessage) {
-                    submissionMessage.style.display = 'block';
-                }
-                if (showFormBtn) {
-                    showFormBtn.style.display = 'inline-flex';
-                }
-                form.reset();
-                if (typeof grecaptcha !== 'undefined') {
-                    const recaptchaElement = document.querySelector('.g-recaptcha');
-                    if (recaptchaElement) {
-                        const widgetId = grecaptcha.render(recaptchaElement, {
-                            'sitekey' : '6LcYkkUrAAAAAJ56YJX5gXSM_Dgy9cOBfItAWeX2'
-                        });
-                        grecaptcha.reset(widgetId);
+            // Periksa apakah objek grecaptcha tersedia dan getResponse tidak kosong
+            if (typeof grecaptcha !== 'undefined' && grecaptcha.getResponse() !== "") {
+                const formData = new FormData(form);
+                const action = form.getAttribute('action');
+
+                fetch(action, {
+                    method: 'POST',
+                    body: formData,
+                    mode: 'no-cors'
+                }).then(() => {
+                    if (registrationForm) {
+                        registrationForm.classList.remove('active');
                     }
-                }
-                // Setelah berhasil mengirim, perbarui jumlah antrian
-                fetchJumlahAntrian();
-            }).catch(error => {
-                console.error('Terjadi kesalahan saat mengirim formulir:', error);
-                // Hanya tampilkan alert jika ada error yang sebenarnya mencegah pengiriman
-                // Dalam mode 'no-cors', kita mungkin tidak bisa membedakan error pengiriman
-                // dengan respons sukses dari Google Forms. Untuk saat ini, kita bisa
-                // memilih untuk tidak menampilkan alert error di sini jika laporan sukses muncul.
-                // alert('Terjadi kesalahan saat mengirim formulir.');
-            });
+                    if (submissionMessage) {
+                        submissionMessage.style.display = 'block';
+                    }
+                    if (showFormBtn) {
+                        showFormBtn.style.display = 'inline-flex';
+                    }
+                    form.reset();
+                    if (typeof grecaptcha !== 'undefined') {
+                        const recaptchaElement = document.querySelector('.g-recaptcha');
+                        if (recaptchaElement) {
+                            const widgetId = grecaptcha.render(recaptchaElement, {
+                                'sitekey' : '6LcYkkUrAAAAAJ56YJX5gXSM_Dgy9cOBfItAWeX2'
+                            });
+                            grecaptcha.reset(widgetId);
+                        }
+                    }
+                    // Setelah berhasil mengirim, perbarui jumlah antrian
+                    fetchJumlahAntrian();
+                }).catch(error => {
+                    console.error('Terjadi kesalahan saat mengirim formulir:', error);
+                    // alert('Terjadi kesalahan saat mengirim formulir.');
+                });
+            } else {
+                // Jika reCAPTCHA belum diselesaikan, tampilkan pesan atau cegah pengiriman
+                alert('Harap selesaikan reCAPTCHA terlebih dahulu.');
+            }
         });
     }
 
