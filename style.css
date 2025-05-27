@@ -14,6 +14,12 @@
     --card-bg-very-light: #ffffff; /* Sangat putih */
     --card-bg-hover-subtle: #f8f8f8; /* Sangat sedikit abu-abu untuk hover */
     --card-border-light: #e8e8e8; /* Border yang sangat terang */
+
+    /* Variabel untuk shadows yang konsisten */
+    --shadow-card-default: 0 4px 10px var(--shadow-light);
+    --shadow-card-hover: 0 6px 15px rgba(0, 0, 0, 0.15);
+    --shadow-subtle: 0 2px 7px var(--shadow-medium);
+    --shadow-subtle-hover: 0 5px 15px rgba(0, 0, 0, 0.12);
 }
 
 body {
@@ -63,11 +69,7 @@ body {
     max-width: 70px;
     height: auto;
     display: block;
-    -webkit-user-select: none;
-    -moz-user-select: none;
-    -ms-user-select: none;
-    user-select: none;
-    pointer-events: none;
+    pointer-events: none; /* Biarkan ini jika logo tidak dapat diklik */
 }
 
 .logo h1 {
@@ -102,7 +104,7 @@ body {
 
 /* --- MAIN CONTENT --- */
 main {
-    padding-top: 70px;
+    padding-top: 70px; /* Default untuk desktop */
     margin-bottom: 15px;
 }
 
@@ -114,20 +116,22 @@ main {
     background-color: var(--white);
     padding: 20px;
     border-radius: 8px;
-    box-shadow: 0 4px 10px var(--shadow-light); /* Efek timbul default */
+    box-shadow: var(--shadow-card-default); /* Efek timbul default */
     margin: 0;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .info-card:hover {
     transform: translateY(-3px);
-    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15); /* Lebih timbul saat hover */
+    box-shadow: var(--shadow-card-hover); /* Lebih timbul saat hover */
 }
 
 .info-card-header {
     display: flex;
     align-items: center;
     margin-bottom: 15px;
+    position: relative; /* Penting untuk penyejajaran panah */
+    padding-right: 30px; /* Beri ruang untuk panah */
 }
 
 .info-icon {
@@ -148,35 +152,14 @@ main {
 /* --- Gaya untuk bagian Kategori Akun (Our Profiles) --- */
 .our-profiles-card {
     cursor: pointer;
-    -webkit-user-select: none;
-    -moz-user-select: none;
-    -ms-user-select: none;
     user-select: none;
     margin-top: 25px;
     margin-bottom: 0px;
     transition: background-color 0.3s ease;
 }
 
-.our-profiles-card .info-card-header {
-    position: relative;
-    padding-right: 30px;
-    margin-bottom: 15px;
-    -webkit-user-select: none;
-    -moz-user-select: none;
-    -ms-user-select: none;
-    user-select: none;
-}
-
-.our-profiles-overview {
-    display: flex;
-    align-items: center;
-    -webkit-user-select: none;
-    -moz-user-select: none;
-    -ms-user-select: none;
-    user-select: none;
-}
-
-.our-profiles-overview::after {
+/* Panah toggle untuk Kategori Akun */
+.our-profiles-card .info-card-header::after {
     content: '\25BE';
     position: absolute;
     right: 15px;
@@ -188,37 +171,34 @@ main {
     pointer-events: none;
 }
 
-.our-profiles-overview.our-profiles-details-active::after {
+.our-profiles-card .info-card-header.our-profiles-details-active::after {
     transform: translateY(-50%) rotate(180deg);
 }
 
 .our-profiles-details {
-    display: none;
+    /* display: none; dikelola oleh kelas .hidden */
     padding-top: 15px;
-    -webkit-user-select: none;
-    -moz-user-select: none;
-    -ms-user-select: none;
     user-select: none;
     pointer-events: auto;
 }
 
 /* Perubahan untuk membuat profil lebih hidup - Fokus pada background kotak */
 .profile-container-inline {
-    background-color: var(--card-bg-very-light); /* Background sangat putih */
+    background-color: var(--card-bg-very-light);
     border-radius: 8px;
-    border: 1px solid var(--card-border-light); /* Border yang lebih terang */
+    border: 1px solid var(--card-border-light);
     margin-bottom: 15px;
     padding: 10px;
     transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out, background-color 0.2s ease;
-    box-shadow: 0 2px 7px var(--shadow-medium); /* Efek timbul untuk setiap kotak profil - Ditingkatkan */
-    border-bottom: 1px solid var(--card-border-light); /* Garis pemisah yang sangat terang */
+    box-shadow: var(--shadow-subtle);
+    border-bottom: 1px solid var(--card-border-light);
     padding-bottom: 15px;
 }
 
 .profile-container-inline:hover {
     transform: translateY(-2px);
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.12); /* Bayangan lebih terlihat saat hover - Ditingkatkan */
-    background-color: var(--card-bg-hover-subtle); /* Sedikit abu-abu saat hover */
+    box-shadow: var(--shadow-subtle-hover);
+    background-color: var(--card-bg-hover-subtle);
 }
 
 .profile-container-inline:last-child {
@@ -254,18 +234,18 @@ main {
     font-weight: bold;
     font-size: 0.9em;
     margin-bottom: 3px;
-    color: var(--text-color); /* Kembali hitam */
+    color: var(--text-color);
 }
 
 .username-inline {
-    color: var(--text-color); /* Kembali hitam */
+    color: var(--text-color);
     font-size: 0.8em;
     margin-top: -3px;
     margin-bottom: 8px;
 }
 
 .joined-date-inline {
-    color: var(--text-color); /* Kembali hitam */
+    color: var(--text-color);
     font-size: 0.7em;
     display: flex;
     align-items: center;
@@ -275,24 +255,24 @@ main {
 .joined-date-inline i {
     margin-right: 3px;
     font-size: 0.85em;
-    color: var(--text-color); /* Diubah ke hitam */
+    color: var(--text-color);
 }
 
 .follow-stats-inline {
     display: flex;
     margin-top: 8px;
     font-size: 0.8em;
-    color: var(--text-color); /* Kembali hitam */
+    color: var(--text-color);
 }
 
 .follow-stats-inline span {
     margin-right: 10px;
-    color: var(--text-color); /* Pastikan teks Mengikuti/Pengikut hitam */
+    color: var(--text-color);
 }
 
 .follow-stats-inline strong {
     font-weight: bold;
-    color: var(--text-color); /* Diubah ke hitam (angka 300, 1000, req) */
+    color: var(--text-color);
 }
 
 /* Gaya spesifik untuk Metode Pembayaran (Payment Methods) */
@@ -308,36 +288,38 @@ main {
     display: block;
     cursor: pointer;
     margin-bottom: 0px;
-    position: relative;
 }
 
-.payment-method-overview::after {
+/* Panah toggle untuk Metode Pembayaran */
+.payment-method-overview .info-card-header::after {
     content: '\25BE';
     position: absolute;
-    left: 50%;
-    bottom: -20px;
-    transform: translateX(-50%);
-    font-size: 1.5em;
+    right: 15px;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 1.2em;
     color: var(--secondary-color);
     transition: transform 0.3s ease-in-out;
+    pointer-events: none;
 }
 
-.payment-method-overview.payment-details-active::after {
-    transform: translateX(-50%) rotate(180deg);
+.payment-method-overview .info-card-header.payment-details-active::after {
+    transform: translateY(-50%) rotate(180deg);
 }
 
 .payment-details {
-    background-color: var(--card-bg-very-light); /* Background sangat putih */
+    background-color: var(--card-bg-very-light);
     border-radius: 8px;
-    box-shadow: 0 2px 7px var(--shadow-medium); /* Efek timbul - Ditingkatkan */
+    box-shadow: var(--shadow-subtle);
     margin-top: 0px;
     padding: 20px;
-    display: none;
-    border: 1px solid var(--card-border-light); /* Border yang lebih terang */
+    /* display: none; dikelola oleh kelas .hidden */
+    border: 1px solid var(--card-border-light);
 }
 
-.payment-details.active {
-    display: block;
+/* Kelas untuk mengelola tampilan dengan JS */
+.hidden {
+    display: none !important;
 }
 
 .payment-list-item {
@@ -345,13 +327,13 @@ main {
     align-items: center;
     gap: 15px;
     padding: 10px 0;
-    border-bottom: 1px solid var(--card-border-light); /* Garis pemisah yang terang */
-    background-color: var(--card-bg-very-light); /* Pastikan background putih */
+    border-bottom: 1px solid var(--card-border-light);
+    background-color: var(--card-bg-very-light);
     transition: background-color 0.2s ease;
 }
 
 .payment-list-item:hover {
-    background-color: var(--card-bg-hover-subtle); /* Sedikit abu-abu saat hover */
+    background-color: var(--card-bg-hover-subtle);
 }
 
 .payment-list-item:last-child {
@@ -367,7 +349,7 @@ main {
 
 .payment-list-item span {
     font-size: 0.95em;
-    color: var(--text-color); /* Kembali hitam */
+    color: var(--text-color);
 }
 
 /* --- Gaya untuk bagian Jumlah Antrian --- */
@@ -442,12 +424,8 @@ main {
     border-radius: 10px;
     border: 1px solid #ddd;
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
-    display: none;
+    /* display: none; dikelola oleh kelas .hidden */
     text-align: left;
-}
-
-.registration-form.active {
-    display: block;
 }
 
 .registration-form h3 {
@@ -525,7 +503,7 @@ main {
     border: 1px solid #ccffcc;
     border-radius: 5px;
     text-align: center;
-    display: none;
+    /* display: none; dikelola oleh kelas .hidden */
 }
 
 .submission-message h3 {
@@ -556,34 +534,13 @@ main {
 /* --- Gaya untuk bagian Kenapa RDS? --- */
 .why-rds-card {
     cursor: pointer;
-    -webkit-user-select: none;
-    -moz-user-select: none;
-    -ms-user-select: none;
     user-select: none;
     margin-top: 0;
     margin-bottom: 15;
 }
 
-.why-rds-card .info-card-header {
-    position: relative;
-    padding-right: 30px;
-    margin-bottom: 15px;
-    -webkit-user-select: none;
-    -moz-user-select: none;
-    -ms-user-select: none;
-    user-select: none;
-}
-
-.why-rds-overview {
-    display: flex;
-    align-items: center;
-    -webkit-user-select: none;
-    -moz-user-select: none;
-    -ms-user-select: none;
-    user-select: none;
-}
-
-.why-rds-overview::after {
+/* Panah toggle untuk Kenapa RDS? */
+.why-rds-card .info-card-header::after {
     content: '\25BE';
     position: absolute;
     right: 15px;
@@ -595,16 +552,13 @@ main {
     pointer-events: none;
 }
 
-.why-rds-overview.why-rds-details-active::after {
+.why-rds-card .info-card-header.why-rds-details-active::after {
     transform: translateY(-50%) rotate(180deg);
 }
 
 .why-rds-details {
-    display: none;
+    /* display: none; dikelola oleh kelas .hidden */
     padding-top: 15px;
-    -webkit-user-select: none;
-    -moz-user-select: none;
-    -ms-user-select: none;
     user-select: none;
     pointer-events: auto;
 }
@@ -620,21 +574,18 @@ main {
     align-items: center;
     padding: 10px 15px;
     margin-bottom: 8px;
-    background-color: var(--card-bg-very-light); /* Background sangat putih */
+    background-color: var(--card-bg-very-light);
     border-radius: 6px;
-    border: 1px solid var(--card-border-light); /* Border yang lebih terang */
+    border: 1px solid var(--card-border-light);
     transition: transform 0.2s ease, box-shadow 0.2s ease, background-color 0.2s ease;
-    box-shadow: 0 2px 7px var(--shadow-medium); /* Efek timbul - Ditingkatkan */
-    -webkit-user-select: none;
-    -moz-user-select: none;
-    -ms-user-select: none;
+    box-shadow: var(--shadow-subtle);
     user-select: none;
 }
 
 .why-rds-details ul li:hover {
     transform: translateY(-2px);
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.12); /* Bayangan lebih jelas saat hover - Ditingkatkan */
-    background-color: var(--card-bg-hover-subtle); /* Sedikit abu-abu saat hover */
+    box-shadow: var(--shadow-subtle-hover);
+    background-color: var(--card-bg-hover-subtle);
 }
 
 .why-rds-details ul li:last-child {
@@ -643,15 +594,14 @@ main {
 
 .why-rds-details ul li i {
     margin-right: 12px;
-    color: var(--secondary-color); /* Warna biru untuk ikon ceklis */
+    color: var(--secondary-color);
     font-size: 1.1em;
     width: 25px;
     text-align: center;
 }
 
 .why-rds-details ul li span {
-    color: var(--text-color); /* Kembali hitam */
-    font-size: 0.9em;
+    color: var(--text-color);
 }
 
 /* --- FOOTER --- */
@@ -686,17 +636,8 @@ footer {
     }
 
     main {
-        padding-top: 60px;
+        padding-top: 60px; /* Diperkecil untuk mobile */
         margin-bottom: 15px;
-    }
-
-    #our-profiles,
-    #payment-methods,
-    #queue-info,
-    #join-queue,
-    #why-rds {
-        margin-top: 0px;
-        margin-bottom: 0px;
     }
 
     .registration-form {
@@ -754,20 +695,12 @@ footer {
     }
 
     main {
-        padding-top: 60px;
+        padding-top: 70px; /* Pastikan kembali ke default desktop */
         margin-bottom: 15px;
-    }
-
-    #our-profiles,
-    #payment-methods,
-    #queue-info,
-    #join-queue,
-    #why-rds {
-        margin-top: 0px;
-        margin-bottom: 0px;
     }
 }
 
+/* Utilitas untuk user-select */
 .no-select {
   -webkit-user-select: none;
   -moz-user-select: none;
