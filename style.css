@@ -151,7 +151,7 @@ main {
 
 /* --- Gaya untuk bagian Kategori Akun (Our Profiles) --- */
 .our-profiles-card {
-    cursor: pointer;
+    cursor: pointer; /* Sekarang seluruh kotak bisa diklik */
     user-select: none;
     margin-top: 25px;
     margin-bottom: 0px;
@@ -168,7 +168,7 @@ main {
     font-size: 1.2em;
     color: var(--secondary-color);
     transition: transform 0.3s ease-in-out;
-    pointer-events: none;
+    pointer-events: none; /* Panah tidak dapat diklik langsung */
 }
 
 .our-profiles-card .info-card-header.our-profiles-details-active::after {
@@ -286,7 +286,7 @@ main {
 
 .payment-method-overview {
     display: block;
-    cursor: pointer;
+    cursor: pointer; /* Sekarang seluruh kotak bisa diklik */
     margin-bottom: 0px;
 }
 
@@ -533,7 +533,7 @@ main {
 
 /* --- Gaya untuk bagian Kenapa RDS? --- */
 .why-rds-card {
-    cursor: pointer;
+    cursor: pointer; /* Sekarang seluruh kotak bisa diklik */
     user-select: none;
     margin-top: 0;
     margin-bottom: 15;
