@@ -11,6 +11,9 @@ document.addEventListener('DOMContentLoaded', function() {
     const whyRdsCard = document.querySelector('.why-rds-card');
     const whyRdsDetails = document.getElementById('why-rds-details');
     const whyRdsOverview = document.querySelector('.why-rds-overview');
+    const ourProfilesCard = document.querySelector('.our-profiles-card');
+    const ourProfilesDetails = document.getElementById('our-profiles-details');
+    const ourProfilesOverview = document.querySelector('.our-profiles-overview');
 
     // URL publik dari Google Apps Script Anda
     const scriptURL = 'https://script.google.com/macros/s/AKfycbyI9YUU2vGAL8Rlch_5lc4Vs8cJgZKGXcAWQz5PfOe0BlXUD8IfmtZv9mT50-NnouKF/exec';
@@ -123,5 +126,16 @@ document.addEventListener('DOMContentLoaded', function() {
 
     if (whyRdsCard) {
         whyRdsCard.addEventListener('click', toggleWhyRDS);
+    }
+
+    window.toggleOurProfiles = function() {
+        if (ourProfilesDetails && ourProfilesOverview) {
+            ourProfilesDetails.style.display = ourProfilesDetails.style.display === 'none' ? 'block' : 'none';
+            ourProfilesOverview.classList.toggle('our-profiles-details-active');
+        }
+    };
+
+    if (ourProfilesCard) {
+        ourProfilesCard.addEventListener('click', toggleOurProfiles);
     }
 });
