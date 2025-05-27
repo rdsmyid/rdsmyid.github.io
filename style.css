@@ -482,6 +482,11 @@ footer {
         padding: 8px 15px;
         margin-top: 10px;
     }
+
+    /* Koreksi posisi ikon dropdown "Kenapa RDS?" di mobile */
+    .why-rds-overview::after {
+        right: 15px; /* Sesuaikan jika perlu */
+    }
 }
 
 @media (min-width: 769px) {
@@ -534,7 +539,7 @@ footer {
 /* Gaya spesifik untuk bagian Kenapa RDS? */
 .why-rds-card {
     cursor: pointer;
-    -webkit-user-select: none;
+        -webkit-user-select: none;
     -moz-user-select: none;
     -ms-user-select: none;
     user-select: none;
@@ -750,4 +755,5 @@ footer {
 
 .follow-stats-inline strong {
     font-weight: bold;
-}
+    }
+    
