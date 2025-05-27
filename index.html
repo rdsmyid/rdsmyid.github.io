@@ -19,7 +19,7 @@
     <header class="main-header">
         <div class="container header-content">
             <div class="logo">
-                <img src="Logo_RDS.png" alt="Logo RDS" style="max-width: 95px; height: auto; display: block;">
+                <img src="Logo_RDS.png" alt="Logo Resmi RDS" style="max-width: 95px; height: auto; display: block;">
             </div>
             <nav class="main-nav">
                 <ul>
@@ -38,7 +38,7 @@
                         <i class="fab fa-twitter info-icon"></i>
                         <h3 class="no-select">Kategori Akun</h3>
                     </div>
-                    <div id="our-profiles-details" class="our-profiles-details" style="display: none; padding-top: 15px;">
+                    <div id="our-profiles-details" class="our-profiles-details hidden">
                         <div class="profile-container-inline">
                             <div class="profile-header-inline">
                                 <div class="profile-image-inline">
@@ -96,39 +96,36 @@
                     </div>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
 
         <section id="payment-methods" class="section-padded">
             <div class="container">
-                <div class="payment-methods-grid">
-                    <div class="info-card payment-method-overview" onclick="togglePaymentDetails('payment')">
-                        <div class="info-card-header">
-                            <i class="fas fa-money-bill-wave info-icon"></i>
-                            <h3 class="no-select">Metode Pembayaran</h3>
-                        </div>
-                        <p class="no-select">Ini adalah beberapa pembayaran sah yang kami sediakan</p>
+                <div class="info-card payment-method-overview">
+                    <div class="info-card-header payment-overview-trigger">
+                        <i class="fas fa-money-bill-wave info-icon"></i>
+                        <h3 class="no-select">Metode Pembayaran</h3>
                     </div>
-                    <div class="payment-details" id="payment-details">
-                        <div class="payment-list-item no-select">
-                            <i class="fas fa-qrcode"></i>
-                            <span>QRIS</span>
-                        </div>
-                        <div class="payment-list-item no-select">
-                            <i class="fas fa-university"></i>
-                            <span>Transfer Bank</span>
-                        </div>
-                        <div class="payment-list-item no-select">
-                            <i class="fab fa-cc-paypal"></i>
-                            <span>PayPal</span>
-                        </div>
-                        <div class="payment-list-item no-select">
-                            <i class="fab fa-amazon-pay"></i>
-                            <span>Amazon Pay</span>
-                        </div>
-                        <div class="text-center no-select" style="margin-top: 20px; font-size: 0.9em; color: #777;">
-                            Informasi rekening tujuan atau kode QRIS silahkan hubungi Admin
-                        </div>
+                    <p class="no-select">Ini adalah beberapa pembayaran sah yang kami sediakan</p>
+                </div>
+                <div class="payment-details hidden" id="payment-details">
+                    <div class="payment-list-item no-select">
+                        <i class="fas fa-qrcode"></i>
+                        <span>QRIS</span>
+                    </div>
+                    <div class="payment-list-item no-select">
+                        <i class="fas fa-university"></i>
+                        <span>Transfer Bank</span>
+                    </div>
+                    <div class="payment-list-item no-select">
+                        <i class="fab fa-cc-paypal"></i>
+                        <span>PayPal</span>
+                    </div>
+                    <div class="payment-list-item no-select">
+                        <i class="fab fa-amazon-pay"></i>
+                        <span>Amazon Pay</span>
+                    </div>
+                    <div class="text-center no-select" style="margin-top: 20px; font-size: 0.9em; color: #777;">
+                        Informasi rekening tujuan atau kode QRIS silahkan hubungi Admin
                     </div>
                 </div>
             </div>
@@ -173,7 +170,7 @@
                         <form action="https://docs.google.com/forms/d/e/1FAIpQLSeoOoBcyIHwty6FsXmmpOQ4vk0urHJkgP4xyR1jEoia_uCURA/formResponse"
                               method="POST"
                               id="registrationForm"
-                              class="registration-form">
+                              class="registration-form hidden">
                             <h3 class="no-select">Formulir Pendaftaran</h3>
                             <div class="form-group">
                                 <label for="nama" class="no-select">Nama:</label>
@@ -198,12 +195,14 @@
                             </div>
                         </form>
 
-                        <div id="submissionMessage" class="submission-message no-select">
+                        <div id="submissionMessage" class="submission-message hidden">
                             <h3 class="no-select">Terima Kasih!</h3>
                             <p class="no-select">Formulir Anda telah terkirim.<br>Admin kami akan segera menindaklanjuti.</p>
                         </div>
                     </div>
-                </section>
+                </div>
+            </div>
+        </section>
 
         <section id="why-rds" class="section-padded">
             <div class="container">
@@ -212,13 +211,13 @@
                         <i class="fas fa-question-circle info-icon"></i>
                         <h3 class="no-select">Kenapa RDS?</h3>
                     </div>
-                    <div id="why-rds-details" class="why-rds-details" style="display: none; padding-top: 15px;">
+                    <div id="why-rds-details" class="why-rds-details hidden">
                         <ul>
-                            <li><i class="fas fa-check-circle"></i> <span style="user-select: none;">Akun Terpercaya: Kami menyediakan akun dengan kualitas terjamin.</span></li>
-                            <li><i class="fas fa-shield-alt"></i> <span style="user-select: none;">Transaksi Aman: Keamanan transaksi Anda adalah prioritas kami.</span></li>
-                            <li><i class="fas fa-users"></i> <span style="user-select: none;">Layanan Cepat: Tim kami siap melayani Anda dengan responsif.</span></li>
-                            <li><i class="fas fa-money-bill-alt"></i> <span style="user-select: none;">Metode Pembayaran Fleksibel: Berbagai pilihan pembayaran untuk kenyamanan Anda.</span></li>
-                            <li><i class="fas fa-list-ol"></i> <span style="user-select: none;">Sistem Antrian Teratur: Proses layanan yang lebih efisien dengan sistem antrian.</span></li>
+                            <li><i class="fas fa-check-circle"></i> <span class="no-select">Akun Terpercaya: Kami menyediakan akun dengan kualitas terjamin.</span></li>
+                            <li><i class="fas fa-shield-alt"></i> <span class="no-select">Transaksi Aman: Keamanan transaksi Anda adalah prioritas kami.</span></li>
+                            <li><i class="fas fa-users"></i> <span class="no-select">Layanan Cepat: Tim kami siap melayani Anda dengan responsif.</span></li>
+                            <li><i class="fas fa-money-bill-alt"></i> <span class="no-select">Metode Pembayaran Fleksibel: Berbagai pilihan pembayaran untuk kenyamanan Anda.</span></li>
+                            <li><i class="fas fa-list-ol"></i> <span class="no-select">Sistem Antrian Teratur: Proses layanan yang lebih efisien dengan sistem antrian.</span></li>
                         </ul>
                     </div>
                 </div>
