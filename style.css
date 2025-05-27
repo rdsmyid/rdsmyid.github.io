@@ -177,7 +177,7 @@ main {
 
 .our-profiles-details {
     /* display: none; dikelola oleh kelas .hidden */
-    padding-top: 15px;
+    padding-top: 15px; /* Memberi jarak dari header */
     user-select: none;
     pointer-events: auto;
 }
@@ -285,9 +285,11 @@ main {
 }
 
 .payment-method-overview {
-    display: block;
     cursor: pointer; /* Sekarang seluruh kotak bisa diklik */
-    margin-bottom: 0px;
+    user-select: none; /* Tambahkan untuk konsistensi */
+    margin-top: 0px; /* Sesuaikan atau hapus jika tidak diperlukan */
+    margin-bottom: 0px; /* Sesuaikan atau hapus jika tidak diperlukan */
+    /* Transisi untuk hover akan diwarisi dari .info-card */
 }
 
 /* Panah toggle untuk Metode Pembayaran */
@@ -308,13 +310,21 @@ main {
 }
 
 .payment-details {
-    background-color: var(--card-bg-very-light);
-    border-radius: 8px;
-    box-shadow: var(--shadow-subtle);
-    margin-top: 0px;
-    padding: 20px;
     /* display: none; dikelola oleh kelas .hidden */
-    border: 1px solid var(--card-border-light);
+    
+    /* Hapus properti ini karena sekarang berada di dalam .info-card dan akan mewarisi gayanya */
+    background-color: transparent; /* Pastikan transparan agar background .info-card terlihat */
+    border-radius: 0; /* Hapus radius karena sudah ada di .info-card */
+    box-shadow: none; /* Hapus shadow karena sudah ada di .info-card */
+    border: none; /* Hapus border karena kita akan menambah border di atas */
+
+    /* Tambahkan pemisah visual dan jarak dari konten di atasnya */
+    padding-top: 15px; /* Jarak antara konten di atasnya dan daftar pembayaran */
+    margin-top: 15px; /* Margin atas untuk memisahkan dari paragraf sebelumnya */
+    border-top: 1px solid var(--card-border-light); /* Garis pemisah */
+
+    user-select: none;
+    pointer-events: auto;
 }
 
 /* Kelas untuk mengelola tampilan dengan JS */
