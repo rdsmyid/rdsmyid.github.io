@@ -152,7 +152,7 @@ main {
     -moz-user-select: none;
     -ms-user-select: none;
     user-select: none;
-    margin-top: 5px;
+    margin-top: 25px;
     margin-bottom: 0px;
     transition: background-color 0.3s ease;
 }
