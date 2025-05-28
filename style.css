@@ -231,8 +231,8 @@ main {
 }
 
 .profile-image-inline {
-    width: 45px;
-    height: 45px;
+    width: 40px;
+    height: 40px;
     border-radius: 50%;
     background-color: var(--primary-color);
     margin-right: 12px;
