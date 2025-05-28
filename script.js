@@ -27,7 +27,7 @@ document.addEventListener('DOMContentLoaded', function() {
     const requestInputGroup = document.getElementById('requestInputGroup');
     const requestAkunTextarea = document.getElementById('requestAkun');
 
-    // URL publik dari Google Apps Script Anda
+    // URL publik dari Google Apps Script Anda (URL ini sudah benar)
     const scriptURL = 'https://script.google.com/macros/s/AKfycbwpMpIoFx3pNIJMktWLWoD3Oqt64kCC_G9LnGHCC_9HJEKYJyTubwllg8GjkRUaU_eL/exec';
 
     // Fungsi untuk mengambil jumlah antrian
@@ -118,7 +118,8 @@ document.addEventListener('DOMContentLoaded', function() {
             // Periksa apakah reCAPTCHA sudah diselesaikan
             if (typeof grecaptcha !== 'undefined' && grecaptcha.getResponse() !== "") {
                 // Periksa validasi tambahan untuk "By Request"
-                if (pilihanAkunSelect && pilihanAkunSelect.value === 'By_Request' && requestAkunTextarea.value.trim() === '') {
+                // KONDISI INI DIPERBARUI UNTUK MENGGUNAKAN "By Request" (dengan spasi)
+                if (pilihanAkunSelect && pilihanAkunSelect.value === 'By Request' && requestAkunTextarea.value.trim() === '') {
                     alert('Harap isi detail permintaan akun Anda.');
                     return; // Hentikan pengiriman jika kosong
                 }
@@ -181,9 +182,10 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
     // Tambahan: Event listener untuk perubahan pada dropdown Kategori Akun
+    // KONDISI INI DIPERBARUI UNTUK MENGGUNAKAN "By Request" (dengan spasi)
     if (pilihanAkunSelect) {
         pilihanAkunSelect.addEventListener('change', function() {
-            if (this.value === 'By_Request') {
+            if (this.value === 'By Request') { // UBAH DI SINI
                 requestInputGroup.classList.remove('hidden'); // Tampilkan kolom permintaan
                 requestAkunTextarea.setAttribute('required', 'true'); // Jadikan wajib diisi
             } else {
