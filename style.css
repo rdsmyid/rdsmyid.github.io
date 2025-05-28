@@ -428,7 +428,7 @@ main {
     border-radius: 12px;
     border: 1px solid var(--card-border-light);
     box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
-    text-align: left; /* Penting untuk penyejajaran label */
+    text-align: left; /* Penting: agar label dan konten lainnya rata kiri secara default */
 }
 
 .registration-form h3 {
@@ -496,32 +496,33 @@ main {
     line-height: 1.4;
 }
 
-/* Aturan khusus untuk reCAPTCHA */
+/* Aturan khusus untuk reCAPTCHA agar di tengah */
 #recaptcha-group {
     margin-bottom: 20px; /* Jarak bawah seperti form-group lainnya */
-    /* Di desktop, reCAPTCHA harus sejajar dengan awal label. */
-    /* Karena .registration-form memiliki padding-left, dan label dimulai dari padding itu, */
-    /* kita cukup pastikan #recaptcha-group tidak memiliki offset tambahan. */
-    text-align: left; /* Pastikan konten di dalamnya rata kiri */
-    padding-left: 0; /* Pastikan tidak ada padding-left di elemen ini */
+    display: flex; /* Kunci: Mengaktifkan Flexbox */
+    justify-content: center; /* Kunci: Menengahkan item secara horizontal */
+    align-items: center; /* Menyelaraskan item secara vertikal */
+    padding-left: 0 !important; /* Pastikan tidak ada padding kiri yang mengganggu */
+    width: 100%; /* Pastikan mengambil lebar penuh agar penengahan bekerja */
+    left: auto !important; /* Hapus offset kiri jika ada */
+    text-align: center; /* Fallback dan bantuan untuk penengahan */
 }
 
 /* Mengatur posisi widget reCAPTCHA itu sendiri */
 #recaptcha-group .g-recaptcha {
-    display: block; /* Penting agar margin-left bekerja */
-    /* reCAPTCHA ini akan berada di dalam #recaptcha-group yang sudah rata kiri. */
-    /* Jika ada padding internal di dalam recaptcha yang mendorongnya, kita bisa mengkompensasi. */
-    /* Namun, biasanya cukup dengan 0px karena parent sudah sejajar. */
-    margin-left: 0 !important; /* Overwrite margin-left bawaan reCAPTCHA API */
-    margin-right: 0 !important; /* Pastikan tidak ada margin-right */
+    display: block; /* Penting agar widget reCAPTCHA itu sendiri berperilaku sebagai blok */
+    margin-left: 0 !important; /* Pastikan tidak ada margin-left bawaan yang mengganggu */
+    margin-right: 0 !important; /* Pastikan tidak ada margin-right bawaan */
 }
 
 #recaptcha-group .g-recaptcha > div {
     /* Ini adalah div internal reCAPTCHA yang berisi checkbox */
-    transform: scale(1); /* Pastikan skala default 1 untuk desktop */
-    -webkit-transform: scale(1);
-    transform-origin: 0 0; /* Penting: origin di kiri atas agar penyejajaran tepat */
-    -webkit-transform-origin: 0 0;
+    transform: scale(0.9); /* Mengecilkan reCAPTCHA menjadi 90% untuk desktop */
+    -webkit-transform: scale(0.9);
+    transform-origin: center center; /* Penting: origin di tengah untuk penengahan yang baik setelah scale */
+    -webkit-transform-origin: center center;
+    margin-left: auto; /* Membantu penengahan di dalam block */
+    margin-right: auto; /* Membantu penengahan di dalam block */
 }
 
 
@@ -743,24 +744,28 @@ footer {
         margin-top: 3px;
     }
 
-    /* Penyesuaian reCAPTCHA di mobile: Kembali ke tengah */
+    /* Penyesuaian reCAPTCHA di mobile: Tetap di tengah (sudah diatur di aturan #recaptcha-group utama) */
     #recaptcha-group {
-        margin-left: 0; /* Pastikan tidak ada margin-left sisa dari desktop */
-        padding-left: 0; /* Pastikan tidak ada padding-left sisa */
-        width: 100%; /* Lebar penuh */
-        text-align: center; /* Kunci untuk menengahkan reCAPTCHA di mobile */
+        /* Properti di atas (display: flex, justify-content, align-items, etc.) sudah berlaku di mobile juga */
+        /* Anda mungkin hanya ingin memastikan tidak ada overriding yang tidak diinginkan dari aturan lain */
+        padding-left: 0; /* Pastikan tidak ada padding-left yang menggeser */
+        width: 100%; /* Pastikan lebar penuh */
+        left: auto;
     }
 
     #recaptcha-group .g-recaptcha {
         margin-left: 0 !important; /* Hapus margin-left khusus desktop */
-        display: inline-block; /* Penting agar text-align: center bekerja pada parent */
+        margin-right: 0 !important;
+        display: block; /* Tetap block */
     }
 
     #recaptcha-group .g-recaptcha > div {
-        transform: scale(0.9); /* Skala agar pas di mobile */
-        -webkit-transform: scale(0.9);
+        transform: scale(0.8); /* Skala agar pas di mobile */
+        -webkit-transform: scale(0.8);
         transform-origin: center center; /* Tengahkan origin transformasi untuk skala */
         -webkit-transform-origin: center center;
+        margin-left: auto; /* Penengahan di mobile */
+        margin-right: auto; /* Penengahan di mobile */
     }
 
 
