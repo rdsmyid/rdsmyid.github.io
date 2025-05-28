@@ -28,7 +28,7 @@ document.addEventListener('DOMContentLoaded', function() {
     const requestAkunTextarea = document.getElementById('requestAkun');
 
     // URL publik dari Google Apps Script Anda
-    const scriptURL = 'https://script.google.com/macros/s/AKfycbwfnIUQkVNq1JAtOoRdpDn5ZOeycpBFA-E-8Ih7Frz8IspUKfmBDMNQD6uYBfAV26Jb/exec';
+    const scriptURL = 'https://script.google.com/macros/s/AKfycbwpMpIoFx3pNIJMktWLWoD3Oqt64kCC_G9LnGHCC_9HJEKYJyTubwllg8GjkRUaU_eL/exec';
 
     // Fungsi untuk mengambil jumlah antrian
     function fetchJumlahAntrian() {
