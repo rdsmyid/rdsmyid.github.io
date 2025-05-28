@@ -27,8 +27,8 @@ document.addEventListener('DOMContentLoaded', function() {
     const requestInputGroup = document.getElementById('requestInputGroup');
     const requestAkunTextarea = document.getElementById('requestAkun');
 
-    // URL publik dari Google Apps Script Anda (PASTIKAN INI URL TERBARU DARI DEPLOYMENT APPS SCRIPT ANDA)
-    const scriptURL = 'https://script.google.com/macros/s/AKfycbwaV8Ej5G9a_bDwLQXt0QYb7DG4guj1WjOGcgCIEq2gKBd1onodmfLADkPFVS9pLzou/exec';
+    // URL publik dari Google Apps Script Anda
+    const scriptURL = 'https://script.google.com/macros/s/AKfycbyI9YUU2vGAL8Rlch_5lc4Vs8cJgZKGXcAWQz5PfOe0BlXUD8IfmtZv9mT50-NnouKF/exec';
 
     // Fungsi untuk mengambil jumlah antrian
     function fetchJumlahAntrian() {
@@ -126,49 +126,32 @@ document.addEventListener('DOMContentLoaded', function() {
                 const formData = new FormData(form);
                 const action = form.getAttribute('action');
 
-                // PERUBAHAN UTAMA: Menghapus mode: 'no-cors' dan menangani respons Apps Script
                 fetch(action, {
                     method: 'POST',
-                    body: formData
-                })
-                .then(response => {
-                    // Periksa apakah respons HTTP OK (status 200-299)
-                    if (!response.ok) {
-                        throw new Error(`Pengiriman formulir gagal! Status: ${response.status}`);
+                    body: formData,
+                    mode: 'no-cors'
+                }).then(() => {
+                    registrationForm.classList.add('hidden');
+                    submissionMessage.classList.remove('hidden');
+                    showFormBtn.classList.remove('hidden'); // Menampilkan kembali tombol
+                    form.reset(); // Reset formulir
+                    // Reset reCAPTCHA
+                    if (typeof grecaptcha !== 'undefined') {
+                        grecaptcha.reset();
                     }
-                    // Baca respons sebagai JSON (sesuai dengan yang dikembalikan Apps Script doPost)
-                    return response.json();
-                })
-                .then(data => {
-                    // Periksa properti 'success' dari respons JSON Apps Script
-                    if (data && data.success) {
-                        registrationForm.classList.add('hidden');
-                        submissionMessage.classList.remove('hidden');
-                        showFormBtn.classList.remove('hidden'); // Menampilkan kembali tombol
-                        form.reset(); // Reset formulir
-                        // Reset reCAPTCHA
-                        if (typeof grecaptcha !== 'undefined') {
-                            grecaptcha.reset();
-                        }
-                        // Reset dropdown dan sembunyikan input request setelah pengiriman berhasil
-                        if (pilihanAkunSelect) {
-                            pilihanAkunSelect.value = '';
-                        }
-                        if (requestInputGroup) {
-                            requestInputGroup.classList.add('hidden');
-                            requestAkunTextarea.removeAttribute('required');
-                            requestAkunTextarea.value = '';
-                        }
-                        fetchJumlahAntrian(); // Perbarui jumlah antrian HANYA setelah sukses terkonfirmasi
-                    } else {
-                        // Jika Apps Script mengembalikan 'success: false' atau struktur data tidak valid
-                        console.error('Pengiriman formulir gagal dari server:', data.message || 'Respons Apps Script tidak valid.');
-                        alert('Pengiriman formulir gagal. Mohon coba lagi.');
+                    // Reset dropdown dan sembunyikan input request setelah pengiriman berhasil
+                    if (pilihanAkunSelect) {
+                        pilihanAkunSelect.value = '';
                     }
-                })
-                .catch(error => {
+                    if (requestInputGroup) {
+                        requestInputGroup.classList.add('hidden');
+                        requestAkunTextarea.removeAttribute('required');
+                        requestAkunTextarea.value = '';
+                    }
+                    fetchJumlahAntrian(); // Perbarui jumlah antrian
+                }).catch(error => {
                     console.error('Terjadi kesalahan saat mengirim formulir:', error);
-                    alert('Terjadi kesalahan saat mengirim formulir. Mohon coba lagi. Detail: ' + error.message);
+                    alert('Terjadi kesalahan saat mengirim formulir. Mohon coba lagi.');
                 });
             } else {
                 alert('Harap selesaikan reCAPTCHA terlebih dahulu.');
