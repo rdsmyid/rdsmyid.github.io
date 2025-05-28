@@ -612,7 +612,7 @@ main {
     cursor: pointer;
     user-select: none;
     margin-top: 0;
-    margin-bottom: 15px;
+    margin-bottom: 0px;
 }
 
 /* Panah toggle untuk Kenapa RDS? */
