@@ -503,7 +503,7 @@ main {
     /* Padding kiri input adalah 12px. Kita ingin reCAPTCHA dimulai dari titik yang sama. */
     /* Selain itu, reCAPTCHA sendiri sudah punya padding internal. */
     /* Ukuran default reCAPTCHA box adalah 304px (lebar) x 78px (tinggi) */
-    padding-left: 12px; /* Sesuaikan dengan padding-left input */
+    padding-left: 6px; /* Sesuaikan dengan padding-left input */
     box-sizing: border-box; /* Penting agar padding tidak menambah lebar */
     /* Kita perlu memastikan konten di dalamnya tidak melebihi lebar form jika padding diterapkan */
     width: calc(100% + 12px); /* Tambah lebar agar konten tidak terpotong */
