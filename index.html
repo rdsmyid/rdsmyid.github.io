@@ -20,13 +20,13 @@
         <div class="container header-content">
             <div class="logo">
                 <a href="./">
-                    <img src="Logo_RDS.png" alt="Logo Resmi RDS" style="max-width: 95px; height: auto; display: block;">
+                    <img src="Logo_RDS.png" alt="Logo Resmi RDS">
                 </a>
             </div>
             <nav class="main-nav">
                 <ul>
                     <li><a href="https://wa.me/6285117219192" target="_blank" rel="noopener noreferrer"><i class="fab fa-whatsapp"></i> WhatsApp</a></li>
-                    <li><a href="mailto:rds@kolabnow.com"><i class="far fa-envelope"></i> Email</a></li>
+                    <li><a href="mailto:rds@kolabnow.com" rel="noopener noreferrer"><i class="far fa-envelope"></i> Email</a></li>
                 </ul>
             </nav>
         </div>
@@ -182,6 +182,20 @@
                                 <label for="kontak" class="no-select">Kontak:</label>
                                 <input type="text" id="kontak" name="entry.153037566" required>
                                 <div class="input-hint no-select">WhatsApp atau lainnya</div>
+                            </div>
+                            <div class="form-group">
+                                <label for="pilihanAkun" class="no-select">Kategori Akun:</label>
+                                <select id="pilihanAkun" name="entry.106045795" class="form-control" required>
+                                    <option value="">-- Pilih Kategori Akun --</option>
+                                    <option value="300_Followers">300 Followers</option>
+                                    <option value="1000_Followers">1000 Followers</option>
+                                    <option value="By_Request">By Request</option>
+                                </select>
+                            </div>
+                            <div class="form-group hidden" id="requestInputGroup">
+                                <label for="requestAkun" class="no-select">Detail Permintaan Akun:</label>
+                                <textarea id="requestAkun" name="entry.176387224" rows="3" class="form-control" placeholder="Contoh: 5000 Followers, Akun Niche Gaming"></textarea>
+                                <div class="input-hint no-select">Jelaskan permintaan akun Anda di sini.</div>
                             </div>
                             <div class="form-group">
                                 <label for="jumlah" class="no-select">Jumlah Pesanan:</label>
