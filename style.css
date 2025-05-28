@@ -208,8 +208,8 @@ main {
     padding: 12px 15px;
     transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out, background-color 0.2s ease;
     box-shadow: var(--shadow-subtle);
-    display: flex; /* Tambahkan ini agar konten di dalamnya sejajar */
-    align-items: center; /* Sejajarkan secara vertikal */
+    display: flex;
+    align-items: center; /* PENTING: Ini memastikan logo 'R' dan teks sejajar di tengah secara vertikal */
 }
 
 .profile-container-inline:hover {
@@ -224,10 +224,10 @@ main {
 
 /* Tambahan: Untuk header di dalam profile-container-inline jika ada */
 .profile-container-inline .profile-header-inline {
-    display: flex; /* Penting: Jadikan ini flex container */
+    display: flex;
     align-items: center;
-    flex-wrap: nowrap; /* Pastikan tidak membungkus secara default */
-    width: 100%; /* Pastikan mengambil lebar penuh di dalam container */
+    flex-wrap: nowrap;
+    width: 100%;
 }
 
 .profile-image-inline {
@@ -242,38 +242,35 @@ main {
     font-size: 18px;
     color: var(--white);
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.15);
-    flex-shrink: 0; /* Pastikan tidak menyusut */
+    flex-shrink: 0;
 }
 
 .profile-info-inline {
-    flex-grow: 1; /* Biarkan mengisi ruang yang tersisa */
-    min-width: 0; /* Penting: Mencegah overflow pada flex item dengan konten panjang */
-    display: flex; /* Jadikan ini flex container untuk teks */
-    flex-direction: row; /* Teks dalam satu baris */
-    align-items: center; /* Sejajarkan secara vertikal */
-    flex-wrap: wrap; /* Izinkan wrapping jika sangat diperlukan, tapi utamakan satu baris */
-    gap: 8px; /* Spasi antar elemen teks */
+    flex-grow: 1;
+    min-width: 0;
+    display: flex;
+    flex-direction: column; /* Mengatur susunan vertikal untuk elemen teks */
 }
 
 .name-inline {
     font-weight: 600;
     font-size: 0.95em;
-    margin-bottom: 0; /* Hapus margin bawah */
+    margin-bottom: 2px; /* Jarak antar nama dan username */
     color: var(--text-color);
-    white-space: nowrap; /* Jangan biarkan teks pindah baris */
-    overflow: hidden; /* Sembunyikan jika overflow */
-    text-overflow: ellipsis; /* Tampilkan elipsis jika terpotong */
-    margin-right: 5px; /* Spasi antara nama dan username */
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    margin-right: 0;
 }
 
 .username-inline {
     color: #666;
     font-size: 0.8em;
-    margin-top: 0; /* Hapus margin atas */
-    margin-bottom: 0; /* Hapus margin bawah */
-    white-space: nowrap; /* Jangan biarkan teks pindah baris */
-    overflow: hidden; /* Sembunyikan jika overflow */
-    text-overflow: ellipsis; /* Tampilkan elipsis jika terpotong */
+    margin-top: 0px;
+    margin-bottom: 5px; /* Jarak antar username dan tanggal */
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 
 .joined-date-inline {
@@ -281,9 +278,10 @@ main {
     font-size: 0.75em;
     display: flex;
     align-items: center;
-    margin-top: 0; /* Hapus margin atas */
-    margin-right: 10px; /* Spasi antara tanggal dan follow stats */
-    white-space: nowrap; /* Pastikan dalam satu baris */
+    margin-top: 0px;
+    margin-bottom: 8px; /* Jarak antar tanggal dan follow stats */
+    margin-right: 0;
+    white-space: nowrap;
 }
 
 .joined-date-inline i {
@@ -293,17 +291,16 @@ main {
 }
 
 .follow-stats-inline {
-    display: flex;
-    margin-top: 0; /* Hapus margin atas */
+    display: flex; /* Ini memastikan 'Mengikuti' dan 'Pengikut' berdampingan */
+    margin-top: 0px;
     font-size: 0.85em;
     color: #555;
-    white-space: nowrap; /* Pastikan dalam satu baris */
 }
 
 .follow-stats-inline span {
-    margin-right: 10px; /* Spasi antar 'mengikuti' dan 'pengikut' */
+    margin-right: 15px; /* Spasi antar 'mengikuti' dan 'pengikut' */
     color: #555;
-    white-space: nowrap; /* Pastikan dalam satu baris */
+    white-space: nowrap;
 }
 
 .follow-stats-inline strong {
@@ -453,7 +450,7 @@ main {
     border-radius: 12px;
     border: 1px solid var(--card-border-light);
     box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
-    text-align: left; /* Penting: agar label dan konten lainnya rata kiri secara default */
+    text-align: left;
 }
 
 .registration-form h3 {
@@ -523,33 +520,31 @@ main {
 
 /* Aturan khusus untuk reCAPTCHA agar di tengah */
 #recaptcha-group {
-    margin-bottom: 20px; /* Jarak bawah seperti form-group lainnya */
-    display: flex; /* Kunci: Mengaktifkan Flexbox */
-    justify-content: center; /* Kunci: Menengahkan item secara horizontal */
-    align-items: center; /* Menyelaraskan item secara vertikal */
-    padding-left: 0 !important; /* Pastikan tidak ada padding kiri yang mengganggu */
-    width: 100%; /* Pastikan mengambil lebar penuh agar penengahan bekerja */
-    left: auto !important; /* Hapus offset kiri jika ada */
-    text-align: center; /* Fallback dan bantuan untuk penengahan */
+    margin-bottom: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-left: 0 !important;
+    width: 100%;
+    left: auto !important;
+    text-align: center;
 }
 
 /* Mengatur posisi widget reCAPTCHA itu sendiri */
 #recaptcha-group .g-recaptcha {
-    display: block; /* Penting agar widget reCAPTCHA itu sendiri berperilaku sebagai blok */
-    margin-left: 0 !important; /* Pastikan tidak ada margin-left bawaan yang mengganggu */
-    margin-right: 0 !important; /* Pastikan tidak ada margin-right bawaan */
+    display: block;
+    margin-left: 0 !important;
+    margin-right: 0 !important;
 }
 
 #recaptcha-group .g-recaptcha > div {
-    /* Ini adalah div internal reCAPTCHA yang berisi checkbox */
-    transform: scale(0.9); /* Mengecilkan reCAPTCHA menjadi 90% untuk desktop */
+    transform: scale(0.9);
     -webkit-transform: scale(0.9);
-    transform-origin: center center; /* Penting: origin di tengah untuk penengahan yang baik setelah scale */
+    transform-origin: center center;
     -webkit-transform-origin: center center;
-    margin-left: auto; /* Membantu penengahan di dalam block */
-    margin-right: auto; /* Membantu penengahan di dalam block */
+    margin-left: auto;
+    margin-right: auto;
 }
-
 
 .registration-form button[type="submit"],
 #cancelFormBtn {
@@ -732,7 +727,7 @@ footer {
 
     /* Responsif formulir */
     .registration-form {
-        padding: 20px; /* Padding form di mobile */
+        padding: 20px;
         margin-top: 25px;
     }
 
@@ -768,28 +763,26 @@ footer {
         margin-top: 3px;
     }
 
-    /* Penyesuaian reCAPTCHA di mobile: Tetap di tengah (sudah diatur di aturan #recaptcha-group utama) */
+    /* Penyesuaian reCAPTCHA di mobile */
     #recaptcha-group {
-        /* Properti di atas (display: flex, justify-content, align-items, etc.) sudah berlaku di mobile juga */
-        /* Anda mungkin hanya ingin memastikan tidak ada overriding yang tidak diinginkan dari aturan lain */
-        padding-left: 0; /* Pastikan tidak ada padding-left yang menggeser */
-        width: 100%; /* Pastikan lebar penuh */
+        padding-left: 0;
+        width: 100%;
         left: auto;
     }
 
     #recaptcha-group .g-recaptcha {
-        margin-left: 0 !important; /* Hapus margin-left khusus desktop */
+        margin-left: 0 !important;
         margin-right: 0 !important;
-        display: block; /* Tetap block */
+        display: block;
     }
 
     #recaptcha-group .g-recaptcha > div {
-        transform: scale(0.8); /* Skala agar pas di mobile */
+        transform: scale(0.8);
         -webkit-transform: scale(0.8);
-        transform-origin: center center; /* Tengahkan origin transformasi untuk skala */
+        transform-origin: center center;
         -webkit-transform-origin: center center;
-        margin-left: auto; /* Penengahan di mobile */
-        margin-right: auto; /* Penengahan di mobile */
+        margin-left: auto;
+        margin-right: auto;
     }
 
     .registration-form button[type="submit"],
