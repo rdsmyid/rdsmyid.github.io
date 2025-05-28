@@ -1,25 +1,35 @@
-/* Variabel Warna Kustom */
+/* Variabel Warna Kustom (Pertahankan atau sesuaikan jika perlu) */
 :root {
     --primary-color: #2f0997;
     --primary-hover-color: #4b23b3;
     --secondary-color: #007bff;
-    --text-color: #333; /* Dikembalikan menjadi hitam/dark grey */
+    --text-color: #333;
     --light-bg: #f8f9fa;
     --dark-bg: #1a1a1a;
     --white: #fff;
-    --shadow-light: rgba(0, 0, 0, 0.1);
-    --shadow-medium: rgba(0, 0, 0, 0.08); /* Shadow yang sedikit lebih terlihat */
+    --shadow-light: rgba(0, 0, 0, 0.08); /* Sedikit lebih halus */
+    --shadow-medium: rgba(0, 0, 0, 0.05); /* Lebih halus lagi */
 
     /* Warna baru untuk card - Lebih putih */
-    --card-bg-very-light: #ffffff; /* Sangat putih */
-    --card-bg-hover-subtle: #f8f8f8; /* Sangat sedikit abu-abu untuk hover */
-    --card-border-light: #e8e8e8; /* Border yang sangat terang */
+    --card-bg-very-light: #ffffff;
+    --card-bg-hover-subtle: #f8f8f8;
+    --card-border-light: #e0e0e0; /* Border yang sangat terang */
 
     /* Variabel untuk shadows yang konsisten */
-    --shadow-card-default: 0 4px 10px var(--shadow-light);
-    --shadow-card-hover: 0 6px 15px rgba(0, 0, 0, 0.15);
-    --shadow-subtle: 0 2px 7px var(--shadow-medium);
-    --shadow-subtle-hover: 0 5px 15px rgba(0, 0, 0, 0.12);
+    --shadow-card-default: 0 4px 15px var(--shadow-light); /* Lebih lembut */
+    --shadow-card-hover: 0 8px 25px rgba(0, 0, 0, 0.1); /* Lebih lembut saat hover */
+    --shadow-subtle: 0 2px 8px var(--shadow-medium); /* Lebih halus */
+    --shadow-subtle-hover: 0 5px 15px rgba(0, 0, 0, 0.08); /* Lebih halus saat hover */
+
+    /* Warna baru untuk formulir */
+    --form-border-color: #d1d5da; /* Border input yang lebih netral */
+    --form-focus-border-color: var(--primary-color); /* Warna border saat fokus */
+    --form-placeholder-color: #888;
+    --button-secondary-bg: #e9ecef; /* Warna tombol batal */
+    --button-secondary-hover-bg: #dee2e6; /* Warna hover tombol batal */
+    --success-bg-color: #e6ffe6;
+    --success-border-color: #a3e6a3;
+    --success-text-color: #28a745;
 }
 
 body {
@@ -37,7 +47,7 @@ body {
     padding: 0 20px;
 }
 
-/* --- HEADER --- */
+/* --- HEADER (Tidak ada perubahan signifikan yang diperlukan untuk elemen form) --- */
 .main-header {
     background-color: var(--dark-bg);
     color: var(--white);
@@ -48,6 +58,7 @@ body {
     width: 100%;
     z-index: 1000;
     box-sizing: border-box;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* Tambah shadow di header */
 }
 
 .header-content {
@@ -60,23 +71,10 @@ body {
     width: 100%;
 }
 
-.logo {
-    display: inline-block;
-    margin-right: auto;
-}
-
 .logo img {
-    max-width: 70px;
+    max-width: 95px;
     height: auto;
     display: block;
-    /* BARIS INI DIHAPUS UNTUK MEMUNGKINKAN LOGO DIKLIK */
-    /* pointer-events: none; */
-}
-
-.logo h1 {
-    font-size: 1.5em;
-    letter-spacing: 1px;
-    margin: 0;
 }
 
 .main-nav ul {
@@ -97,6 +95,11 @@ body {
     display: flex;
     align-items: center;
     font-size: 0.95em;
+    transition: color 0.3s ease;
+}
+
+.main-nav ul li a:hover {
+    color: var(--secondary-color); /* Ubah warna saat hover */
 }
 
 .main-nav ul li a i {
@@ -105,7 +108,7 @@ body {
 
 /* --- MAIN CONTENT --- */
 main {
-    padding-top: 70px; /* Default untuk desktop */
+    padding-top: 70px;
     margin-bottom: 15px;
 }
 
@@ -116,23 +119,23 @@ main {
 .info-card {
     background-color: var(--white);
     padding: 20px;
-    border-radius: 8px;
-    box-shadow: var(--shadow-card-default); /* Efek timbul default */
+    border-radius: 10px; /* Sedikit lebih bulat */
+    box-shadow: var(--shadow-card-default);
     margin: 0;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .info-card:hover {
     transform: translateY(-3px);
-    box-shadow: var(--shadow-card-hover); /* Lebih timbul saat hover */
+    box-shadow: var(--shadow-card-hover);
 }
 
 .info-card-header {
     display: flex;
     align-items: center;
     margin-bottom: 15px;
-    position: relative; /* Penting untuk penyejajaran panah */
-    padding-right: 30px; /* Beri ruang untuk panah */
+    position: relative;
+    padding-right: 30px;
 }
 
 .info-icon {
@@ -143,33 +146,33 @@ main {
 }
 
 .info-card-header h3 {
-    font-size: 1.1em;
+    font-size: 1.2em; /* Sedikit lebih besar */
     margin: 0;
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
+    color: var(--primary-color); /* Warna judul card */
 }
 
 /* --- Gaya untuk bagian Kategori Akun (Our Profiles) --- */
 .our-profiles-card {
-    cursor: pointer; /* Sekarang seluruh kotak bisa diklik */
+    cursor: pointer;
     user-select: none;
     margin-top: 25px;
     margin-bottom: 0px;
     transition: background-color 0.3s ease;
 }
 
-/* Panah toggle untuk Kategori Akun */
 .our-profiles-card .info-card-header::after {
     content: '\25BE';
     position: absolute;
     right: 15px;
     top: 50%;
     transform: translateY(-50%);
-    font-size: 1.2em;
+    font-size: 1.3em; /* Sedikit lebih besar */
     color: var(--secondary-color);
     transition: transform 0.3s ease-in-out;
-    pointer-events: none; /* Panah tidak dapat diklik langsung */
+    pointer-events: none;
 }
 
 .our-profiles-card .info-card-header.our-profiles-details-active::after {
@@ -177,23 +180,19 @@ main {
 }
 
 .our-profiles-details {
-    /* display: none; dikelola oleh kelas .hidden */
-    padding-top: 15px; /* Memberi jarak dari header */
+    padding-top: 15px;
     user-select: none;
     pointer-events: auto;
 }
 
-/* Perubahan untuk membuat profil lebih hidup - Fokus pada background kotak */
 .profile-container-inline {
     background-color: var(--card-bg-very-light);
     border-radius: 8px;
     border: 1px solid var(--card-border-light);
     margin-bottom: 15px;
-    padding: 10px;
+    padding: 12px 15px; /* Padding sedikit lebih besar */
     transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out, background-color 0.2s ease;
     box-shadow: var(--shadow-subtle);
-    border-bottom: 1px solid var(--card-border-light);
-    padding-bottom: 15px;
 }
 
 .profile-container-inline:hover {
@@ -203,8 +202,6 @@ main {
 }
 
 .profile-container-inline:last-child {
-    border-bottom: none;
-    padding-bottom: 10px;
     margin-bottom: 10px;
 }
 
@@ -214,93 +211,79 @@ main {
 }
 
 .profile-image-inline {
-    width: 40px;
-    height: 40px;
+    width: 45px; /* Ukuran icon sedikit lebih besar */
+    height: 45px;
     border-radius: 50%;
     background-color: var(--primary-color);
-    margin-right: 10px;
+    margin-right: 12px;
     display: flex;
     justify-content: center;
     align-items: center;
-    font-size: 16px;
+    font-size: 18px; /* Ukuran font di icon */
     color: var(--white);
-    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.15);
-}
-
-.profile-info-inline {
-    flex-grow: 1;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.15); /* Shadow lebih jelas */
 }
 
 .name-inline {
-    font-weight: bold;
-    font-size: 0.9em;
-    margin-bottom: 3px;
+    font-weight: 600; /* Sedikit lebih tebal */
+    font-size: 0.95em; /* Sedikit lebih besar */
+    margin-bottom: 2px;
     color: var(--text-color);
 }
 
 .username-inline {
-    color: var(--text-color);
+    color: #666; /* Warna abu-abu yang lebih lembut */
     font-size: 0.8em;
     margin-top: -3px;
     margin-bottom: 8px;
 }
 
 .joined-date-inline {
-    color: var(--text-color);
-    font-size: 0.7em;
+    color: #777; /* Warna abu-abu yang lebih lembut */
+    font-size: 0.75em;
     display: flex;
     align-items: center;
     margin-top: 5px;
 }
 
 .joined-date-inline i {
-    margin-right: 3px;
-    font-size: 0.85em;
-    color: var(--text-color);
+    margin-right: 5px; /* Jarak icon lebih besar */
+    font-size: 0.9em;
+    color: #777;
 }
 
 .follow-stats-inline {
     display: flex;
     margin-top: 8px;
-    font-size: 0.8em;
-    color: var(--text-color);
+    font-size: 0.85em; /* Sedikit lebih besar */
+    color: #555;
 }
 
 .follow-stats-inline span {
-    margin-right: 10px;
-    color: var(--text-color);
+    margin-right: 15px; /* Jarak antar statistik lebih besar */
+    color: #555;
 }
 
 .follow-stats-inline strong {
-    font-weight: bold;
+    font-weight: 700; /* Lebih tebal */
     color: var(--text-color);
 }
 
 /* Gaya spesifik untuk Metode Pembayaran (Payment Methods) */
-.payment-methods-grid {
-    display: grid;
-    grid-template-columns: 1fr;
-    gap: 15px;
+.payment-method-overview {
+    cursor: pointer;
+    user-select: none;
     margin-top: 0px;
     margin-bottom: 0px;
 }
 
-.payment-method-overview {
-    cursor: pointer; /* Sekarang seluruh kotak bisa diklik */
-    user-select: none; /* Tambahkan untuk konsistensi */
-    margin-top: 0px; /* Sesuaikan atau hapus jika tidak diperlukan */
-    margin-bottom: 0px; /* Sesuaikan atau hapus jika tidak diperlukan */
-    /* Transisi untuk hover akan diwarisi dari .info-card */
-}
-
-/* Panah toggle untuk Metode Pembayaran */
 .payment-method-overview .info-card-header::after {
     content: '\25BE';
     position: absolute;
     right: 15px;
     top: 50%;
     transform: translateY(-50%);
-    font-size: 1.2em;
+    font-size: 1.3em;
     color: var(--secondary-color);
     transition: transform 0.3s ease-in-out;
     pointer-events: none;
@@ -311,24 +294,13 @@ main {
 }
 
 .payment-details {
-    /* display: none; dikelola oleh kelas .hidden */
-    
-    /* Hapus properti ini karena sekarang berada di dalam .info-card dan akan mewarisi gayanya */
-    background-color: transparent; /* Pastikan transparan agar background .info-card terlihat */
-    border-radius: 0; /* Hapus radius karena sudah ada di .info-card */
-    box-shadow: none; /* Hapus shadow karena sudah ada di .info-card */
-    border: none; /* Hapus border karena kita akan menambah border di atas */
-
-    /* Tambahkan pemisah visual dan jarak dari konten di atasnya */
-    padding-top: 15px; /* Jarak antara konten di atasnya dan daftar pembayaran */
-    margin-top: 15px; /* Margin atas untuk memisahkan dari paragraf sebelumnya */
-    border-top: 1px solid var(--card-border-light); /* Garis pemisah */
-
+    padding-top: 15px;
+    margin-top: 15px;
+    border-top: 1px solid var(--card-border-light);
     user-select: none;
     pointer-events: auto;
 }
 
-/* Kelas untuk mengelola tampilan dengan JS */
 .hidden {
     display: none !important;
 }
@@ -337,7 +309,7 @@ main {
     display: flex;
     align-items: center;
     gap: 15px;
-    padding: 10px 0;
+    padding: 12px 0; /* Padding sedikit lebih besar */
     border-bottom: 1px solid var(--card-border-light);
     background-color: var(--card-bg-very-light);
     transition: background-color 0.2s ease;
@@ -352,14 +324,14 @@ main {
 }
 
 .payment-list-item i {
-    font-size: 1.3em;
+    font-size: 1.4em; /* Ukuran icon sedikit lebih besar */
     color: var(--secondary-color);
     width: 30px;
     text-align: center;
 }
 
 .payment-list-item span {
-    font-size: 0.95em;
+    font-size: 1em; /* Sedikit lebih besar */
     color: var(--text-color);
 }
 
@@ -371,20 +343,20 @@ main {
 }
 
 .queue-count {
-    font-size: 1.3em;
-    font-weight: bold;
+    font-size: 1.4em; /* Sedikit lebih besar */
+    font-weight: 600; /* Sedikit lebih tebal */
     color: var(--primary-color);
     margin-bottom: 5px;
     text-align: center;
 }
 
 .queue-updated-info {
-    font-size: 0.85em;
+    font-size: 0.9em; /* Sedikit lebih besar */
     color: #7f8c8d;
     text-align: center;
 }
 
-/* --- Gaya untuk bagian Bergabung di Antrian --- */
+/* --- Gaya untuk bagian Bergabung di Antrian (Formulir Pendaftaran) --- */
 #join-queue {
     margin-top: 0px;
     margin-bottom: 0px;
@@ -395,9 +367,9 @@ main {
 }
 
 .join-queue-description p {
-    font-size: 0.9em;
-    color: #7f8c8d;
-    margin-bottom: 15px;
+    font-size: 0.95em; /* Sedikit lebih besar */
+    color: #666; /* Warna abu-abu yang lebih lembut */
+    margin-bottom: 20px; /* Jarak lebih besar */
     text-align: left;
 }
 
@@ -409,41 +381,44 @@ main {
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    gap: 0.5rem;
+    gap: 0.6rem; /* Jarak icon dan teks sedikit lebih besar */
     background: linear-gradient(135deg, var(--primary-color), var(--primary-hover-color));
     color: var(--white) !important;
-    padding: 0.7rem 1.2rem;
+    padding: 0.8rem 1.5rem; /* Padding lebih besar */
     border: none;
-    border-radius: 20px;
-    font-size: 0.9em;
+    border-radius: 25px; /* Lebih membulat */
+    font-size: 1em; /* Ukuran font lebih besar */
+    font-weight: 600; /* Lebih tebal */
     cursor: pointer;
     transition: all 0.3s ease;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2); /* Shadow lebih menonjol */
     text-decoration: none !important;
     margin: 0 auto;
 }
 
 .join-queue-button:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.25);
+    transform: translateY(-3px); /* Efek lift lebih menonjol */
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.25);
 }
 
+/* --- Gaya Formulir Pendaftaran yang Lebih Elegan dan Profesional --- */
 .registration-form {
     margin-top: 30px;
-    padding: 25px;
+    padding: 30px; /* Padding lebih besar */
     background-color: var(--white);
-    border-radius: 10px;
-    border: 1px solid #ddd;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
-    /* display: none; dikelola oleh kelas .hidden */
+    border-radius: 12px; /* Lebih membulat */
+    border: 1px solid var(--card-border-light); /* Border yang lebih halus */
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08); /* Shadow lebih menonjol tapi lembut */
     text-align: left;
 }
 
 .registration-form h3 {
-    font-size: 1.5em;
+    font-size: 1.6em; /* Ukuran judul lebih besar */
+    font-weight: 700; /* Lebih tebal */
     margin-top: 0;
-    margin-bottom: 20px;
+    margin-bottom: 25px; /* Jarak lebih besar */
     color: var(--primary-color);
+    text-align: center; /* Judul di tengah */
 }
 
 .form-group {
@@ -452,36 +427,72 @@ main {
 
 .form-group label {
     display: block;
-    font-size: 1em;
+    font-size: 0.95em; /* Ukuran label lebih besar */
     color: var(--text-color);
-    margin-bottom: 5px;
-    font-weight: bold;
+    margin-bottom: 8px; /* Jarak label ke input lebih besar */
+    font-weight: 600; /* Label lebih tebal */
 }
 
 .form-group input[type="text"],
-.form-group input[type="number"] {
-    width: calc(100% - 16px);
-    padding: 10px;
-    border: 1px solid #ccc;
-    border-radius: 6px;
-    font-size: 1em;
+.form-group input[type="number"],
+.form-group select.form-control,
+.form-group textarea.form-control {
+    width: 100%; /* Lebar penuh */
+    padding: 12px; /* Padding lebih besar */
+    border: 1px solid var(--form-border-color); /* Border yang lebih netral */
+    border-radius: 8px; /* Lebih membulat */
+    font-size: 1em; /* Ukuran font standar */
+    box-sizing: border-box;
+    background-color: var(--card-bg-very-light); /* Background input putih */
+    color: var(--text-color);
+    transition: border-color 0.3s ease, box-shadow 0.3s ease; /* Transisi saat fokus */
+}
+
+.form-group input[type="text"]::placeholder,
+.form-group input[type="number"]::placeholder,
+.form-group textarea.form-control::placeholder {
+    color: var(--form-placeholder-color); /* Warna placeholder */
+    opacity: 0.8; /* Sedikit transparan */
+}
+
+.form-group input[type="text"]:focus,
+.form-group input[type="number"]:focus,
+.form-group select.form-control:focus,
+.form-group textarea.form-control:focus {
+    border-color: var(--form-focus-border-color); /* Border warna primer saat fokus */
+    outline: none; /* Hapus outline default browser */
+    box-shadow: 0 0 0 3px rgba(var(--primary-color-rgb-val), 0.2); /* Ring focus yang lembut */
+}
+
+/* Tambahkan ini di :root jika belum ada */
+:root {
+    /* ... variabel lainnya ... */
+    --primary-color-rgb-val: 47, 9, 151; /* RGB dari --primary-color */
+}
+
+
+.form-group textarea.form-control {
+    resize: vertical;
+    min-height: 100px; /* Tinggi minimum textarea lebih besar */
 }
 
 .input-hint {
-    font-size: 0.85em;
-    color: #777;
-    margin-top: 3px;
+    font-size: 0.8em; /* Ukuran hint lebih kecil */
+    color: #999; /* Warna hint lebih lembut */
+    margin-top: 5px; /* Jarak hint ke input lebih besar */
     display: block;
+    line-height: 1.4;
 }
 
 .registration-form button[type="submit"],
 #cancelFormBtn {
-    padding: 10px 20px;
+    padding: 12px 25px; /* Padding lebih besar */
     border: none;
-    border-radius: 8px;
+    border-radius: 8px; /* Lebih membulat */
     font-size: 1em;
+    font-weight: 600; /* Lebih tebal */
     cursor: pointer;
-    transition: background-color 0.3s ease;
+    transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
     margin-top: 20px;
     text-align: center;
 }
@@ -489,75 +500,80 @@ main {
 .registration-form button[type="submit"] {
     background-color: var(--secondary-color);
     color: var(--white);
-    box-shadow: 0 2px 5px rgba(0, 123, 255, 0.3);
+    box-shadow: 0 4px 10px rgba(0, 123, 255, 0.2); /* Shadow lebih menonjol */
 }
 
 .registration-form button[type="submit"]:hover {
     background-color: #0056b3;
-    box-shadow: 0 3px 7px rgba(0, 86, 179, 0.3);
+    transform: translateY(-2px); /* Efek lift */
+    box-shadow: 0 6px 12px rgba(0, 86, 179, 0.25);
 }
 
 #cancelFormBtn {
-    background-color: #f8f9fa;
+    background-color: var(--button-secondary-bg); /* Warna abu-abu yang lebih baik */
     color: var(--text-color);
-    border: 1px solid #ddd;
+    border: 1px solid #ccc; /* Border yang lebih jelas */
 }
 
 #cancelFormBtn:hover {
-    background-color: #e9ecef;
+    background-color: var(--button-secondary-hover-bg);
+    transform: translateY(-2px);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }
 
 .submission-message {
-    margin-top: 20px;
-    padding: 15px;
-    background-color: #e6ffe6;
-    border: 1px solid #ccffcc;
-    border-radius: 5px;
+    margin-top: 25px; /* Jarak lebih besar */
+    padding: 20px; /* Padding lebih besar */
+    background-color: var(--success-bg-color); /* Warna hijau lembut */
+    border: 1px solid var(--success-border-color); /* Border hijau */
+    border-radius: 8px; /* Lebih membulat */
     text-align: center;
-    /* display: none; dikelola oleh kelas .hidden */
 }
 
 .submission-message h3 {
-    color: #2e8b57;
+    color: var(--success-text-color); /* Warna teks hijau gelap */
     margin-top: 0;
-    margin-bottom: 10px;
-    font-size: 1em;
+    margin-bottom: 12px; /* Jarak lebih besar */
+    font-size: 1.2em; /* Ukuran judul lebih besar */
+    font-weight: 600;
 }
 
 .submission-message p {
     color: var(--text-color);
-    font-size: 0.9em;
+    font-size: 1em; /* Ukuran paragraf lebih besar */
     margin-bottom: 0;
+    line-height: 1.5;
 }
 
 .g-recaptcha {
-    margin-top: 20px;
-    display: inline-block;
+    margin-top: 25px; /* Jarak lebih besar */
+    display: flex; /* Gunakan flexbox untuk tengah */
+    justify-content: center; /* Tengah secara horizontal */
+    align-items: center; /* Tengah secara vertikal (jika ada masalah ketinggian) */
 }
 
 .registration-form .g-recaptcha > div {
-    transform: scale(0.9);
-    -webkit-transform: scale(0.9);
+    transform: scale(1); /* Pastikan reCAPTCHA ditampilkan normal pada desktop */
+    -webkit-transform: scale(1);
     transform-origin: 0 0;
     -webkit-transform-origin: 0 0;
 }
 
 /* --- Gaya untuk bagian Kenapa RDS? --- */
 .why-rds-card {
-    cursor: pointer; /* Sekarang seluruh kotak bisa diklik */
+    cursor: pointer;
     user-select: none;
     margin-top: 0;
-    margin-bottom: 15;
+    margin-bottom: 15px;
 }
 
-/* Panah toggle untuk Kenapa RDS? */
 .why-rds-card .info-card-header::after {
     content: '\25BE';
     position: absolute;
     right: 15px;
     top: 50%;
     transform: translateY(-50%);
-    font-size: 1.2em;
+    font-size: 1.3em;
     color: var(--secondary-color);
     transition: transform 0.3s ease-in-out;
     pointer-events: none;
@@ -568,7 +584,6 @@ main {
 }
 
 .why-rds-details {
-    /* display: none; dikelola oleh kelas .hidden */
     padding-top: 15px;
     user-select: none;
     pointer-events: auto;
@@ -583,10 +598,10 @@ main {
 .why-rds-details ul li {
     display: flex;
     align-items: center;
-    padding: 10px 15px;
-    margin-bottom: 8px;
+    padding: 12px 18px; /* Padding lebih besar */
+    margin-bottom: 10px; /* Jarak lebih besar */
     background-color: var(--card-bg-very-light);
-    border-radius: 6px;
+    border-radius: 8px; /* Lebih membulat */
     border: 1px solid var(--card-border-light);
     transition: transform 0.2s ease, box-shadow 0.2s ease, background-color 0.2s ease;
     box-shadow: var(--shadow-subtle);
@@ -604,15 +619,16 @@ main {
 }
 
 .why-rds-details ul li i {
-    margin-right: 12px;
+    margin-right: 15px; /* Jarak icon lebih besar */
     color: var(--secondary-color);
-    font-size: 1.1em;
+    font-size: 1.2em; /* Ukuran icon lebih besar */
     width: 25px;
     text-align: center;
 }
 
 .why-rds-details ul li span {
     color: var(--text-color);
+    font-size: 0.95em; /* Sedikit lebih besar */
 }
 
 /* --- FOOTER --- */
@@ -633,31 +649,43 @@ footer {
         align-items: center;
     }
 
-    .logo {
-        margin-bottom: 0;
-    }
-
     .main-nav ul {
         flex-direction: row;
         align-items: center;
     }
 
     .main-nav ul li {
-        margin: 0 0 0 15px;
+        margin: 0 0 0 10px; /* Jarak antar item nav di mobile */
+    }
+    .main-nav ul li a {
+        font-size: 0.85em; /* Ukuran font nav di mobile */
     }
 
     main {
-        padding-top: 60px; /* Diperkecil untuk mobile */
-        margin-bottom: 15px;
+        padding-top: 60px;
+        margin-bottom: 10px;
     }
 
+    .info-card {
+        padding: 15px; /* Padding card di mobile */
+    }
+    .info-card-header h3 {
+        font-size: 1.1em; /* Ukuran judul card di mobile */
+    }
+    .info-icon {
+        font-size: 1.6em; /* Ukuran icon card di mobile */
+    }
+
+
+    /* Responsif formulir */
     .registration-form {
-        padding: 20px;
+        padding: 20px; /* Padding form di mobile */
+        margin-top: 25px;
     }
 
     .registration-form h3 {
-        font-size: 1.3em;
-        margin-bottom: 15px;
+        font-size: 1.4em; /* Ukuran judul form di mobile */
+        margin-bottom: 20px;
     }
 
     .form-group {
@@ -666,19 +694,64 @@ footer {
 
     .form-group label {
         font-size: 0.9em;
+        margin-bottom: 5px;
     }
 
     .form-group input[type="text"],
-    .form-group input[type="number"] {
+    .form-group input[type="number"],
+    .form-group select.form-control,
+    .form-group textarea.form-control {
         font-size: 0.9em;
-        padding: 8px;
+        padding: 10px;
+        border-radius: 6px;
+    }
+
+    .form-group textarea.form-control {
+        min-height: 80px;
+    }
+
+    .input-hint {
+        font-size: 0.75em;
+        margin-top: 3px;
     }
 
     .registration-form button[type="submit"],
     #cancelFormBtn {
         font-size: 0.9em;
-        padding: 8px 15px;
-        margin-top: 10px;
+        padding: 10px 20px;
+        margin-top: 15px;
+        border-radius: 6px;
+    }
+
+    .submission-message {
+        padding: 15px;
+        margin-top: 20px;
+    }
+
+    .submission-message h3 {
+        font-size: 1.1em;
+        margin-bottom: 8px;
+    }
+
+    .submission-message p {
+        font-size: 0.85em;
+    }
+
+    .g-recaptcha {
+        margin-top: 20px;
+    }
+
+    /* Scaling recaptcha untuk mobile */
+    .registration-form .g-recaptcha > div {
+        transform: scale(0.85); /* Sesuaikan jika perlu agar pas di layar kecil */
+        -webkit-transform: scale(0.85);
+        transform-origin: 0 0;
+        -webkit-transform-origin: 0 0;
+    }
+
+    .join-queue-button {
+        padding: 0.7rem 1.2rem;
+        font-size: 0.9em;
     }
 }
 
@@ -706,7 +779,7 @@ footer {
     }
 
     main {
-        padding-top: 70px; /* Pastikan kembali ke default desktop */
+        padding-top: 70px;
         margin-bottom: 15px;
     }
 }
@@ -717,4 +790,9 @@ footer {
   -moz-user-select: none;
   -ms-user-select: none;
   user-select: none;
+}
+
+/* Penambahan CSS untuk toggle button hidden state */
+.join-queue-button.hidden {
+    display: none !important;
 }
