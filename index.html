@@ -12,6 +12,7 @@
     <link rel="stylesheet" href="style.css">
     <link href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
     <link rel="icon" href="/favicon.svg" type="image/svg+xml">
 </head>
 <body>
@@ -170,8 +171,9 @@
 
                         <form action="https://docs.google.com/forms/d/e/1FAIpQLSeoOoBcyIHwty6FsXmmpOQ4vk0urHJkgP4xyR1jEoia_uCURA/formResponse"
                               method="POST"
-                              class="registration-form hidden"
-                              target="_blank"> <h3 class="no-select">Formulir Pendaftaran</h3>
+                              id="registrationForm"
+                              class="registration-form hidden">
+                            <h3 class="no-select">Formulir Pendaftaran</h3>
                             <div class="form-group">
                                 <label for="nama" class="no-select">Nama:</label>
                                 <input type="text" id="nama" name="entry.322664274" required>
@@ -183,7 +185,8 @@
                             </div>
                             <div class="form-group">
                                 <label for="pilihanAkun" class="no-select">Kategori Akun:</label>
-                                <select id="pilihanAkun" name="entry.106045795" class="form-control"> <option value="" hidden>-- Pilih Kategori Akun --</option>
+                                <select id="pilihanAkun" name="entry.106045795" class="form-control" required>
+                                    <option value="" hidden>-- Pilih Kategori Akun --</option>
                                     <option value="300 Followers">300 Followers</option>
                                     <option value="1000 Followers">1000 Followers</option>
                                     <option value="By Request">By Request</option>
@@ -196,7 +199,11 @@
                             </div>
                             <div class="form-group">
                                 <label for="jumlah" class="no-select">Jumlah Pesanan:</label>
-                                <input type="number" id="jumlah" name="entry.1280626580" min="3"> <div class="input-hint no-select">Minimal 3 Akun</div>
+                                <input type="number" id="jumlah" name="entry.1280626580" min="3" required>
+                                <div class="input-hint no-select">Minimal 3 Akun</div>
+                            </div>
+                            <div class="form-group" id="recaptcha-group">
+                                <div class="g-recaptcha" data-sitekey="6LcYkkUrAAAAAJ56YJX5gXSM_Dgy9cOBfItAWeX2"></div>
                             </div>
                             <div style="display: flex; gap: 10px; margin-top: 15px;">
                                 <button type="submit" class="no-select">Kirim</button>
