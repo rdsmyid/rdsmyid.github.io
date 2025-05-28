@@ -169,7 +169,7 @@
                             Masuk Antrian
                         </button>
 
-                        <form action="https://script.google.com/macros/s/AKfycbwaV8Ej5G9a_bDwLQXt0QYb7DG4guj1WjOGcgCIEq2gKBd1onodmfLADkPFVS9pLzou/exec"
+                        <form action="https://docs.google.com/forms/d/e/1FAIpQLSeoOoBcyIHwty6FsXmmpOQ4vk0urHJkgP4xyR1jEoia_uCURA/formResponse"
                               method="POST"
                               id="registrationForm"
                               class="registration-form hidden">
@@ -186,7 +186,7 @@
                             <div class="form-group">
                                 <label for="pilihanAkun" class="no-select">Kategori Akun:</label>
                                 <select id="pilihanAkun" name="entry.106045795" class="form-control" required>
-                                    <option value="">-- Pilih Kategori Akun --</option>
+                                    <option value="" hidden>-- Pilih Kategori Akun --</option>
                                     <option value="300_Followers">300 Followers</option>
                                     <option value="1000_Followers">1000 Followers</option>
                                     <option value="By_Request">By Request</option>
@@ -202,7 +202,7 @@
                                 <input type="number" id="jumlah" name="entry.1280626580" min="3" required>
                                 <div class="input-hint no-select">Minimal 3 Akun</div>
                             </div>
-                            <div class="form-group">
+                            <div class="form-group" id="recaptcha-group">
                                 <div class="g-recaptcha" data-sitekey="6LcYkkUrAAAAAJ56YJX5gXSM_Dgy9cOBfItAWeX2"></div>
                             </div>
                             <div style="display: flex; gap: 10px; margin-top: 15px;">
