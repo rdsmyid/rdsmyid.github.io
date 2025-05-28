@@ -208,8 +208,8 @@ main {
     padding: 12px 15px;
     transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out, background-color 0.2s ease;
     box-shadow: var(--shadow-subtle);
-    display: flex;
-    align-items: center;
+    display: flex; /* Tambahkan ini agar konten di dalamnya sejajar */
+    align-items: center; /* Sejajarkan secara vertikal */
 }
 
 .profile-container-inline:hover {
@@ -220,6 +220,14 @@ main {
 
 .profile-container-inline:last-child {
     margin-bottom: 10px;
+}
+
+/* Tambahan: Untuk header di dalam profile-container-inline jika ada */
+.profile-container-inline .profile-header-inline {
+    display: flex; /* Penting: Jadikan ini flex container */
+    align-items: center;
+    flex-wrap: nowrap; /* Pastikan tidak membungkus secara default */
+    width: 100%; /* Pastikan mengambil lebar penuh di dalam container */
 }
 
 .profile-image-inline {
@@ -234,25 +242,38 @@ main {
     font-size: 18px;
     color: var(--white);
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.15);
-    flex-shrink: 0;
+    flex-shrink: 0; /* Pastikan tidak menyusut */
 }
 
 .profile-info-inline {
-    flex-grow: 1;
+    flex-grow: 1; /* Biarkan mengisi ruang yang tersisa */
+    min-width: 0; /* Penting: Mencegah overflow pada flex item dengan konten panjang */
+    display: flex; /* Jadikan ini flex container untuk teks */
+    flex-direction: row; /* Teks dalam satu baris */
+    align-items: center; /* Sejajarkan secara vertikal */
+    flex-wrap: wrap; /* Izinkan wrapping jika sangat diperlukan, tapi utamakan satu baris */
+    gap: 8px; /* Spasi antar elemen teks */
 }
 
 .name-inline {
     font-weight: 600;
     font-size: 0.95em;
-    margin-bottom: 2px;
+    margin-bottom: 0; /* Hapus margin bawah */
     color: var(--text-color);
+    white-space: nowrap; /* Jangan biarkan teks pindah baris */
+    overflow: hidden; /* Sembunyikan jika overflow */
+    text-overflow: ellipsis; /* Tampilkan elipsis jika terpotong */
+    margin-right: 5px; /* Spasi antara nama dan username */
 }
 
 .username-inline {
     color: #666;
     font-size: 0.8em;
-    margin-top: -3px;
-    margin-bottom: 8px;
+    margin-top: 0; /* Hapus margin atas */
+    margin-bottom: 0; /* Hapus margin bawah */
+    white-space: nowrap; /* Jangan biarkan teks pindah baris */
+    overflow: hidden; /* Sembunyikan jika overflow */
+    text-overflow: ellipsis; /* Tampilkan elipsis jika terpotong */
 }
 
 .joined-date-inline {
@@ -260,7 +281,9 @@ main {
     font-size: 0.75em;
     display: flex;
     align-items: center;
-    margin-top: 5px;
+    margin-top: 0; /* Hapus margin atas */
+    margin-right: 10px; /* Spasi antara tanggal dan follow stats */
+    white-space: nowrap; /* Pastikan dalam satu baris */
 }
 
 .joined-date-inline i {
@@ -271,14 +294,16 @@ main {
 
 .follow-stats-inline {
     display: flex;
-    margin-top: 8px;
+    margin-top: 0; /* Hapus margin atas */
     font-size: 0.85em;
     color: #555;
+    white-space: nowrap; /* Pastikan dalam satu baris */
 }
 
 .follow-stats-inline span {
-    margin-right: 15px;
+    margin-right: 10px; /* Spasi antar 'mengikuti' dan 'pengikut' */
     color: #555;
+    white-space: nowrap; /* Pastikan dalam satu baris */
 }
 
 .follow-stats-inline strong {
@@ -705,7 +730,6 @@ footer {
         font-size: 1.6em;
     }
 
-
     /* Responsif formulir */
     .registration-form {
         padding: 20px; /* Padding form di mobile */
@@ -767,7 +791,6 @@ footer {
         margin-left: auto; /* Penengahan di mobile */
         margin-right: auto; /* Penengahan di mobile */
     }
-
 
     .registration-form button[type="submit"],
     #cancelFormBtn {
