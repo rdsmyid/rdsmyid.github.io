@@ -200,7 +200,6 @@ main {
     pointer-events: auto;
 }
 
-/* Perubahan untuk membuat profil lebih hidup dan menghapus duplikasi header */
 .profile-container-inline {
     background-color: var(--card-bg-very-light);
     border-radius: 8px;
@@ -209,7 +208,6 @@ main {
     padding: 12px 15px;
     transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out, background-color 0.2s ease;
     box-shadow: var(--shadow-subtle);
-    /* Penyesuaian penting untuk mengganti fungsi .profile-header-inline */
     display: flex;
     align-items: center;
 }
@@ -223,8 +221,6 @@ main {
 .profile-container-inline:last-child {
     margin-bottom: 10px;
 }
-
-/* Aturan .profile-header-inline tidak lagi relevan karena elemennya sudah dihapus dari HTML */
 
 .profile-image-inline {
     width: 45px;
@@ -500,6 +496,38 @@ main {
     line-height: 1.4;
 }
 
+/* Aturan khusus untuk reCAPTCHA */
+#recaptcha-group {
+    margin-bottom: 20px; /* Pertahankan margin bawah seperti form-group lainnya */
+    /* Untuk menggeser ke kanan dan sejajar dengan input, kita gunakan padding-left. */
+    /* Padding kiri input adalah 12px. Kita ingin reCAPTCHA dimulai dari titik yang sama. */
+    /* Selain itu, reCAPTCHA sendiri sudah punya padding internal. */
+    /* Ukuran default reCAPTCHA box adalah 304px (lebar) x 78px (tinggi) */
+    padding-left: 12px; /* Sesuaikan dengan padding-left input */
+    box-sizing: border-box; /* Penting agar padding tidak menambah lebar */
+    /* Kita perlu memastikan konten di dalamnya tidak melebihi lebar form jika padding diterapkan */
+    width: calc(100% + 12px); /* Tambah lebar agar konten tidak terpotong */
+    position: relative; /* Jika Anda ingin menggunakan positioning absolute untuk reCAPTCHA */
+    left: -12px; /* Geser kembali ke kiri sedikit agar padding-left bekerja seperti margin-left */
+}
+
+/* Mengatur ulang posisi reCAPTCHA di dalamnya */
+#recaptcha-group .g-recaptcha {
+    /* Menghapus gaya display: flex dan justify-content: center yang ada di default .g-recaptcha */
+    display: block; /* Pastikan ini block agar bisa diatur margin/paddingnya */
+    /* margin-left: 12px; ini juga bisa dicoba sebagai alternatif padding-left pada parent */
+}
+
+#recaptcha-group .g-recaptcha > div {
+    /* Jika reCAPTCHA box masih belum sejajar, Anda bisa bermain dengan margin-left di sini */
+    /* margin-left: 0; */ /* Pastikan tidak ada margin default */
+    transform: scale(1);
+    -webkit-transform: scale(1);
+    transform-origin: 0 0; /* Penting: origin di kiri atas */
+    -webkit-transform-origin: 0 0;
+}
+
+
 .registration-form button[type="submit"],
 #cancelFormBtn {
     padding: 12px 25px;
@@ -559,20 +587,6 @@ main {
     font-size: 1em;
     margin-bottom: 0;
     line-height: 1.5;
-}
-
-.g-recaptcha {
-    margin-top: 25px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-.registration-form .g-recaptcha > div {
-    transform: scale(1);
-    -webkit-transform: scale(1);
-    transform-origin: 0 0;
-    -webkit-transform-origin: 0 0;
 }
 
 /* --- Gaya untuk bagian Kenapa RDS? --- */
@@ -732,6 +746,23 @@ footer {
         margin-top: 3px;
     }
 
+    /* Penyesuaian recaptcha di mobile (kembalikan ke tengah) */
+    #recaptcha-group {
+        padding-left: 0; /* Hapus padding-left di mobile */
+        left: 0; /* Hapus left di mobile */
+        width: 100%; /* Lebar penuh */
+        text-align: center; /* Tengah reCAPTCHA */
+    }
+
+    #recaptcha-group .g-recaptcha > div {
+        transform: scale(0.9); /* Skala agar pas di mobile */
+        -webkit-transform: scale(0.9);
+        transform-origin: center center; /* Tengahkan origin */
+        -webkit-transform-origin: center center;
+        display: inline-block; /* Agar bisa di-tengah-kan oleh text-align center */
+    }
+
+
     .registration-form button[type="submit"],
     #cancelFormBtn {
         font-size: 0.9em;
@@ -752,18 +783,6 @@ footer {
 
     .submission-message p {
         font-size: 0.85em;
-    }
-
-    .g-recaptcha {
-        margin-top: 20px;
-    }
-
-    /* Scaling recaptcha untuk mobile */
-    .registration-form .g-recaptcha > div {
-        transform: scale(0.85);
-        -webkit-transform: scale(0.85);
-        transform-origin: 0 0;
-        -webkit-transform-origin: 0 0;
     }
 
     .join-queue-button {
