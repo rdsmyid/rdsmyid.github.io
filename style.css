@@ -175,6 +175,7 @@ main {
     margin-top: 25px;
     margin-bottom: 0px;
     transition: background-color 0.3s ease;
+    -webkit-tap-highlight-color: transparent; /* PENAMBAHAN BARU: Menghilangkan sorotan tap di mobile */
 }
 
 /* Panah toggle untuk Kategori Akun */
@@ -314,6 +315,7 @@ main {
     user-select: none;
     margin-top: 0px;
     margin-bottom: 0px;
+    -webkit-tap-highlight-color: transparent; /* PENAMBAHAN BARU: Menghilangkan sorotan tap di mobile */
 }
 
 /* Panah toggle untuk Metode Pembayaran */
@@ -613,6 +615,7 @@ main {
     user-select: none;
     margin-top: 0;
     margin-bottom: 0px;
+    -webkit-tap-highlight-color: transparent; /* PENAMBAHAN BARU: Menghilangkan sorotan tap di mobile */
 }
 
 /* Panah toggle untuk Kenapa RDS? */
@@ -679,6 +682,15 @@ main {
     color: var(--text-color);
     font-size: 0.95em;
 }
+
+/* --- PENAMBAHAN SEBELUMNYA UNTUK MENGHILANGKAN OUTLINE BIRU PADA CARD --- */
+/* Menghilangkan outline biru saat elemen card di-klik/fokus */
+.our-profiles-card:focus,
+.payment-method-overview:focus,
+.why-rds-card:focus {
+    outline: none;
+}
+/* --- AKHIR PENAMBAHAN SEBELUMNYA --- */
 
 /* --- FOOTER --- */
 footer {
