@@ -7,34 +7,36 @@ document.addEventListener('DOMContentLoaded', function() {
     const cancelFormBtn = document.getElementById('cancelFormBtn');
     const submissionMessage = document.getElementById('submissionMessage');
 
-    // Dapatkan elemen kartu induk (ini yang akan menerima event klik)
+    // Dapatkan elemen kartu induk
     const ourProfilesCard = document.querySelector('.our-profiles-card');
     const paymentMethodCard = document.querySelector('.payment-method-overview');
     const whyRdsCard = document.querySelector('.why-rds-card');
+    const accountOptimizationCard = document.querySelector('.account-optimization-card');
 
-    // Dapatkan elemen detail (ini yang akan di-toggle visibilitasnya)
+    // Dapatkan elemen detail
     const ourProfilesDetails = document.getElementById('our-profiles-details');
     const paymentDetails = document.getElementById('payment-details');
     const whyRdsDetails = document.getElementById('why-rds-details');
+    const accountOptimizationDetails = document.getElementById('account-optimization-details');
 
-    // Dapatkan elemen header (ini yang akan menerima kelas aktif untuk rotasi panah)
+    // Dapatkan elemen header kartu utama
     const ourProfilesHeader = document.querySelector('.our-profiles-card .info-card-header');
     const paymentHeader = document.querySelector('.payment-method-overview .info-card-header');
     const whyRdsHeader = document.querySelector('.why-rds-card .info-card-header');
+    const accountOptimizationHeader = document.querySelector('.account-optimization-card .info-card-header');
 
-    // Tambahan: Elemen untuk Kategori Akun dan Detail Permintaan Akun
+    // Elemen untuk Kategori Akun dan Detail Permintaan Akun
     const pilihanAkunSelect = document.getElementById('pilihanAkun');
     const requestInputGroup = document.getElementById('requestInputGroup');
     const requestAkunTextarea = document.getElementById('requestAkun');
 
-    // URL publik dari Google Apps Script Anda (URL ini sudah benar)
+    // URL publik dari Google Apps Script Anda
     const scriptURL = 'https://script.google.com/macros/s/AKfycbwpMpIoFx3pNIJMktWLWoD3Oqt64kCC_G9LnGHCC_9HJEKYJyTubwllg8GjkRUaU_eL/exec';
 
-    // Fungsi untuk mengambil jumlah antrian
     function fetchJumlahAntrian() {
         fetch(scriptURL + '?action=jumlah')
             .then(response => {
-                if (!response.ok) { // Check for HTTP errors
+                if (!response.ok) {
                     throw new Error(`HTTP error! status: ${response.status}`);
                 }
                 return response.json();
@@ -55,13 +57,9 @@ document.addEventListener('DOMContentLoaded', function() {
             });
     }
 
-    // Panggil fetchJumlahAntrian saat halaman dimuat
     fetchJumlahAntrian();
-    // Atur interval untuk memperbarui secara berkala setiap 10 detik
     setInterval(fetchJumlahAntrian, 10000);
 
-    // Fungsi toggle yang lebih umum
-    // headerElementForArrow adalah elemen yang akan menerima kelas aktif untuk rotasi panah
     function toggleSection(detailsElement, headerElementForArrow, activeClass) {
         if (detailsElement && headerElementForArrow) {
             detailsElement.classList.toggle('hidden');
@@ -69,64 +67,52 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     }
 
-    // Event listener untuk tombol "Masuk Antrian"
     if (showFormBtn) {
         showFormBtn.addEventListener('click', function() {
-            registrationForm.classList.remove('hidden'); // Menampilkan formulir
-            showFormBtn.classList.add('hidden'); // Menyembunyikan tombol dengan kelas
-            submissionMessage.classList.add('hidden'); // Memastikan pesan tersembunyi
-            // Reset dropdown dan sembunyikan input request saat formulir ditampilkan
+            registrationForm.classList.remove('hidden');
+            showFormBtn.classList.add('hidden');
+            submissionMessage.classList.add('hidden');
             if (pilihanAkunSelect) {
-                pilihanAkunSelect.value = ''; // Reset ke opsi default
+                pilihanAkunSelect.value = '';
             }
             if (requestInputGroup) {
                 requestInputGroup.classList.add('hidden');
                 requestAkunTextarea.removeAttribute('required');
-                requestAkunTextarea.value = ''; // Kosongkan
+                requestAkunTextarea.value = '';
             }
         });
     }
 
-    // Event listener untuk tombol "Batal" pada formulir
     if (cancelFormBtn) {
         cancelFormBtn.addEventListener('click', function() {
-            registrationForm.classList.add('hidden'); // Menyembunyikan formulir
-            showFormBtn.classList.remove('hidden'); // Menampilkan kembali tombol dengan kelas
-            // Reset dropdown dan sembunyikan input request saat formulir disembunyikan
+            registrationForm.classList.add('hidden');
+            showFormBtn.classList.remove('hidden');
             if (pilihanAkunSelect) {
-                pilihanAkunSelect.value = ''; // Reset ke opsi default
+                pilihanAkunSelect.value = '';
             }
             if (requestInputGroup) {
                 requestInputGroup.classList.add('hidden');
                 requestAkunTextarea.removeAttribute('required');
-                requestAkunTextarea.value = ''; // Kosongkan
+                requestAkunTextarea.value = '';
             }
-            // Reset reCAPTCHA juga saat batal
             if (typeof grecaptcha !== 'undefined') {
                 grecaptcha.reset();
             }
-            document.getElementById('registrationForm').reset(); // Reset seluruh formulir
+            document.getElementById('registrationForm').reset();
         });
     }
 
-    // Event listener untuk pengiriman formulir
     const form = document.getElementById('registrationForm');
     if (form) {
         form.addEventListener('submit', function(event) {
             event.preventDefault();
-
-            // Periksa apakah reCAPTCHA sudah diselesaikan
             if (typeof grecaptcha !== 'undefined' && grecaptcha.getResponse() !== "") {
-                // Periksa validasi tambahan untuk "By Request"
-                // KONDISI INI DIPERBARUI UNTUK MENGGUNAKAN "By Request" (dengan spasi)
                 if (pilihanAkunSelect && pilihanAkunSelect.value === 'By Request' && requestAkunTextarea.value.trim() === '') {
                     alert('Harap isi detail permintaan akun Anda.');
-                    return; // Hentikan pengiriman jika kosong
+                    return;
                 }
-
                 const formData = new FormData(form);
                 const action = form.getAttribute('action');
-
                 fetch(action, {
                     method: 'POST',
                     body: formData,
@@ -134,13 +120,11 @@ document.addEventListener('DOMContentLoaded', function() {
                 }).then(() => {
                     registrationForm.classList.add('hidden');
                     submissionMessage.classList.remove('hidden');
-                    showFormBtn.classList.remove('hidden'); // Menampilkan kembali tombol
-                    form.reset(); // Reset formulir
-                    // Reset reCAPTCHA
+                    showFormBtn.classList.remove('hidden');
+                    form.reset();
                     if (typeof grecaptcha !== 'undefined') {
                         grecaptcha.reset();
                     }
-                    // Reset dropdown dan sembunyikan input request setelah pengiriman berhasil
                     if (pilihanAkunSelect) {
                         pilihanAkunSelect.value = '';
                     }
@@ -149,7 +133,7 @@ document.addEventListener('DOMContentLoaded', function() {
                         requestAkunTextarea.removeAttribute('required');
                         requestAkunTextarea.value = '';
                     }
-                    fetchJumlahAntrian(); // Perbarui jumlah antrian
+                    fetchJumlahAntrian();
                 }).catch(error => {
                     console.error('Terjadi kesalahan saat mengirim formulir:', error);
                     alert('Terjadi kesalahan saat mengirim formulir. Mohon coba lagi.');
@@ -160,38 +144,51 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 
-    // Event listener untuk Kategori Akun (seluruh kartu)
     if (ourProfilesCard) {
         ourProfilesCard.addEventListener('click', function() {
             toggleSection(ourProfilesDetails, ourProfilesHeader, 'our-profiles-details-active');
         });
     }
 
-    // Event listener untuk Metode Pembayaran (seluruh kartu)
     if (paymentMethodCard) {
         paymentMethodCard.addEventListener('click', function() {
             toggleSection(paymentDetails, paymentHeader, 'payment-details-active');
         });
     }
 
-    // Event listener untuk Kenapa RDS? (seluruh kartu)
     if (whyRdsCard) {
         whyRdsCard.addEventListener('click', function() {
             toggleSection(whyRdsDetails, whyRdsHeader, 'why-rds-details-active');
         });
     }
 
-    // Tambahan: Event listener untuk perubahan pada dropdown Kategori Akun
-    // KONDISI INI DIPERBARUI UNTUK MENGGUNAKAN "By Request" (dengan spasi)
+    if (accountOptimizationCard && accountOptimizationHeader && accountOptimizationDetails) {
+        accountOptimizationCard.addEventListener('click', function(event) {
+            // Hanya toggle accordion utama jika klik bukan pada header tip atau konten tip
+            if (!event.target.closest('.tip-header') && !event.target.closest('.tip-content')) {
+                toggleSection(accountOptimizationDetails, accountOptimizationHeader, 'account-optimization-details-active');
+            }
+        });
+
+        const tipHeaders = accountOptimizationCard.querySelectorAll('.tip-header');
+        tipHeaders.forEach(header => {
+            header.addEventListener('click', function(event) {
+                event.stopPropagation(); // Mencegah event dari bubbling ke listener kartu utama
+                const content = this.nextElementSibling; // .tip-content
+                toggleSection(content, this, 'tip-header-active');
+            });
+        });
+    }
+
     if (pilihanAkunSelect) {
         pilihanAkunSelect.addEventListener('change', function() {
-            if (this.value === 'By Request') { // UBAH DI SINI
-                requestInputGroup.classList.remove('hidden'); // Tampilkan kolom permintaan
-                requestAkunTextarea.setAttribute('required', 'true'); // Jadikan wajib diisi
+            if (this.value === 'By Request') {
+                requestInputGroup.classList.remove('hidden');
+                requestAkunTextarea.setAttribute('required', 'true');
             } else {
-                requestInputGroup.classList.add('hidden'); // Sembunyikan kolom permintaan
-                requestAkunTextarea.removeAttribute('required'); // Hapus atribut wajib
-                requestAkunTextarea.value = ''; // Kosongkan nilainya ketika disembunyikan
+                requestInputGroup.classList.add('hidden');
+                requestAkunTextarea.removeAttribute('required');
+                requestAkunTextarea.value = '';
             }
         });
     }
