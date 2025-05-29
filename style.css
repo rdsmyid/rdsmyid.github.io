@@ -7,31 +7,27 @@
     --light-bg: #f8f9fa;
     --dark-bg: #1a1a1a;
     --white: #fff;
-    --shadow-light: rgba(0, 0, 0, 0.08); /* Sedikit lebih halus */
-    --shadow-medium: rgba(0, 0, 0, 0.05); /* Lebih halus lagi */
+    --shadow-light: rgba(0, 0, 0, 0.08);
+    --shadow-medium: rgba(0, 0, 0, 0.05);
 
-    /* Warna baru untuk card - Lebih putih */
     --card-bg-very-light: #ffffff;
     --card-bg-hover-subtle: #f8f8f8;
-    --card-border-light: #e0e0e0; /* Border yang sangat terang */
+    --card-border-light: #e0e0e0;
 
-    /* Variabel untuk shadows yang konsisten */
-    --shadow-card-default: 0 4px 15px var(--shadow-light); /* Lebih lembut */
-    --shadow-card-hover: 0 8px 25px rgba(0, 0, 0, 0.1); /* Lebih lembut saat hover */
-    --shadow-subtle: 0 2px 8px var(--shadow-medium); /* Lebih halus */
-    --shadow-subtle-hover: 0 5px 15px rgba(0, 0, 0, 0.08); /* Lebih halus saat hover */
+    --shadow-card-default: 0 4px 15px var(--shadow-light);
+    --shadow-card-hover: 0 8px 25px rgba(0, 0, 0, 0.1);
+    --shadow-subtle: 0 2px 8px var(--shadow-medium);
+    --shadow-subtle-hover: 0 5px 15px rgba(0, 0, 0, 0.08);
 
-    /* Warna baru untuk formulir */
-    --form-border-color: #d1d5da; /* Border input yang lebih netral */
-    --form-focus-border-color: var(--primary-color); /* Warna border saat fokus */
+    --form-border-color: #d1d5da;
+    --form-focus-border-color: var(--primary-color);
     --form-placeholder-color: #888;
-    --button-secondary-bg: #e9ecef; /* Warna tombol batal */
-    --button-secondary-hover-bg: #dee2e6; /* Warna hover tombol batal */
+    --button-secondary-bg: #e9ecef;
+    --button-secondary-hover-bg: #dee2e6;
     --success-bg-color: #e6ffe6;
     --success-border-color: #a3e6a3;
     --success-text-color: #28a745;
 
-    /* RGB dari --primary-color untuk box-shadow fokus */
     --primary-color-rgb-val: 47, 9, 151;
 }
 
@@ -157,6 +153,8 @@ main {
     color: var(--primary-color);
     margin-right: 15px;
     flex-shrink: 0;
+    width: 1.25em;
+    text-align: center;
 }
 
 .info-card-header h3 {
@@ -175,10 +173,9 @@ main {
     margin-top: 25px;
     margin-bottom: 0px;
     transition: background-color 0.3s ease;
-    -webkit-tap-highlight-color: transparent; /* PENAMBAHAN BARU: Menghilangkan sorotan tap di mobile */
+    -webkit-tap-highlight-color: transparent;
 }
 
-/* Panah toggle untuk Kategori Akun */
 .our-profiles-card .info-card-header::after {
     content: '\25BE';
     position: absolute;
@@ -210,7 +207,7 @@ main {
     transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out, background-color 0.2s ease;
     box-shadow: var(--shadow-subtle);
     display: flex;
-    align-items: center; /* PENTING: Ini memastikan logo 'R' dan teks sejajar di tengah secara vertikal */
+    align-items: center;
 }
 
 .profile-container-inline:hover {
@@ -223,7 +220,6 @@ main {
     margin-bottom: 10px;
 }
 
-/* Tambahan: Untuk header di dalam profile-container-inline jika ada */
 .profile-container-inline .profile-header-inline {
     display: flex;
     align-items: center;
@@ -250,13 +246,13 @@ main {
     flex-grow: 1;
     min-width: 0;
     display: flex;
-    flex-direction: column; /* Mengatur susunan vertikal untuk elemen teks */
+    flex-direction: column;
 }
 
 .name-inline {
     font-weight: 600;
     font-size: 0.95em;
-    margin-bottom: 2px; /* Jarak antar nama dan username */
+    margin-bottom: 2px;
     color: var(--text-color);
     white-space: nowrap;
     overflow: hidden;
@@ -268,7 +264,7 @@ main {
     color: #666;
     font-size: 0.8em;
     margin-top: 0px;
-    margin-bottom: 5px; /* Jarak antar username dan tanggal */
+    margin-bottom: 5px;
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
@@ -280,7 +276,7 @@ main {
     display: flex;
     align-items: center;
     margin-top: 0px;
-    margin-bottom: 8px; /* Jarak antar tanggal dan follow stats */
+    margin-bottom: 8px;
     margin-right: 0;
     white-space: nowrap;
 }
@@ -292,14 +288,14 @@ main {
 }
 
 .follow-stats-inline {
-    display: flex; /* Ini memastikan 'Mengikuti' dan 'Pengikut' berdampingan */
+    display: flex;
     margin-top: 0px;
     font-size: 0.85em;
     color: #555;
 }
 
 .follow-stats-inline span {
-    margin-right: 15px; /* Spasi antar 'mengikuti' dan 'pengikut' */
+    margin-right: 15px;
     color: #555;
     white-space: nowrap;
 }
@@ -315,10 +311,9 @@ main {
     user-select: none;
     margin-top: 0px;
     margin-bottom: 0px;
-    -webkit-tap-highlight-color: transparent; /* PENAMBAHAN BARU: Menghilangkan sorotan tap di mobile */
+    -webkit-tap-highlight-color: transparent;
 }
 
-/* Panah toggle untuk Metode Pembayaran */
 .payment-method-overview .info-card-header::after {
     content: '\25BE';
     position: absolute;
@@ -343,7 +338,6 @@ main {
     pointer-events: auto;
 }
 
-/* Kelas untuk mengelola tampilan dengan JS */
 .hidden {
     display: none !important;
 }
@@ -444,7 +438,6 @@ main {
     box-shadow: 0 6px 16px rgba(0, 0, 0, 0.25);
 }
 
-/* --- Gaya Formulir Pendaftaran yang Lebih Elegan dan Profesional --- */
 .registration-form {
     margin-top: 30px;
     padding: 30px;
@@ -520,7 +513,6 @@ main {
     line-height: 1.4;
 }
 
-/* Aturan khusus untuk reCAPTCHA agar di tengah */
 #recaptcha-group {
     margin-bottom: 20px;
     display: flex;
@@ -532,7 +524,6 @@ main {
     text-align: center;
 }
 
-/* Mengatur posisi widget reCAPTCHA itu sendiri */
 #recaptcha-group .g-recaptcha {
     display: block;
     margin-left: 0 !important;
@@ -615,10 +606,9 @@ main {
     user-select: none;
     margin-top: 0;
     margin-bottom: 0px;
-    -webkit-tap-highlight-color: transparent; /* PENAMBAHAN BARU: Menghilangkan sorotan tap di mobile */
+    -webkit-tap-highlight-color: transparent;
 }
 
-/* Panah toggle untuk Kenapa RDS? */
 .why-rds-card .info-card-header::after {
     content: '\25BE';
     position: absolute;
@@ -683,14 +673,96 @@ main {
     font-size: 0.95em;
 }
 
-/* --- PENAMBAHAN SEBELUMNYA UNTUK MENGHILANGKAN OUTLINE BIRU PADA CARD --- */
-/* Menghilangkan outline biru saat elemen card di-klik/fokus */
+/* --- Gaya untuk bagian Optimisasi Akun --- */
+.account-optimization-card {
+    cursor: pointer;
+    user-select: none;
+    margin-top: 0;
+    margin-bottom: 0px;
+    -webkit-tap-highlight-color: transparent;
+}
+
+.account-optimization-card .info-card-header::after {
+    content: '\25BE';
+    position: absolute;
+    right: 15px;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 1.3em;
+    color: var(--secondary-color);
+    transition: transform 0.3s ease-in-out;
+    pointer-events: none;
+}
+
+.account-optimization-card .info-card-header.account-optimization-details-active::after {
+    transform: translateY(-50%) rotate(180deg);
+}
+
+.account-optimization-details {
+    padding-top: 15px;
+}
+
+.account-optimization-details .tip-item {
+    margin-bottom: 10px;
+}
+
+.account-optimization-details .tip-item:last-child {
+    margin-bottom: 0;
+}
+
+.tip-header {
+    cursor: pointer;
+    padding: 10px 0;
+    position: relative;
+    border-bottom: 1px solid var(--card-border-light);
+    user-select: none;
+}
+
+.tip-header h4 {
+    font-size: 1.05em;
+    color: var(--text-color);
+    margin: 0;
+    padding-right: 25px;
+}
+
+.tip-header::after {
+    content: '\25BE';
+    position: absolute;
+    right: 5px;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 1.1em;
+    color: var(--primary-color);
+    transition: transform 0.3s ease-in-out;
+}
+
+.tip-header.tip-header-active::after {
+    transform: translateY(-50%) rotate(180deg);
+}
+
+.tip-content {
+    padding: 15px 5px 10px 5px;
+}
+
+.tip-content p {
+    font-size: 0.95em;
+    line-height: 1.6;
+    color: #555;
+    margin-top: 0;
+    margin-bottom: 10px;
+}
+.tip-content p:last-child {
+    margin-bottom: 0;
+}
+
+/* Menghilangkan outline fokus pada elemen card dan tip header */
 .our-profiles-card:focus,
 .payment-method-overview:focus,
-.why-rds-card:focus {
+.why-rds-card:focus,
+.account-optimization-card:focus,
+.tip-header:focus {
     outline: none;
 }
-/* --- AKHIR PENAMBAHAN SEBELUMNYA --- */
 
 /* --- FOOTER --- */
 footer {
@@ -734,10 +806,10 @@ footer {
         font-size: 1.1em;
     }
     .info-icon {
-        font-size: 1.6em;
+        font-size: 1.6em; /* Penyesuaian ukuran ikon di mobile jika diperlukan */
+        /* width: 1.25em; // Akan relatif terhadap font-size 1.6em ini */
     }
 
-    /* Responsif formulir */
     .registration-form {
         padding: 20px;
         margin-top: 25px;
@@ -775,7 +847,6 @@ footer {
         margin-top: 3px;
     }
 
-    /* Penyesuaian reCAPTCHA di mobile */
     #recaptcha-group {
         padding-left: 0;
         width: 100%;
@@ -823,6 +894,13 @@ footer {
         padding: 0.7rem 1.2rem;
         font-size: 0.9em;
     }
+
+    .tip-header h4 {
+        font-size: 1em;
+    }
+    .tip-content p {
+        font-size: 0.9em;
+    }
 }
 
 @media (min-width: 769px) {
@@ -862,7 +940,6 @@ footer {
   user-select: none;
 }
 
-/* Penambahan CSS untuk toggle button hidden state */
 .join-queue-button.hidden {
     display: none !important;
 }
