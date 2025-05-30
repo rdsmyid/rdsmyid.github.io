@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RDS - Official Site</title>
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Live Chat and Queue Form">
+    <meta name="twitter:description" content="rds.my.id">
+    <meta name="twitter:image" content="https://rds.my.id/twitter.png"> <link rel="stylesheet" href="style.css"> <link href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+    <link rel="icon" href="images/favicon.svg" type="image/svg+xml"> </head>
+<body>
+    <header class="main-header">
+        <div class="container header-content">
+            <div class="logo">
+                <a href="./">
+                    <img src="images/Logo_RDS.png" alt="Logo Resmi RDS"> </a>
+            </div>
+            <nav class="main-nav">
+                <ul>
+                    <li><a href="https://wa.me/6285117219192" target="_blank" rel="noopener noreferrer"><i class="fab fa-whatsapp"></i> WhatsApp</a></li>
+                    <li><a href="mailto:rds@kolabnow.com" rel="noopener noreferrer"><i class="far fa-envelope"></i> Email</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section id="our-profiles" class="section-padded">
+            <div class="container">
+                <div class="info-card our-profiles-card">
+                    <div class="info-card-header our-profiles-overview">
+                        <i class="fab fa-twitter info-icon"></i>
+                        <h3 class="no-select">Kategori Akun</h3>
+                    </div>
+                    <div id="our-profiles-details" class="our-profiles-details hidden">
+                        <div class="profile-container-inline">
+                            <div class="profile-header-inline">
+                                <div class="profile-image-inline">
+                                    <span>R</span>
+                                </div>
+                                <div class="profile-info-inline">
+                                    <div class="name-inline">RDS</div>
+                                    <div class="username-inline">@rds_example</div>
+                                    <div class="joined-date-inline">
+                                        <i class="far fa-calendar-alt"></i> 2013-2017
+                                    </div>
+                                    <div class="follow-stats-inline">
+                                        <span><strong>300</strong> Mengikuti</span>
+                                        <span><strong>300</strong> Pengikut</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="profile-container-inline">
+                            <div class="profile-header-inline">
+                                <div class="profile-image-inline">
+                                    <span>R</span>
+                                </div>
+                                <div class="profile-info-inline">
+                                    <div class="name-inline">RDS</div>
+                                    <div class="username-inline">@rds_example</div>
+                                    <div class="joined-date-inline">
+                                        <i class="far fa-calendar-alt"></i> 2013-2017
+                                    </div>
+                                    <div class="follow-stats-inline">
+                                        <span><strong>1000</strong> Mengikuti</span>
+                                        <span><strong>1000</strong> Pengikut</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="profile-container-inline">
+                            <div class="profile-header-inline">
+                                <div class="profile-image-inline">
+                                    <span>R</span>
+                                </div>
+                                <div class="profile-info-inline">
+                                    <div class="name-inline">RDS</div>
+                                    <div class="username-inline">@rds_example</div>
+                                    <div class="joined-date-inline">
+                                        <i class="far fa-calendar-alt"></i> 2013-2017
+                                    </div>
+                                    <div class="follow-stats-inline">
+                                        <span><strong>req</strong> Mengikuti</span>
+                                        <span><strong>req</strong> Pengikut</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="payment-methods" class="section-padded">
+            <div class="container">
+                <div class="info-card payment-method-overview">
+                    <div class="info-card-header payment-overview-trigger">
+                        <i class="fas fa-money-bill-wave info-icon"></i>
+                        <h3 class="no-select">Metode Pembayaran</h3>
+                    </div>
+                    <p class="no-select">Ini adalah beberapa pembayaran sah yang kami sediakan</p>
+                    <div class="payment-details hidden" id="payment-details">
+                        <div class="payment-list-item no-select">
+                            <i class="fas fa-qrcode"></i>
+                            <span>QRIS</span>
+                        </div>
+                        <div class="payment-list-item no-select">
+                            <i class="fas fa-university"></i>
+                            <span>Transfer Bank</span>
+                        </div>
+                        <div class="payment-list-item no-select">
+                            <i class="fab fa-cc-paypal"></i>
+                            <span>PayPal</span>
+                        </div>
+                        <div class="payment-list-item no-select">
+                            <i class="fab fa-amazon-pay"></i>
+                            <span>Amazon Pay</span>
+                        </div>
+                        <div class="text-center no-select" style="margin-top: 20px; font-size: 0.9em; color: #777;">
+                            Informasi rekening tujuan atau kode QRIS silahkan hubungi Admin
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="queue-info" class="section-padded">
+            <div class="container">
+                <div class="queue-info-card info-card">
+                    <div class="info-card-header">
+                        <i class="fas fa-list-ol info-icon"></i>
+                        <h3 class="no-select">Jumlah Antrian</h3>
+                    </div>
+                    <div class="queue-count no-select">
+                        <span id="jumlah-antrian">Memuat...</span>
+                    </div>
+                    <p class="queue-updated-info no-select">
+                        Data ini diperbarui secara otomatis
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <section id="join-queue" class="section-padded">
+            <div class="container">
+                <div class="join-queue-card info-card">
+                    <div class="info-card-header">
+                        <i class="fas fa-people-arrows info-icon"></i>
+                        <h3 class="no-select">Bergabung di Antrian</h3>
+                    </div>
+                    <div class="join-queue-description no-select">
+                        <p class="no-select">
+                            Bergabunglah dengan antrian untuk mempercepat proses layanan.<br>
+                            Silakan tekan tombol di bawah ini untuk mendaftar.
+                        </p>
+                    </div>
+                    <div class="queue-section no-select">
+                        <button id="showFormBtn" class="join-queue-button no-select">
+                            <i class="fas fa-user-clock"></i>
+                            Masuk Antrian
+                        </button>
+
+                        <form action="https://docs.google.com/forms/d/e/1FAIpQLSeoOoBcyIHwty6FsXmmpOQ4vk0urHJkgP4xyR1jEoia_uCURA/formResponse"
+                              method="POST"
+                              id="registrationForm"
+                              class="registration-form hidden">
+                            <h3 class="no-select">Formulir Pendaftaran</h3>
+                            <div class="form-group">
+                                <label for="nama" class="no-select">Nama:</label>
+                                <input type="text" id="nama" name="entry.322664274" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="kontak" class="no-select">Kontak:</label>
+                                <input type="text" id="kontak" name="entry.153037566" required>
+                                <div class="input-hint no-select">WhatsApp atau lainnya</div>
+                            </div>
+                            <div class="form-group">
+                                <label for="pilihanAkun" class="no-select">Kategori Akun:</label>
+                                <select id="pilihanAkun" name="entry.2108316929" class="form-control" required>
+                                    <option value="" hidden>-- Pilih Kategori Akun --</option>
+                                    <option value="300 Followers">300 Followers</option>
+                                    <option value="1000 Followers">1000 Followers</option>
+                                    <option value="By Request">By Request</option>
+                                </select>
+                            </div>
+                            <div class="form-group hidden" id="requestInputGroup">
+                                <label for="requestAkun" class="no-select">Detail Permintaan Akun:</label>
+                                <textarea id="requestAkun" name="entry.678223543" rows="3" class="form-control" placeholder="Contoh: 1000 mengikuti, 5000 pengikut, 5000 Postingan"></textarea>
+                                <div class="input-hint no-select">Jelaskan permintaan akun Anda di sini.</div>
+                            </div>
+                            <div class="form-group">
+                                <label for="jumlah" class="no-select">Jumlah Pesanan:</label>
+                                <input type="number" id="jumlah" name="entry.1280626580" min="3" required>
+                                <div class="input-hint no-select">Minimal 3 Akun</div>
+                            </div>
+                            <div class="form-group" id="recaptcha-group">
+                                <div class="g-recaptcha" data-sitekey="6LcYkkUrAAAAAJ56YJX5gXSM_Dgy9cOBfItAWeX2"></div>
+                            </div>
+                            <div style="display: flex; gap: 10px; margin-top: 15px;">
+                                <button type="submit" class="no-select">Kirim</button>
+                                <button type="button" id="cancelFormBtn" class="no-select">Batal</button>
+                            </div>
+                        </form>
+
+                        <div id="submissionMessage" class="submission-message hidden">
+                            <h3 class="no-select">Terima Kasih!</h3>
+                            <p class="no-select">Formulir Anda telah terkirim.<br>Admin kami akan segera menindaklanjuti.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="why-rds" class="section-padded">
+            <div class="container">
+                <div class="info-card why-rds-card">
+                    <div class="info-card-header why-rds-overview">
+                        <i class="fas fa-question-circle info-icon"></i>
+                        <h3 class="no-select">Kenapa RDS?</h3>
+                    </div>
+                    <div id="why-rds-details" class="why-rds-details hidden">
+                        <ul>
+                            <li><i class="fas fa-check-circle"></i> <span class="no-select">Akun Terpercaya: Kami menyediakan akun dengan kualitas terjamin.</span></li>
+                            <li><i class="fas fa-shield-alt"></i> <span class="no-select">Transaksi Aman: Keamanan transaksi Anda adalah prioritas kami.</span></li>
+                            <li><i class="fas fa-users"></i> <span class="no-select">Layanan Cepat: Tim kami siap melayani Anda dengan responsif.</span></li>
+                            <li><i class="fas fa-money-bill-alt"></i> <span class="no-select">Metode Pembayaran Fleksibel: Berbagai pilihan pembayaran untuk kenyamanan Anda.</span></li>
+                            <li><i class="fas fa-list-ol"></i> <span class="no-select">Sistem Antrian Teratur: Proses layanan yang lebih efisien dengan sistem antrian.</span></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="account-optimization" class="section-padded">
+            <div class="container">
+                <div class="info-card account-optimization-card">
+                    <div class="info-card-header account-optimization-overview">
+                        <i class="fas fa-lightbulb info-icon"></i>
+                        <h3 class="no-select">Optimisasi Akun</h3>
+                    </div>
+                    <div id="account-optimization-details" class="account-optimization-details hidden">
+                        <div class="tip-item">
+                            <div class="tip-header">
+                                <h4 class="no-select">Setelah Membeli Akun</h4>
+                            </div>
+                            <div class="tip-content hidden">
+                                <p class="no-select">
+                                    Setelah membeli akun, kami menyarankan untuk mengistirahatkannya selama 1-2 hari. Pertama, amankan semua detail akun. Setelah itu, buatlah satu <em>thread</em> yang terdiri dari 2 atau 3 postingan, lalu biarkan akun beristirahat kembali.
+                                </p>
+                                <p class="no-select">
+                                    Langkah ini penting untuk mereset aktivitas akun dari yang sebelumnya mungkin tinggi. Aktivitas berlebihan dapat menyebabkan akun terkena <em>ghost ban</em>, <em>red flag</em>, atau bahkan suspensi karena terdeteksi sebagai spam.
+                                </p>
+                            </div>
+                        </div>
+
+                        <div class="tip-item">
+                            <div class="tip-header">
+                                <h4 class="no-select">Agar Akun Awet</h4>
+                            </div>
+                            <div class="tip-content hidden">
+                                <p class="no-select">
+                                    Setiap akun X (Twitter) memiliki batasan aktivitas harian. Jika Anda menggunakan akun tanpa memperhatikan batasan ini, dapat timbul berbagai masalah, mulai dari yang ringan hingga yang fatal (seperti suspensi).
+                                </p>
+                                <p class="no-select">
+                                    Untuk menjaga keawetan akun, selain langkah awal di atas, usahakan untuk membuat <em>thread</em> berisi 2-3 postingan secara rutin, misalnya dua kali seminggu. Konsistensi aktivitas yang wajar seperti ini efektif untuk membantu akun agar tidak terdeteksi sebagai bot oleh sistem.
+                                </p>
+                            </div>
+                        </div>
+
+                        <div class="tip-item">
+                            <div class="tip-header">
+                                <h4 class="no-select">Mengatasi Masalah Hashtag (HT)</h4>
+                            </div>
+                            <div class="tip-content hidden">
+                                <p class="no-select">
+                                    Banyak pengguna merasa frustrasi ketika menghadapi masalah terkait <em>hashtag</em> (HT) yang tidak berfungsi optimal. Masalah ini memang cukup rumit, namun bisa diatasi dengan kesabaran.
+                                </p>
+                                <p class="no-select">
+                                    Jika postingan Anda tidak muncul dalam pencarian <em>hashtag</em>, atau muncul namun tidak mendapatkan jangkauan (<em>traffic</em>) yang signifikan, ini bisa menjadi indikasi bahwa akun Anda sedang dalam pengawasan sistem X (Twitter) karena dugaan aktivitas spam.
+                                </p>
+                                <p class="no-select">
+                                    Apabila ini terjadi, istirahatkan akun Anda. Buatlah satu <em>thread</em> berisi 2-3 postingan, lalu istirahatkan akun selama 2-3 hari. Biasanya, setelah periode istirahat ini, saat Anda kembali beraktivitas normal (membuat postingan, menyukai, atau me-<em>retweet</em>), performa akun Anda dapat pulih. Jika jangkauan kembali normal, itu pertanda baik bahwa batasan pada akun Anda telah dicabut dan akun siap digunakan kembali secara aktif.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <footer>
+        <div class="container">
+            <p class="no-select">&copy; 2025 RDS. Semua Hak Dilindungi</p>
+        </div>
+    </footer>
+
+    <script type="text/javascript">
+    var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
+    (function(){
+    var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
+    s1.async=true;
+    s1.src='https://embed.tawk.to/681d8eba9c7ecf190fb1ac74/1iqpnb35s'; // Pastikan URL Tawk.to ini benar dan aktif
+    s1.charset='UTF-8';
+    s1.setAttribute('crossorigin','*');
+    s0.parentNode.insertBefore(s1,s0);
+    })();
+    </script>
+    
+    <script src="js/utils.js" defer></script>
+    <script src="js/queue-counter.js" defer></script>
+    <script src="js/registration-form.js" defer></script>
+    <script src="js/main-accordions.js" defer></script>
+    </body>
+</html>

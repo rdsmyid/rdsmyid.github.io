@@ -1,0 +1,14 @@
+/* style.css (File utama di root) */
+
+/* Impor semua file CSS yang telah dipisahkan */
+/* Pastikan urutan ini logis, misalnya global dulu, lalu layout, lalu per bagian */
+
+@import url('css/global.css');
+@import url('css/header.css');
+@import url('css/kategori-akun.css');
+@import url('css/metode-pembayaran.css');
+@import url('css/jumlah-antrian.css');
+@import url('css/bergabung-antrian.css');
+@import url('css/kenapa-rds.css');
+@import url('css/optimisasi-akun.css');
+@import url('css/footer.css');
