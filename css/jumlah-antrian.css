@@ -1,0 +1,27 @@
+/* css/jumlah-antrian.css */
+
+/* --- Gaya untuk bagian Jumlah Antrian --- */
+#queue-info {
+    margin-top: 0px;
+    margin-bottom: 0px;
+    text-align: center; /* Ini akan mencoba memusatkan konten inline di dalam section#queue-info */
+}
+
+/* Tidak ada gaya spesifik untuk .queue-info-card di CSS asli Anda 
+   selain yang diwarisi dari .info-card (di global.css). 
+   Header di dalamnya (.info-card-header, .info-icon, h3) juga menggunakan gaya global.
+*/
+
+.queue-count {
+    font-size: 1.4em;
+    font-weight: 600;
+    color: var(--primary-color);
+    margin-bottom: 5px;
+    text-align: center; /* Memastikan teks jumlah antrian di tengah */
+}
+
+.queue-updated-info {
+    font-size: 0.9em;
+    color: #7f8c8d;
+    text-align: center; /* Memastikan teks "Data ini diperbarui..." di tengah */
+}

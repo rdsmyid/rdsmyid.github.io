@@ -1,0 +1,74 @@
+/* css/metode-pembayaran.css */
+
+/* Gaya spesifik untuk Metode Pembayaran (Payment Methods) */
+.payment-method-overview {
+    cursor: pointer;
+    user-select: none;
+    margin-top: 0px;
+    margin-bottom: 0px;
+    -webkit-tap-highlight-color: transparent;
+}
+
+/* Panah toggle untuk Metode Pembayaran */
+.payment-method-overview .info-card-header::after {
+    content: '\25BE';
+    position: absolute;
+    right: 15px;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 1.3em;
+    color: var(--secondary-color);
+    transition: transform 0.3s ease-in-out;
+    pointer-events: none;
+}
+
+.payment-method-overview .info-card-header.payment-details-active::after {
+    transform: translateY(-50%) rotate(180deg);
+}
+
+/* Catatan: Teks <p class="no-select">Ini adalah beberapa pembayaran sah...</p> 
+   yang ada di HTML di dalam .payment-method-overview tidak memiliki gaya spesifik di CSS Anda 
+   selain dari .no-select (yang ada di global.css) dan gaya paragraf umum. 
+   Jadi, tidak ada CSS yang perlu dipindahkan untuk paragraf tersebut secara khusus. */
+
+.payment-details {
+    padding-top: 15px;
+    margin-top: 15px;
+    border-top: 1px solid var(--card-border-light);
+    user-select: none;
+    pointer-events: auto;
+}
+
+.payment-list-item {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    padding: 12px 0;
+    border-bottom: 1px solid var(--card-border-light);
+    background-color: var(--card-bg-very-light);
+    transition: background-color 0.2s ease;
+}
+
+.payment-list-item:hover {
+    background-color: var(--card-bg-hover-subtle);
+}
+
+.payment-list-item:last-child {
+    border-bottom: none;
+}
+
+.payment-list-item i {
+    font-size: 1.4em;
+    color: var(--secondary-color);
+    width: 30px; /* Perhatikan ini memiliki lebar spesifik, berbeda dari .info-icon umum */
+    text-align: center;
+}
+
+.payment-list-item span {
+    font-size: 1em;
+    color: var(--text-color);
+}
+
+/* Catatan: Untuk <div class="text-center no-select" style="...">...</div> 
+   yang ada di HTML, gayanya diterapkan secara inline. Jadi tidak ada CSS yang perlu 
+   dipindahkan dari file style.css Anda untuk elemen tersebut. */

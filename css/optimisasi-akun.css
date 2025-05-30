@@ -1,0 +1,102 @@
+/* css/optimisasi-akun.css */
+
+/* --- Gaya untuk bagian Optimisasi Akun --- */
+.account-optimization-card {
+    cursor: pointer; /* Ini untuk kartu utama agar bisa diklik */
+    user-select: none;
+    margin-top: 0;
+    margin-bottom: 0px;
+    -webkit-tap-highlight-color: transparent;
+}
+
+/* Panah toggle untuk Optimisasi Akun (Kartu Utama) */
+.account-optimization-card .info-card-header::after {
+    content: '\25BE';
+    position: absolute;
+    right: 15px;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 1.3em;
+    color: var(--secondary-color);
+    transition: transform 0.3s ease-in-out;
+    pointer-events: none;
+}
+
+.account-optimization-card .info-card-header.account-optimization-details-active::after {
+    transform: translateY(-50%) rotate(180deg);
+}
+
+.account-optimization-details {
+    padding-top: 15px; /* Padding atas untuk konten setelah header utama terbuka */
+}
+
+.account-optimization-details .tip-item {
+    margin-bottom: 10px; /* Jarak antar item tips */
+}
+
+.account-optimization-details .tip-item:last-child {
+    margin-bottom: 0;
+}
+
+/* Gaya untuk Header Setiap Tip (yang bisa diklik - nested accordion trigger) */
+.tip-header {
+    cursor: pointer;
+    padding: 10px 0; /* Padding atas/bawah untuk header tip */
+    position: relative; /* Untuk positioning panah nested */
+    border-bottom: 1px solid var(--card-border-light); /* Garis pemisah antar tip */
+    user-select: none;
+}
+
+.tip-header h4 {
+    font-size: 1.05em;
+    color: var(--text-color);
+    margin: 0;
+    padding-right: 25px; /* Memberi ruang untuk panah nested */
+}
+
+/* Panah toggle untuk setiap Tip Header (nested accordion arrow) */
+.tip-header::after {
+    content: '\25BE';
+    position: absolute;
+    right: 5px; /* Posisi panah nested */
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 1.1em; /* Ukuran panah nested */
+    color: var(--primary-color); /* Warna panah nested */
+    transition: transform 0.3s ease-in-out;
+}
+
+.tip-header.tip-header-active::after {
+    transform: translateY(-50%) rotate(180deg); /* Rotasi panah nested saat aktif */
+}
+
+/* Gaya untuk Konten Setiap Tip (nested accordion content) */
+.tip-content {
+    padding: 15px 5px 10px 5px; /* Padding untuk isi detail tips */
+}
+
+.tip-content p {
+    font-size: 0.95em;
+    line-height: 1.6;
+    color: #555; /* Warna teks isi tips */
+    margin-top: 0;
+    margin-bottom: 10px;
+}
+.tip-content p:last-child {
+    margin-bottom: 0;
+}
+
+/* Menghilangkan outline fokus dari tip-header jika bisa difokuskan via keyboard */
+.tip-header:focus {
+    outline: none;
+}
+
+/* --- PENYESUAIAN RESPONSIVE UNTUK BAGIAN OPTIMISASI AKUN --- */
+@media (max-width: 768px) {
+    .tip-header h4 {
+        font-size: 1em; /* Penyesuaian ukuran font judul tip di mobile */
+    }
+    .tip-content p {
+        font-size: 0.9em; /* Penyesuaian ukuran font konten tip di mobile */
+    }
+}

@@ -1,0 +1,75 @@
+/* css/kenapa-rds.css */
+
+/* --- Gaya untuk bagian Kenapa RDS? --- */
+.why-rds-card {
+    cursor: pointer;
+    user-select: none;
+    margin-top: 0;
+    margin-bottom: 0px;
+    -webkit-tap-highlight-color: transparent;
+}
+
+/* Panah toggle untuk Kenapa RDS? */
+.why-rds-card .info-card-header::after {
+    content: '\25BE';
+    position: absolute;
+    right: 15px;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 1.3em;
+    color: var(--secondary-color);
+    transition: transform 0.3s ease-in-out;
+    pointer-events: none;
+}
+
+.why-rds-card .info-card-header.why-rds-details-active::after {
+    transform: translateY(-50%) rotate(180deg);
+}
+
+.why-rds-details {
+    padding-top: 15px;
+    user-select: none;
+    pointer-events: auto;
+}
+
+.why-rds-details ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.why-rds-details ul li {
+    display: flex;
+    align-items: center;
+    padding: 12px 18px;
+    margin-bottom: 10px;
+    background-color: var(--card-bg-very-light);
+    border-radius: 8px;
+    border: 1px solid var(--card-border-light);
+    transition: transform 0.2s ease, box-shadow 0.2s ease, background-color 0.2s ease;
+    box-shadow: var(--shadow-subtle);
+    user-select: none;
+}
+
+.why-rds-details ul li:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-subtle-hover);
+    background-color: var(--card-bg-hover-subtle);
+}
+
+.why-rds-details ul li:last-child {
+    margin-bottom: 0;
+}
+
+.why-rds-details ul li i {
+    margin-right: 15px;
+    color: var(--secondary-color);
+    font-size: 1.2em;
+    width: 25px; /* Lebar spesifik untuk ikon di daftar ini */
+    text-align: center;
+}
+
+.why-rds-details ul li span {
+    color: var(--text-color);
+    font-size: 0.95em;
+}

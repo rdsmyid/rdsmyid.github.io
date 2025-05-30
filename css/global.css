@@ -1,0 +1,147 @@
+/* css/global.css */
+
+/* Variabel Warna Kustom */
+:root {
+    --primary-color: #2f0997;
+    --primary-hover-color: #4b23b3;
+    --secondary-color: #007bff;
+    --text-color: #333;
+    --light-bg: #f8f9fa;
+    --dark-bg: #1a1a1a;
+    --white: #fff;
+    --shadow-light: rgba(0, 0, 0, 0.08);
+    --shadow-medium: rgba(0, 0, 0, 0.05);
+
+    --card-bg-very-light: #ffffff;
+    --card-bg-hover-subtle: #f8f8f8;
+    --card-border-light: #e0e0e0;
+
+    --shadow-card-default: 0 4px 15px var(--shadow-light);
+    --shadow-card-hover: 0 8px 25px rgba(0, 0, 0, 0.1);
+    --shadow-subtle: 0 2px 8px var(--shadow-medium);
+    --shadow-subtle-hover: 0 5px 15px rgba(0, 0, 0, 0.08);
+
+    --form-border-color: #d1d5da;
+    --form-focus-border-color: var(--primary-color);
+    --form-placeholder-color: #888;
+    --button-secondary-bg: #e9ecef;
+    --button-secondary-hover-bg: #dee2e6;
+    --success-bg-color: #e6ffe6;
+    --success-border-color: #a3e6a3;
+    --success-text-color: #28a745;
+
+    --primary-color-rgb-val: 47, 9, 151;
+}
+
+body {
+    font-family: 'Work Sans', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: var(--light-bg);
+    color: var(--text-color);
+    line-height: 1.6;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* --- MAIN CONTENT --- */
+main {
+    padding-top: 70px; /* Default untuk desktop */
+    margin-bottom: 15px; /* Default untuk desktop */
+}
+
+.section-padded {
+    padding: 15px 0;
+}
+
+.info-card {
+    background-color: var(--white);
+    padding: 20px; /* Default untuk desktop */
+    border-radius: 10px;
+    box-shadow: var(--shadow-card-default);
+    margin: 0;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.info-card:hover {
+    transform: translateY(-3px);
+    box-shadow: var(--shadow-card-hover);
+}
+
+.info-card-header {
+    display: flex;
+    align-items: center;
+    margin-bottom: 15px;
+    position: relative;
+    padding-right: 30px;
+}
+
+.info-icon {
+    font-size: 1.8em; /* Default untuk desktop */
+    color: var(--primary-color);
+    margin-right: 15px;
+    flex-shrink: 0;
+    width: 1.25em;
+    text-align: center;
+}
+
+.info-card-header h3 {
+    font-size: 1.2em; /* Default untuk desktop */
+    margin: 0;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    color: var(--primary-color);
+}
+
+/* Kelas untuk mengelola tampilan dengan JS */
+.hidden {
+    display: none !important;
+}
+
+/* Utilitas untuk user-select */
+.no-select {
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+/* Menghilangkan outline fokus pada elemen card utama */
+.our-profiles-card:focus,
+.payment-method-overview:focus,
+.why-rds-card:focus,
+.account-optimization-card:focus {
+    outline: none;
+}
+
+/* --- GLOBAL RESPONSIVE ADJUSTMENTS --- */
+@media (max-width: 768px) {
+    main {
+        padding-top: 60px;
+        margin-bottom: 10px;
+    }
+
+    .info-card {
+        padding: 15px;
+    }
+
+    .info-card-header h3 {
+        font-size: 1.1em;
+    }
+
+    .info-icon {
+        font-size: 1.6em;
+    }
+}
+
+@media (min-width: 769px) {
+    main { /* Pastikan konsisten dengan nilai desktop awal jika ada perubahan */
+        padding-top: 70px;
+        margin-bottom: 15px;
+    }
+}

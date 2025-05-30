@@ -1,0 +1,122 @@
+/* css/header.css */
+
+/* --- HEADER --- */
+.main-header {
+    background-color: var(--dark-bg);
+    color: var(--white);
+    padding: 0.75em 20px; /* Default untuk desktop */
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+    box-sizing: border-box;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.header-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0;
+    width: 100%;
+}
+
+.logo {
+    display: inline-block;
+    margin-right: auto;
+}
+
+.logo img {
+    max-width: 95px;
+    height: auto;
+    display: block;
+}
+
+.logo h1 { /* Meskipun mungkin tidak terpakai di HTML saat ini, gayanya ada di CSS Anda */
+    font-size: 1.5em; /* Default untuk desktop */
+    letter-spacing: 1px;
+    margin: 0;
+}
+
+.main-nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    align-items: center;
+}
+
+.main-nav ul li {
+    margin-left: 15px; /* Default untuk desktop */
+}
+
+.main-nav ul li a {
+    color: var(--white);
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    font-size: 0.95em; /* Default untuk desktop */
+    transition: color 0.3s ease;
+}
+
+.main-nav ul li a:hover {
+    color: var(--secondary-color);
+}
+
+.main-nav ul li a i {
+    margin-right: 5px;
+}
+
+/* --- PENYESUAIAN RESPONSIVE UNTUK HEADER --- */
+@media (max-width: 768px) {
+    /* Tidak ada perubahan padding .main-header spesifik di sini, 
+       jadi menggunakan default atau yang diatur di min-width: 769px jika ada.
+       main padding-top di global.css sudah menangani ruang untuk header. */
+
+    .header-content { /* Ini sudah ada di CSS Anda, pastikan tidak duplikat */
+        /* flex-direction: row; (sudah default untuk flex) */
+        /* justify-content: space-between; (sudah default) */
+        /* align-items: center; (sudah default) */
+        /* Tidak ada perubahan spesifik di sini dari kode asli Anda untuk blok ini,
+           namun jika ada, pindahkan ke sini */
+    }
+
+    .main-nav ul { /* Ini sudah ada di CSS Anda */
+        /* flex-direction: row; (sudah default) */
+        /* align-items: center; (sudah default) */
+    }
+
+    .main-nav ul li {
+        margin: 0 0 0 10px; /* Penyesuaian margin untuk mobile */
+    }
+    .main-nav ul li a {
+        font-size: 0.85em; /* Ukuran font lebih kecil untuk mobile */
+    }
+}
+
+@media (min-width: 769px) {
+    .main-header { /* Aturan ini ada di CSS Anda */
+        padding: 0.75em 20px;
+    }
+
+    .header-content { /* Aturan ini ada di CSS Anda */
+        /* flex-direction: row; (sudah default) */
+        /* justify-content: space-between; (sudah default) */
+        /* align-items: center; (sudah default) */
+    }
+
+    .logo h1 { /* Aturan ini ada di CSS Anda */
+        font-size: 2em;
+    }
+
+    .main-nav ul { /* Aturan ini ada di CSS Anda */
+        /* flex-direction: row; (sudah default) */
+    }
+
+    .main-nav ul li { /* Aturan ini ada di CSS Anda */
+        margin-left: 20px;
+    }
+}
