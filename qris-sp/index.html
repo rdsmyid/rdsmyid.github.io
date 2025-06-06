@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pembayaran QRIS</title>
+    <style>
+        /* Membuat latar belakang gelap dan mengatur posisi ke tengah */
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #2c3e50;
+            font-family: sans-serif;
+            color: white;
+            text-align: center;
+        }
+        /* Memberi sedikit style pada gambar dan teks */
+        .qris-container {
+            padding: 20px;
+        }
+        img {
+            max-width: 80%; /* Gambar tidak akan lebih lebar dari 80% layar */
+            height: auto;   /* Menjaga proporsi gambar */
+            border: 5px solid white;
+            border-radius: 10px;
+            box-shadow: 0 0 20px rgba(0,0,0,0.5);
+        }
+        h1 {
+            margin-bottom: 20px;
+        }
+
+        /* === CSS BARU UNTUK TOMBOL DOWNLOAD === */
+        .download-btn {
+            display: inline-block;
+            text-decoration: none; /* Hilangkan garis bawah link */
+            color: white;
+            background-color: #28a745; /* Warna hijau untuk download */
+            padding: 12px 25px;
+            border-radius: 5px;
+            font-weight: bold;
+            margin-top: 25px; /* Jarak dari gambar di atasnya */
+            transition: background-color 0.3s;
+        }
+
+        .download-btn:hover {
+            background-color: #218838; /* Warna hijau lebih gelap saat disentuh */
+        }
+        /* === AKHIR DARI CSS BARU === */
+
+    </style>
+</head>
+<body>
+
+    <div class="qris-container">
+        <h1>Pindai untuk Membayar</h1>
+        <img src="qris-sp.jpeg" alt="Kode QRIS untuk Pembayaran">
+
+        <br> <a class="download-btn" href="qris-sp.jpeg" download="QRIS-Pembayaran.jpeg">
+            Download QRIS
+        </a>
+        </div>
+
+</body>
+</html>
