@@ -4,6 +4,21 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Pembayaran QRIS</title>
+
+    <meta property="og:title" content="Pembayaran via QRIS" />
+    <meta property="og:description" content="Pindai kode QRIS di halaman ini untuk melakukan pembayaran. Anda juga bisa mengunduh gambar QRIS untuk digunakan nanti." />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://www.rds.my.id/qris-sp/" />
+    <meta property="og:image" content="https://www.rds.my.id/qris-sp/qsp.png" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:url" content="https://www.rds.my.id/qris-sp/" />
+    <meta name="twitter:title" content="Pembayaran via QRIS" />
+    <meta name="twitter:description" content="Pindai kode QRIS di halaman ini untuk melakukan pembayaran. Anda juga bisa mengunduh gambar QRIS untuk digunakan nanti." />
+    <meta name="twitter:image" content="https://www.rds.my.id/qris-sp/qsp.png" />
+    
     <style>
         /* CSS Universal untuk perhitungan box model yang lebih baik */
         * {
@@ -19,8 +34,6 @@
             background-color: #2c3e50;
             color: white;
             text-align: center;
-            
-            /* BARU: Kunci scroll vertikal dan horizontal */
             overflow: hidden;
         }
 
@@ -36,33 +49,29 @@
         /* Kotak konten QRIS */
         .qris-box {
             display: flex;
-            flex-direction: column; /* Susun item ke bawah (judul, gambar, tombol) */
+            flex-direction: column;
             align-items: center;
             justify-content: center;
             padding: 20px;
-            
-            /* BARU: Batasi tinggi maksimum agar tidak melebihi layar */
-            max-height: 95vh; /* Maksimal 95% dari tinggi layar */
+            max-height: 95vh;
         }
 
         h1 {
-            font-size: 1.5em; /* Ukuran font yang lebih fleksibel */
+            font-size: 1.5em;
             margin-top: 0;
             margin-bottom: 15px;
-            flex-shrink: 0; /* Mencegah judul mengecil */
+            flex-shrink: 0;
         }
 
         img {
-            /* BARU: Aturan ukuran yang lebih canggih */
-            max-width: 90%;   /* Maksimal 90% dari lebar parent (.qris-box) */
-            max-height: 60vh; /* Maksimal 60% dari tinggi layar */
+            max-width: 90%;
+            max-height: 60vh;
             height: auto;
-            width: auto;      /* Biarkan browser memilih antara tinggi atau lebar */
-            
+            width: auto;
             border: 5px solid white;
             border-radius: 10px;
             box-shadow: 0 0 20px rgba(0,0,0,0.5);
-            object-fit: contain; /* Pastikan gambar utuh dan tidak terpotong */
+            object-fit: contain;
         }
 
         .download-btn {
@@ -74,7 +83,7 @@
             border-radius: 5px;
             font-weight: bold;
             margin-top: 20px;
-            flex-shrink: 0; /* Mencegah tombol mengecil */
+            flex-shrink: 0;
             transition: background-color 0.3s;
         }
 
