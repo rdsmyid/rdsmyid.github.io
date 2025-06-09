@@ -440,7 +440,7 @@
                 });
             });
 
-            const sheetUrl = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vRWQlEMldIBszPYxpUYaejF-E8i3Rwm_CbWTNphrTLYlgEXoEqDMUi9JCszI2wZ3TmM9xejY1yxk-PH/pub?output=csv';
+            const sheetUrl = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vTyTZk9BzMtK2GF7r4zmDUJbY-TPMcLw-7TH3qs381bRaqaT9oq6e-b9w2Vr4MM8Y9xk-TSZS7JFYBv/pub?output=csv';
             const loadingDiv = document.getElementById('loading');
             const accordionContainer = document.getElementById('accordion-container');
             function formatPriceWithK(priceString) { if (!priceString) return ''; const n = parseInt(priceString.replace(/\D/g, ''), 10); if (isNaN(n)) { return priceString; } const f = n.toLocaleString('id-ID'); let p = f; if (n >= 1000) { p += ` / ${n/1000}K`; } return p; }
